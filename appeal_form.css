@@ -1,0 +1,62 @@
+/* Appeal Form Page-specific Styles (appeal_form.css) */
+/* Typography override for page to prioritize Poppins */
+body.appeals-layout {
+    font-family: "Poppins", var(--font-sans)
+    }
+/* Ensure the offcanvas sidebar uses the specified width */
+#appSidebarAppeals.offcanvas, #appSidebarAppeals.offcanvas-lg {
+    --bs-offcanvas-width: 260px
+    }
+/* Layout: account for sidebar on large screens */
+.page-content {
+    margin-left: 0;
+    transition: margin-left 0.25s ease
+    }
+@media (min-width: 992px) {
+    .page-content {
+        margin-left: 260px
+        }
+    }
+/* Form enhancements */
+#appealSubmissionForm fieldset legend.section-label {
+    font-weight: 700;
+    font-size: var(--font-size-lg)
+    }
+/* Dropzone styling */
+.dropzone {
+    background: var(--surface-0);
+    border: 2px dashed var(--border-color);
+    transition: background-color 0.2s ease, border-color 0.2s ease
+    }
+.dropzone.drag-over {
+    background: var(--primary-soft);
+    border-color: var(--color-primary)
+    }
+/* Captcha placeholder */
+.captcha-placeholder {
+    background: var(--surface-muted);
+    border: 1px solid var(--border-color)
+    }
+/* System feedback alert spacing */
+#systemFeedback {
+    margin-bottom: var(--space-3)
+    }
+/* File list tweaks */
+#fileList .list-group-item {
+    border-color: var(--border-color)
+    }
+#fileList .btn-light:hover {
+    background: var(--neutral-soft)
+    }
+/* Button states */
+#submitBtn:disabled {
+    cursor: not-allowed;
+    opacity: 0.85
+    }
+/* Utility: tighten page header spacing on small screens */
+@media (max-width: 575.98px) {
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start
+        }
+    }

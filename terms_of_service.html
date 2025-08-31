@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Fraud Shield — Terms of Service &amp; Privacy Policy
+  </title>
+  <!-- Brand typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 CSS -->
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet">
+   <!-- SweetAlert2 -->
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+   </script>
+   <!-- Global site theme -->
+   <link href="style.css" rel="stylesheet"/>
+   <!-- Page-specific CSS -->
+   <link href="terms_of_service.css" rel="stylesheet"/>
+  </link>
+ </head>
+ <body class="view-grid">
+  <!-- Header (Common Component: Public Legal Header) -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background:#0000FF;">
+   <div class="container-fluid">
+    <button aria-controls="appSidebarLegal" aria-label="Toggle navigation" class="btn btn-outline-light me-2 d-lg-none" data-bs-target="#appSidebarLegal" data-bs-toggle="offcanvas" type="button">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./terms_of_service.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/legalbrand/28/28?grayscale'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+     Legal Documents
+    </a>
+   </div>
+  </nav>
+  <!-- Offcanvas Sidebar for small screens (Common Component) -->
+  <div aria-labelledby="appSidebarLegalLabel" class="offcanvas offcanvas-start text-bg-dark" id="appSidebarLegal" style="background-color:#000000 !important;" tabindex="-1">
+   <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="appSidebarLegalLabel">
+     Legal
+    </h5>
+    <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button">
+    </button>
+   </div>
+   <div class="offcanvas-body p-0">
+    <div class="d-flex align-items-center mb-3 px-3">
+     <a class="text-white text-decoration-none d-flex align-items-center" href="./terms_of_service.html">
+      <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/legal/32/32?grayscale'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:32px;height:32px;object-fit:contain;"/>
+      <span class="fs-5 fw-bold">
+       Legal
+      </span>
+     </a>
+    </div>
+    <ul class="nav nav-pills flex-column mb-auto px-3">
+     <li class="nav-item">
+      <a class="nav-link text-white" href="./terms_of_service.html#tos" style="border-radius:8px;">
+       <i class="fas fa-file-contract me-2">
+       </i>
+       Terms of Service
+      </a>
+     </li>
+     <li>
+      <a class="nav-link text-white-50" href="./terms_of_service.html#privacy" style="border-radius:8px;">
+       <i class="fas fa-shield-alt me-2">
+       </i>
+       Privacy Policy
+      </a>
+     </li>
+    </ul>
+    <hr class="text-secondary"/>
+    <div class="px-3 pb-3">
+     <small class="text-secondary">
+      © Fraud Shield
+     </small>
+    </div>
+    <style>
+     #appSidebarLegal .nav-link:hover{background:rgba(255,255,255,0.08);} 
+        #appSidebarLegal .nav-link.active{background:rgba(0,0,255,0.15);border-left:3px solid #0000FF;color:#fff;}
+    </style>
+   </div>
+  </div>
+  <div class="container-fluid">
+   <div class="row g-0">
+    <!-- Static Sidebar for lg+ screens (Common Component) -->
+    <div class="col-lg-3 col-xl-2 d-none d-lg-block border-end">
+     <aside class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-white" id="appSidebarLegalStatic" style="width:260px;min-height:100vh;background-color:#000000 !important; position:sticky; top:0;">
+      <div class="d-flex align-items-center mb-3">
+       <a class="text-white text-decoration-none d-flex align-items-center" href="./terms_of_service.html">
+        <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/legalstatic/32/32?grayscale'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:32px;height:32px;object-fit:contain;"/>
+        <span class="fs-5 fw-bold">
+         Legal
+        </span>
+       </a>
+      </div>
+      <ul class="nav nav-pills flex-column mb-auto">
+       <li class="nav-item">
+        <a class="nav-link text-white" href="./terms_of_service.html#tos" style="border-radius:8px;">
+         <i class="fas fa-file-contract me-2">
+         </i>
+         Terms of Service
+        </a>
+       </li>
+       <li>
+        <a class="nav-link text-white-50" href="./terms_of_service.html#privacy" style="border-radius:8px;">
+         <i class="fas fa-shield-alt me-2">
+         </i>
+         Privacy Policy
+        </a>
+       </li>
+      </ul>
+      <hr class="text-secondary"/>
+      <small class="text-secondary">
+       © Fraud Shield
+      </small>
+      <style>
+       #appSidebarLegalStatic .nav-link:hover{background:rgba(255,255,255,0.08);} 
+            #appSidebarLegalStatic .nav-link.active{background:rgba(0,0,255,0.15);border-left:3px solid #0000FF;color:#fff;}
+      </style>
+     </aside>
+    </div>
+    <!-- Main content -->
+    <div class="col-lg-9 col-xl-10">
+     <main class="main-panel needs-bottom-offset">
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="breadcrumb container-max">
+       <ol class="breadcrumb m-0">
+        <li class="breadcrumb-item">
+         <a href="./welcome_screen.html">
+          <i class="fa fa-home me-1">
+          </i>
+          Welcome
+         </a>
+        </li>
+        <li class="breadcrumb-item">
+         <a href="./permissions_request.html">
+          Permissions
+         </a>
+        </li>
+        <li aria-current="page" class="breadcrumb-item active">
+         Terms of Service
+        </li>
+       </ol>
+      </nav>
+      <!-- Page Header (LegalContentHeader) -->
+      <div class="page-header container-max">
+       <h1 class="page-title mx-auto text-center">
+        Terms of Service &amp; Privacy Policy
+       </h1>
+      </div>
+      <!-- System notice -->
+      <div class="container-max">
+       <div class="alert alert-warning d-flex align-items-start" role="alert">
+        <i class="fa-solid fa-circle-info me-2 mt-1">
+        </i>
+        <div>
+         Please read the following legal documents carefully. You must agree to both the Terms of Service and the Privacy Policy to continue. Last updated:
+         <span id="lastUpdated">
+          2026-01-01
+         </span>
+         .
+        </div>
+       </div>
+      </div>
+      <!-- Legal Document Viewer Card (LegalDocumentViewer) -->
+      <div class="container-max">
+       <div class="card">
+        <div class="card-header align-items-center">
+         <div class="title d-flex align-items-center gap-2">
+          <i class="fa-solid fa-scale-balanced text-primary">
+          </i>
+          <span class="widget-title">
+           Legal Documents
+          </span>
+         </div>
+         <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-light btn-sm" id="reloadContentBtn" type="button">
+           <i class="fa fa-rotate">
+           </i>
+           Reload Content
+          </button>
+         </div>
+        </div>
+        <div class="card-body p-0 position-relative">
+         <!-- Scroll progress bar -->
+         <div class="progress position-sticky top-0" style="border-radius:0; height:4px; z-index:2;">
+          <div class="progress-bar" id="readingProgress" role="progressbar" style="width: 0%;">
+          </div>
+         </div>
+         <div class="legal-scroll px-3 px-md-4 py-3" id="legalScroll">
+          <!-- Loading skeletons -->
+          <div aria-live="polite" class="loading-state my-3" id="loadingState">
+           <span class="skeleton" style="height:16px; width:65%;">
+           </span>
+           <span class="skeleton mt-2" style="height:12px; width:95%;">
+           </span>
+           <span class="skeleton mt-2" style="height:12px; width:92%;">
+           </span>
+           <span class="skeleton mt-2" style="height:12px; width:90%;">
+           </span>
+          </div>
+          <!-- Terms Section -->
+          <section class="mb-4" id="tos">
+           <h2 class="mb-2 d-flex align-items-center">
+            <i class="fas fa-file-contract me-2 text-primary">
+            </i>
+            Terms of Service
+           </h2>
+           <div class="legal-body" id="termsContent">
+            <p>
+             Welcome to Fraud Shield. By accessing or using our services, you agree to be bound by these Terms of Service. If you do not agree to all terms, do not use our services. These Terms may be updated periodically; we will notify you of material changes.
+            </p>
+            <h6 class="mt-3">
+             1. Use of Service
+            </h6>
+            <p>
+             You agree to use the service in compliance with all applicable laws and regulations. You will not misuse, reverse-engineer, or interfere with the service's operation.
+            </p>
+            <h6 class="mt-3">
+             2. Accounts &amp; Security
+            </h6>
+            <p>
+             You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. Notify us immediately of any unauthorized use of your account.
+            </p>
+            <h6 class="mt-3">
+             3. Subscription &amp; Billing
+            </h6>
+            <p>
+             Fees, if applicable, are billed in accordance with your selected plan. All charges are subject to applicable taxes and may change with prior notice.
+            </p>
+            <h6 class="mt-3">
+             4. Acceptable Use
+            </h6>
+            <p>
+             You agree not to upload or transmit content that is unlawful, harmful, or infringes the rights of others. Fraud or abuse may result in immediate termination.
+            </p>
+            <h6 class="mt-3">
+             5. Termination
+            </h6>
+            <p>
+             We may suspend or terminate access for any violation of these Terms. Upon termination, your right to use the service will cease immediately.
+            </p>
+            <h6 class="mt-3">
+             6. Limitation of Liability
+            </h6>
+            <p>
+             To the maximum extent permitted by law, Fraud Shield shall not be liable for any indirect, incidental, special, or consequential damages arising out of or in connection with your use of the service.
+            </p>
+            <h6 class="mt-3">
+             7. Governing Law
+            </h6>
+            <p>
+             These Terms are governed by the laws of the jurisdiction indicated in our corporate registration, without regard to its conflict-of-law principles.
+            </p>
+           </div>
+          </section>
+          <hr/>
+          <!-- Privacy Policy Section -->
+          <section class="mb-4" id="privacy">
+           <h2 class="mb-2 d-flex align-items-center">
+            <i class="fas fa-shield-alt me-2 text-primary">
+            </i>
+            Privacy Policy
+           </h2>
+           <div class="legal-body" id="privacyContent">
+            <p>
+             Your privacy is important to us. This policy explains what data we collect, why we collect it, and how we handle it.
+            </p>
+            <h6 class="mt-3">
+             1. Data We Collect
+            </h6>
+            <p>
+             We collect account information (name, email), usage data (logs, device), and content you provide. We may collect additional data with your permission to provide certain features.
+            </p>
+            <h6 class="mt-3">
+             2. How We Use Data
+            </h6>
+            <p>
+             We use data to deliver, maintain, and improve our services, to personalize your experience, to provide support, and to comply with legal obligations.
+            </p>
+            <h6 class="mt-3">
+             3. Sharing &amp; Disclosure
+            </h6>
+            <p>
+             We do not sell personal data. We may share with service providers under strict contracts, or when required by law or to protect our rights.
+            </p>
+            <h6 class="mt-3">
+             4. Your Rights
+            </h6>
+            <p>
+             Depending on your jurisdiction, you may have rights to access, update, delete, or restrict processing of your personal data. Contact us to exercise these rights.
+            </p>
+            <h6 class="mt-3">
+             5. Data Security
+            </h6>
+            <p>
+             We implement reasonable technical and organizational measures to protect data. No system is 100% secure, and you share responsibility by safeguarding your credentials.
+            </p>
+            <h6 class="mt-3">
+             6. Retention
+            </h6>
+            <p>
+             We retain data only as long as necessary for the purposes described, unless a longer retention is required by law.
+            </p>
+           </div>
+          </section>
+          <!-- Back to top button -->
+          <div class="d-flex justify-content-end pb-2">
+           <button class="btn btn-outline-primary btn-sm" id="backToTop">
+            <i class="fa fa-arrow-up me-1">
+            </i>
+            Back to Top
+           </button>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- Version History & Audit (table + chart) -->
+      <div class="container-max mt-4">
+       <div class="row g-3">
+        <!-- Policy Version History Table -->
+        <div class="col-12 col-xl-7">
+         <div class="card h-100">
+          <div class="card-header">
+           <div class="title d-flex align-items-center gap-2">
+            <i class="fa-solid fa-list-check text-primary">
+            </i>
+            <span class="widget-title">
+             Policy Version History
+            </span>
+           </div>
+           <div class="d-flex align-items-center gap-2">
+            <div class="input-group input-group-sm">
+             <span class="input-group-text">
+              <i class="fa fa-search">
+              </i>
+             </span>
+             <input class="form-control" id="policyFilter" placeholder="Filter by version, date or summary..." type="text"/>
+            </div>
+           </div>
+          </div>
+          <div class="card-body">
+           <div class="table-responsive">
+            <table class="table table-theme table-hover-reveal align-middle mb-0" id="policyTable">
+             <thead>
+              <tr>
+               <th data-sort="version" role="button">
+                Version
+                <i class="fa fa-sort ms-1">
+                </i>
+               </th>
+               <th data-sort="date" role="button">
+                Effective Date
+                <i class="fa fa-sort ms-1">
+                </i>
+               </th>
+               <th>
+                Summary
+               </th>
+               <th class="text-end">
+                Actions
+               </th>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td>
+                2.3
+               </td>
+               <td data-date="2026-01-01">
+                Jan 01, 2026
+               </td>
+               <td>
+                Clarified data retention and added account recovery rules.
+               </td>
+               <td class="text-end">
+                <button class="btn btn-light btn-sm view-release" data-version="2.3">
+                 <i class="fa fa-eye">
+                 </i>
+                 View
+                </button>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                2.2
+               </td>
+               <td data-date="2025-10-15">
+                Oct 15, 2025
+               </td>
+               <td>
+                Updated acceptable use and rate limiting policies.
+               </td>
+               <td class="text-end">
+                <button class="btn btn-light btn-sm view-release" data-version="2.2">
+                 <i class="fa fa-eye">
+                 </i>
+                 View
+                </button>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                2.1
+               </td>
+               <td data-date="2025-06-05">
+                Jun 05, 2025
+               </td>
+               <td>
+                Revised billing cycles; added grace periods.
+               </td>
+               <td class="text-end">
+                <button class="btn btn-light btn-sm view-release" data-version="2.1">
+                 <i class="fa fa-eye">
+                 </i>
+                 View
+                </button>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                2.0
+               </td>
+               <td data-date="2025-01-01">
+                Jan 01, 2025
+               </td>
+               <td>
+                Major rewrite aligning with new compliance standards.
+               </td>
+               <td class="text-end">
+                <button class="btn btn-light btn-sm view-release" data-version="2.0">
+                 <i class="fa fa-eye">
+                 </i>
+                 View
+                </button>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                1.5
+               </td>
+               <td data-date="2024-08-20">
+                Aug 20, 2024
+               </td>
+               <td>
+                Introduced incident response and notification timelines.
+               </td>
+               <td class="text-end">
+                <button class="btn btn-light btn-sm view-release" data-version="1.5">
+                 <i class="fa fa-eye">
+                 </i>
+                 View
+                </button>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                1.0
+               </td>
+               <td data-date="2024-01-15">
+                Jan 15, 2024
+               </td>
+               <td>
+                Initial publication.
+               </td>
+               <td class="text-end">
+                <button class="btn btn-light btn-sm view-release" data-version="1.0">
+                 <i class="fa fa-eye">
+                 </i>
+                 View
+                </button>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+           </div>
+           <div class="d-flex justify-content-between align-items-center mt-2">
+            <small class="text-muted">
+             Showing 1–6 of 6
+            </small>
+            <div class="view-switcher">
+             <div class="option active" title="Table">
+              <i class="fa fa-table">
+              </i>
+             </div>
+             <div class="option" title="Grid">
+              <i class="fa fa-grip">
+              </i>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <!-- Consent Completion Chart -->
+        <div class="col-12 col-xl-5">
+         <div class="card h-100">
+          <div class="card-header">
+           <div class="title d-flex align-items-center gap-2">
+            <i class="fa-solid fa-chart-line text-info">
+            </i>
+            <span class="widget-title">
+             Consent Completion (Last 8 Weeks)
+            </span>
+           </div>
+           <div class="d-flex align-items-center gap-2">
+            <span class="badge-soft info">
+             <i class="fa fa-info-circle">
+             </i>
+             Demo
+            </span>
+           </div>
+          </div>
+          <div class="card-body">
+           <canvas aria-label="Consent trend" height="180" id="consentChart">
+           </canvas>
+           <div class="text-muted mt-2 small">
+            Hover to see values. Drag to pan; scroll to zoom.
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </main>
+    </div>
+   </div>
+  </div>
+  <!-- Agreement Actions Footer (Fixed bottom bar) -->
+  <div aria-label="Agreement actions" class="bottom-bar" role="region">
+   <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap gap-2">
+    <div class="form-check me-3">
+     <input class="form-check-input" id="agreeTerms" type="checkbox" value=""/>
+     <label class="form-check-label" for="agreeTerms">
+      I have read and agree to the Terms of Service.
+     </label>
+    </div>
+    <div class="form-check me-3">
+     <input class="form-check-input" id="agreePrivacy" type="checkbox" value=""/>
+     <label class="form-check-label" for="agreePrivacy">
+      I have read and agree to the Privacy Policy.
+     </label>
+    </div>
+    <div class="ms-auto d-flex align-items-center gap-2">
+     <button class="btn btn-light btn-sm" id="previewPDF" type="button">
+      <i class="fa fa-file-pdf">
+      </i>
+      Download PDF
+     </button>
+     <a class="btn btn-light btn-icon d-none d-md-inline-flex" href="#top" title="Scroll to top">
+      <i class="fa fa-arrow-up">
+      </i>
+     </a>
+     <button class="btn btn-primary" disabled="" id="agreeContinue">
+      <i class="fa fa-check me-1">
+      </i>
+      Agree &amp; Continue
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- Footer (Common Component: Public Legal Footer) -->
+  <footer class="py-3" style="background:#000000;color:#fff;">
+   <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+    <small>
+     © 2026 Fraud Shield
+    </small>
+    <ul class="nav">
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html#tos">
+       Terms
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html#privacy">
+       Privacy
+      </a>
+     </li>
+    </ul>
+   </div>
+  </footer>
+  <!-- Bootstrap JS -->
+  <script crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <!-- Chart.js (with zoom plugin) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.umd.min.js">
+  </script>
+  <script>
+   // Sidebar active link handling
+function setActiveSidebarLinks() {
+    const hash = window.location.hash || '#tos';
+    const containers = ['#appSidebarLegal', '#appSidebarLegalStatic'];
+    containers.forEach(sel => {
+        document.querySelectorAll(sel + ' .nav-link').forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href').endsWith(hash));
+            if (!a.classList.contains('active')) {
+                a.classList.toggle('text-white-50', a.textContent.includes('Privacy Policy') && hash !== '#privacy');
+            }
+        });
+    });
+}
+window.addEventListener('hashchange', setActiveSidebarLinks);
+document.addEventListener('DOMContentLoaded', setActiveSidebarLinks);
+
+// Reading progress within the legal scroll area
+const legalScroll = document.getElementById('legalScroll');
+const readingProgress = document.getElementById('readingProgress');
+const backToTop = document.getElementById('backToTop');
+
+function updateProgress() {
+    const scrollTop = legalScroll.scrollTop;
+    const scrollHeight = legalScroll.scrollHeight - legalScroll.clientHeight;
+    const pct = scrollHeight > 0 ? Math.min(100, Math.round((scrollTop / scrollHeight) * 100)) : 0;
+    readingProgress.style.width = pct + '%';
+    backToTop.classList.toggle('d-none', scrollTop < 120);
+}
+legalScroll.addEventListener('scroll', updateProgress);
+document.addEventListener('DOMContentLoaded', updateProgress);
+backToTop.addEventListener('click', () => legalScroll.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+}));
+
+// Agree & Continue logic
+const agreeTerms = document.getElementById('agreeTerms');
+const agreePrivacy = document.getElementById('agreePrivacy');
+const agreeContinue = document.getElementById('agreeContinue');
+
+function syncButtonState() {
+    agreeContinue.disabled = !(agreeTerms.checked && agreePrivacy.checked);
+}
+agreeTerms.addEventListener('change', syncButtonState);
+agreePrivacy.addEventListener('change', syncButtonState);
+
+agreeContinue.addEventListener('click', function() {
+    const ts = new Date().toISOString();
+    const version = '2.3';
+    try {
+        localStorage.setItem('legalConsent', JSON.stringify({
+            terms: {
+                accepted: true,
+                version,
+                timestamp: ts
+            },
+            privacy: {
+                accepted: true,
+                version,
+                timestamp: ts
+            }
+        }));
+    } catch (e) {
+        /* no-op */ }
+
+    Swal.fire({
+        title: 'Consent Recorded',
+        html: 'Thank you. Your consent was recorded at:<br><b>' + new Date(ts).toLocaleString() + '</b>',
+        icon: 'success',
+        confirmButtonText: 'Continue',
+        confirmButtonColor: '#0000FF'
+    }).then(() => {
+        window.location.href = './onboarding_complete.html';
+    });
+});
+
+// Download PDF (demo)
+document.getElementById('previewPDF').addEventListener('click', function() {
+    Swal.fire({
+        title: 'Download PDFs',
+        html: '<div class="d-grid gap-2">' +
+            '<a class="btn btn-light" href="#" onclick="return false;"><i class="fa fa-file-pdf text-danger me-1"></i> Terms of Service (PDF)</a>' +
+            '<a class="btn btn-light" href="#" onclick="return false;"><i class="fa fa-file-pdf text-danger me-1"></i> Privacy Policy (PDF)</a>' +
+            '<div class="text-muted small">Documents are for demo only.</div>' +
+            '</div>',
+        showConfirmButton: false,
+        showCloseButton: true
+    });
+});
+
+// Reload content (simulate CMS fetch)
+document.getElementById('reloadContentBtn').addEventListener('click', async () => {
+    const loading = document.getElementById('loadingState');
+    loading.classList.remove('d-none');
+    try {
+        await new Promise(r => setTimeout(r, 700)); // simulate network
+        document.getElementById('termsContent').querySelector('p').textContent = 'Updated: By accessing or using our services, you agree to the latest Terms of Service. Material changes will be communicated.';
+        document.getElementById('privacyContent').querySelector('p').textContent = 'Updated: Your privacy is important to us. This policy describes the latest updates to our data practices.';
+        document.getElementById('lastUpdated').textContent = '2026-01-15';
+        Swal.fire({
+            icon: 'success',
+            title: 'Content refreshed',
+            timer: 1200,
+            showConfirmButton: false
+        });
+    } catch (e) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Failed to load content'
+        });
+    } finally {
+        loading.classList.add('d-none');
+    }
+});
+
+// Policy table sorting and filtering
+const table = document.getElementById('policyTable');
+const filter = document.getElementById('policyFilter');
+const getRows = () => Array.from(table.tBodies[0].rows);
+
+function sortBy(key) {
+    const rows = getRows();
+    let idx = 0; // 0: version, 1: date
+    if (key === 'date') idx = 1;
+    const asc = table.getAttribute('data-sort-' + key) !== 'asc';
+    rows.sort((a, b) => {
+        if (key === 'date') {
+            return asc ? (new Date(a.cells[1].dataset.date) - new Date(b.cells[1].dataset.date)) : (new Date(b.cells[1].dataset.date) - new Date(a.cells[1].dataset.date));
+        } else {
+            const av = a.cells[0].textContent.trim();
+            const bv = b.cells[0].textContent.trim();
+            return asc ? av.localeCompare(bv, undefined, {
+                numeric: true
+            }) : bv.localeCompare(av, undefined, {
+                numeric: true
+            });
+        }
+    });
+    rows.forEach(r => table.tBodies[0].appendChild(r));
+    table.setAttribute('data-sort-' + key, asc ? 'asc' : 'desc');
+}
+
+table.querySelectorAll('thead th[data-sort]').forEach(th => th.addEventListener('click', () => sortBy(th.dataset.sort)));
+filter.addEventListener('input', () => {
+    const q = filter.value.toLowerCase();
+    getRows().forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(q) ? '' : 'none';
+    });
+});
+
+// Chart.js init
+const ctx = document.getElementById('consentChart');
+if (ctx) {
+    const labels = Array.from({
+        length: 8
+    }).map((_, i) => {
+        const d = new Date();
+        d.setDate(d.getDate() - (7 * (7 - i)));
+        return d.toLocaleDateString();
+    });
+    const data = [62, 67, 65, 70, 74, 76, 80, 83];
+    const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels,
+            datasets: [{
+                label: 'Completion %',
+                data,
+                borderColor: 'rgba(0,0,255,0.9)',
+                backgroundColor: 'rgba(0,0,255,0.15)',
+                fill: true,
+                tension: 0.25,
+                pointRadius: 3,
+                pointHoverRadius: 5
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    enabled: true
+                },
+                zoom: {
+                    zoom: {
+                        wheel: {
+                            enabled: true
+                        },
+                        pinch: {
+                            enabled: true
+                        },
+                        mode: 'x'
+                    },
+                    pan: {
+                        enabled: true,
+                        mode: 'x'
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        callback: v => v + '%'
+                    }
+                }
+            }
+        }
+    });
+}
+
+// View dialog for version rows
+document.querySelectorAll('.view-release').forEach(btn => btn.addEventListener('click', () => {
+    const v = btn.getAttribute('data-version');
+    Swal.fire({
+        title: 'Version ' + v,
+        html: '<div class="text-start">' +
+            '<p><b>Effective:</b> ' + btn.closest('tr').cells[1].textContent + '</p>' +
+            '<p>' + btn.closest('tr').cells[2].textContent + '</p>' +
+            '<p class="mb-0 text-muted small">Note: This is a demo view.</p>' +
+            '</div>',
+        icon: 'info'
+    });
+}));
+  </script>
+ </body>
+</html>

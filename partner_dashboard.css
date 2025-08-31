@@ -1,0 +1,89 @@
+/* partner_dashboard.css - Page specific styles for Partner Dashboard */
+:root {
+    /* Use Poppins as the primary sans font for this page */
+    --font-sans: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+    }
+/* Layout adjustments for header + sidebar */
+.dashboard-shell {
+    min-height: calc(100vh - 56px)
+    }
+#appSidebarPartner {
+    position: sticky;
+    top: 56px;
+    align-self: flex-start;
+    height: calc(100vh - 56px)
+    }
+/* Ensure the left sidebar consumes fixed width in flex layout */
+#appSidebarPartner {
+    flex: 0 0 260px
+    }
+.main-content {
+    background: var(--surface-bg)
+    }
+.chart-container {
+    position: relative;
+    height: 360px
+    }
+/* Sidebar overlay for mobile */
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1040;
+    display: none
+    }
+.sidebar-overlay.show {
+    display: block
+    }
+/* Mobile behavior: make sidebar slide-in */
+@media (max-width: 991.98px) {
+    #appSidebarPartner {
+        position: fixed;
+        top: 56px;
+        left: -260px;
+        height: calc(100vh - 56px);
+        z-index: 1050;
+        transition: left 0.25s ease
+        }
+    body.sidebar-open #appSidebarPartner {
+        left: 0
+        }
+    }
+/* KPI metric-card tweaks */
+.metric-card {
+    border: 1px solid var(--border-color)
+    }
+.metric-card .metric-title {
+    letter-spacing: 0.04em
+    }
+/* Sort indicator styles */
+.table thead th.sortable {
+    cursor: pointer;
+    user-select: none
+    }
+.table thead th.sortable:hover {
+    background: var(--neutral-soft)
+    }
+/* Narrow buttons inside table */
+.btn-icon {
+    width: 36px;
+    height: 36px
+    }
+/* Improve code key appearance */
+.font-monospace {
+    font-family: var(--font-mono)
+    }
+/* System Alerts spacing */
+#systemAlerts .alert {
+    margin-bottom: 0
+    }
+/* Accessibility focus outline for key controls */
+#btnGenerateKey:focus-visible, #btnResetZoom:focus-visible, #sidebarToggleBtn:focus-visible {
+    box-shadow: 0 0 0 0.16rem rgba(0, 0, 255, 0.35)
+    }
+/* Responsive paddings */
+@media (max-width: 575.98px) {
+    .chart-container {
+        height: 300px
+        }
+    }

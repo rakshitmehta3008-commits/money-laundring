@@ -1,0 +1,64 @@
+
+body.admin-dashboard {
+    font-family: "Poppins", var(--font-sans)
+    }
+:root {
+    --admin-header-h: 64px
+    }
+body.admin-dashboard {
+    padding-top: var(--admin-header-h)
+    }
+#appSidebarAdmin.offcanvas {
+    top: var(--admin-header-h);
+    height: calc(100vh - var(--admin-header-h))
+    }
+
+.main-content {
+    min-height: calc(100vh - 160px)
+}
+.kpi-card {
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease
+    }
+.kpi-card:hover {
+    transform: translatey(-2px);
+    box-shadow: var(--shadow-2)
+    }
+
+#reportsChart {
+    width: 100%
+    }
+
+#queueTable tbody tr td {
+    vertical-align: middle
+    }
+#queueTable td .btn {
+    white-space: nowrap
+    }
+#queuePagination .page-link {
+    min-width: 34px;
+    text-align: center
+    }
+
+@media (max-width: 575.98px) {
+    #queueTable td:first-child small {
+        display: inline-block;
+        max-width: 180px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap
+        }
+    }
+html, body {
+    height: 100%
+    }
+body.admin-dashboard {
+    display: flex;
+    flex-direction: column
+    }
+.main-content {
+    flex: 1 0 auto
+    }
+footer {
+    flex-shrink: 0
+    }

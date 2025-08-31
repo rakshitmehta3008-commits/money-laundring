@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Fraud Shield - Call Log
+  </title>
+  <!-- Brand Typography: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Font Awesome 6 -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+   <!-- App Theme -->
+   <link href="style.css" rel="stylesheet"/>
+   <!-- Page specific CSS -->
+   <link href="call_log.css" rel="stylesheet"/>
+  </link>
+ </head>
+ <body class="view-grid">
+  <!-- Header (needed on dashboard-like pages such as Call Log) -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background:#0000FF;">
+   <div class="container-fluid">
+    <button aria-controls="appSidebarUser" aria-label="Toggle sidebar" class="btn btn-outline-light me-2 d-lg-none" data-bs-target="#appSidebarUser" data-bs-toggle="offcanvas" type="button">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./call_log.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/28/28?grayscale';" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+     Fraud Shield
+    </a>
+    <div class="d-none d-md-flex flex-grow-1 mx-3">
+     <form class="w-100" onsubmit="event.preventDefault();" role="search">
+      <div class="input-group">
+       <span class="input-group-text bg-white">
+        <i class="fas fa-search">
+        </i>
+       </span>
+       <input aria-label="Search" class="form-control" id="globalHeaderSearch" placeholder="Search phone number..." type="search"/>
+      </div>
+     </form>
+    </div>
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+     <li class="nav-item me-2">
+      <a aria-label="Notifications" class="nav-link" href="#">
+       <i class="fas fa-bell">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a aria-label="Messages" class="nav-link" href="#">
+       <i class="fas fa-envelope">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button">
+       <span class="me-2">
+        User
+       </span>
+       <img alt="avatar" class="rounded-circle" onerror="this.onerror=null;this.src='https://picsum.photos/seed/user/28/28';" src="https://via.placeholder.com/28"/>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="./settings_page.html">
+         <i class="fas fa-cog me-2">
+         </i>
+         Settings
+        </a>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./user_profile.html">
+         <i class="fas fa-user me-2">
+         </i>
+         Profile
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./welcome_screen.html">
+         <i class="fas fa-sign-out-alt me-2">
+         </i>
+         Logout
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="app-shell d-flex" style="min-height: calc(100vh - 56px - 56px);">
+   <!-- Sidebar (needed on Call Log page) -->
+   <aside class="offcanvas-lg offcanvas-start d-flex flex-column flex-shrink-0 text-white" id="appSidebarUser" style="width:260px;min-height:100vh;background-color:#000000 !important;" tabindex="-1">
+    <div class="offcanvas-header d-lg-none" style="background:#000000;color:#fff;">
+     <div class="d-flex align-items-center">
+      <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/28/28?grayscale';" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+      <span class="fs-6 fw-bold">
+       Fraud Shield
+      </span>
+     </div>
+     <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button">
+     </button>
+    </div>
+    <div class="offcanvas-body p-3 d-flex flex-column">
+     <div class="d-flex align-items-center mb-3">
+      <a class="d-flex align-items-center text-white text-decoration-none" href="./call_log.html">
+       <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/32/32?grayscale';" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:32px;height:32px;object-fit:contain;"/>
+       <span class="fs-5 fw-bold">
+        Fraud Shield
+       </span>
+      </a>
+     </div>
+     <div class="d-flex align-items-center mb-4 p-2 rounded" style="background:rgba(255,255,255,0.05);">
+      <div class="me-2 rounded-circle bg-secondary d-flex align-items-center justify-content-center" style="width:40px;height:40px;background:#2d2d2d;">
+       U
+      </div>
+      <div>
+       <div class="fw-semibold">
+        User Name
+       </div>
+       <small class="text-muted">
+        End User
+       </small>
+      </div>
+     </div>
+     <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+       <a class="nav-link text-white d-flex align-items-center active" href="./call_log.html" style="border-radius:8px;">
+        <i class="fas fa-home me-2">
+        </i>
+        Home / Call Log
+       </a>
+      </li>
+      <li>
+       <a class="nav-link text-white d-flex align-items-center" href="./report_form.html" style="border-radius:8px;">
+        <i class="fas fa-flag me-2">
+        </i>
+        Report Number
+       </a>
+      </li>
+      <li>
+       <a class="nav-link text-white d-flex align-items-center" href="./protection_history.html" style="border-radius:8px;">
+        <i class="fas fa-history me-2">
+        </i>
+        Protection History
+       </a>
+      </li>
+      <li>
+       <a aria-controls="userSettingsMenu" aria-expanded="false" class="nav-link text-white d-flex align-items-center" data-bs-toggle="collapse" href="#userSettingsMenu" role="button" style="border-radius:8px;">
+        <i class="fas fa-cog me-2">
+        </i>
+        Settings
+        <i class="fas fa-chevron-down ms-auto">
+        </i>
+       </a>
+       <div class="collapse" id="userSettingsMenu">
+        <ul class="btn-toggle-nav list-unstyled fw-normal small ps-4">
+         <li>
+          <a class="nav-link text-white-50 d-block py-1" href="./settings_page.html">
+           <i class="fas fa-cog me-2">
+           </i>
+           Settings Hub
+          </a>
+         </li>
+         <li>
+          <a class="nav-link text-white-50 d-block py-1" href="./user_profile.html">
+           <i class="fas fa-user me-2">
+           </i>
+           My Profile
+          </a>
+         </li>
+         <li>
+          <a class="nav-link text-white-50 d-block py-1" href="./privacy_settings.html">
+           <i class="fas fa-shield-alt me-2">
+           </i>
+           Privacy &amp; Permissions
+          </a>
+         </li>
+        </ul>
+       </div>
+      </li>
+      <li class="mt-2">
+       <a class="nav-link text-white-50 d-flex align-items-center" href="./terms_of_service.html" style="border-radius:8px;">
+        <i class="fas fa-question-circle me-2">
+        </i>
+        Terms &amp; Policy
+       </a>
+      </li>
+     </ul>
+     <hr class="text-secondary"/>
+     <div class="small text-secondary">
+      © Fraud Shield
+     </div>
+     <style>
+      #appSidebarUser .nav-link:hover{background:rgba(255,255,255,0.08);} 
+          #appSidebarUser .nav-link.active{background:rgba(0,0,255,0.15);border-left:3px solid #0000FF;color:#fff;}
+     </style>
+    </div>
+   </aside>
+   <!-- Main Content -->
+   <main class="flex-grow-1 main-panel">
+    <div class="container-fluid">
+     <!-- Page header -->
+     <div class="page-header">
+      <div>
+       <div class="breadcrumb mb-1">
+        <span class="breadcrumb-item">
+         <a href="./call_log.html">
+          Home
+         </a>
+        </span>
+        <span class="breadcrumb-item active">
+         Call Log
+        </span>
+       </div>
+       <h1 class="page-title">
+        Call Log
+       </h1>
+       <p class="text-muted mb-0">
+        View your recent calls with fraud risk insights. Quickly report suspicious numbers to help protect the community.
+       </p>
+      </div>
+      <div class="text-end">
+       <button class="btn btn-info me-2" id="refreshBtn">
+        <i class="fa-solid fa-rotate me-1">
+        </i>
+        Refresh
+       </button>
+       <a class="btn btn-danger" href="./report_form.html">
+        <i class="fa-solid fa-flag me-1">
+        </i>
+        Report Number
+       </a>
+      </div>
+     </div>
+     <!-- System alerts / notifications area -->
+     <div class="mb-3" id="alertsArea">
+     </div>
+     <!-- Quick metrics -->
+     <div class="row g-3 mb-4">
+      <div class="col-6 col-md-3">
+       <div class="metric-card">
+        <div class="metric-title">
+         Total Calls (7d)
+        </div>
+        <div class="metric-value" id="metricTotalCalls">
+         --
+        </div>
+       </div>
+      </div>
+      <div class="col-6 col-md-3">
+       <div class="metric-card">
+        <div class="metric-title">
+         Risky Calls
+        </div>
+        <div class="metric-value text-error" id="metricRiskyCalls">
+         --
+        </div>
+       </div>
+      </div>
+      <div class="col-6 col-md-3">
+       <div class="metric-card">
+        <div class="metric-title">
+         Missed Calls
+        </div>
+        <div class="metric-value" id="metricMissedCalls">
+         --
+        </div>
+       </div>
+      </div>
+      <div class="col-6 col-md-3">
+       <div class="metric-card">
+        <div class="metric-title">
+         Last Sync
+        </div>
+        <div class="metric-value" id="metricLastSync" style="font-size:1.25rem;">
+         --
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- Toolbar: search, filters, sort -->
+     <div class="app-card p-3 mb-3 call-log-toolbar">
+      <div class="row g-2 align-items-center">
+       <div class="col-12 col-md-4">
+        <div class="input-group">
+         <span class="input-group-text">
+          <i class="fa-solid fa-magnifying-glass">
+          </i>
+         </span>
+         <input class="form-control" id="searchInput" placeholder="Search by name or number">
+         </input>
+        </div>
+       </div>
+       <div class="col-12 col-md-4">
+        <div class="d-flex flex-wrap align-items-center gap-2">
+         <div class="form-check form-check-inline">
+          <input checked="" class="form-check-input risk-filter" id="filterKnownScam" type="checkbox" value="known-scam"/>
+          <label class="form-check-label" for="filterKnownScam">
+           Known Scam
+          </label>
+         </div>
+         <div class="form-check form-check-inline">
+          <input checked="" class="form-check-input risk-filter" id="filterHigh" type="checkbox" value="high"/>
+          <label class="form-check-label" for="filterHigh">
+           High
+          </label>
+         </div>
+         <div class="form-check form-check-inline">
+          <input checked="" class="form-check-input risk-filter" id="filterMedium" type="checkbox" value="medium"/>
+          <label class="form-check-label" for="filterMedium">
+           Medium
+          </label>
+         </div>
+         <div class="form-check form-check-inline">
+          <input checked="" class="form-check-input risk-filter" id="filterLow" type="checkbox" value="low"/>
+          <label class="form-check-label" for="filterLow">
+           Low
+          </label>
+         </div>
+         <div class="form-check form-check-inline">
+          <input checked="" class="form-check-input risk-filter" id="filterNone" type="checkbox" value="none"/>
+          <label class="form-check-label" for="filterNone">
+           No Risk
+          </label>
+         </div>
+        </div>
+       </div>
+       <div class="col-12 col-md-4">
+        <div class="d-flex justify-content-md-end">
+         <select class="form-select" id="sortSelect" style="max-width:260px;">
+          <option value="newest">
+           Sort: Newest first
+          </option>
+          <option value="oldest">
+           Sort: Oldest first
+          </option>
+          <option value="risk-desc">
+           Sort: Risk (High to Low)
+          </option>
+          <option value="missed-first">
+           Sort: Missed calls first
+          </option>
+         </select>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="row g-4">
+      <!-- Call History List -->
+      <div class="col-lg-8">
+       <div class="app-card p-3 mb-3" id="loadingState" style="display:none;">
+        <div class="d-flex align-items-center gap-3">
+         <div class="skeleton" style="width:48px;height:48px;border-radius:50%;">
+         </div>
+         <div class="flex-grow-1">
+          <div class="skeleton mb-2" style="height:16px;width:60%;">
+          </div>
+          <div class="skeleton" style="height:12px;width:40%;">
+          </div>
+         </div>
+        </div>
+        <div class="d-flex align-items-center gap-3 mt-3">
+         <div class="skeleton" style="width:48px;height:48px;border-radius:50%;">
+         </div>
+         <div class="flex-grow-1">
+          <div class="skeleton mb-2" style="height:16px;width:70%;">
+          </div>
+          <div class="skeleton" style="height:12px;width:50%;">
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="alert alert-danger d-none" id="errorState" role="alert">
+        <i class="fa-solid fa-triangle-exclamation me-2">
+        </i>
+        Failed to load call history. Please try again.
+       </div>
+       <div class="d-grid gap-3" id="callList">
+       </div>
+       <!-- Pagination -->
+       <div class="d-flex align-items-center justify-content-between mt-3">
+        <small class="text-muted" id="paginationInfo">
+         Showing 0-0 of 0
+        </small>
+        <nav>
+         <ul class="pagination pagination-sm mb-0" id="pagination">
+          <!-- populated by JS -->
+         </ul>
+        </nav>
+       </div>
+      </div>
+      <!-- Charts / Insights -->
+      <div class="col-lg-4">
+       <div class="card mb-3">
+        <div class="card-header">
+         <span class="widget-title">
+          Calls by Day
+         </span>
+        </div>
+        <div class="card-body">
+         <canvas aria-label="Calls by day chart" height="170" id="callsByDayChart">
+         </canvas>
+        </div>
+       </div>
+       <div class="card">
+        <div class="card-header">
+         <span class="widget-title">
+          Risk Distribution
+         </span>
+        </div>
+        <div class="card-body">
+         <canvas aria-label="Risk distribution chart" height="180" id="riskDistributionChart">
+         </canvas>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </main>
+  </div>
+  <!-- Footer (present on this page) -->
+  <footer class="mt-auto py-3" style="background:#000000;color:#fff;">
+   <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+    <div class="d-flex align-items-center">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/20/20?grayscale';" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:20px;height:20px;object-fit:contain;"/>
+     <small>
+      © 2026 Fraud Shield
+     </small>
+    </div>
+    <ul class="nav">
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html">
+       Terms
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./privacy_settings.html">
+       Privacy
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="btn btn-sm btn-outline-light ms-2" href="./report_form.html">
+       <i class="fas fa-flag me-1">
+       </i>
+       Report
+      </a>
+     </li>
+    </ul>
+   </div>
+  </footer>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js">
+  </script>
+  <!-- Bootstrap 5 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js">
+  </script>
+  <script>
+   // Utilities
+const formatTimestamp = (date) => {
+    const now = new Date();
+    const diffMs = now - date;
+    const oneDay = 24 * 60 * 60 * 1000;
+    const options = {
+        hour: 'numeric',
+        minute: '2-digit'
+    };
+    if (date.toDateString() === now.toDateString()) {
+        return `Today, ${date.toLocaleTimeString([], options)}`;
+    } else if (new Date(now - oneDay).toDateString() === date.toDateString()) {
+        return `Yesterday, ${date.toLocaleTimeString([], options)}`;
+    } else if (diffMs < 7 * oneDay) {
+        return `${date.toLocaleDateString([], { weekday: 'long' })}, ${date.toLocaleTimeString([], options)}`;
+    } else {
+        return date.toLocaleString([], {
+            month: 'short',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit'
+        });
+    }
+};
+
+const riskMeta = {
+    'known-scam': {
+        label: 'Known Scam Number',
+        badgeClass: 'error',
+        rank: 5
+    },
+    'high': {
+        label: 'High Risk',
+        badgeClass: 'warning',
+        rank: 4
+    },
+    'medium': {
+        label: 'Medium Risk',
+        badgeClass: 'info',
+        rank: 3
+    },
+    'low': {
+        label: 'Low Risk',
+        badgeClass: 'success',
+        rank: 2
+    },
+    'none': {
+        label: 'No Known Risk',
+        badgeClass: 'primary',
+        rank: 1
+    }
+};
+
+const callTypeMeta = {
+    incoming: {
+        icon: 'fa-arrow-down',
+        color: 'text-success',
+        label: 'Incoming'
+    },
+    outgoing: {
+        icon: 'fa-arrow-up',
+        color: 'text-info',
+        label: 'Outgoing'
+    },
+    missed: {
+        icon: 'fa-phone-slash',
+        color: 'text-danger',
+        label: 'Missed'
+    }
+};
+
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true
+});
+
+// Mock data
+const seedCalls = [{
+    id: 1,
+    name: 'Amazon Support',
+    number: '+1 (206) 555-0148',
+    callType: 'outgoing',
+    timestamp: new Date(Date.now() - 36e5 * 20),
+    risk: 'medium',
+    reportedByUser: false
+}, {
+    id: 2,
+    name: null,
+    number: '+1 (347) 555-0199',
+    callType: 'incoming',
+    timestamp: new Date(Date.now() - 36e5 * 4),
+    risk: 'high',
+    reportedByUser: false
+}, {
+    id: 3,
+    name: 'Bank of America Fraud Dept',
+    number: '+1 (800) 732-9194',
+    callType: 'incoming',
+    timestamp: new Date(Date.now() - 36e5 * 60),
+    risk: 'none',
+    reportedByUser: false
+}, {
+    id: 4,
+    name: 'Mia Chen',
+    number: '+1 (415) 555-0119',
+    callType: 'outgoing',
+    timestamp: new Date(Date.now() - 36e5 * 2),
+    risk: 'none',
+    reportedByUser: false
+}, {
+    id: 5,
+    name: 'IRS Office',
+    number: '+1 (202) 555-0176',
+    callType: 'missed',
+    timestamp: new Date(Date.now() - 36e5 * 1.5),
+    risk: 'known-scam',
+    reportedByUser: false
+}, {
+    id: 6,
+    name: 'FedEx Delivery',
+    number: '+1 (901) 555-0124',
+    callType: 'incoming',
+    timestamp: new Date(Date.now() - 36e5 * 30),
+    risk: 'medium',
+    reportedByUser: false
+}, {
+    id: 7,
+    name: 'Local Clinic',
+    number: '+1 (650) 555-0167',
+    callType: 'missed',
+    timestamp: new Date(Date.now() - 36e5 * 80),
+    risk: 'low',
+    reportedByUser: false
+}, {
+    id: 8,
+    name: null,
+    number: '+1 (213) 555-0188',
+    callType: 'outgoing',
+    timestamp: new Date(Date.now() - 36e5 * 6),
+    risk: 'low',
+    reportedByUser: false
+}, {
+    id: 9,
+    name: 'Grandma',
+    number: '+1 (408) 555-0102',
+    callType: 'incoming',
+    timestamp: new Date(Date.now() - 36e5 * 10),
+    risk: 'none',
+    reportedByUser: false
+}, {
+    id: 10,
+    name: 'Lottery Center',
+    number: '+1 (317) 555-0133',
+    callType: 'incoming',
+    timestamp: new Date(Date.now() - 36e5 * 14),
+    risk: 'high',
+    reportedByUser: false
+}];
+
+let allCalls = [...seedCalls];
+let pageSize = 6;
+let currentPage = 1;
+
+// Elements
+const callListEl = document.getElementById('callList');
+const paginationEl = document.getElementById('pagination');
+const paginationInfoEl = document.getElementById('paginationInfo');
+const searchInputEl = document.getElementById('searchInput');
+const headerSearchEl = document.getElementById('globalHeaderSearch');
+const sortSelectEl = document.getElementById('sortSelect');
+const loadingStateEl = document.getElementById('loadingState');
+const errorStateEl = document.getElementById('errorState');
+const refreshBtnEl = document.getElementById('refreshBtn');
+
+const metricTotalCallsEl = document.getElementById('metricTotalCalls');
+const metricRiskyCallsEl = document.getElementById('metricRiskyCalls');
+const metricMissedCallsEl = document.getElementById('metricMissedCalls');
+const metricLastSyncEl = document.getElementById('metricLastSync');
+
+const riskFilters = Array.from(document.querySelectorAll('.risk-filter'));
+
+function getActiveRiskFilters() {
+    const active = new Set(riskFilters.filter(cb => cb.checked).map(cb => cb.value));
+    return active;
+}
+
+function applyFiltersAndSort() {
+    const term = (searchInputEl.value || '').toLowerCase().trim();
+    const termHeader = (headerSearchEl?.value || '').toLowerCase().trim();
+    const combinedTerm = (term || termHeader);
+    const activeRisks = getActiveRiskFilters();
+
+    let rows = allCalls.filter(c => activeRisks.has(c.risk));
+    if (combinedTerm) {
+        rows = rows.filter(c => (c.name || '').toLowerCase().includes(combinedTerm) || c.number.toLowerCase().includes(combinedTerm));
+    }
+
+    const sort = sortSelectEl.value;
+    if (sort === 'newest') {
+        rows.sort((a, b) => b.timestamp - a.timestamp);
+    } else if (sort === 'oldest') {
+        rows.sort((a, b) => a.timestamp - b.timestamp);
+    } else if (sort === 'risk-desc') {
+        rows.sort((a, b) => riskMeta[b.risk].rank - riskMeta[a.risk].rank || (b.timestamp - a.timestamp));
+    } else if (sort === 'missed-first') {
+        rows.sort((a, b) => (a.callType === 'missed' ? -1 : 1) - (b.callType === 'missed' ? -1 : 1) || (b.timestamp - a.timestamp));
+    }
+    return rows;
+}
+
+function updatePagination(total) {
+    const totalPages = Math.max(1, Math.ceil(total / pageSize));
+    if (currentPage > totalPages) currentPage = totalPages;
+    paginationEl.innerHTML = '';
+
+    const createPageItem = (label, page, disabled = false, active = false) => {
+        const li = document.createElement('li');
+        li.className = `page-item ${disabled ? 'disabled' : ''} ${active ? 'active' : ''}`;
+        const a = document.createElement('a');
+        a.className = 'page-link';
+        a.href = '#';
+        a.textContent = label;
+        a.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (disabled) return;
+            currentPage = page;
+            render();
+        });
+        li.appendChild(a);
+        return li;
+    };
+
+    paginationEl.appendChild(createPageItem('«', Math.max(1, currentPage - 1), currentPage === 1));
+    for (let p = 1; p <= totalPages; p++) {
+        paginationEl.appendChild(createPageItem(String(p), p, false, p === currentPage));
+    }
+    paginationEl.appendChild(createPageItem('»', Math.min(totalPages, currentPage + 1), currentPage === totalPages));
+}
+
+function buildCallItem(c) {
+    const risk = riskMeta[c.risk];
+    const callType = callTypeMeta[c.callType];
+    const reportedTag = c.reportedByUser ? '<span class="badge-soft error ms-2"><i class="fa-solid fa-user-check me-1"></i>Reported by You</span>' : '';
+    const callerDisplay = c.name ? `<span class="fw-semibold">${c.name}</span>` : `<span class="fw-semibold text-warning">Unknown Number</span>`;
+
+    const card = document.createElement('div');
+    card.className = 'app-card call-card';
+    card.innerHTML = `
+        <div class="d-flex align-items-start gap-3">
+          <div class="call-type-icon ${callType.color}"><i class="fa-solid ${callType.icon}"></i></div>
+          <div class="flex-grow-1">
+            <div class="d-flex align-items-center flex-wrap gap-2">
+              <div class="caller-identifier" role="button" tabindex="0" title="Open details">
+                ${callerDisplay}
+                <div class="text-muted small">${c.number}</div>
+              </div>
+              <span class="badge-soft ${risk.badgeClass} ms-auto"><i class="fa-solid fa-shield-halved me-1"></i>${risk.label}</span>
+              ${reportedTag}
+            </div>
+            <div class="d-flex align-items-center text-muted small mt-2 gap-3">
+              <span><i class="fa-solid ${callType.icon} me-1 ${callType.color}"></i>${callType.label}</span>
+              <span><i class="fa-regular fa-clock me-1"></i>${formatTimestamp(c.timestamp)}</span>
+            </div>
+          </div>
+          <div class="call-actions d-flex align-items-center gap-2 ms-2">
+            <button class="btn btn-sm btn-outline-dark" data-action="block" title="Block number"><i class="fa-solid fa-ban"></i></button>
+            <button class="btn btn-sm btn-danger" data-action="report" ${c.reportedByUser ? 'disabled' : ''}><i class="fa-solid fa-flag me-1"></i>Report</button>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-light" data-bs-toggle="dropdown" aria-expanded="false" title="More options"><i class="fa-solid fa-ellipsis"></i></button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#" data-action="copy"><i class="fa-solid fa-copy me-2"></i>Copy Number</a></li>
+                <li><a class="dropdown-item" href="#" data-action="add-contact"><i class="fa-solid fa-user-plus me-2"></i>Add to Contacts</a></li>
+                <li><hr class="dropdown-divider"/></li>
+                <li><a class="dropdown-item text-danger" href="#" data-action="block"><i class="fa-solid fa-ban me-2"></i>Block Number</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      `;
+
+    // Event handlers
+    card.querySelector('[data-action="report"]').addEventListener('click', async () => {
+        const result = await Swal.fire({
+            title: 'Report this number?',
+            text: 'You can help keep others safe. Confirm to report this number.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, report',
+            cancelButtonText: 'Cancel'
+        });
+        if (result.isConfirmed) {
+            c.reportedByUser = true;
+            Toast.fire({
+                icon: 'success',
+                title: 'Number reported successfully'
+            });
+            render();
+        }
+    });
+
+    const blockButtons = card.querySelectorAll('[data-action="block"]');
+    blockButtons.forEach(btn => btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const result = await Swal.fire({
+            title: 'Block this number?',
+            text: `Calls and texts from ${c.number} will be blocked.`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Block',
+            cancelButtonText: 'Cancel'
+        });
+        if (result.isConfirmed) {
+            Toast.fire({
+                icon: 'success',
+                title: 'Number added to blocklist'
+            });
+        }
+    }));
+
+    card.querySelector('[data-action="copy"]').addEventListener('click', async (e) => {
+        e.preventDefault();
+        try {
+            await navigator.clipboard.writeText(c.number);
+            Toast.fire({
+                icon: 'success',
+                title: 'Number copied'
+            });
+        } catch {
+            Toast.fire({
+                icon: 'error',
+                title: 'Copy failed'
+            });
+        }
+    });
+
+    card.querySelector('[data-action="add-contact"]').addEventListener('click', (e) => {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Add to contacts',
+            text: 'Opening contacts app is not available in web demo.',
+            icon: 'info'
+        });
+    });
+
+    card.querySelector('.caller-identifier').addEventListener('click', () => {
+        Swal.fire({
+            title: 'Call Details',
+            html: `<div class="text-start"><div><strong>Name:</strong> ${c.name || 'Unknown'}</div><div><strong>Number:</strong> ${c.number}</div><div><strong>Type:</strong> ${callType.label}</div><div><strong>When:</strong> ${formatTimestamp(c.timestamp)}</div><div><strong>Risk:</strong> ${risk.label}</div></div>`,
+            icon: 'info'
+        });
+    });
+
+    return card;
+}
+
+function renderList(rows) {
+    callListEl.innerHTML = '';
+    if (!rows.length) {
+        const empty = document.createElement('div');
+        empty.className = 'empty-state';
+        empty.innerHTML = '<i class="fa-regular fa-circle-check fa-2x text-success"></i><div class="h5 mb-0">No calls to display</div><div class="empty-state-text">Try adjusting your filters or refresh for latest call history.</div>';
+        callListEl.appendChild(empty);
+        return;
+    }
+    rows.forEach(c => callListEl.appendChild(buildCallItem(c)));
+}
+
+function renderMetrics(rows) {
+    const last7d = allCalls.filter(c => (new Date() - c.timestamp) <= 7 * 24 * 60 * 60 * 1000);
+    metricTotalCallsEl.textContent = String(last7d.length);
+    metricRiskyCallsEl.textContent = String(last7d.filter(c => ['known-scam', 'high', 'medium'].includes(c.risk)).length);
+    metricMissedCallsEl.textContent = String(last7d.filter(c => c.callType === 'missed').length);
+    metricLastSyncEl.textContent = new Date().toLocaleString();
+}
+
+function render() {
+    const filtered = applyFiltersAndSort();
+    const total = filtered.length;
+    const startIdx = (currentPage - 1) * pageSize;
+    const endIdx = Math.min(startIdx + pageSize, total);
+    const pageRows = filtered.slice(startIdx, endIdx);
+
+    renderList(pageRows);
+    updatePagination(total);
+    paginationInfoEl.textContent = `Showing ${total ? startIdx + 1 : 0}-${endIdx} of ${total}`;
+    renderMetrics(filtered);
+    updateCharts();
+}
+
+// Charts
+let callsByDayChart, riskDistributionChart;
+
+function computeCallsByDayData() {
+    const days = [];
+    const counts = [];
+    for (let i = 6; i >= 0; i--) {
+        const d = new Date();
+        d.setDate(d.getDate() - i);
+        days.push(d.toLocaleDateString([], {
+            month: 'short',
+            day: 'numeric'
+        }));
+        const start = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+        const end = new Date(start.getTime() + 24 * 60 * 60 * 1000);
+        counts.push(allCalls.filter(c => c.timestamp >= start && c.timestamp < end).length);
+    }
+    return {
+        labels: days,
+        data: counts
+    };
+}
+
+function computeRiskDistributionData() {
+    const labels = ['Known Scam', 'High', 'Medium', 'Low', 'No Risk'];
+    const mapping = ['known-scam', 'high', 'medium', 'low', 'none'];
+    const data = mapping.map(r => allCalls.filter(c => c.risk === r).length);
+    return {
+        labels,
+        data
+    };
+}
+
+function initCharts() {
+    const byDay = computeCallsByDayData();
+    const ctx1 = document.getElementById('callsByDayChart');
+    callsByDayChart = new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: byDay.labels,
+            datasets: [{
+                label: 'Calls',
+                data: byDay.data,
+                borderColor: '#0000FF',
+                backgroundColor: 'rgba(0,0,255,0.1)',
+                tension: 0.3,
+                fill: true,
+                pointRadius: 3,
+                pointHoverRadius: 5
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false
+                }
+            }
+        }
+    });
+
+    const risk = computeRiskDistributionData();
+    const ctx2 = document.getElementById('riskDistributionChart');
+    riskDistributionChart = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            labels: risk.labels,
+            datasets: [{
+                label: 'Count',
+                data: risk.data,
+                backgroundColor: ['#CD2026', '#FFA500', '#0099D2', '#00774E', '#0000FF'],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+}
+
+function updateCharts() {
+    if (!callsByDayChart || !riskDistributionChart) return;
+    const byDay = computeCallsByDayData();
+    callsByDayChart.data.labels = byDay.labels;
+    callsByDayChart.data.datasets[0].data = byDay.data;
+    callsByDayChart.update();
+
+    const risk = computeRiskDistributionData();
+    riskDistributionChart.data.labels = risk.labels;
+    riskDistributionChart.data.datasets[0].data = risk.data;
+    riskDistributionChart.update();
+}
+
+// Loading and refresh simulation
+function setLoading(isLoading) {
+    loadingStateEl.style.display = isLoading ? 'block' : 'none';
+}
+
+async function simulateFetch() {
+    setLoading(true);
+    errorStateEl.classList.add('d-none');
+    await new Promise(r => setTimeout(r, 1000));
+    // 10% chance of error
+    if (Math.random() < 0.1) {
+        setLoading(false);
+        errorStateEl.classList.remove('d-none');
+        return false;
+    }
+    // Randomly adjust some risks and add a new call occasionally
+    allCalls = allCalls.map(c => {
+        if (Math.random() < 0.2) {
+            const pool = ['none', 'low', 'medium', 'high', 'known-scam'];
+            c.risk = pool[Math.floor(Math.random() * pool.length)];
+        }
+        return c;
+    });
+    if (Math.random() < 0.4) {
+        const newCall = {
+            id: Math.max(...allCalls.map(c => c.id)) + 1,
+            name: null,
+            number: `+1 (${200 + Math.floor(Math.random()*600)}) 555-${String(1000 + Math.floor(Math.random()*9000))}`,
+            callType: ['incoming', 'outgoing', 'missed'][Math.floor(Math.random() * 3)],
+            timestamp: new Date(),
+            risk: ['none', 'low', 'medium', 'high', 'known-scam'][Math.floor(Math.random() * 5)],
+            reportedByUser: false
+        };
+        allCalls.unshift(newCall);
+    }
+    setLoading(false);
+    metricLastSyncEl.textContent = new Date().toLocaleString();
+    return true;
+}
+
+// Event wiring
+searchInputEl.addEventListener('input', () => {
+    currentPage = 1;
+    render();
+});
+headerSearchEl?.addEventListener('input', () => {
+    currentPage = 1;
+    render();
+});
+sortSelectEl.addEventListener('change', () => {
+    currentPage = 1;
+    render();
+});
+riskFilters.forEach(cb => cb.addEventListener('change', () => {
+    currentPage = 1;
+    render();
+}));
+
+refreshBtnEl.addEventListener('click', async () => {
+    const ok = await simulateFetch();
+    if (ok) {
+        Toast.fire({
+            icon: 'success',
+            title: 'Refreshed'
+        });
+        render();
+    }
+});
+
+// Init
+document.addEventListener('DOMContentLoaded', async () => {
+    setLoading(true);
+    await new Promise(r => setTimeout(r, 600));
+    setLoading(false);
+    initCharts();
+    render();
+});
+  </script>
+ </body>
+</html>

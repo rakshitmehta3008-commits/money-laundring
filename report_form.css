@@ -1,0 +1,50 @@
+/* report_form.css - page specific styles for Report Number page */
+/* Use brand font while falling back to theme stack */
+body {
+    font-family: "Poppins", var(--font-sans)
+    }
+/* Ensure main content uses available width next to sidebar */
+.app-shell main {
+    background: transparent
+    }
+.report-card .report-header h2 {
+    font-weight: 700
+    }
+/* Make offcanvas sidebar look seamless on lg+ within flex layout */
+@media (min-width: 992px) {
+    #appSidebarUser.offcanvas-lg {
+        position: relative;
+        transform: none;
+        visibility: visible
+        }
+    }
+/* Improve spacing on small devices */
+@media (max-width: 575.98px) {
+    .report-card .card-body {
+        padding: 12px
+        }
+    }
+/* Table actions */
+#recentReportsTable td .btn {
+    padding: 4px 8px
+    }
+/* Accessibility focus ring consistent with theme */
+#recentReportsTable th:focus-visible, #recentReportsTable td:focus-visible, #filterInput:focus-visible {
+    box-shadow: var(--focus-ring);
+    outline: none
+    }
+/* Subtle emphasis for the report header icon */
+.report-header .bg-primary-soft {
+    border: 1px solid var(--border-color)
+    }
+/* Tighten form footer buttons on small screens */
+@media (max-width: 767.98px) {
+    .submit-action-footer {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 12px
+        }
+    .submit-action-footer .btn {
+        width: 100%
+        }
+    }

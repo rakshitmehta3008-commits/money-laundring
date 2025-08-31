@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Welcome Screen - Fraud Shield
+  </title>
+  <!-- Google Font: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+  <!-- Site Theme CSS -->
+  <link href="style.css" rel="stylesheet"/>
+  <!-- Page-specific CSS -->
+  <link href="welcome_screen.css" rel="stylesheet"/>
+ </head>
+ <body class="d-flex flex-column min-vh-100">
+  <!-- Header (no sidebar on onboarding; using consistent header styling) -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background:#0000FF;">
+   <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="./call_log.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/28/28'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+     Fraud Shield
+    </a>
+    <button aria-controls="welcomeNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#welcomeNav" data-bs-toggle="collapse" type="button">
+     <span class="navbar-toggler-icon">
+     </span>
+    </button>
+    <div class="collapse navbar-collapse" id="welcomeNav">
+     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+      <li class="nav-item me-2 d-none d-md-block">
+       <a class="nav-link" href="#" id="skipTourLink">
+        <i class="fas fa-forward me-1">
+        </i>
+        Skip tour
+       </a>
+      </li>
+      <li class="nav-item dropdown">
+       <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button">
+        <span class="me-2">
+         User
+        </span>
+        <img alt="avatar" class="rounded-circle" onerror="this.onerror=null;this.src='https://picsum.photos/seed/user/28/28'" src="https://via.placeholder.com/28"/>
+       </a>
+       <ul class="dropdown-menu dropdown-menu-end">
+        <li>
+         <a class="dropdown-item" href="./settings_page.html">
+          <i class="fas fa-cog me-2">
+          </i>
+          Settings
+         </a>
+        </li>
+        <li>
+         <a class="dropdown-item" href="./user_profile.html">
+          <i class="fas fa-user me-2">
+          </i>
+          Profile
+         </a>
+        </li>
+        <li>
+         <hr class="dropdown-divider"/>
+        </li>
+        <li>
+         <a class="dropdown-item" href="./welcome_screen.html">
+          <i class="fas fa-sign-out-alt me-2">
+          </i>
+          Logout
+         </a>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </nav>
+  <main class="flex-grow-1 d-flex flex-column" id="content">
+   <!-- System feedback alert -->
+   <div class="container-max container-fluid mt-2">
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+     <i class="fa-solid fa-circle-info me-2">
+     </i>
+     You're viewing the onboarding tour. Swipe horizontally or use Next to proceed. You can skip at any time.
+     <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button">
+     </button>
+    </div>
+   </div>
+   <!-- Onboarding full-viewport area -->
+   <section class="onboarding-viewport d-flex flex-column flex-grow-1">
+    <div class="container-max container-fluid d-flex flex-column flex-grow-1">
+     <!-- Carousel -->
+     <div aria-label="Onboarding Carousel" class="carousel slide flex-grow-1" data-bs-ride="false" data-bs-touch="true" id="onboardingCarousel">
+      <div class="carousel-inner h-100">
+       <!-- Slide 1 -->
+       <div class="carousel-item active h-100">
+        <div class="d-flex h-100 align-items-center justify-content-center">
+         <div class="row w-100 align-items-center">
+          <div class="col-12 col-md-6 text-center text-md-start mb-4 mb-md-0">
+           <img alt="Shield Graphic" class="img-fluid rounded shadow-sm" onerror="this.onerror=null;this.src='https://picsum.photos/seed/rtp/640/420'" src="https://picsum.photos/id/1062/640/420"/>
+          </div>
+          <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
+           <h1 class="mb-2">
+            <i class="fa-solid fa-shield-halved text-primary me-2">
+            </i>
+            Real-Time Protection
+           </h1>
+           <p class="lead text-muted">
+            Get instant alerts for potential scam calls before you even answer, so you can stay one step ahead.
+           </p>
+          </div>
+         </div>
+        </div>
+       </div>
+       <!-- Slide 2 -->
+       <div class="carousel-item h-100">
+        <div class="d-flex h-100 align-items-center justify-content-center">
+         <div class="row w-100 align-items-center">
+          <div class="col-12 col-md-6 text-center text-md-start mb-4 mb-md-0 order-md-2">
+           <img alt="Community Graphic" class="img-fluid rounded shadow-sm" onerror="this.onerror=null;this.src='https://picsum.photos/seed/community/640/420'" src="https://picsum.photos/id/1011/640/420"/>
+          </div>
+          <div class="col-12 col-md-6 d-flex flex-column justify-content-center order-md-1">
+           <h1 class="mb-2">
+            <i class="fa-solid fa-people-group text-primary me-2">
+            </i>
+            Community Reporting
+           </h1>
+           <p class="lead text-muted">
+            Join a trusted network helping identify and flag scammers faster through collective intelligence.
+           </p>
+          </div>
+         </div>
+        </div>
+       </div>
+       <!-- Slide 3 -->
+       <div class="carousel-item h-100">
+        <div class="d-flex h-100 align-items-center justify-content-center">
+         <div class="row w-100 align-items-center">
+          <div class="col-12 col-md-6 text-center text-md-start mb-4 mb-md-0">
+           <img alt="Privacy Graphic" class="img-fluid rounded shadow-sm" onerror="this.onerror=null;this.src='https://picsum.photos/seed/privacy/640/420'" src="https://picsum.photos/id/1/640/420"/>
+          </div>
+          <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
+           <h1 class="mb-2">
+            <i class="fa-solid fa-user-shield text-primary me-2">
+            </i>
+            Privacy First
+           </h1>
+           <p class="lead text-muted">
+            Your data stays secure. You control what’s shared and can update preferences anytime.
+           </p>
+          </div>
+         </div>
+        </div>
+       </div>
+       <!-- Slide 4 -->
+       <div class="carousel-item h-100">
+        <div class="d-flex h-100 align-items-center justify-content-center">
+         <div class="row w-100 align-items-center">
+          <div class="col-12 col-md-6 text-center text-md-start mb-4 mb-md-0 order-md-2">
+           <img alt="Control Graphic" class="img-fluid rounded shadow-sm" onerror="this.onerror=null;this.src='https://picsum.photos/seed/control/640/420'" src="https://picsum.photos/id/870/640/420"/>
+          </div>
+          <div class="col-12 col-md-6 d-flex flex-column justify-content-center order-md-1">
+           <h1 class="mb-2">
+            <i class="fa-solid fa-mobile-screen-button text-primary me-2">
+            </i>
+            Stay In Control
+           </h1>
+           <p class="lead text-muted">
+            Fine-tune protection levels and notifications for a safer, calmer calling experience.
+           </p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- Bottom navigation controls: progress + CTA -->
+     <div class="onboarding-controls mt-3">
+      <div class="d-flex align-items-center justify-content-between">
+       <div aria-label="Progress indicator" class="progress-dots" role="tablist">
+        <button aria-label="Go to slide 1" aria-selected="true" class="dot active" data-target-index="0" type="button">
+        </button>
+        <button aria-label="Go to slide 2" aria-selected="false" class="dot" data-target-index="1" type="button">
+        </button>
+        <button aria-label="Go to slide 3" aria-selected="false" class="dot" data-target-index="2" type="button">
+        </button>
+        <button aria-label="Go to slide 4" aria-selected="false" class="dot" data-target-index="3" type="button">
+        </button>
+       </div>
+       <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-light d-none d-md-inline-flex" id="skipBtn">
+         <i class="fa-solid fa-forward me-2">
+         </i>
+         Skip
+        </button>
+        <button class="btn btn-primary px-4" id="nextBtn">
+         <span class="btn-label">
+          Next
+         </span>
+         <i class="fa-solid fa-arrow-right ms-2">
+         </i>
+        </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Toast container (system feedback tip) -->
+   <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1060">
+    <div aria-atomic="true" aria-live="polite" class="toast align-items-center text-bg-dark border-0" id="tipToast" role="status">
+     <div class="d-flex">
+      <div class="toast-body">
+       <i class="fa-solid fa-hand-pointer me-2">
+       </i>
+       Tip: Tap dots to jump to a slide.
+      </div>
+      <button aria-label="Close" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" type="button">
+      </button>
+     </div>
+    </div>
+   </div>
+  </main>
+  <!-- Footer -->
+  <footer class="mt-auto py-3" style="background:#000000;color:#fff;">
+   <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+    <div class="d-flex align-items-center">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo-mini/20/20'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:20px;height:20px;object-fit:contain;"/>
+     <small>
+      © 2026 Fraud Shield
+     </small>
+    </div>
+    <ul class="nav">
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html">
+       Terms
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./privacy_settings.html">
+       Privacy
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="btn btn-sm btn-outline-light ms-2" href="./report_form.html">
+       <i class="fas fa-flag me-1">
+       </i>
+       Report
+      </a>
+     </li>
+    </ul>
+   </div>
+  </footer>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js">
+  </script>
+  <!-- Bootstrap 5 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script>
+   // State and references
+const carouselEl = document.getElementById('onboardingCarousel');
+const bsCarousel = new bootstrap.Carousel(carouselEl, {
+    interval: false,
+    ride: false,
+    touch: true,
+    wrap: false
+});
+const dots = Array.from(document.querySelectorAll('.progress-dots .dot'));
+const nextBtn = document.getElementById('nextBtn');
+const skipBtn = document.getElementById('skipBtn');
+const skipTourLink = document.getElementById('skipTourLink');
+const btnLabel = nextBtn.querySelector('.btn-label');
+const lastIndex = dots.length - 1;
+
+function getActiveIndex() {
+    const active = carouselEl.querySelector('.carousel-item.active');
+    return Array.from(carouselEl.querySelectorAll('.carousel-item')).indexOf(active);
+}
+
+function updateDots(activeIndex) {
+    dots.forEach((dot, i) => {
+        if (i === activeIndex) {
+            dot.classList.add('active');
+            dot.setAttribute('aria-selected', 'true');
+        } else {
+            dot.classList.remove('active');
+            dot.setAttribute('aria-selected', 'false');
+        }
+    });
+}
+
+function updateCta(activeIndex) {
+    const isLast = activeIndex === lastIndex;
+    btnLabel.textContent = isLast ? 'Get Started' : 'Next';
+    nextBtn.classList.toggle('btn-success', isLast);
+    nextBtn.classList.toggle('btn-primary', !isLast);
+}
+
+function goNext() {
+    const idx = getActiveIndex();
+    if (idx < lastIndex) {
+        bsCarousel.next();
+    } else {
+        // Completed onboarding
+        localStorage.setItem('onboardingCompleted', 'true');
+        Swal.fire({
+            icon: 'success',
+            title: 'Welcome to Fraud Shield',
+            text: 'Let\'s quickly configure your permissions for real-time protection.',
+            confirmButtonText: 'Continue',
+            confirmButtonColor: '#0000FF'
+        }).then(() => {
+            window.location.href = './permissions_request.html';
+        });
+    }
+}
+
+// Dot click navigation
+dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+        const targetIndex = Number(dot.getAttribute('data-target-index'));
+        bsCarousel.to(targetIndex);
+    });
+});
+
+// Next button behavior
+nextBtn.addEventListener('click', goNext);
+
+// Skip actions
+function confirmSkip() {
+    Swal.fire({
+        icon: 'warning',
+        title: 'Skip the tour?',
+        text: 'You can revisit onboarding anytime from Settings > Help.',
+        showCancelButton: true,
+        confirmButtonText: 'Skip',
+        cancelButtonText: 'Stay',
+        confirmButtonColor: '#CD2026'
+    }).then(result => {
+        if (result.isConfirmed) {
+            window.location.href = './permissions_request.html';
+        }
+    });
+}
+
+skipBtn && skipBtn.addEventListener('click', confirmSkip);
+skipTourLink && skipTourLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    confirmSkip();
+});
+
+// Update UI on slide
+carouselEl.addEventListener('slid.bs.carousel', () => {
+    const idx = getActiveIndex();
+    updateDots(idx);
+    updateCta(idx);
+});
+
+// Initial UI binding
+updateDots(0);
+updateCta(0);
+
+// Show tip toast after short delay
+const tipToastEl = document.getElementById('tipToast');
+const tipToast = new bootstrap.Toast(tipToastEl, {
+    delay: 6000
+});
+setTimeout(() => tipToast.show(), 900);
+  </script>
+ </body>
+</html>
+

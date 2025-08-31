@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Privacy &amp; Permissions • Fraud Shield
+  </title>
+  <!-- Brand Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <!-- Global Theme CSS -->
+  <link href="style.css" rel="stylesheet"/>
+  <!-- Page-specific CSS -->
+  <link href="privacy_settings.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <!-- Header (Used on app pages like this Privacy Settings page) -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background:#0000FF;">
+   <div class="container-fluid">
+    <button aria-controls="appSidebarUser" aria-label="Toggle navigation" class="btn btn-outline-light me-2" id="sidebarToggleBtn" type="button">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./call_log.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/28/28'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+     Fraud Shield
+    </a>
+    <div class="d-none d-md-flex flex-grow-1 mx-3">
+     <form class="w-100" role="search">
+      <div class="input-group">
+       <span class="input-group-text bg-white">
+        <i class="fas fa-search">
+        </i>
+       </span>
+       <input aria-label="Search" class="form-control" placeholder="Search phone number..." type="search"/>
+      </div>
+     </form>
+    </div>
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#">
+       <i class="fas fa-bell">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#">
+       <i class="fas fa-envelope">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button">
+       <span class="me-2">
+        User
+       </span>
+       <img alt="avatar" class="rounded-circle" onerror="this.onerror=null;this.src='https://picsum.photos/seed/user/28/28'" src="https://via.placeholder.com/28"/>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="./settings_page.html">
+         <i class="fas fa-cog me-2">
+         </i>
+         Settings
+        </a>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./user_profile.html">
+         <i class="fas fa-user me-2">
+         </i>
+         Profile
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./welcome_screen.html">
+         <i class="fas fa-sign-out-alt me-2">
+         </i>
+         Logout
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="app-layout d-flex">
+   <!-- Sidebar (included on app/dashboard pages) -->
+   <aside class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-white" id="appSidebarUser" style="width:260px;min-height:100vh;background-color:#000000 !important;">
+    <div class="d-flex align-items-center mb-3">
+     <a class="d-flex align-items-center text-white text-decoration-none" href="./call_log.html">
+      <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/32/32'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:32px;height:32px;object-fit:contain;"/>
+      <span class="fs-5 fw-bold">
+       Fraud Shield
+      </span>
+     </a>
+    </div>
+    <div class="d-flex align-items-center mb-4 p-2 rounded" style="background:rgba(255,255,255,0.05);">
+     <div class="me-2 rounded-circle bg-secondary d-flex align-items-center justify-content-center" style="width:40px;height:40px;background:#2d2d2d;">
+      U
+     </div>
+     <div>
+      <div class="fw-semibold">
+       User Name
+      </div>
+      <small class="text-muted">
+       End User
+      </small>
+     </div>
+    </div>
+    <ul class="nav nav-pills flex-column mb-auto">
+     <li class="nav-item">
+      <a class="nav-link text-white d-flex align-items-center" href="./call_log.html" style="border-radius:8px;">
+       <i class="fas fa-home me-2">
+       </i>
+       Home / Call Log
+      </a>
+     </li>
+     <li>
+      <a class="nav-link text-white d-flex align-items-center" href="./report_form.html" style="border-radius:8px;">
+       <i class="fas fa-flag me-2">
+       </i>
+       Report Number
+      </a>
+     </li>
+     <li>
+      <a class="nav-link text-white d-flex align-items-center" href="./protection_history.html" style="border-radius:8px;">
+       <i class="fas fa-history me-2">
+       </i>
+       Protection History
+      </a>
+     </li>
+     <li>
+      <a aria-controls="userSettingsMenu" aria-expanded="false" class="nav-link text-white d-flex align-items-center" data-bs-toggle="collapse" href="#userSettingsMenu" role="button" style="border-radius:8px;">
+       <i class="fas fa-cog me-2">
+       </i>
+       Settings
+       <i class="fas fa-chevron-down ms-auto">
+       </i>
+      </a>
+      <div class="collapse show" id="userSettingsMenu">
+       <ul class="btn-toggle-nav list-unstyled fw-normal small ps-4">
+        <li>
+         <a class="nav-link text-white-50 d-block py-1" href="./settings_page.html">
+          <i class="fas fa-cog me-2">
+          </i>
+          Settings Hub
+         </a>
+        </li>
+        <li>
+         <a class="nav-link text-white-50 d-block py-1" href="./user_profile.html">
+          <i class="fas fa-user me-2">
+          </i>
+          My Profile
+         </a>
+        </li>
+        <li>
+         <a class="nav-link text-white d-block py-1 active" href="./privacy_settings.html">
+          <i class="fas fa-shield-alt me-2">
+          </i>
+          Privacy &amp; Permissions
+         </a>
+        </li>
+       </ul>
+      </div>
+     </li>
+     <li class="mt-2">
+      <a class="nav-link text-white-50 d-flex align-items-center" href="./terms_of_service.html" style="border-radius:8px;">
+       <i class="fas fa-question-circle me-2">
+       </i>
+       Terms &amp; Policy
+      </a>
+     </li>
+    </ul>
+    <hr class="text-secondary"/>
+    <div class="small text-secondary">
+     © Fraud Shield
+    </div>
+    <style>
+     #appSidebarUser .nav-link:hover{background:rgba(255,255,255,0.08);} 
+        #appSidebarUser .nav-link.active{background:rgba(0,0,255,0.15);border-left:3px solid #0000FF;color:#fff;}
+    </style>
+   </aside>
+   <!-- Main Content -->
+   <main class="flex-grow-1">
+    <div class="container-fluid p-3 p-lg-4">
+     <!-- Page Header -->
+     <div class="page-header">
+      <div class="d-flex align-items-center gap-2">
+       <a aria-label="Back to Settings" class="btn btn-light back-button" href="./settings_page.html">
+        <i class="fa-solid fa-arrow-left">
+        </i>
+       </a>
+       <h1 class="page-title mb-0">
+        Privacy &amp; Permissions
+       </h1>
+      </div>
+      <div class="d-none d-md-flex align-items-center gap-2 text-muted">
+       <i class="fa-solid fa-shield-halved text-primary">
+       </i>
+       <small>
+        Manage consents, OS permissions and data requests
+       </small>
+      </div>
+     </div>
+     <div class="row g-3 g-lg-4">
+      <!-- Overview / Chart -->
+      <div class="col-12 col-lg-4">
+       <div class="card h-100">
+        <div class="card-header">
+         <div class="title d-flex align-items-center gap-2">
+          <i class="fa-solid fa-chart-pie text-primary">
+          </i>
+          <span class="widget-title">
+           Consent Overview
+          </span>
+         </div>
+        </div>
+        <div class="card-body">
+         <canvas aria-label="Enabled vs Disabled Consents" height="220" id="consentDonut" role="img">
+         </canvas>
+         <div class="d-flex justify-content-center gap-3 mt-3">
+          <span class="badge-soft success">
+           <i class="fa-solid fa-check">
+           </i>
+           Enabled:
+           <span id="enabledCount">
+            0
+           </span>
+          </span>
+          <span class="badge-soft error">
+           <i class="fa-solid fa-xmark">
+           </i>
+           Disabled:
+           <span id="disabledCount">
+            0
+           </span>
+          </span>
+         </div>
+         <small class="text-muted d-block mt-3">
+          Tip: Toggle permissions on the right to update the chart.
+         </small>
+        </div>
+       </div>
+      </div>
+      <!-- Permissions Management -->
+      <div class="col-12 col-lg-8">
+       <div class="card h-100">
+        <div class="card-header justify-content-between">
+         <div class="title d-flex align-items-center gap-2">
+          <i class="fa-solid fa-sliders text-primary">
+          </i>
+          <span class="widget-title">
+           Permissions Management
+          </span>
+         </div>
+         <div class="d-flex align-items-center gap-2">
+          <div class="input-group input-group-sm" style="max-width:320px;">
+           <span class="input-group-text bg-white">
+            <i class="fa-solid fa-filter">
+            </i>
+           </span>
+           <input class="form-control" id="permissionFilter" placeholder="Filter permissions (e.g., Microphone)" type="text"/>
+          </div>
+         </div>
+        </div>
+        <div class="card-body">
+         <div class="loading-state" id="permissionsLoading">
+          <div class="skeleton" style="height:18px">
+          </div>
+          <div class="skeleton mt-2" style="height:18px">
+          </div>
+          <div class="skeleton mt-2" style="height:18px">
+          </div>
+         </div>
+         <div class="alert alert-danger d-none" id="permissionsError" role="alert">
+          <i class="fa-solid fa-triangle-exclamation me-2">
+          </i>
+          Could not load permissions.
+          <button class="btn btn-sm btn-light ms-2" id="retryLoad">
+           Retry
+          </button>
+         </div>
+         <div class="list-group list-group-flush d-none" id="permissionsList">
+         </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+         <small class="text-muted">
+          <i class="fa-regular fa-circle-question me-1">
+          </i>
+          Some permissions may require changes in your device settings.
+         </small>
+         <a class="btn btn-sm btn-outline-primary" href="./permissions_request.html">
+          <i class="fa-solid fa-shield-halved me-1">
+          </i>
+          Review App Permissions
+         </a>
+        </div>
+       </div>
+      </div>
+      <!-- Data Management -->
+      <div class="col-12">
+       <div class="card">
+        <div class="card-header">
+         <div class="title d-flex align-items-center gap-2">
+          <i class="fa-solid fa-database text-primary">
+          </i>
+          <span class="widget-title">
+           Data Management
+          </span>
+         </div>
+        </div>
+        <div class="card-body">
+         <div class="row g-3">
+          <div class="col-12 col-lg-6">
+           <div class="border rounded p-3 h-100 d-flex flex-column justify-content-between">
+            <div>
+             <h5 class="mb-1">
+              Request My Data
+             </h5>
+             <p class="text-muted mb-3">
+              Request a copy of your personal data stored by Fraud Shield. We will email you a secure download link.
+             </p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+             <button class="btn btn-info" id="requestDataBtn">
+              <i class="fa-solid fa-file-arrow-down me-1">
+              </i>
+              Request Data
+             </button>
+             <small class="text-muted">
+              Typically processed within 1-3 days.
+             </small>
+            </div>
+           </div>
+          </div>
+          <div class="col-12 col-lg-6">
+           <div class="border rounded p-3 h-100 d-flex flex-column justify-content-between bg-error-soft">
+            <div>
+             <h5 class="mb-1 text-danger">
+              Delete My Account
+             </h5>
+             <p class="text-muted mb-3">
+              Permanently delete your account and all associated data. This action is irreversible.
+             </p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+             <button class="btn btn-danger" id="deleteAccountBtn">
+              <i class="fa-solid fa-user-slash me-1">
+              </i>
+              Delete Account
+             </button>
+             <small class="text-muted">
+              You will need to confirm before proceeding.
+             </small>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- Consent History (table with sorting/filtering) -->
+      <div class="col-12">
+       <div class="card">
+        <div class="card-header justify-content-between">
+         <div class="title d-flex align-items-center gap-2">
+          <i class="fa-solid fa-clock-rotate-left text-primary">
+          </i>
+          <span class="widget-title">
+           Consent History
+          </span>
+         </div>
+         <div class="d-flex align-items-center gap-2">
+          <div class="input-group input-group-sm" style="max-width:260px;">
+           <span class="input-group-text bg-white">
+            <i class="fa-solid fa-magnifying-glass">
+            </i>
+           </span>
+           <input class="form-control" id="historyFilter" placeholder="Filter by permission or actor" type="text"/>
+          </div>
+         </div>
+        </div>
+        <div class="card-body p-0">
+         <div class="table-responsive">
+          <table class="table table-theme mb-0" id="historyTable">
+           <thead>
+            <tr>
+             <th class="sortable" data-sort="date">
+              Date
+              <i class="fa-solid fa-sort ms-1">
+              </i>
+             </th>
+             <th class="sortable" data-sort="permission">
+              Permission
+              <i class="fa-solid fa-sort ms-1">
+              </i>
+             </th>
+             <th>
+              Status
+             </th>
+             <th>
+              Actor
+             </th>
+             <th>
+              Details
+             </th>
+            </tr>
+           </thead>
+           <tbody>
+           </tbody>
+          </table>
+         </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+         <small class="text-muted" id="historyPaginationInfo">
+          Showing 0 of 0 records
+         </small>
+         <div class="text-muted small">
+          Click column headers to sort
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- Policy Links -->
+      <div class="col-12">
+       <div class="card">
+        <div class="card-header">
+         <div class="title d-flex align-items-center gap-2">
+          <i class="fa-solid fa-scale-balanced text-primary">
+          </i>
+          <span class="widget-title">
+           Policies &amp; Legal
+          </span>
+         </div>
+        </div>
+        <div class="card-body">
+         <div class="list-group list-group-flush">
+          <a class="list-group-item list-group-item-action d-flex align-items-center justify-content-between" href="./terms_of_service.html#privacy">
+           <span>
+            <i class="fa-solid fa-user-shield me-2 text-info">
+            </i>
+            Privacy Policy
+           </span>
+           <i class="fa-solid fa-arrow-up-right-from-square text-muted">
+           </i>
+          </a>
+          <a class="list-group-item list-group-item-action d-flex align-items-center justify-content-between" href="./terms_of_service.html">
+           <span>
+            <i class="fa-solid fa-file-contract me-2 text-info">
+            </i>
+            Terms of Service
+           </span>
+           <i class="fa-solid fa-arrow-up-right-from-square text-muted">
+           </i>
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </main>
+  </div>
+  <!-- Footer (used on app pages) -->
+  <footer class="mt-auto py-3" style="background:#000000;color:#fff;">
+   <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+    <div class="d-flex align-items-center">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/20/20'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:20px;height:20px;object-fit:contain;"/>
+     <small>
+      © 2026 Fraud Shield
+     </small>
+    </div>
+    <ul class="nav">
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html">
+       Terms
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./privacy_settings.html#policies">
+       Privacy
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="btn btn-sm btn-outline-light ms-2" href="./report_form.html">
+       <i class="fas fa-flag me-1">
+       </i>
+       Report
+      </a>
+     </li>
+    </ul>
+   </div>
+  </footer>
+  <!-- Toast Container -->
+  <div class="position-fixed top-0 end-0 p-3" style="z-index: 1080">
+   <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-primary border-0" id="appToast" role="alert">
+    <div class="d-flex">
+     <div class="toast-body" id="toastMsg">
+      Action completed.
+     </div>
+     <button aria-label="Close" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" type="button">
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- Backdrop for mobile sidebar -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop">
+  </div>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  </script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js">
+  </script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script>
+   // Mock permissions data
+const permissionsData = [{
+    id: 'call_log',
+    name: 'Call Log Access',
+    description: 'Allows Fraud Shield to analyze call logs to detect potential fraud attempts.',
+    granted: true,
+    critical: true
+}, {
+    id: 'contacts',
+    name: 'Contacts Access',
+    description: 'Helps identify trusted numbers and reduce false positives by referencing your contacts.',
+    granted: false,
+    critical: true
+}, {
+    id: 'microphone',
+    name: 'Microphone Access',
+    description: 'Required for real-time call screening features and voice input for reports.',
+    granted: true,
+    critical: true
+}, {
+    id: 'notifications',
+    name: 'Notifications',
+    description: 'Enable notifications for alerts, protection events, and important account updates.',
+    granted: true,
+    critical: false
+}, {
+    id: 'background',
+    name: 'Background Activity',
+    description: 'Allows the app to run in the background to monitor calls and provide instant alerts.',
+    granted: false,
+    critical: false
+}];
+
+// Consent history mock data
+let historyData = [{
+    date: '2026-01-10 14:12',
+    permission: 'Notifications',
+    status: 'Granted',
+    actor: 'User',
+    details: 'Enabled alerts'
+}, {
+    date: '2026-01-08 09:45',
+    permission: 'Contacts Access',
+    status: 'Revoked',
+    actor: 'User',
+    details: 'Privacy preference'
+}, {
+    date: '2026-01-05 19:02',
+    permission: 'Microphone Access',
+    status: 'Granted',
+    actor: 'System',
+    details: 'Setup wizard'
+}, {
+    date: '2026-01-04 11:26',
+    permission: 'Call Log Access',
+    status: 'Granted',
+    actor: 'User',
+    details: 'Required for protection'
+}, {
+    date: '2026-01-03 16:33',
+    permission: 'Background Activity',
+    status: 'Revoked',
+    actor: 'User',
+    details: 'Battery saving'
+}, {
+    date: '2025-12-28 08:17',
+    permission: 'Notifications',
+    status: 'Revoked',
+    actor: 'User',
+    details: 'Do not disturb'
+}];
+
+let donutChart;
+
+const qs = (sel, ctx = document) => ctx.querySelector(sel);
+const qsa = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Sidebar mobile toggle
+    const sidebar = qs('#appSidebarUser');
+    const sidebarBackdrop = qs('#sidebarBackdrop');
+    const toggleBtn = qs('#sidebarToggleBtn');
+    const showSidebar = () => {
+        sidebar.classList.add('show');
+        sidebarBackdrop.classList.add('show');
+    }
+    const hideSidebar = () => {
+        sidebar.classList.remove('show');
+        sidebarBackdrop.classList.remove('show');
+    }
+    toggleBtn?.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (sidebar.classList.contains('show')) hideSidebar();
+        else showSidebar();
+    });
+    sidebarBackdrop?.addEventListener('click', hideSidebar);
+
+    // Load permissions (simulate async)
+    loadPermissions();
+
+    // History table initial render
+    renderHistory(historyData);
+    setupHistoryInteractions();
+
+    // Actions
+    qs('#retryLoad')?.addEventListener('click', () => loadPermissions());
+    qs('#requestDataBtn')?.addEventListener('click', onRequestData);
+    qs('#deleteAccountBtn')?.addEventListener('click', onDeleteAccount);
+});
+
+function loadPermissions() {
+    qs('#permissionsLoading').classList.remove('d-none');
+    qs('#permissionsError').classList.add('d-none');
+    qs('#permissionsList').classList.add('d-none');
+    setTimeout(() => {
+        // simulate 90% success
+        if (Math.random() < 0.9) {
+            renderPermissions(permissionsData);
+            qs('#permissionsLoading').classList.add('d-none');
+            qs('#permissionsList').classList.remove('d-none');
+            updateOverview();
+        } else {
+            qs('#permissionsLoading').classList.add('d-none');
+            qs('#permissionsError').classList.remove('d-none');
+        }
+    }, 700);
+}
+
+function renderPermissions(data) {
+    const list = qs('#permissionsList');
+    list.innerHTML = '';
+    data.forEach(p => {
+        const item = document.createElement('div');
+        item.className = 'list-group-item permission-item';
+        item.innerHTML = `
+          <div class="d-flex align-items-start justify-content-between gap-3 flex-wrap">
+            <div class="flex-grow-1">
+              <div class="d-flex align-items-center gap-2">
+                <strong class="permission-title">${p.name}</strong>
+                ${p.critical ? '<span class="badge-soft warning"><i class="fa-solid fa-triangle-exclamation"></i> Critical</span>' : ''}
+              </div>
+              <div class="text-muted small permission-desc mt-1">${p.description}</div>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <div class="form-check form-switch m-0">
+                <input class="form-check-input permission-switch" type="checkbox" role="switch" ${p.granted ? 'checked' : ''} data-id="${p.id}">
+              </div>
+              <span class="saving-spinner spinner-border spinner-border-sm text-primary d-none" aria-hidden="true"></span>
+            </div>
+          </div>`;
+        list.appendChild(item);
+    });
+
+    // Filter input for permissions
+    qs('#permissionFilter').addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        qsa('.permission-item', list).forEach(row => {
+            const title = row.querySelector('.permission-title')?.textContent.toLowerCase() || '';
+            const desc = row.querySelector('.permission-desc')?.textContent.toLowerCase() || '';
+            row.style.display = (title.includes(term) || desc.includes(term)) ? '' : 'none';
+        });
+    });
+
+    // Bind toggle events
+    qsa('.permission-switch', list).forEach(input => {
+        input.addEventListener('change', async (e) => {
+            const id = e.target.getAttribute('data-id');
+            const permission = permissionsData.find(x => x.id === id);
+            const newValue = e.target.checked;
+            const row = e.target.closest('.permission-item');
+            const spinner = row.querySelector('.saving-spinner');
+
+            // Critical OFF confirmation
+            if (permission.critical && newValue === false) {
+                const confirm = await Swal.fire({
+                    icon: 'warning',
+                    title: 'Disable critical permission?',
+                    html: `<div class="text-start">\
+                <p>Disabling <strong>${permission.name}</strong> may limit fraud protection features.</p>\
+                <p>If this is an OS-level permission, you may need to adjust your device settings.</p>\
+              </div>`,
+                    showCancelButton: true,
+                    confirmButtonText: 'Disable',
+                    cancelButtonText: 'Keep Enabled'
+                });
+                if (!confirm.isConfirmed) {
+                    e.target.checked = true; // revert UI
+                    return;
+                }
+            }
+
+            spinner.classList.remove('d-none');
+            // Optimistic update
+            permission.granted = newValue;
+            updateOverview();
+
+            try {
+                // Simulate API call with 15% failure rate
+                await new Promise((resolve, reject) => setTimeout(() => (Math.random() < 0.85 ? resolve() : reject(new Error('Network error'))), 700));
+                showToast(`${permission.name} ${newValue ? 'enabled' : 'disabled'}.`);
+                // Update history
+                historyData.unshift({
+                    date: new Date().toISOString().slice(0, 16).replace('T', ' '),
+                    permission: permission.name,
+                    status: newValue ? 'Granted' : 'Revoked',
+                    actor: 'User',
+                    details: newValue ? 'User enabled in Privacy Settings' : 'User disabled in Privacy Settings'
+                });
+                renderHistory(historyData);
+            } catch (err) {
+                // Revert on failure
+                permission.granted = !newValue;
+                e.target.checked = !newValue;
+                updateOverview();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Update failed',
+                    text: 'Could not update your consent. Please try again.'
+                });
+            } finally {
+                spinner.classList.add('d-none');
+            }
+        });
+    });
+}
+
+function updateOverview() {
+    const enabled = permissionsData.filter(p => p.granted).length;
+    const disabled = permissionsData.length - enabled;
+    qs('#enabledCount').textContent = enabled;
+    qs('#disabledCount').textContent = disabled;
+
+    const ctx = qs('#consentDonut');
+    if (!donutChart) {
+        donutChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Enabled', 'Disabled'],
+                datasets: [{
+                    data: [enabled, disabled],
+                    backgroundColor: ['#00774E', '#CD2026'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
+                },
+                cutout: '62%'
+            }
+        });
+    } else {
+        donutChart.data.datasets[0].data = [enabled, disabled];
+        donutChart.update();
+    }
+}
+
+function showToast(message) {
+    const el = qs('#appToast');
+    qs('#toastMsg').textContent = message;
+    const toast = bootstrap.Toast.getOrCreateInstance(el, {
+        delay: 2500
+    });
+    toast.show();
+}
+
+async function onRequestData() {
+    const res = await Swal.fire({
+        icon: 'info',
+        title: 'Request your data?',
+        html: '<div class="text-start"><p>We will process your request and send a secure download link to your registered email.</p><p>Depending on the size of your data, this may take up to 3 days.</p></div>',
+        showCancelButton: true,
+        confirmButtonText: 'Confirm Request',
+        cancelButtonText: 'Cancel'
+    });
+    if (!res.isConfirmed) return;
+    // simulate API
+    await new Promise(r => setTimeout(r, 800));
+    Swal.fire({
+        icon: 'success',
+        title: 'Request received',
+        text: 'You will receive an email with further instructions shortly.'
+    });
+    showToast('Data request submitted.');
+}
+
+async function onDeleteAccount() {
+    const {
+        value: text,
+        isConfirmed
+    } = await Swal.fire({
+        icon: 'warning',
+        title: 'Delete your account?',
+        html: '<div class="text-start"><p>This action is <strong>irreversible</strong>. All your data will be permanently deleted.</p><p>Type <code>DELETE</code> to confirm.</p></div>',
+        input: 'text',
+        inputPlaceholder: 'Type DELETE to confirm',
+        inputValidator: (value) => {
+            if (value !== 'DELETE') return 'You must type DELETE to continue';
+            return undefined;
+        },
+        showCancelButton: true,
+        confirmButtonText: 'Delete Account',
+        confirmButtonColor: '#CD2026'
+    });
+    if (!isConfirmed || text !== 'DELETE') return;
+
+    // Simulate deletion
+    await new Promise(r => setTimeout(r, 1000));
+    await Swal.fire({
+        icon: 'success',
+        title: 'Account deleted',
+        text: 'Your session will now be signed out.'
+    });
+    // Redirect to welcome screen
+    window.location.href = './welcome_screen.html';
+}
+
+function renderHistory(rows) {
+    const tbody = qs('#historyTable tbody');
+    const filterTerm = (qs('#historyFilter')?.value || '').toLowerCase();
+    let filtered = rows.filter(r =>
+        r.permission.toLowerCase().includes(filterTerm) ||
+        r.actor.toLowerCase().includes(filterTerm)
+    );
+    tbody.innerHTML = '';
+    filtered.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="text-nowrap">${r.date}</td>
+          <td>${r.permission}</td>
+          <td>${r.status === 'Granted' ? '<span class="badge bg-success">Granted</span>' : '<span class="badge bg-danger">Revoked</span>'}</td>
+          <td>${r.actor}</td>
+          <td><button class="btn btn-sm btn-light view-details"><i class="fa-regular fa-eye me-1"></i>View</button></td>`;
+        tbody.appendChild(tr);
+        tr.querySelector('.view-details').addEventListener('click', () => {
+            Swal.fire({
+                title: 'Consent Change',
+                html: `<div class="text-start">\
+              <p><strong>Date:</strong> ${r.date}</p>\
+              <p><strong>Permission:</strong> ${r.permission}</p>\
+              <p><strong>Status:</strong> ${r.status}</p>\
+              <p><strong>Actor:</strong> ${r.actor}</p>\
+              <p><strong>Details:</strong> ${r.details}</p>\
+            </div>`
+            });
+        });
+    });
+    qs('#historyPaginationInfo').textContent = `Showing ${filtered.length} of ${rows.length} records`;
+}
+
+function setupHistoryInteractions() {
+    qs('#historyFilter')?.addEventListener('input', () => renderHistory(historyData));
+    qsa('#historyTable thead th.sortable').forEach(th => {
+        th.addEventListener('click', () => {
+            const key = th.getAttribute('data-sort');
+            const icon = th.querySelector('i');
+            const ascending = !th.classList.contains('asc');
+            qsa('#historyTable thead th.sortable').forEach(h => {
+                h.classList.remove('asc', 'desc');
+                h.querySelector('i').className = 'fa-solid fa-sort ms-1';
+            });
+            th.classList.add(ascending ? 'asc' : 'desc');
+            icon.className = ascending ? 'fa-solid fa-sort-up ms-1' : 'fa-solid fa-sort-down ms-1';
+            historyData.sort((a, b) => {
+                if (key === 'date') {
+                    return ascending ? (a.date > b.date ? 1 : -1) : (a.date < b.date ? 1 : -1);
+                } else if (key === 'permission') {
+                    return ascending ? a.permission.localeCompare(b.permission) : b.permission.localeCompare(a.permission);
+                }
+                return 0;
+            });
+            renderHistory(historyData);
+        });
+    });
+}
+  </script>
+ </body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Permissions Request - Fraud Shield
+  </title>
+  <!-- Poppins font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <!-- Site Theme CSS (global) -->
+  <link href="style.css" rel="stylesheet"/>
+  <!-- Page-specific CSS -->
+  <link href="permissions_request.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <!-- Header (included for branding/navigation; sidebar not used on this page) -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background:#0000FF;">
+   <div class="container-fluid">
+    <button aria-controls="appSidebarUser" class="btn btn-outline-light me-2 d-none d-lg-inline-flex" data-bs-target="#appSidebarUser" data-bs-toggle="offcanvas" type="button">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./call_log.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/28/28'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+     Fraud Shield
+    </a>
+    <div class="d-none d-md-flex flex-grow-1 mx-3">
+     <form class="w-100" role="search">
+      <div class="input-group">
+       <span class="input-group-text bg-white">
+        <i class="fas fa-search">
+        </i>
+       </span>
+       <input aria-label="Search" class="form-control" placeholder="Search phone number..." type="search"/>
+      </div>
+     </form>
+    </div>
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#">
+       <i class="fas fa-bell">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#">
+       <i class="fas fa-envelope">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button">
+       <span class="me-2">
+        User
+       </span>
+       <img alt="avatar" class="rounded-circle" src="https://via.placeholder.com/28"/>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="./settings_page.html">
+         <i class="fas fa-cog me-2">
+         </i>
+         Settings
+        </a>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./user_profile.html">
+         <i class="fas fa-user me-2">
+         </i>
+         Profile
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./welcome_screen.html">
+         <i class="fas fa-sign-out-alt me-2">
+         </i>
+         Logout
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <main class="main-panel container-max">
+   <!-- Breadcrumb -->
+   <nav aria-label="breadcrumb" class="breadcrumb">
+    <ol class="breadcrumb mb-2">
+     <li class="breadcrumb-item">
+      <a href="./welcome_screen.html">
+       Onboarding
+      </a>
+     </li>
+     <li aria-current="page" class="breadcrumb-item active">
+      Permissions
+     </li>
+    </ol>
+   </nav>
+   <!-- System feedback area (informational) -->
+   <div class="alert alert-info d-flex align-items-center" id="systemFeedback" role="alert">
+    <i class="fa-solid fa-circle-info me-2">
+    </i>
+    You can change permissions later in Settings. Some features may be limited if permissions are denied.
+   </div>
+   <!-- Permissions Handler (centered) -->
+   <section class="permissions-wrapper d-flex align-items-center justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+     <div class="card app-card permission-card shadow-2">
+      <div class="card-header">
+       <div class="d-flex align-items-center gap-2">
+        <span class="badge-soft info">
+         <i class="fa-solid fa-user-shield">
+         </i>
+         Onboarding
+        </span>
+        <span class="text-muted small">
+         Step
+         <span id="currentStep">
+          1
+         </span>
+         of
+         <span id="totalSteps">
+          3
+         </span>
+        </span>
+       </div>
+       <div class="flex-grow-1 mx-3">
+        <div aria-label="Permission progress" aria-valuemax="100" aria-valuemin="0" class="progress" role="progressbar">
+         <div class="progress-bar" id="permissionProgress" style="width: 0%">
+         </div>
+        </div>
+       </div>
+       <div>
+        <a class="text-muted small" href="./terms_of_service.html">
+         Why we ask
+        </a>
+       </div>
+      </div>
+      <div class="card-body">
+       <div class="d-flex align-items-start gap-3">
+        <div aria-hidden="true" class="permission-icon">
+         <i class="fa-solid fa-phone" id="permissionIcon">
+         </i>
+        </div>
+        <div class="flex-grow-1">
+         <h3 class="mb-2" id="permissionTitle">
+          Access Call History
+         </h3>
+         <p class="text-muted mb-3" id="permissionExplanation">
+          To identify incoming callers and screen for scams in real-time, we need to access your call information.
+         </p>
+         <div class="d-flex align-items-center gap-2 flex-wrap">
+          <button class="btn btn-primary" id="allowBtn">
+           <i class="fa-solid fa-check me-1">
+           </i>
+           Allow Access
+          </button>
+          <button class="btn btn-light" id="notNowBtn">
+           Not Now
+          </button>
+          <a class="ms-auto text-muted small" href="./privacy_settings.html" id="learnMoreLink">
+           Learn more in Privacy &amp; Permissions
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="card-footer">
+       <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+        <div class="d-flex align-items-center gap-2 flex-wrap" id="statusBadges">
+         <!-- Status badges injected here -->
+        </div>
+        <div class="d-flex align-items-center gap-2">
+         <a class="btn btn-outline-primary" href="./welcome_screen.html">
+          <i class="fa-solid fa-arrow-left me-1">
+          </i>
+          Back
+         </a>
+         <a aria-disabled="true" class="btn btn-success disabled" href="#" id="continueBtn">
+          Continue
+          <i class="fa-solid fa-arrow-right ms-1">
+          </i>
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- Additional info accordion -->
+     <div class="accordion mt-3" id="permissionInfo">
+      <div class="accordion-item">
+       <h2 class="accordion-header" id="headingOne">
+        <button aria-controls="collapseOne" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseOne" data-bs-toggle="collapse" type="button">
+         What happens if I deny a permission?
+        </button>
+       </h2>
+       <div aria-labelledby="headingOne" class="accordion-collapse collapse" data-bs-parent="#permissionInfo" id="collapseOne">
+        <div class="accordion-body">
+         You can continue with limited functionality. For example, without call access, real-time screening and caller ID features may not work. You can grant permissions later from Settings.
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- Toast container (system notifications) -->
+     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080">
+      <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-warning border-0" id="permissionToast" role="alert">
+       <div class="d-flex">
+        <div class="toast-body">
+         Some features may be limited when a permission is denied.
+        </div>
+        <button aria-label="Close" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" type="button">
+        </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <!-- Footer -->
+  <footer class="mt-auto py-3" style="background:#000000;color:#fff;">
+   <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+    <div class="d-flex align-items-center">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo2/20/20'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:20px;height:20px;object-fit:contain;"/>
+     <small>
+      © 2026 Fraud Shield
+     </small>
+    </div>
+    <ul class="nav">
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html">
+       Terms
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./privacy_settings.html">
+       Privacy
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="btn btn-sm btn-outline-light ms-2" href="./report_form.html">
+       <i class="fas fa-flag me-1">
+       </i>
+       Report
+      </a>
+     </li>
+    </ul>
+   </div>
+  </footer>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  </script>
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script>
+   // Permissions sequence definition
+const permissionsToRequest = [{
+    id: 'READ_CALL_LOGS',
+    icon: 'fa-phone',
+    title: 'Access Call History',
+    explanation: 'To identify incoming callers and screen for scams in real-time, we need to access your call information.'
+}, {
+    id: 'POST_NOTIFICATIONS',
+    icon: 'fa-bell',
+    title: 'Enable Real-Time Alerts',
+    explanation: 'We use notifications to warn you immediately about suspected scam calls and to provide quick actions.'
+}, {
+    id: 'SYSTEM_ALERT_WINDOW',
+    icon: 'fa-window-restore',
+    title: 'Display Over Other Apps',
+    explanation: 'Allows Fraud Shield to show a small caller ID overlay on top of other apps during incoming calls.'
+}];
+
+// State
+let currentPermissionIndex = 0;
+const permissionStatuses = {}; // id -> 'pending' | 'granted' | 'denied'
+
+// Elements
+const currentStepEl = document.getElementById('currentStep');
+const totalStepsEl = document.getElementById('totalSteps');
+const permissionProgressEl = document.getElementById('permissionProgress');
+const permissionIconEl = document.getElementById('permissionIcon');
+const permissionTitleEl = document.getElementById('permissionTitle');
+const permissionExplanationEl = document.getElementById('permissionExplanation');
+const allowBtn = document.getElementById('allowBtn');
+const notNowBtn = document.getElementById('notNowBtn');
+const continueBtn = document.getElementById('continueBtn');
+const statusBadgesEl = document.getElementById('statusBadges');
+
+// Init
+totalStepsEl.textContent = permissionsToRequest.length;
+permissionsToRequest.forEach(p => permissionStatuses[p.id] = 'pending');
+render();
+
+function render() {
+    const total = permissionsToRequest.length;
+    const completed = Object.values(permissionStatuses).filter(s => s !== 'pending').length;
+    const progress = Math.round((completed / total) * 100);
+    permissionProgressEl.style.width = progress + '%';
+
+    // If all handled
+    if (completed === total) {
+        currentStepEl.textContent = total.toString();
+        allowBtn.disabled = true;
+        notNowBtn.disabled = true;
+        continueBtn.classList.remove('disabled');
+        continueBtn.removeAttribute('aria-disabled');
+        continueBtn.href = './onboarding_complete.html';
+        // Success feedback
+        Swal.fire({
+            icon: 'success',
+            title: 'All set!',
+            text: 'Your permissions have been handled. You can change them anytime in Settings.',
+            timer: 1400,
+            showConfirmButton: false
+        });
+        return;
+    }
+
+    // Render current card
+    currentStepEl.textContent = (currentPermissionIndex + 1).toString();
+    const current = permissionsToRequest[currentPermissionIndex];
+    permissionIconEl.className = 'fa-solid ' + current.icon;
+    permissionTitleEl.textContent = current.title;
+    permissionExplanationEl.textContent = current.explanation;
+
+    // Render status badges
+    statusBadgesEl.innerHTML = '';
+    permissionsToRequest.forEach(p => {
+        const state = permissionStatuses[p.id];
+        const badge = document.createElement('span');
+        badge.classList.add('badge-soft');
+        badge.classList.add(state === 'granted' ? 'success' : state === 'denied' ? 'warning' : 'info');
+        badge.innerHTML = `<i class="fa-solid ${p.icon}"></i> ${p.title}: ${state}`;
+        statusBadgesEl.appendChild(badge);
+    });
+}
+
+function goNext() {
+    // find next pending index
+    const nextIdx = permissionsToRequest.findIndex((p, idx) => idx > currentPermissionIndex && permissionStatuses[p.id] === 'pending');
+    const prevPending = permissionsToRequest.findIndex((p, idx) => idx >= 0 && permissionStatuses[p.id] === 'pending');
+    currentPermissionIndex = nextIdx !== -1 ? nextIdx : prevPending !== -1 ? prevPending : currentPermissionIndex;
+    render();
+}
+
+allowBtn.addEventListener('click', async () => {
+    const current = permissionsToRequest[currentPermissionIndex];
+    const result = await Swal.fire({
+        title: `Allow “${current.title}”?`,
+        text: 'This simulates the native OS permission dialog for this demo.',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Allow',
+        cancelButtonText: 'Deny',
+        confirmButtonColor: getComputedStyle(document.documentElement).getPropertyValue('--color-success') || '#198754',
+        cancelButtonColor: getComputedStyle(document.documentElement).getPropertyValue('--color-error') || '#dc3545'
+    });
+
+    if (result.isConfirmed) {
+        permissionStatuses[current.id] = 'granted';
+        Swal.fire({
+            icon: 'success',
+            title: 'Granted',
+            timer: 900,
+            showConfirmButton: false
+        });
+    } else {
+        permissionStatuses[current.id] = 'denied';
+        const toastEl = document.getElementById('permissionToast');
+        const toast = new bootstrap.Toast(toastEl);
+        toast.show();
+    }
+    goNext();
+});
+
+notNowBtn.addEventListener('click', () => {
+    const current = permissionsToRequest[currentPermissionIndex];
+    permissionStatuses[current.id] = 'denied';
+    const toastEl = document.getElementById('permissionToast');
+    const toast = new bootstrap.Toast(toastEl);
+    toast.show();
+    goNext();
+});
+  </script>
+ </body>
+</html>

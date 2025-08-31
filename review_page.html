@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Review Page • Fraud Shield Admin
+  </title>
+  <!-- Poppins font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 -->
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkfK2GZ7cQSDJrYz1eGq5Kx2Q6CqGQHgNsxP9XGZpQxZC2Q4GxCkFZ4Mg==" referrerpolicy="no-referrer" rel="stylesheet">
+   <!-- Global site theme -->
+   <link href="./style.css" rel="stylesheet">
+    <!-- Page specific CSS -->
+    <link href="./review_page.css" rel="stylesheet"/>
+   </link>
+  </link>
+ </head>
+ <body>
+  <!-- Admin Header: fixed at top of page -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background:#0000FF;">
+   <div class="container-fluid">
+    <button aria-controls="appSidebarAdmin" aria-label="Toggle sidebar" class="btn btn-outline-light me-2" data-bs-target="#appSidebarAdmin" data-bs-toggle="offcanvas" type="button">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./admin_dashboard.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/28/28'" src="https://share.google/images/IG0HtHAvlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+     Admin Console
+    </a>
+    <form class="d-none d-md-flex ms-3 w-50" role="search">
+     <div class="input-group">
+      <span class="input-group-text bg-white">
+       <i class="fas fa-search">
+       </i>
+      </span>
+      <input aria-label="Search" class="form-control" placeholder="Search phone numbers, cases..." type="search"/>
+     </div>
+    </form>
+    <ul class="navbar-nav ms-auto align-items-center">
+     <li class="nav-item me-2">
+      <a class="nav-link" data-bs-title="Alerts" data-bs-toggle="tooltip" href="./admin_dashboard.html#alerts">
+       <i class="fas fa-bell">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="btn btn-sm btn-outline-light" href="./admin_dashboard.html#queue">
+       <i class="fas fa-list-check me-1">
+       </i>
+       Open Queue
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button">
+       <span class="me-2">
+        Admin
+       </span>
+       <img alt="avatar" class="rounded-circle" src="https://via.placeholder.com/28"/>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="./admin_dashboard.html#settings">
+         <i class="fas fa-cog me-2">
+         </i>
+         Settings
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./admin_login.html">
+         <i class="fas fa-sign-out-alt me-2">
+         </i>
+         Logout
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="container-fluid p-0">
+   <div class="d-flex">
+    <!-- Sidebar: responsive offcanvas below lg, static sidebar on lg+ using offcanvas-lg -->
+    <!-- Using provided Sidebar markup adapted for offcanvas responsiveness and relative links -->
+    <aside class="offcanvas-lg offcanvas-start d-flex flex-column flex-shrink-0 p-3 bg-dark text-white" id="appSidebarAdmin" style="width:260px;min-height:100vh;background-color:#000000 !important;" tabindex="-1">
+     <div class="d-flex align-items-center mb-3">
+      <a class="text-white text-decoration-none d-flex align-items-center" href="./admin_dashboard.html">
+       <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/32/32'" src="https://share.google/images/IG0HtHAvlhtuhg52t" style="width:32px;height:32px;object-fit:contain;"/>
+       <span class="fs-5 fw-bold">
+        Admin Console
+       </span>
+      </a>
+     </div>
+     <div class="d-flex align-items-center mb-4 p-2 rounded" style="background:rgba(255,255,255,0.05);">
+      <div class="me-2 rounded-circle bg-secondary d-flex align-items-center justify-content-center" style="width:40px;height:40px;background:#2d2d2d;">
+       A
+      </div>
+      <div>
+       <div class="fw-semibold">
+        Admin Name
+       </div>
+       <small class="text-muted">
+        System Administrator
+       </small>
+      </div>
+     </div>
+     <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+       <a class="nav-link text-white" href="./admin_dashboard.html" style="border-radius:8px;">
+        <i class="fas fa-tachometer-alt me-2">
+        </i>
+        Dashboard
+       </a>
+      </li>
+      <li>
+       <a class="nav-link text-white" href="./admin_dashboard.html#queue" style="border-radius:8px;">
+        <i class="fas fa-list-check me-2">
+        </i>
+        Verification Queue
+       </a>
+      </li>
+      <li>
+       <a class="nav-link text-white active" href="./review_page.html" style="border-radius:8px;">
+        <i class="fas fa-tasks me-2">
+        </i>
+        Case Review
+       </a>
+      </li>
+      <li>
+       <a class="nav-link text-white" href="./analytics_dashboard.html" style="border-radius:8px;">
+        <i class="fas fa-chart-line me-2">
+        </i>
+        Analytics
+       </a>
+      </li>
+      <li>
+       <a aria-controls="adminTools" aria-expanded="false" class="nav-link text-white d-flex align-items-center" data-bs-toggle="collapse" href="#adminTools" role="button" style="border-radius:8px;">
+        <i class="fas fa-shield-alt me-2">
+        </i>
+        Admin Tools
+        <i class="fas fa-chevron-down ms-auto">
+        </i>
+       </a>
+       <div class="collapse" id="adminTools">
+        <ul class="list-unstyled fw-normal small ps-4">
+         <li>
+          <a class="nav-link text-white-50 d-block py-1" href="./admin_dashboard.html#appeals">
+           Appeals
+          </a>
+         </li>
+         <li>
+          <a class="nav-link text-white-50 d-block py-1" href="./admin_dashboard.html#settings">
+           Settings
+          </a>
+         </li>
+         <li>
+          <a class="nav-link text-white-50 d-block py-1" href="./admin_dashboard.html#alerts">
+           Alerts
+          </a>
+         </li>
+        </ul>
+       </div>
+      </li>
+     </ul>
+     <hr class="text-secondary"/>
+     <small class="text-secondary">
+      © Fraud Shield
+     </small>
+     <style>
+      #appSidebarAdmin .nav-link:hover{background:rgba(255,255,255,0.08);} 
+          #appSidebarAdmin .nav-link.active{background:rgba(0,0,255,0.15);border-left:3px solid #0000FF;color:#fff;}
+     </style>
+    </aside>
+    <!-- Main content -->
+    <main class="flex-grow-1">
+     <div class="main-panel pt-4 pt-lg-4 px-3 px-lg-4">
+      <!-- Breadcrumb & Page header -->
+      <nav aria-label="breadcrumb" class="mb-2">
+       <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+         <a href="./admin_dashboard.html">
+          Dashboard
+         </a>
+        </li>
+        <li class="breadcrumb-item">
+         <a href="./admin_dashboard.html#queue">
+          Verification Queue
+         </a>
+        </li>
+        <li aria-current="page" class="breadcrumb-item active">
+         Case Review
+        </li>
+       </ol>
+      </nav>
+      <div class="page-header">
+       <div class="d-flex align-items-center gap-2">
+        <a class="btn btn-light" href="./admin_dashboard.html#queue">
+         <i class="fa-solid fa-arrow-left">
+         </i>
+        </a>
+        <div>
+         <div class="page-title">
+          Case Review
+         </div>
+         <small class="text-muted">
+          Case ID:
+          <span id="caseId">
+           —
+          </span>
+         </small>
+        </div>
+       </div>
+       <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-outline-primary" id="btnRefresh">
+         <i class="fa-solid fa-rotate me-1">
+         </i>
+         Refresh
+        </button>
+        <a class="btn btn-light" href="./analytics_dashboard.html">
+         <i class="fa-solid fa-chart-line me-1">
+         </i>
+         Analytics
+        </a>
+       </div>
+      </div>
+      <!-- System feedback area -->
+      <div class="mb-3" id="feedbackArea" style="display:none;">
+       <div class="alert alert-info d-flex align-items-center mb-2" role="alert">
+        <i class="fa-solid fa-circle-info me-2">
+        </i>
+        <div>
+         Tip: Review AI analysis and user reports before making a final decision.
+        </div>
+       </div>
+      </div>
+      <div class="row g-3 g-lg-4">
+       <!-- Left: Evidence & History -->
+       <div class="col-12 col-lg-8">
+        <!-- Evidence Panel -->
+        <div class="card" id="evidencePanel">
+         <div class="card-header">
+          <div class="title d-flex align-items-center gap-2">
+           <i class="fa-solid fa-file-search">
+           </i>
+           <span class="widget-title">
+            Evidence
+           </span>
+          </div>
+          <ul class="nav nav-tabs card-header-tabs" id="evidenceTabs" role="tablist">
+           <li class="nav-item" role="presentation">
+            <button aria-controls="aiTabPane" aria-selected="true" class="nav-link active" data-bs-target="#aiTabPane" data-bs-toggle="tab" id="ai-tab" role="tab" type="button">
+             AI Analysis
+            </button>
+           </li>
+           <li class="nav-item" role="presentation">
+            <button aria-controls="reportsTabPane" aria-selected="false" class="nav-link" data-bs-target="#reportsTabPane" data-bs-toggle="tab" id="reports-tab" role="tab" type="button">
+             User Reports
+            </button>
+           </li>
+          </ul>
+         </div>
+         <div class="card-body">
+          <div class="tab-content" id="evidenceTabContent">
+           <!-- AI Analysis Tab -->
+           <div aria-labelledby="ai-tab" class="tab-pane fade show active" id="aiTabPane" role="tabpanel">
+            <div class="row g-3 align-items-center">
+             <div class="col-12 col-md-5">
+              <div class="app-card p-3 d-flex flex-column align-items-center justify-content-center">
+               <canvas class="mb-2" height="220" id="aiGauge" width="220">
+               </canvas>
+               <div class="text-muted">
+                AI Fraud Confidence
+               </div>
+              </div>
+             </div>
+             <div class="col-12 col-md-7">
+              <div class="grid" style="gap:8px;">
+               <div class="d-flex justify-content-between border rounded p-2">
+                <span class="text-muted">
+                 Scam Category
+                </span>
+                <span class="fw-semibold" id="scamCategory">
+                 —
+                </span>
+               </div>
+               <div class="d-flex justify-content-between border rounded p-2">
+                <span class="text-muted">
+                 Geo Origin
+                </span>
+                <span class="fw-semibold" id="geoOrigin">
+                 —
+                </span>
+               </div>
+               <div class="d-flex justify-content-between border rounded p-2">
+                <span class="text-muted">
+                 Confidence Score
+                </span>
+                <span class="fw-semibold" id="confidenceScore">
+                 —
+                </span>
+               </div>
+              </div>
+              <div class="mt-3">
+               <div class="fw-semibold mb-2">
+                Contributing Factors
+               </div>
+               <ul class="mb-0" id="contributingFactors">
+                <li class="skeleton" style="height:16px;width:80%;">
+                </li>
+                <li class="skeleton mt-2" style="height:16px;width:60%;">
+                </li>
+                <li class="skeleton mt-2" style="height:16px;width:70%;">
+                </li>
+               </ul>
+              </div>
+             </div>
+            </div>
+           </div>
+           <!-- User Reports Tab -->
+           <div aria-labelledby="reports-tab" class="tab-pane fade" id="reportsTabPane" role="tabpanel">
+            <div class="card bg-surface border mb-3 p-3">
+             <form class="search-form row g-2 align-items-center">
+              <div class="col-12 col-md-6">
+               <div class="input-group">
+                <span class="input-group-text">
+                 <i class="fa-solid fa-magnifying-glass">
+                 </i>
+                </span>
+                <input class="form-control" id="reportSearch" placeholder="Search comments or keywords" type="text">
+                </input>
+               </div>
+              </div>
+              <div class="col-6 col-md-3">
+               <select class="form-select" id="reportTypeFilter">
+                <option value="">
+                 All Types
+                </option>
+                <option value="Robocall">
+                 Robocall
+                </option>
+                <option value="Smishing">
+                 Smishing
+                </option>
+                <option value="Phishing">
+                 Phishing
+                </option>
+                <option value="Vishing">
+                 Vishing
+                </option>
+               </select>
+              </div>
+              <div class="col-6 col-md-3 text-end">
+               <button class="btn btn-light" id="btnClearFilters" type="button">
+                <i class="fa-solid fa-eraser me-1">
+                </i>
+                Clear
+               </button>
+              </div>
+             </form>
+            </div>
+            <div class="table-responsive">
+             <table class="table table-theme table-hover table-sortable align-middle" id="reportsTable">
+              <thead>
+               <tr>
+                <th class="sortable" data-sort="timestamp" scope="col">
+                 Timestamp
+                 <i class="fa-solid fa-up-down sort-indicator">
+                 </i>
+                </th>
+                <th class="sortable" data-sort="type" scope="col">
+                 Type
+                 <i class="fa-solid fa-up-down sort-indicator">
+                 </i>
+                </th>
+                <th scope="col">
+                 Comment
+                </th>
+                <th class="text-end" scope="col">
+                 Actions
+                </th>
+               </tr>
+              </thead>
+              <tbody id="reportsTableBody">
+               <!-- Rows injected via JS -->
+              </tbody>
+             </table>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+             <div class="text-muted" id="paginationInfo">
+              —
+             </div>
+             <div aria-label="Pagination controls" class="btn-group" role="group">
+              <button class="btn btn-light" disabled="" id="btnPrev">
+               <i class="fa-solid fa-chevron-left">
+               </i>
+              </button>
+              <button class="btn btn-light" disabled="" id="btnNext">
+               <i class="fa-solid fa-chevron-right">
+               </i>
+              </button>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <!-- History Panel -->
+        <div class="card mt-3">
+         <div class="card-header">
+          <div class="title d-flex align-items-center gap-2">
+           <i class="fa-solid fa-clock-rotate-left">
+           </i>
+           <span class="widget-title">
+            History
+           </span>
+          </div>
+         </div>
+         <div class="card-body">
+          <ol class="timeline mb-0" id="historyTimeline">
+           <!-- Timeline items via JS -->
+          </ol>
+         </div>
+        </div>
+       </div>
+       <!-- Right: Summary & Action -->
+       <div class="col-12 col-lg-4">
+        <div class="sticky-lg-top sticky-offset">
+         <!-- Case Summary Panel -->
+         <div class="card mb-3">
+          <div class="card-header justify-content-between">
+           <div class="title d-flex align-items-center gap-2">
+            <i class="fa-solid fa-rectangle-list">
+            </i>
+            <span class="widget-title">
+             Case Summary
+            </span>
+           </div>
+           <span class="badge-soft warning" id="caseStatusBadge">
+            Pending Review
+           </span>
+          </div>
+          <div class="card-body">
+           <div class="d-flex align-items-start justify-content-between">
+            <div>
+             <div class="text-muted">
+              Phone Number
+             </div>
+             <h3 class="mb-1" id="phoneNumber">
+              —
+             </h3>
+             <small class="text-muted">
+              Flagged:
+              <span id="dateFlagged">
+               —
+              </span>
+             </small>
+            </div>
+            <div class="text-end">
+             <div class="metric-title">
+              AI Score
+             </div>
+             <div class="metric-value" id="aiScoreValue">
+              —
+             </div>
+             <span class="badge-soft error" id="riskBadge">
+              —
+             </span>
+            </div>
+           </div>
+           <hr/>
+           <div class="row g-2">
+            <div class="col-6">
+             <div class="border rounded p-2">
+              <div class="text-muted">
+               Reports
+              </div>
+              <div class="fw-bold" id="userReportCount">
+               —
+              </div>
+             </div>
+            </div>
+            <div class="col-6">
+             <div class="border rounded p-2">
+              <div class="text-muted">
+               Status
+              </div>
+              <div class="fw-bold" id="statusText">
+               —
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <!-- Action Panel -->
+         <div class="card">
+          <div class="card-header">
+           <div class="title d-flex align-items-center gap-2">
+            <i class="fa-solid fa-clipboard-check">
+            </i>
+            <span class="widget-title">
+             Final Decision
+            </span>
+           </div>
+          </div>
+          <div class="card-body">
+           <form id="decisionForm">
+            <div class="mb-3">
+             <label class="form-label">
+              Select Decision
+             </label>
+             <div class="d-grid gap-2">
+              <div class="form-check border rounded p-2">
+               <input class="form-check-input" id="decApprove" name="decision" type="radio" value="approve"/>
+               <label class="form-check-label" for="decApprove">
+                <i class="fa-solid fa-circle-check text-success me-1">
+                </i>
+                Approve (confirm as fraudulent)
+               </label>
+              </div>
+              <div class="form-check border rounded p-2">
+               <input class="form-check-input" id="decReject" name="decision" type="radio" value="reject"/>
+               <label class="form-check-label" for="decReject">
+                <i class="fa-solid fa-circle-xmark text-danger me-1">
+                </i>
+                Reject (dismiss the flag)
+               </label>
+              </div>
+             </div>
+            </div>
+            <div class="mb-3">
+             <label class="form-label" for="internalNotes">
+              Internal Notes (optional)
+             </label>
+             <textarea class="form-control" id="internalNotes" placeholder="Add justification or context for auditing..." rows="4"></textarea>
+             <div class="form-text">
+              These notes are stored for audit logs and not shared publicly.
+             </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+             <div class="text-muted small">
+              Action is final and audited.
+             </div>
+             <button class="btn btn-primary" disabled="" id="btnSubmitDecision" type="submit">
+              <i class="fa-solid fa-paper-plane me-1">
+              </i>
+              Submit Decision
+             </button>
+            </div>
+           </form>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </main>
+   </div>
+  </div>
+  <!-- Footer -->
+  <footer class="py-3" style="background:#000000;color:#fff;">
+   <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+    <small>
+     © 2026 Fraud Shield • Admin
+    </small>
+    <ul class="nav">
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html">
+       Terms
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html#privacy">
+       Privacy
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="btn btn-sm btn-outline-light ms-2" href="./admin_dashboard.html#queue">
+       <i class="fas fa-list-check me-1">
+       </i>
+       Queue
+      </a>
+     </li>
+    </ul>
+   </div>
+  </footer>
+  <!-- Toast container (Bootstrap) -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index:1060">
+   <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-primary border-0" id="liveToast" role="alert">
+    <div class="d-flex">
+     <div class="toast-body">
+      Case loaded successfully.
+     </div>
+     <button aria-label="Close" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" type="button">
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  </script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js">
+  </script>
+  <!-- Bootstrap JS -->
+  <script crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script>
+   // Utility: format date/time
+function fmtDate(d) {
+    try {
+        const date = (d instanceof Date) ? d : new Date(d);
+        return date.toLocaleString(undefined, {
+            year: 'numeric',
+            month: 'short',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+    } catch {
+        return d;
+    }
+}
+
+// Sample case data (mock fetch)
+const mockCaseData = {
+    caseId: 'CS-2026-00093',
+    phoneNumber: '+1 (415) 555-0137',
+    aiScore: 82,
+    userReportCount: 14,
+    status: 'Pending Review',
+    dateFlagged: '2026-03-06T14:32:00Z',
+    aiAnalysis: {
+        scamCategory: 'Tech Support Scam',
+        geoOrigin: 'VoIP (US)',
+        confidenceScore: 0.82,
+        contributingFactors: [
+            'High call volume spike in last 48 hours',
+            'Known spam keywords detected in transcripts',
+            'Short call duration pattern with high frequency',
+            'Multiple independent user reports from different states'
+        ]
+    },
+    userReports: [{
+        timestamp: '2026-03-06T09:10:00Z',
+        type: 'Robocall',
+        comment: 'Automated voice claiming to be from tech support.',
+        id: 1
+    }, {
+        timestamp: '2026-03-05T18:24:00Z',
+        type: 'Smishing',
+        comment: 'SMS with a suspicious link asking to reset password.',
+        id: 2
+    }, {
+        timestamp: '2026-03-05T11:42:00Z',
+        type: 'Phishing',
+        comment: 'Caller requested credit card info urgently.',
+        id: 3
+    }, {
+        timestamp: '2026-03-04T16:03:00Z',
+        type: 'Vishing',
+        comment: 'Impersonated bank agent, asked to verify account.',
+        id: 4
+    }, {
+        timestamp: '2026-03-04T08:57:00Z',
+        type: 'Robocall',
+        comment: 'Warranty expiration scam.',
+        id: 5
+    }, {
+        timestamp: '2026-03-03T20:15:00Z',
+        type: 'Phishing',
+        comment: 'Threatened legal action unless immediate payment.',
+        id: 6
+    }],
+    history: [{
+        timestamp: '2026-03-03T20:20:00Z',
+        eventType: 'Reported by User',
+        eventDetails: 'User submitted report: potential phishing call.'
+    }, {
+        timestamp: '2026-03-04T09:10:00Z',
+        eventType: 'AI Auto-Flag',
+        eventDetails: 'AI confidence exceeded threshold (0.78).'
+    }, {
+        timestamp: '2026-03-05T12:00:00Z',
+        eventType: 'Additional Reports',
+        eventDetails: 'Two more unique user reports received.'
+    }, {
+        timestamp: '2026-03-06T14:32:00Z',
+        eventType: 'Queued for Review',
+        eventDetails: 'Assigned to admin queue.'
+    }]
+};
+
+let aiGaugeChart = null;
+let reportsState = {
+    data: [],
+    page: 1,
+    pageSize: 5,
+    sortKey: 'timestamp',
+    sortDir: 'desc',
+    search: '',
+    type: ''
+};
+
+function initTooltips() {
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(t => new bootstrap.Tooltip(t));
+}
+
+function showToast(msg) {
+    const toastEl = document.getElementById('liveToast');
+    if (!toastEl) return;
+    toastEl.querySelector('.toast-body').textContent = msg;
+    const toast = new bootstrap.Toast(toastEl);
+    toast.show();
+}
+
+function riskFromScore(score) {
+    if (score >= 70) return {
+        label: 'High Risk',
+        cls: 'badge-soft error',
+        color: '#CD2026'
+    };
+    if (score >= 40) return {
+        label: 'Medium Risk',
+        cls: 'badge-soft warning',
+        color: '#FFA500'
+    };
+    return {
+        label: 'Low Risk',
+        cls: 'badge-soft success',
+        color: '#00774E'
+    };
+}
+
+function renderCaseSummary(data) {
+    document.getElementById('caseId').textContent = data.caseId;
+    document.getElementById('phoneNumber').textContent = data.phoneNumber;
+    document.getElementById('aiScoreValue').textContent = data.aiScore + '%';
+    document.getElementById('userReportCount').textContent = data.userReportCount.toString();
+    document.getElementById('statusText').textContent = data.status;
+    document.getElementById('dateFlagged').textContent = fmtDate(data.dateFlagged);
+    const risk = riskFromScore(data.aiScore);
+    const badge = document.getElementById('riskBadge');
+    badge.className = risk.cls;
+    badge.textContent = risk.label;
+    const statusBadge = document.getElementById('caseStatusBadge');
+    statusBadge.className = 'badge-soft warning';
+    statusBadge.textContent = data.status;
+}
+
+function renderAIAnalysis(data) {
+    document.getElementById('scamCategory').textContent = data.scamCategory;
+    document.getElementById('geoOrigin').textContent = data.geoOrigin;
+    document.getElementById('confidenceScore').textContent = (data.confidenceScore * 100).toFixed(0) + '%';
+    const ul = document.getElementById('contributingFactors');
+    ul.innerHTML = '';
+    data.contributingFactors.forEach(f => {
+        const li = document.createElement('li');
+        li.textContent = f;
+        ul.appendChild(li);
+    });
+}
+
+function createGauge(score) {
+    const ctx = document.getElementById('aiGauge').getContext('2d');
+    const risk = riskFromScore(score);
+    if (aiGaugeChart) aiGaugeChart.destroy();
+    aiGaugeChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Score', 'Remaining'],
+            datasets: [{
+                data: [score, 100 - score],
+                backgroundColor: [risk.color, 'rgba(0,0,0,0.08)'],
+                borderColor: ['transparent', 'transparent'],
+                hoverOffset: 4,
+                circumference: 180,
+                rotation: 270
+            }]
+        },
+        options: {
+            cutout: '70%',
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    enabled: true
+                }
+            }
+        }
+    });
+}
+
+function applyFiltersSortPaginate() {
+    const search = reportsState.search.toLowerCase();
+    const type = reportsState.type;
+    const filtered = reportsState.data.filter(r => {
+        const matchesType = !type || r.type === type;
+        const matchesSearch = !search || r.comment.toLowerCase().includes(search);
+        return matchesType && matchesSearch;
+    });
+    filtered.sort((a, b) => {
+        const dir = reportsState.sortDir === 'asc' ? 1 : -1;
+        let vA = a[reportsState.sortKey];
+        let vB = b[reportsState.sortKey];
+        if (reportsState.sortKey === 'timestamp') {
+            vA = new Date(vA).getTime();
+            vB = new Date(vB).getTime();
+        }
+        if (vA < vB) return -1 * dir;
+        if (vA > vB) return 1 * dir;
+        return 0;
+    });
+    const total = filtered.length;
+    const startIdx = (reportsState.page - 1) * reportsState.pageSize;
+    const pageItems = filtered.slice(startIdx, startIdx + reportsState.pageSize);
+    renderReportsTable(pageItems);
+    const endIdx = Math.min(startIdx + reportsState.pageSize, total);
+    document.getElementById('paginationInfo').textContent = total === 0 ? '0 of 0' : `${startIdx + 1}-${endIdx} of ${total}`;
+    document.getElementById('btnPrev').disabled = reportsState.page === 1;
+    document.getElementById('btnNext').disabled = endIdx >= total;
+}
+
+function renderReportsTable(rows) {
+    const tb = document.getElementById('reportsTableBody');
+    tb.innerHTML = '';
+    if (!rows.length) {
+        const tr = document.createElement('tr');
+        const td = document.createElement('td');
+        td.colSpan = 4;
+        td.innerHTML = '<div class="empty-state">No reports found for current filters.</div>';
+        tr.appendChild(td);
+        tb.appendChild(tr);
+        return;
+    }
+    rows.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><span class="text-nowrap">${fmtDate(r.timestamp)}</span></td>
+          <td><span class="badge-soft info">${r.type}</span></td>
+          <td>${r.comment}</td>
+          <td class="text-end">
+            <button class="btn btn-sm btn-light me-1" data-action="view" data-id="${r.id}"><i class="fa-solid fa-eye"></i></button>
+            <button class="btn btn-sm btn-outline-danger" data-action="flag" data-id="${r.id}"><i class="fa-solid fa-flag"></i></button>
+          </td>`;
+        tb.appendChild(tr);
+    });
+}
+
+function renderHistory(historyArr) {
+    const ol = document.getElementById('historyTimeline');
+    ol.innerHTML = '';
+    historyArr.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    historyArr.forEach(h => {
+        const li = document.createElement('li');
+        li.className = 'timeline-item';
+        li.innerHTML = `
+          <div class="timeline-point"></div>
+          <div class="timeline-content">
+            <div class="d-flex justify-content-between">
+              <div class="fw-semibold">${h.eventType}</div>
+              <div class="text-muted small">${fmtDate(h.timestamp)}</div>
+            </div>
+            <div class="text-muted">${h.eventDetails}</div>
+          </div>`;
+        ol.appendChild(li);
+    });
+}
+
+function wireEvents() {
+    // Sorting
+    document.querySelectorAll('#reportsTable thead th.sortable').forEach(th => {
+        th.addEventListener('click', () => {
+            const key = th.getAttribute('data-sort');
+            const isSame = reportsState.sortKey === key;
+            reportsState.sortKey = key;
+            reportsState.sortDir = isSame && reportsState.sortDir === 'asc' ? 'desc' : 'asc';
+            applyFiltersSortPaginate();
+        });
+    });
+    // Filters
+    document.getElementById('reportSearch').addEventListener('input', (e) => {
+        reportsState.search = e.target.value || '';
+        reportsState.page = 1;
+        applyFiltersSortPaginate();
+    });
+    document.getElementById('reportTypeFilter').addEventListener('change', (e) => {
+        reportsState.type = e.target.value || '';
+        reportsState.page = 1;
+        applyFiltersSortPaginate();
+    });
+    document.getElementById('btnClearFilters').addEventListener('click', () => {
+        document.getElementById('reportSearch').value = '';
+        document.getElementById('reportTypeFilter').value = '';
+        reportsState.search = '';
+        reportsState.type = '';
+        reportsState.page = 1;
+        applyFiltersSortPaginate();
+    });
+    // Pagination
+    document.getElementById('btnPrev').addEventListener('click', () => {
+        if (reportsState.page > 1) {
+            reportsState.page--;
+            applyFiltersSortPaginate();
+        }
+    });
+    document.getElementById('btnNext').addEventListener('click', () => {
+        reportsState.page++;
+        applyFiltersSortPaginate();
+    });
+    // Row action buttons (delegation)
+    document.getElementById('reportsTableBody').addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-action]');
+        if (!btn) return;
+        const id = btn.getAttribute('data-id');
+        const action = btn.getAttribute('data-action');
+        if (action === 'view') {
+            Swal.fire({
+                title: 'Report #' + id,
+                text: 'Detail preview not implemented in mockup.',
+                icon: 'info'
+            });
+        } else if (action === 'flag') {
+            Swal.fire({
+                title: 'Flag this report?',
+                text: 'This will mark the report for further internal review.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, flag it',
+                cancelButtonText: 'Cancel'
+            }).then(res => {
+                if (res.isConfirmed) {
+                    Swal.fire({
+                        title: 'Flagged',
+                        text: 'Report has been flagged.',
+                        icon: 'success',
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                }
+            });
+        }
+    });
+
+    // Decision form
+    const form = document.getElementById('decisionForm');
+    const submitBtn = document.getElementById('btnSubmitDecision');
+    form.addEventListener('change', () => {
+        submitBtn.disabled = !form.querySelector('input[name="decision"]:checked');
+    });
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const decision = form.querySelector('input[name="decision"]:checked')?.value;
+        const notes = document.getElementById('internalNotes').value.trim();
+        Swal.fire({
+            title: 'Submit decision?',
+            html: `<div class="text-start">` +
+                `<div><strong>Case:</strong> ${mockCaseData.caseId}</div>` +
+                `<div><strong>Decision:</strong> ${decision?.toUpperCase()}</div>` +
+                `<div class="mt-2 small text-muted">This action is final and updates the central database.</div>` +
+                `</div>`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Confirm',
+            cancelButtonText: 'Cancel'
+        }).then(res => {
+            if (!res.isConfirmed) return;
+            // Simulate API call
+            Swal.showLoading();
+            setTimeout(() => {
+                Swal.close();
+                Swal.fire({
+                    title: 'Success',
+                    text: 'Decision submitted successfully.',
+                    icon: 'success',
+                    timer: 1500,
+                    showConfirmButton: false
+                }).then(() => {
+                    window.location.href = './admin_dashboard.html#queue';
+                });
+            }, 900);
+        });
+    });
+
+    document.getElementById('btnRefresh').addEventListener('click', () => {
+        showToast('Refreshing case data...');
+        // In real app, re-fetch here
+        setTimeout(() => showToast('Case data is up-to-date.'), 800);
+    });
+}
+
+function loadCase() {
+    // Simulate loading delay
+    setTimeout(() => {
+        const data = mockCaseData;
+        renderCaseSummary(data);
+        renderAIAnalysis(data.aiAnalysis);
+        createGauge(data.aiScore);
+        reportsState.data = data.userReports.slice();
+        reportsState.page = 1;
+        applyFiltersSortPaginate();
+        renderHistory(data.history);
+        document.getElementById('feedbackArea').style.display = '';
+        showToast('Case loaded successfully.');
+    }, 600);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initTooltips();
+    loadCase();
+    wireEvents();
+});
+  </script>
+ </body>
+</html>

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Fraud Shield - User Profile
+  </title>
+  <!-- Brand Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+   <!-- Theme CSS -->
+   <link href="style.css" rel="stylesheet">
+    <!-- Page-specific CSS -->
+    <link href="user_profile.css" rel="stylesheet"/>
+   </link>
+  </link>
+ </head>
+ <body class="d-flex flex-column min-vh-100">
+  <!-- Header (included: needed for user pages) -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background:#0000FF;">
+   <div class="container-fluid">
+    <!-- Mobile sidebar toggler (offcanvas) -->
+    <button aria-controls="appSidebarUser" aria-label="Open sidebar" class="btn btn-outline-light me-2 d-lg-none" data-bs-target="#appSidebarUser" data-bs-toggle="offcanvas" type="button">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./call_log.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/28/28';" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+     Fraud Shield
+    </a>
+    <div class="d-none d-md-flex flex-grow-1 mx-3">
+     <form class="w-100" onsubmit="event.preventDefault();" role="search">
+      <div class="input-group">
+       <span class="input-group-text bg-white">
+        <i class="fas fa-search">
+        </i>
+       </span>
+       <input aria-label="Search phone number" class="form-control" placeholder="Search phone number..." type="search"/>
+      </div>
+     </form>
+    </div>
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#" title="Notifications">
+       <i class="fas fa-bell">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#" title="Messages">
+       <i class="fas fa-envelope">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button">
+       <span class="me-2">
+        User
+       </span>
+       <img alt="avatar" class="rounded-circle" onerror="this.onerror=null;this.src='https://picsum.photos/seed/user/28/28';" src="https://via.placeholder.com/28"/>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="./settings_page.html">
+         <i class="fas fa-cog me-2">
+         </i>
+         Settings
+        </a>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./user_profile.html">
+         <i class="fas fa-user me-2">
+         </i>
+         Profile
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./welcome_screen.html">
+         <i class="fas fa-sign-out-alt me-2">
+         </i>
+         Logout
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="container-fluid flex-grow-1">
+   <div class="row flex-nowrap">
+    <!-- Static Sidebar for lg+ screens -->
+    <div class="d-none d-lg-block col-auto p-0">
+     <!-- Sidebar (static) -->
+     <aside class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-white user-sidebar-static" id="appSidebarUserStatic" style="width:260px;min-height:100vh;background-color:#000000 !important;">
+      <div class="d-flex align-items-center mb-3">
+       <a class="d-flex align-items-center text-white text-decoration-none" href="./call_log.html">
+        <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/32/32';" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:32px;height:32px;object-fit:contain;"/>
+        <span class="fs-5 fw-bold">
+         Fraud Shield
+        </span>
+       </a>
+      </div>
+      <div class="d-flex align-items-center mb-4 p-2 rounded" style="background:rgba(255,255,255,0.05);">
+       <div class="me-2 rounded-circle bg-secondary d-flex align-items-center justify-content-center" style="width:40px;height:40px;background:#2d2d2d;">
+        U
+       </div>
+       <div>
+        <div class="fw-semibold">
+         User Name
+        </div>
+        <small class="text-muted">
+         End User
+        </small>
+       </div>
+      </div>
+      <ul class="nav nav-pills flex-column mb-auto">
+       <li class="nav-item">
+        <a class="nav-link text-white d-flex align-items-center" href="./call_log.html" style="border-radius:8px;">
+         <i class="fas fa-home me-2">
+         </i>
+         Home / Call Log
+        </a>
+       </li>
+       <li>
+        <a class="nav-link text-white d-flex align-items-center" href="./report_form.html" style="border-radius:8px;">
+         <i class="fas fa-flag me-2">
+         </i>
+         Report Number
+        </a>
+       </li>
+       <li>
+        <a class="nav-link text-white d-flex align-items-center" href="./protection_history.html" style="border-radius:8px;">
+         <i class="fas fa-history me-2">
+         </i>
+         Protection History
+        </a>
+       </li>
+       <li>
+        <a aria-controls="userSettingsMenuStatic" aria-expanded="false" class="nav-link text-white d-flex align-items-center" data-bs-toggle="collapse" href="#userSettingsMenuStatic" role="button" style="border-radius:8px;">
+         <i class="fas fa-cog me-2">
+         </i>
+         Settings
+         <i class="fas fa-chevron-down ms-auto">
+         </i>
+        </a>
+        <div class="collapse" id="userSettingsMenuStatic">
+         <ul class="btn-toggle-nav list-unstyled fw-normal small ps-4">
+          <li>
+           <a class="nav-link text-white-50 d-block py-1" href="./settings_page.html">
+            <i class="fas fa-cog me-2">
+            </i>
+            Settings Hub
+           </a>
+          </li>
+          <li>
+           <a class="nav-link text-white-50 d-block py-1" href="./user_profile.html">
+            <i class="fas fa-user me-2">
+            </i>
+            My Profile
+           </a>
+          </li>
+          <li>
+           <a class="nav-link text-white-50 d-block py-1" href="./privacy_settings.html">
+            <i class="fas fa-shield-alt me-2">
+            </i>
+            Privacy &amp; Permissions
+           </a>
+          </li>
+         </ul>
+        </div>
+       </li>
+       <li class="mt-2">
+        <a class="nav-link text-white-50 d-flex align-items-center" href="./terms_of_service.html" style="border-radius:8px;">
+         <i class="fas fa-question-circle me-2">
+         </i>
+         Terms &amp; Policy
+        </a>
+       </li>
+      </ul>
+      <hr class="text-secondary"/>
+      <div class="small text-secondary">
+       © Fraud Shield
+      </div>
+      <style>
+       #appSidebarUserStatic .nav-link:hover{background:rgba(255,255,255,0.08);} 
+            #appSidebarUserStatic .nav-link.active{background:rgba(0,0,255,0.15);border-left:3px solid #0000FF;color:#fff;}
+      </style>
+     </aside>
+    </div>
+    <!-- Offcanvas Sidebar (for mobile) -->
+    <div aria-labelledby="sidebarLabel" class="offcanvas offcanvas-start d-lg-none" id="appSidebarUser" tabindex="-1">
+     <div class="offcanvas-header" style="background:#000000;color:#fff;">
+      <h5 class="offcanvas-title d-flex align-items-center" id="sidebarLabel">
+       <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/28/28';" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+       Fraud Shield
+      </h5>
+      <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button">
+      </button>
+     </div>
+     <div class="offcanvas-body p-0" style="background:#000; color:#fff;">
+      <!-- Same Sidebar content -->
+      <aside class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width:260px;min-height:100%;background-color:#000000 !important;">
+       <div class="d-flex align-items-center mb-3">
+        <a class="d-flex align-items-center text-white text-decoration-none" href="./call_log.html">
+         <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/32/32';" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:32px;height:32px;object-fit:contain;"/>
+         <span class="fs-5 fw-bold">
+          Fraud Shield
+         </span>
+        </a>
+       </div>
+       <div class="d-flex align-items-center mb-4 p-2 rounded" style="background:rgba(255,255,255,0.05);">
+        <div class="me-2 rounded-circle bg-secondary d-flex align-items-center justify-content-center" style="width:40px;height:40px;background:#2d2d2d;">
+         U
+        </div>
+        <div>
+         <div class="fw-semibold">
+          User Name
+         </div>
+         <small class="text-muted">
+          End User
+         </small>
+        </div>
+       </div>
+       <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+         <a class="nav-link text-white d-flex align-items-center" href="./call_log.html" style="border-radius:8px;">
+          <i class="fas fa-home me-2">
+          </i>
+          Home / Call Log
+         </a>
+        </li>
+        <li>
+         <a class="nav-link text-white d-flex align-items-center" href="./report_form.html" style="border-radius:8px;">
+          <i class="fas fa-flag me-2">
+          </i>
+          Report Number
+         </a>
+        </li>
+        <li>
+         <a class="nav-link text-white d-flex align-items-center" href="./protection_history.html" style="border-radius:8px;">
+          <i class="fas fa-history me-2">
+          </i>
+          Protection History
+         </a>
+        </li>
+        <li>
+         <a aria-controls="userSettingsMenuMobile" aria-expanded="false" class="nav-link text-white d-flex align-items-center" data-bs-toggle="collapse" href="#userSettingsMenuMobile" role="button" style="border-radius:8px;">
+          <i class="fas fa-cog me-2">
+          </i>
+          Settings
+          <i class="fas fa-chevron-down ms-auto">
+          </i>
+         </a>
+         <div class="collapse" id="userSettingsMenuMobile">
+          <ul class="btn-toggle-nav list-unstyled fw-normal small ps-4">
+           <li>
+            <a class="nav-link text-white-50 d-block py-1" href="./settings_page.html">
+             <i class="fas fa-cog me-2">
+             </i>
+             Settings Hub
+            </a>
+           </li>
+           <li>
+            <a class="nav-link text-white-50 d-block py-1" href="./user_profile.html">
+             <i class="fas fa-user me-2">
+             </i>
+             My Profile
+            </a>
+           </li>
+           <li>
+            <a class="nav-link text-white-50 d-block py-1" href="./privacy_settings.html">
+             <i class="fas fa-shield-alt me-2">
+             </i>
+             Privacy &amp; Permissions
+            </a>
+           </li>
+          </ul>
+         </div>
+        </li>
+        <li class="mt-2">
+         <a class="nav-link text-white-50 d-flex align-items-center" href="./terms_of_service.html" style="border-radius:8px;">
+          <i class="fas fa-question-circle me-2">
+          </i>
+          Terms &amp; Policy
+         </a>
+        </li>
+       </ul>
+       <hr class="text-secondary"/>
+       <div class="small text-secondary">
+        © Fraud Shield
+       </div>
+       <style>
+        #appSidebarUser .nav-link:hover{background:rgba(255,255,255,0.08);} 
+              #appSidebarUser .nav-link.active{background:rgba(0,0,255,0.15);border-left:3px solid #0000FF;color:#fff;}
+       </style>
+      </aside>
+     </div>
+    </div>
+    <!-- Main content -->
+    <main class="col px-3 px-lg-4 py-3 py-lg-4" id="mainContent">
+     <!-- Breadcrumb -->
+     <nav aria-label="breadcrumb" class="breadcrumb mb-3">
+      <ol class="breadcrumb mb-0">
+       <li class="breadcrumb-item">
+        <a href="./call_log.html">
+         Home
+        </a>
+       </li>
+       <li class="breadcrumb-item">
+        <a href="./settings_page.html">
+         Settings
+        </a>
+       </li>
+       <li aria-current="page" class="breadcrumb-item active">
+        My Profile
+       </li>
+      </ol>
+     </nav>
+     <!-- Page Header -->
+     <div class="page-header">
+      <div class="d-flex align-items-center gap-3">
+       <h1 class="page-title mb-0">
+        My Profile
+       </h1>
+       <span class="badge-soft info">
+        <i class="fa-solid fa-user-shield me-1">
+        </i>
+        Account Management
+       </span>
+      </div>
+      <div class="view-switcher d-none d-md-inline-flex">
+       <div class="option active">
+        <i class="fa-solid fa-id-badge me-1">
+        </i>
+        Profile
+       </div>
+      </div>
+     </div>
+     <!-- Notification area -->
+     <div aria-live="polite" class="mb-3" id="profileFeedback">
+     </div>
+     <!-- Profile Card -->
+     <section class="app-card">
+      <div class="card-header">
+       <div class="title d-flex align-items-center gap-3">
+        <i class="fa-solid fa-user text-primary">
+        </i>
+        <span class="widget-title">
+         Profile
+        </span>
+       </div>
+       <div>
+        <button class="btn btn-primary btn-sm" id="editBtnHeader" type="button">
+         <i class="fa-solid fa-pen me-1">
+         </i>
+         Edit Profile
+        </button>
+       </div>
+      </div>
+      <div class="card-body">
+       <!-- Profile Header -->
+       <div class="profile-header mb-3">
+        <div aria-label="Change profile picture" class="position-relative profile-avatar-wrapper" role="button" tabindex="0">
+         <img alt="User avatar" class="avatar lg" id="userAvatar" onerror="this.onerror=null;this.src='https://picsum.photos/seed/avatar/200/200';" src="https://picsum.photos/seed/pfp/200/200"/>
+         <button class="btn btn-sm btn-light avatar-change-btn" id="changeAvatarBtn" title="Change photo" type="button">
+          <i class="fa-solid fa-camera">
+          </i>
+         </button>
+         <input accept="image/*" class="visually-hidden" id="avatarFile" type="file">
+         </input>
+        </div>
+        <div>
+         <div class="user-name" id="userNameHeading">
+          Loading...
+         </div>
+         <div class="user-info-summary">
+          <small class="text-muted" id="userEmailHeading">
+           Loading email...
+          </small>
+         </div>
+        </div>
+       </div>
+       <!-- Profile Form -->
+       <form class="profile-edit-form" id="profileForm" novalidate="">
+        <div class="mb-3">
+         <label class="form-label" for="fullName">
+          Full Name
+         </label>
+         <input class="form-control" disabled="" id="fullName" name="fullName" placeholder="Enter your full name" required="" type="text"/>
+         <div class="invalid-feedback">
+          Please enter your full name.
+         </div>
+        </div>
+        <div class="mb-3">
+         <label class="form-label" for="email">
+          Email Address
+         </label>
+         <input class="form-control" disabled="" id="email" name="email" type="email" value=""/>
+         <div class="form-text">
+          Your email is your primary identifier and cannot be changed here.
+         </div>
+        </div>
+        <!-- Action Buttons -->
+        <div class="d-flex gap-2 mt-2">
+         <button class="btn btn-primary" id="editBtn" type="button">
+          <i class="fa-solid fa-pen me-1">
+          </i>
+          Edit Profile
+         </button>
+         <button class="btn btn-success d-none" id="saveBtn" type="submit">
+          <span aria-hidden="true" class="spinner-border spinner-border-sm me-2 d-none" id="saveSpinner" role="status">
+          </span>
+          <i class="fa-solid fa-floppy-disk me-1">
+          </i>
+          Save Changes
+         </button>
+         <button class="btn btn-light d-none" id="cancelBtn" type="button">
+          <i class="fa-solid fa-xmark me-1">
+          </i>
+          Cancel
+         </button>
+        </div>
+       </form>
+      </div>
+     </section>
+     <!-- Loading/empty states (invisible by default) -->
+     <div class="loading-state mt-3 d-none" id="profileLoadingState">
+      <div class="skeleton" style="height:16px;width:50%;">
+      </div>
+      <div class="skeleton" style="height:16px;width:30%;">
+      </div>
+      <div class="skeleton" style="height:120px;width:100%;">
+      </div>
+     </div>
+    </main>
+   </div>
+  </div>
+  <!-- Footer (included: needed for user pages) -->
+  <footer class="mt-auto py-3" style="background:#000000;color:#fff;">
+   <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+    <div class="d-flex align-items-center">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/logo/20/20';" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:20px;height:20px;object-fit:contain;"/>
+     <small>
+      © 2026 Fraud Shield
+     </small>
+    </div>
+    <ul class="nav">
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html">
+       Terms
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./privacy_settings.html">
+       Privacy
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="btn btn-sm btn-outline-light ms-2" href="./report_form.html">
+       <i class="fas fa-flag me-1">
+       </i>
+       Report
+      </a>
+     </li>
+    </ul>
+   </div>
+  </footer>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  </script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script>
+   // Simple state for the Profile Management component
+const state = {
+    isEditing: false,
+    isLoading: false,
+    originalData: null,
+    formData: {
+        fullName: '',
+        email: '',
+        avatarUrl: ''
+    },
+    apiEndpoints: {
+        get: '/api/user',
+        update: '/api/user'
+    }
+};
+
+const els = {
+    userNameHeading: document.getElementById('userNameHeading'),
+    userEmailHeading: document.getElementById('userEmailHeading'),
+    userAvatar: document.getElementById('userAvatar'),
+    changeAvatarBtn: document.getElementById('changeAvatarBtn'),
+    avatarFile: document.getElementById('avatarFile'),
+    profileForm: document.getElementById('profileForm'),
+    fullName: document.getElementById('fullName'),
+    email: document.getElementById('email'),
+    editBtn: document.getElementById('editBtn'),
+    editBtnHeader: document.getElementById('editBtnHeader'),
+    saveBtn: document.getElementById('saveBtn'),
+    saveSpinner: document.getElementById('saveSpinner'),
+    cancelBtn: document.getElementById('cancelBtn'),
+    feedback: document.getElementById('profileFeedback'),
+    loadingState: document.getElementById('profileLoadingState')
+};
+
+function setEditing(isEditing) {
+    state.isEditing = isEditing;
+    els.fullName.disabled = !isEditing;
+    els.editBtn.classList.toggle('d-none', isEditing);
+    els.editBtnHeader.classList.toggle('d-none', isEditing);
+    els.saveBtn.classList.toggle('d-none', !isEditing);
+    els.cancelBtn.classList.toggle('d-none', !isEditing);
+    els.changeAvatarBtn.classList.toggle('d-none', !isEditing);
+}
+
+function setLoading(isLoading) {
+    state.isLoading = isLoading;
+    els.saveSpinner.classList.toggle('d-none', !isLoading);
+    els.saveBtn.disabled = isLoading;
+    els.editBtn.disabled = isLoading;
+    els.editBtnHeader.disabled = isLoading;
+}
+
+function showAlert(type, message) {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = `
+        <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+          ${message}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>`;
+    els.feedback.innerHTML = '';
+    els.feedback.appendChild(wrapper);
+}
+
+function populateForm(data) {
+    els.userNameHeading.textContent = data.fullName || 'Unnamed User';
+    els.userEmailHeading.textContent = data.email || '';
+    els.fullName.value = data.fullName || '';
+    els.email.value = data.email || '';
+    if (data.avatarUrl) els.userAvatar.src = data.avatarUrl;
+}
+
+// Mock fetch to load user data
+function loadUser() {
+    els.loadingState.classList.add('d-none');
+    setLoading(true);
+    // Simulate API call
+    setTimeout(() => {
+        const mock = {
+            fullName: 'Alex Johnson',
+            email: 'alex.johnson@example.com',
+            avatarUrl: 'https://picsum.photos/seed/alex/200/200'
+        };
+        state.originalData = Object.assign({}, mock);
+        state.formData = Object.assign({}, mock);
+        populateForm(state.formData);
+        setLoading(false);
+    }, 700);
+}
+
+function validate() {
+    let valid = true;
+    if (!els.fullName.value.trim()) {
+        els.fullName.classList.add('is-invalid');
+        valid = false;
+    } else {
+        els.fullName.classList.remove('is-invalid');
+    }
+    return valid;
+}
+
+function handleSave(evt) {
+    evt.preventDefault();
+    if (!validate()) {
+        showAlert('danger', '<i class="fa-solid fa-circle-exclamation me-1"></i> Please fix validation errors.');
+        return;
+    }
+    setLoading(true);
+    const payload = {
+        fullName: els.fullName.value.trim(),
+        email: els.email.value,
+        avatarUrl: els.userAvatar.src
+    };
+    // Simulate API save
+    setTimeout(() => {
+        // Success path
+        state.originalData = Object.assign({}, payload);
+        state.formData = Object.assign({}, payload);
+        populateForm(state.formData);
+        setEditing(false);
+        setLoading(false);
+        Swal.fire({
+            icon: 'success',
+            title: 'Profile updated',
+            text: 'Your changes have been saved successfully.',
+            confirmButtonColor: '#0000FF'
+        });
+    }, 900);
+}
+
+function handleCancel() {
+    els.fullName.value = state.originalData.fullName || '';
+    els.userAvatar.src = state.originalData.avatarUrl || els.userAvatar.src;
+    setEditing(false);
+    showAlert('warning', '<i class="fa-solid fa-rotate-left me-1"></i> Changes discarded.');
+}
+
+// Avatar upload handling
+function openAvatarPicker() {
+    els.avatarFile.click();
+}
+
+function onAvatarSelected(e) {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    if (!file.type.startsWith('image/')) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Invalid file',
+            text: 'Please choose an image file.'
+        });
+        return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+        els.userAvatar.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+}
+
+function markActiveNav() {
+    const links = document.querySelectorAll('#appSidebarUserStatic a.nav-link, #appSidebarUser a.nav-link');
+    links.forEach(a => {
+        const href = a.getAttribute('href');
+        if (href && href.endsWith('user_profile.html')) {
+            a.classList.add('active');
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Wire events
+    els.editBtn.addEventListener('click', () => setEditing(true));
+    els.editBtnHeader.addEventListener('click', () => setEditing(true));
+    els.cancelBtn.addEventListener('click', handleCancel);
+    els.profileForm.addEventListener('submit', handleSave);
+    els.changeAvatarBtn.addEventListener('click', openAvatarPicker);
+    els.userAvatar.addEventListener('click', () => state.isEditing && openAvatarPicker());
+    els.avatarFile.addEventListener('change', onAvatarSelected);
+
+    // Initial state
+    setEditing(false);
+    markActiveNav();
+    loadUser();
+});
+  </script>
+ </body>
+</html>

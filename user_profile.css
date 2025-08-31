@@ -1,0 +1,54 @@
+/* user_profile.css - Page specific styles for User Profile */
+/* Use brand typography */
+body {
+    font-family: "Poppins", var(--font-sans)
+    }
+/* Layout: keep static sidebar at left on large screens and content filling rest */
+@media (min-width: 992px) {
+    .user-sidebar-static {
+        position: sticky;
+        top: 0
+        }
+    }
+/* Profile avatar controls */
+.profile-avatar-wrapper {
+    display: inline-block
+    }
+.profile-avatar-wrapper .avatar {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 50%
+    }
+.profile-avatar-wrapper .avatar-change-btn {
+    position: absolute;
+    right: -6px;
+    bottom: -6px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-1)
+    }
+/* Adjust header buttons on small screens */
+@media (max-width: 575.98px) {
+    #editBtnHeader {
+        display: none
+        }
+    }
+/* Card spacing tweaks */
+.app-card .card-body {
+    padding-top: 20px;
+    padding-bottom: 20px
+    }
+/* Feedback spacing */
+#profileFeedback .alert {
+    margin-bottom: 0
+    }
+/* Ensure offcanvas sidebar matches dark theme */
+#appSidebarUser .offcanvas-body {
+    padding: 0
+    }
+#appSidebarUser a.nav-link {
+    color: #fff
+    }
+#appSidebarUser .text-muted {
+    color: #adb5bd !important
+    }

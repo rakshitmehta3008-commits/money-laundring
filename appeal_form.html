@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Fraud Shield - Appeal Form
+  </title>
+  <!-- Poppins Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  </script>
+  <!-- Site Theme CSS -->
+  <link href="./style.css" rel="stylesheet"/>
+  <!-- Page-specific CSS -->
+  <link href="./appeal_form.css" rel="stylesheet"/>
+ </head>
+ <body class="appeals-layout bg-surface">
+  <!-- Header: Public Appeals Header -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background:#0000FF;">
+   <div class="container-fluid">
+    <button aria-controls="appSidebarAppeals" aria-label="Toggle navigation" class="btn btn-outline-light me-2 d-lg-none" data-bs-target="#appSidebarAppeals" data-bs-toggle="offcanvas" type="button">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./appeal_form.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fraudshield/28/28';" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+     Fraud Shield Appeals
+    </a>
+    <ul class="navbar-nav ms-auto">
+     <li class="nav-item">
+      <a class="nav-link" href="./terms_of_service.html">
+       Terms
+      </a>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <!-- Sidebar: Public Appeals Sidebar (visible as offcanvas on mobile, static on lg+) -->
+  <aside aria-labelledby="offcanvasAppealsLabel" class="offcanvas-lg offcanvas-start d-lg-flex flex-column flex-shrink-0 p-3 bg-dark text-white" id="appSidebarAppeals" style="width:260px;min-height:100vh;background-color:#000000 !important;" tabindex="-1">
+   <div class="d-flex align-items-center mb-3">
+    <a class="text-white text-decoration-none d-flex align-items-center" href="./appeal_form.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fraudshield/32/32';" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:32px;height:32px;object-fit:contain;"/>
+     <span class="fs-5 fw-bold">
+      Appeals
+     </span>
+    </a>
+   </div>
+   <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+     <a class="nav-link text-white active" href="./appeal_form.html" style="border-radius:8px;">
+      <i class="fas fa-inbox me-2">
+      </i>
+      Submit Appeal
+     </a>
+    </li>
+    <li>
+     <a class="nav-link text-white" href="./appeal_confirmation.html" style="border-radius:8px;">
+      <i class="fas fa-check-circle me-2">
+      </i>
+      Confirmation
+     </a>
+    </li>
+    <li class="mt-2">
+     <a class="nav-link text-white-50" href="./developer_portal.html#support" style="border-radius:8px;">
+      <i class="fas fa-info-circle me-2">
+      </i>
+      Support
+     </a>
+    </li>
+   </ul>
+   <hr class="text-secondary"/>
+   <small class="text-secondary">
+    © Fraud Shield
+   </small>
+   <style>
+    #appSidebarAppeals .nav-link:hover{background:rgba(255,255,255,0.08);} 
+      #appSidebarAppeals .nav-link.active{background:rgba(0,0,255,0.15);border-left:3px solid #0000FF;color:#fff;}
+   </style>
+  </aside>
+  <!-- Page Content Wrapper (accounts for sidebar space on lg+) -->
+  <div class="page-content">
+   <main class="main-panel container-max">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="breadcrumb">
+     <ol class="breadcrumb mb-3">
+      <li class="breadcrumb-item">
+       <a href="./welcome_screen.html">
+        Home
+       </a>
+      </li>
+      <li class="breadcrumb-item">
+       <a href="./developer_portal.html#support">
+        Support
+       </a>
+      </li>
+      <li aria-current="page" class="breadcrumb-item active">
+       Submit Appeal
+      </li>
+     </ol>
+    </nav>
+    <!-- Page Header -->
+    <div class="page-header">
+     <div>
+      <h1 class="page-title mb-1">
+       Submit an Appeal
+      </h1>
+      <p class="text-muted mb-0">
+       If your phone number has been incorrectly flagged as fraudulent, submit the form below to start the review process.
+      </p>
+     </div>
+     <div class="reveal-on-hover">
+      <a class="btn btn-light reveal-target" href="./terms_of_service.html#privacy">
+       <i class="fa-solid fa-shield-halved me-2">
+       </i>
+       Privacy Policy
+      </a>
+     </div>
+    </div>
+    <!-- System Feedback Area -->
+    <div aria-live="polite" class="alert alert-warning d-none" id="systemFeedback" role="alert">
+    </div>
+    <!-- Appeal Submission Form Card -->
+    <section class="card app-card mb-4" data-endpoint="/api/appeals/submit" id="appealSubmissionForm">
+     <div class="card-header">
+      <div class="title d-flex align-items-center">
+       <i class="fa-solid fa-file-circle-check text-primary me-2">
+       </i>
+       <span class="widget-title">
+        Appeal Submission
+       </span>
+      </div>
+      <span class="badge-soft info">
+       <i class="fa-solid fa-lock me-1">
+       </i>
+       Secure
+      </span>
+     </div>
+     <div class="card-body">
+      <form id="appealForm" novalidate="">
+       <!-- Contact Information -->
+       <fieldset class="mb-4">
+        <legend class="section-label mb-3">
+         <i class="fa-regular fa-address-card me-2">
+         </i>
+         Contact Information
+        </legend>
+        <div class="row g-3">
+         <div class="col-12 col-md-6">
+          <label class="form-label" for="fullName">
+           Full Name
+           <span class="text-danger">
+            *
+           </span>
+          </label>
+          <input class="form-control" id="fullName" name="fullName" placeholder="e.g., Jane Doe" required="" type="text"/>
+          <div class="form-text">
+           Use your legal name. Letters and spaces only.
+          </div>
+          <div class="invalid-feedback">
+           Please enter a valid full name (letters and spaces only).
+          </div>
+         </div>
+         <div class="col-12 col-md-6">
+          <label class="form-label" for="emailAddress">
+           Email Address
+           <span class="text-danger">
+            *
+           </span>
+          </label>
+          <input class="form-control" id="emailAddress" name="emailAddress" placeholder="you@example.com" required="" type="email"/>
+          <div class="form-text">
+           We’ll contact you at this address regarding your appeal.
+          </div>
+          <div class="invalid-feedback">
+           Please enter a valid email address.
+          </div>
+         </div>
+         <div class="col-12 col-md-6">
+          <label class="form-label" for="relationshipToNumber">
+           Relationship to the Number
+           <span class="text-danger">
+            *
+           </span>
+          </label>
+          <select class="form-select" id="relationshipToNumber" name="relationshipToNumber" required="">
+           <option disabled="" selected="" value="">
+            Choose one...
+           </option>
+           <option>
+            Owner
+           </option>
+           <option>
+            Employee of Owning Company
+           </option>
+           <option>
+            Authorized Representative
+           </option>
+           <option>
+            Other
+           </option>
+          </select>
+          <div class="invalid-feedback">
+           Please select your relationship to the number.
+          </div>
+         </div>
+        </div>
+       </fieldset>
+       <!-- Flagged Number Details -->
+       <fieldset class="mb-4">
+        <legend class="section-label mb-3">
+         <i class="fa-solid fa-phone me-2">
+         </i>
+         Flagged Number Details
+        </legend>
+        <div class="row g-3">
+         <div class="col-12 col-md-6">
+          <label class="form-label" for="phoneNumber">
+           Phone Number
+           <span class="text-danger">
+            *
+           </span>
+          </label>
+          <input class="form-control" id="phoneNumber" name="phoneNumber" placeholder="e.g., +1 555-555-5555" required="" type="tel"/>
+          <div class="form-text">
+           Include country code. Example: +1 555-555-5555
+          </div>
+          <div class="invalid-feedback">
+           Please enter a valid international phone number.
+          </div>
+         </div>
+         <div class="col-12">
+          <label class="form-label" for="appealReason">
+           Reason for Appeal
+           <span class="text-danger">
+            *
+           </span>
+          </label>
+          <textarea class="form-control" id="appealReason" maxlength="2000" name="appealReason" placeholder="Explain why this number was incorrectly flagged and add any relevant context." required="" rows="6"></textarea>
+          <div class="d-flex justify-content-between">
+           <div class="form-text">
+            Be specific and include dates, context, and any references.
+           </div>
+           <small class="text-muted" id="reasonCount">
+            0 / 2000
+           </small>
+          </div>
+          <div class="invalid-feedback">
+           Please provide your reason (max 2000 characters).
+          </div>
+         </div>
+        </div>
+       </fieldset>
+       <!-- Evidence Upload -->
+       <fieldset class="mb-4">
+        <legend class="section-label mb-3">
+         <i class="fa-solid fa-paperclip me-2">
+         </i>
+         Supporting Evidence (optional)
+        </legend>
+        <div class="row g-3">
+         <div class="col-12">
+          <div class="dropzone rounded border p-4 text-center" id="evidenceDropzone">
+           <i class="fa-solid fa-cloud-arrow-up fa-2xl text-primary mb-2">
+           </i>
+           <p class="mb-1">
+            Drag &amp; drop files here or
+            <label class="text-primary text-decoration-underline" for="evidenceFiles" role="button">
+             browse
+            </label>
+           </p>
+           <small class="text-muted d-block">
+            Allowed: PDF, JPG, PNG • Max size: 5MB each • Max 3 files
+           </small>
+           <input accept="application/pdf,image/jpeg,image/png" class="visually-hidden" id="evidenceFiles" multiple="" type="file"/>
+          </div>
+          <ul class="list-group mt-3" id="fileList">
+          </ul>
+          <div class="form-text text-danger d-none" id="evidenceFeedback">
+          </div>
+         </div>
+        </div>
+       </fieldset>
+       <!-- Actions: Captcha + Submit -->
+       <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+        <!-- CAPTCHA Placeholder (demo) -->
+        <div aria-live="polite" class="captcha-placeholder card p-3 flex-grow-1">
+         <div class="d-flex align-items-center gap-2">
+          <i class="fa-solid fa-robot text-muted">
+          </i>
+          <strong>
+           CAPTCHA verification
+          </strong>
+         </div>
+         <p class="mb-2 text-muted small">
+          Complete the challenge to enable submission.
+         </p>
+         <button class="btn btn-outline-primary btn-sm" id="captchaVerifyBtn" type="button">
+          <i class="fa-solid fa-shield-check me-2">
+          </i>
+          Verify I'm not a robot
+         </button>
+         <span class="badge bg-secondary ms-2 align-middle" id="captchaStatus">
+          Not verified
+         </span>
+        </div>
+        <div class="text-md-end">
+         <button class="btn btn-primary px-4" disabled="" id="submitBtn" type="submit">
+          <span class="btn-label">
+           <i class="fa-solid fa-paper-plane me-2">
+           </i>
+           Submit Appeal
+          </span>
+          <span aria-hidden="true" class="spinner-border spinner-border-sm d-none" role="status">
+          </span>
+         </button>
+         <div class="form-text text-muted mt-2">
+          By submitting, you agree to our
+          <a class="text-decoration-underline" href="./terms_of_service.html">
+           Terms
+          </a>
+          .
+         </div>
+        </div>
+       </div>
+      </form>
+     </div>
+    </section>
+    <!-- Help & Tips -->
+    <section class="card app-card">
+     <div class="card-header">
+      <div class="title d-flex align-items-center">
+       <i class="fa-regular fa-lightbulb text-warning me-2">
+       </i>
+       <span class="widget-title">
+        Tips for Faster Review
+       </span>
+      </div>
+     </div>
+     <div class="card-body">
+      <ul class="mb-0">
+       <li>
+        Attach clear documentation (e.g., recent phone bill, business registration) that confirms ownership or authorized use of the number.
+       </li>
+       <li>
+        Provide dates/timeframes when the suspected false flag occurred.
+       </li>
+       <li>
+        If relevant, include ticket numbers from your carrier or previous correspondence.
+       </li>
+      </ul>
+     </div>
+    </section>
+   </main>
+   <!-- Footer: Public Appeals Footer -->
+   <footer class="py-3 mt-4" style="background:#000000;color:#fff;">
+    <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+     <small>
+      © 2026 Fraud Shield
+     </small>
+     <ul class="nav">
+      <li class="nav-item">
+       <a class="nav-link px-2 text-white-50" href="./terms_of_service.html">
+        Terms
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link px-2 text-white-50" href="./terms_of_service.html#privacy">
+        Privacy
+       </a>
+      </li>
+     </ul>
+    </div>
+   </footer>
+  </div>
+  <!-- Toast Container (System notifications) -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1060">
+   <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-dark border-0" id="liveToast" role="alert">
+    <div class="d-flex">
+     <div class="toast-body" id="toastMessage">
+      Action completed.
+     </div>
+     <button aria-label="Close" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" type="button">
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script>
+   // State
+const state = {
+    formData: {
+        fullName: '',
+        emailAddress: '',
+        relationshipToNumber: '',
+        phoneNumber: '',
+        appealReason: '',
+        evidenceFiles: []
+    },
+    isCaptchaVerified: false,
+    isSubmitting: false
+};
+
+// DOM Elements
+const form = document.getElementById('appealForm');
+const submitBtn = document.getElementById('submitBtn');
+const spinner = submitBtn.querySelector('.spinner-border');
+const btnLabel = submitBtn.querySelector('.btn-label');
+const systemFeedback = document.getElementById('systemFeedback');
+const fullNameInput = document.getElementById('fullName');
+const emailInput = document.getElementById('emailAddress');
+const relationshipSelect = document.getElementById('relationshipToNumber');
+const phoneInput = document.getElementById('phoneNumber');
+const reasonInput = document.getElementById('appealReason');
+const reasonCount = document.getElementById('reasonCount');
+const dropzone = document.getElementById('evidenceDropzone');
+const fileInput = document.getElementById('evidenceFiles');
+const fileList = document.getElementById('fileList');
+const evidenceFeedback = document.getElementById('evidenceFeedback');
+const captchaBtn = document.getElementById('captchaVerifyBtn');
+const captchaStatus = document.getElementById('captchaStatus');
+
+// Utils
+const toast = (message) => {
+    const toastEl = document.getElementById('liveToast');
+    document.getElementById('toastMessage').textContent = message;
+    const t = new bootstrap.Toast(toastEl);
+    t.show();
+};
+
+const setFeedback = (message = '', type = 'warning') => {
+    if (!message) {
+        systemFeedback.classList.add('d-none');
+        systemFeedback.textContent = '';
+        return;
+    }
+    systemFeedback.className = `alert alert-${type}`;
+    systemFeedback.textContent = message;
+};
+
+const nameValid = (v) => /^[A-Za-z][A-Za-z\s]{1,}$/.test(v.trim());
+const emailValid = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+
+function cleanPhone(v) {
+    v = v.trim();
+    // keep only leading + and digits
+    let cleaned = v.replace(/[^\d+]/g, '');
+    if (cleaned.startsWith('+')) {
+        cleaned = '+' + cleaned.slice(1).replace(/\+/g, '');
+    }
+    return cleaned;
+}
+const phoneValid = (v) => {
+    const c = cleanPhone(v);
+    // E.164: +[1-9]\d{1,14}
+    return /^\+[1-9]\d{6,14}$/.test(c);
+};
+
+function updateSubmitState() {
+    const allValid = nameValid(fullNameInput.value) && emailValid(emailInput.value) && relationshipSelect.value && phoneValid(phoneInput.value) && reasonInput.value.trim().length > 0 && reasonInput.value.trim().length <= 2000 && state.isCaptchaVerified;
+    submitBtn.disabled = !allValid || state.isSubmitting;
+}
+
+// Event handlers: validation
+fullNameInput.addEventListener('blur', () => {
+    const ok = nameValid(fullNameInput.value);
+    fullNameInput.classList.toggle('is-invalid', !ok);
+    fullNameInput.classList.toggle('is-valid', ok);
+    state.formData.fullName = fullNameInput.value.trim();
+    updateSubmitState();
+});
+
+emailInput.addEventListener('blur', () => {
+    const ok = emailValid(emailInput.value);
+    emailInput.classList.toggle('is-invalid', !ok);
+    emailInput.classList.toggle('is-valid', ok);
+    state.formData.emailAddress = emailInput.value.trim();
+    updateSubmitState();
+});
+
+relationshipSelect.addEventListener('change', () => {
+    const ok = !!relationshipSelect.value;
+    relationshipSelect.classList.toggle('is-invalid', !ok);
+    relationshipSelect.classList.toggle('is-valid', ok);
+    state.formData.relationshipToNumber = relationshipSelect.value;
+    updateSubmitState();
+});
+
+phoneInput.addEventListener('blur', () => {
+    const ok = phoneValid(phoneInput.value);
+    phoneInput.classList.toggle('is-invalid', !ok);
+    phoneInput.classList.toggle('is-valid', ok);
+    state.formData.phoneNumber = cleanPhone(phoneInput.value);
+    updateSubmitState();
+});
+
+reasonInput.addEventListener('input', () => {
+    const len = reasonInput.value.length;
+    reasonCount.textContent = `${len} / 2000`;
+    const ok = len > 0 && len <= 2000;
+    reasonInput.classList.toggle('is-invalid', !ok);
+    reasonInput.classList.toggle('is-valid', ok);
+    state.formData.appealReason = reasonInput.value;
+    updateSubmitState();
+});
+
+// Evidence Upload Logic
+const MAX_FILES = 3;
+const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+const ALLOWED = ['application/pdf', 'image/jpeg', 'image/png'];
+
+function renderFiles() {
+    fileList.innerHTML = '';
+    state.formData.evidenceFiles.forEach((f, idx) => {
+        const li = document.createElement('li');
+        li.className = 'list-group-item d-flex justify-content-between align-items-center';
+        li.innerHTML = `
+          <div class="d-flex align-items-center gap-2">
+            <i class="fa-regular fa-file-lines text-info"></i>
+            <div>
+              <div class="fw-semibold">${f.name}</div>
+              <small class="text-muted">${(f.size/1024/1024).toFixed(2)} MB</small>
+            </div>
+          </div>
+          <button type="button" class="btn btn-sm btn-light" data-idx="${idx}"><i class="fa-solid fa-xmark"></i></button>
+        `;
+        fileList.appendChild(li);
+    });
+    // remove handlers
+    fileList.querySelectorAll('button[data-idx]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const i = parseInt(e.currentTarget.getAttribute('data-idx'));
+            state.formData.evidenceFiles.splice(i, 1);
+            renderFiles();
+            updateSubmitState();
+        });
+    });
+}
+
+function addFiles(files) {
+    evidenceFeedback.classList.add('d-none');
+    const errors = [];
+    for (const file of files) {
+        if (state.formData.evidenceFiles.length >= MAX_FILES) {
+            errors.push('Maximum of 3 files can be uploaded.');
+            break;
+        }
+        if (!ALLOWED.includes(file.type)) {
+            errors.push(`${file.name}: Unsupported file type.`);
+            continue;
+        }
+        if (file.size > MAX_SIZE) {
+            errors.push(`${file.name}: File too large (max 5MB).`);
+            continue;
+        }
+        state.formData.evidenceFiles.push(file);
+    }
+    if (errors.length) {
+        evidenceFeedback.textContent = errors.join(' ');
+        evidenceFeedback.classList.remove('d-none');
+        toast('Some files were not added.');
+    }
+    renderFiles();
+}
+
+fileInput.addEventListener('change', (e) => addFiles(e.target.files));
+
+;
+['dragenter', 'dragover'].forEach(evt => dropzone.addEventListener(evt, (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dropzone.classList.add('drag-over');
+}));;
+['dragleave', 'drop'].forEach(evt => dropzone.addEventListener(evt, (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dropzone.classList.remove('drag-over');
+}));
+dropzone.addEventListener('drop', (e) => {
+    const dt = e.dataTransfer;
+    if (dt && dt.files) addFiles(dt.files);
+});
+
+// CAPTCHA (Demo)
+captchaBtn.addEventListener('click', async () => {
+    // Simulate challenge with SweetAlert2
+    const {
+        value: confirmed
+    } = await Swal.fire({
+        icon: 'question',
+        title: 'Complete CAPTCHA',
+        text: 'For demo purposes, click confirm to simulate CAPTCHA verification.',
+        showCancelButton: true,
+        confirmButtonText: 'I am human',
+        cancelButtonText: 'Cancel',
+        confirmButtonColor: '#0000FF'
+    });
+    if (confirmed) {
+        state.isCaptchaVerified = true;
+        captchaStatus.textContent = 'Verified';
+        captchaStatus.className = 'badge bg-success ms-2';
+        captchaBtn.disabled = true;
+        captchaBtn.classList.add('disabled');
+        captchaBtn.innerHTML = '<i class="fa-solid fa-shield-check me-2"></i>Verified';
+        updateSubmitState();
+    }
+});
+
+// Submit
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Final validation check
+    const valid = nameValid(fullNameInput.value) && emailValid(emailInput.value) && relationshipSelect.value && phoneValid(phoneInput.value) && reasonInput.value.trim().length > 0 && reasonInput.value.trim().length <= 2000 && state.isCaptchaVerified;
+    if (!valid) {
+        setFeedback('Please complete all required fields with valid information and verify CAPTCHA.', 'danger');
+        toast('Form has errors. Please review.');
+        return;
+    }
+
+    setFeedback('Submitting your appeal. Please wait…', 'info');
+    state.isSubmitting = true;
+    submitBtn.disabled = true;
+    spinner.classList.remove('d-none');
+    btnLabel.classList.add('d-none');
+
+    // Prepare payload (files excluded in demo)
+    const payload = {
+        fullName: state.formData.fullName,
+        emailAddress: state.formData.emailAddress,
+        relationshipToNumber: state.formData.relationshipToNumber,
+        phoneNumber: state.formData.phoneNumber,
+        appealReason: state.formData.appealReason,
+        evidenceFileNames: state.formData.evidenceFiles.map(f => f.name)
+    };
+
+    try {
+        // Demo: simulate API
+        await new Promise(res => setTimeout(res, 1100));
+        // In production, use fetch:
+        // const res = await fetch(document.getElementById('appealSubmissionForm').dataset.endpoint, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+        // if (!res.ok) throw new Error('Submission failed');
+
+        setFeedback('Your appeal was submitted successfully. Redirecting…', 'success');
+        await Swal.fire({
+            icon: 'success',
+            title: 'Appeal Submitted',
+            text: 'Thank you. Our team will review your case and contact you via email.',
+            confirmButtonColor: '#0000FF'
+        });
+        window.location.href = './appeal_confirmation.html';
+    } catch (err) {
+        console.error(err);
+        setFeedback('We could not submit your appeal at this time. Please try again later.', 'danger');
+        Swal.fire({
+            icon: 'error',
+            title: 'Submission Failed',
+            text: 'Please try again later or contact support.'
+        });
+    } finally {
+        state.isSubmitting = false;
+        spinner.classList.add('d-none');
+        btnLabel.classList.remove('d-none');
+        updateSubmitState();
+    }
+});
+
+// Initialize submit state on load
+updateSubmitState();
+  </script>
+ </body>
+</html>

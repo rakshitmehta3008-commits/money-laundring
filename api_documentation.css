@@ -1,0 +1,73 @@
+/* API Documentation page-specific styles */
+:root {
+    --docs-toc-active-bg: rgba(0, 0, 255, 0.08);
+    --docs-toc-active-border: #00F
+    }
+body {
+    font-family: "Poppins", var(--font-sans)
+    }
+/* Layout shift for persistent sidebar on lg+ */
+@media (min-width: 992px) {
+    .content-wrap {
+        margin-left: 260px
+        }
+    }
+.content-wrap {
+    background: transparent
+    }
+/* Docs TOC */
+.docs-sidenav {
+    position: sticky;
+    top: 84px
+    }
+#docsToc .list-group-item {
+    border: 0;
+    border-left: 3px solid transparent;
+    padding: 10px 16px
+    }
+#docsToc .list-group-item:hover {
+    background: var(--neutral-soft)
+    }
+#docsToc .list-group-item.active {
+    background: var(--docs-toc-active-bg);
+    color: var(--text-strong);
+    border-left-color: var(--docs-toc-active-border)
+    }
+/* Section spacing and anchor offset for sticky header */
+.doc-section {
+    scroll-margin-top: 84px;
+    margin-bottom: var(--space-6)
+    }
+.doc-section h2 {
+    margin-bottom: var(--space-3)
+    }
+.doc-section h4 {
+    margin-top: var(--space-4)
+    }
+/* Code blocks and copy button */
+pre[class*="language-"] {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-0)
+    }
+.btn-copy {
+    z-index: 2
+    }
+/* Tables */
+.table-theme th[role="button"] {
+    cursor: pointer;
+    user-select: none
+    }
+/* Chart sizing */
+#rateChart {
+    min-height: 260px
+    }
+/* Alerts and badges visuals */
+.badge-soft.info {
+    background: var(--info-soft);
+    color: #005b7a
+    }
+/* Footer spacing fix */
+footer a {
+    text-decoration: none
+    }

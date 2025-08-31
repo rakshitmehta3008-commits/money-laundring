@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Protection History - Fraud Shield
+  </title>
+  <!-- Poppins Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 CSS -->
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-CodybG7E2i6TmJdjx+9QkFzsIuekM3xB0NEwmbd8e0m0nAvFz3pPSg7a6kUo0u0tqGQZ6m8Jp0T7bqLz3r4mQw==" referrerpolicy="no-referrer" rel="stylesheet">
+   <!-- Global Theme CSS -->
+   <link href="./style.css" rel="stylesheet">
+    <!-- Page-specific CSS -->
+    <link href="./protection_history.css" rel="stylesheet"/>
+    <style>
+     body { font-family: 'Poppins', var(--font-sans, Arial), sans-serif; }
+    </style>
+   </link>
+  </link>
+ </head>
+ <body class="d-flex flex-column min-vh-100">
+  <!-- Header (Top Navbar) -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background:#0000FF;">
+   <div class="container-fluid">
+    <!-- Toggler opens mobile sidebar -->
+    <button aria-controls="mobileSidebar" aria-label="Open menu" class="btn btn-outline-light me-2 d-lg-none" data-bs-target="#mobileSidebar" data-bs-toggle="offcanvas" type="button">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./call_log.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fslogo/28/28'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+     Fraud Shield
+    </a>
+    <div class="d-none d-md-flex flex-grow-1 mx-3">
+     <form class="w-100" id="topSearchForm" role="search">
+      <div class="input-group">
+       <span class="input-group-text bg-white">
+        <i class="fas fa-search">
+        </i>
+       </span>
+       <input aria-label="Search" class="form-control" id="topSearchInput" placeholder="Search phone number..." type="search"/>
+      </div>
+     </form>
+    </div>
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#" id="notifBell">
+       <i class="fas fa-bell">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#">
+       <i class="fas fa-envelope">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button">
+       <span class="me-2">
+        User
+       </span>
+       <img alt="avatar" class="rounded-circle" src="https://picsum.photos/seed/useravatar/28/28"/>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="./settings_page.html">
+         <i class="fas fa-cog me-2">
+         </i>
+         Settings
+        </a>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./user_profile.html">
+         <i class="fas fa-user me-2">
+         </i>
+         Profile
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./welcome_screen.html">
+         <i class="fas fa-sign-out-alt me-2">
+         </i>
+         Logout
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="flex-grow-1 d-flex">
+   <!-- Left Sidebar (visible on lg and up) -->
+   <aside class="d-none d-lg-flex flex-column flex-shrink-0 p-3 bg-dark text-white" id="appSidebarUser" style="width:260px;min-height:100vh;background-color:#000000 !important;">
+    <div class="d-flex align-items-center mb-3">
+     <a class="d-flex align-items-center text-white text-decoration-none" href="./call_log.html">
+      <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fslogo/32/32'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:32px;height:32px;object-fit:contain;"/>
+      <span class="fs-5 fw-bold">
+       Fraud Shield
+      </span>
+     </a>
+    </div>
+    <div class="d-flex align-items-center mb-4 p-2 rounded" style="background:rgba(255,255,255,0.05);">
+     <div class="me-2 rounded-circle bg-secondary d-flex align-items-center justify-content-center" style="width:40px;height:40px;background:#2d2d2d;">
+      U
+     </div>
+     <div>
+      <div class="fw-semibold">
+       User Name
+      </div>
+      <small class="text-muted">
+       End User
+      </small>
+     </div>
+    </div>
+    <ul class="nav nav-pills flex-column mb-auto">
+     <li class="nav-item">
+      <a class="nav-link text-white d-flex align-items-center" href="./call_log.html" style="border-radius:8px;">
+       <i class="fas fa-home me-2">
+       </i>
+       Home / Call Log
+      </a>
+     </li>
+     <li>
+      <a class="nav-link text-white d-flex align-items-center" href="./report_form.html" style="border-radius:8px;">
+       <i class="fas fa-flag me-2">
+       </i>
+       Report Number
+      </a>
+     </li>
+     <li>
+      <a class="nav-link text-white d-flex align-items-center active" href="./protection_history.html" style="border-radius:8px;">
+       <i class="fas fa-history me-2">
+       </i>
+       Protection History
+      </a>
+     </li>
+     <li>
+      <a aria-controls="userSettingsMenu" aria-expanded="false" class="nav-link text-white d-flex align-items-center" data-bs-toggle="collapse" href="#userSettingsMenu" role="button" style="border-radius:8px;">
+       <i class="fas fa-cog me-2">
+       </i>
+       Settings
+       <i class="fas fa-chevron-down ms-auto">
+       </i>
+      </a>
+      <div class="collapse" id="userSettingsMenu">
+       <ul class="btn-toggle-nav list-unstyled fw-normal small ps-4">
+        <li>
+         <a class="nav-link text-white-50 d-block py-1" href="./settings_page.html">
+          <i class="fas fa-cog me-2">
+          </i>
+          Settings Hub
+         </a>
+        </li>
+        <li>
+         <a class="nav-link text-white-50 d-block py-1" href="./user_profile.html">
+          <i class="fas fa-user me-2">
+          </i>
+          My Profile
+         </a>
+        </li>
+        <li>
+         <a class="nav-link text-white-50 d-block py-1" href="./privacy_settings.html">
+          <i class="fas fa-shield-alt me-2">
+          </i>
+          Privacy &amp; Permissions
+         </a>
+        </li>
+       </ul>
+      </div>
+     </li>
+     <li class="mt-2">
+      <a class="nav-link text-white-50 d-flex align-items-center" href="./terms_of_service.html" style="border-radius:8px;">
+       <i class="fas fa-question-circle me-2">
+       </i>
+       Terms &amp; Policy
+      </a>
+     </li>
+    </ul>
+    <hr class="text-secondary"/>
+    <div class="small text-secondary">
+     © Fraud Shield
+    </div>
+    <style>
+     #appSidebarUser .nav-link:hover{background:rgba(255,255,255,0.08);} 
+        #appSidebarUser .nav-link.active{background:rgba(0,0,255,0.15);border-left:3px solid #0000FF;color:#fff;}
+    </style>
+   </aside>
+   <!-- Main Content -->
+   <main class="flex-grow-1">
+    <div class="container-fluid py-4">
+     <!-- Breadcrumb / Page Header -->
+     <div class="page-header">
+      <div class="d-flex align-items-center gap-2">
+       <h1 class="page-title mb-0">
+        Protection History
+       </h1>
+       <span class="badge-soft info ms-2">
+        <i class="fa-solid fa-shield-halved me-1">
+        </i>
+        Activity Log
+       </span>
+      </div>
+      <div aria-label="View switcher" class="view-switcher" role="group">
+       <div class="option active" id="viewListBtn">
+        <i class="fa-solid fa-list">
+        </i>
+       </div>
+       <div class="option" id="viewCompactBtn">
+        <i class="fa-solid fa-border-all">
+        </i>
+       </div>
+      </div>
+     </div>
+     <!-- System feedback / alerts area -->
+     <div class="alert alert-info d-none" id="systemAlertArea" role="alert">
+      <i class="fa-solid fa-circle-info me-2">
+      </i>
+      System message will appear here.
+     </div>
+     <!-- Filter Bar -->
+     <div class="card mb-3">
+      <div class="card-body d-flex flex-wrap align-items-center gap-3">
+       <div class="d-flex align-items-center gap-2">
+        <span class="text-muted">
+         Type:
+        </span>
+        <div aria-label="Event type filter" class="btn-group" id="typeFilterGroup" role="group">
+         <input autocomplete="off" checked="" class="btn-check" id="filterAll" name="eventType" type="radio"/>
+         <label class="btn btn-outline-primary" for="filterAll">
+          All
+         </label>
+         <input autocomplete="off" class="btn-check" id="filterBlocked" name="eventType" type="radio"/>
+         <label class="btn btn-outline-primary" for="filterBlocked">
+          <i class="fa-solid fa-shield-halved me-1">
+          </i>
+          Blocked
+         </label>
+         <input autocomplete="off" class="btn-check" id="filterFlagged" name="eventType" type="radio"/>
+         <label class="btn btn-outline-primary" for="filterFlagged">
+          <i class="fa-solid fa-triangle-exclamation me-1">
+          </i>
+          Flagged
+         </label>
+         <input autocomplete="off" class="btn-check" id="filterReported" name="eventType" type="radio"/>
+         <label class="btn btn-outline-primary" for="filterReported">
+          <i class="fa-solid fa-flag me-1">
+          </i>
+          Reported
+         </label>
+        </div>
+       </div>
+       <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-light" data-bs-target="#dateRangeModal" data-bs-toggle="modal" id="dateRangeBtn">
+         <i class="fa-regular fa-calendar me-1">
+         </i>
+         <span id="dateRangeLabel">
+          Date Range: All time
+         </span>
+        </button>
+       </div>
+       <div class="ms-auto d-flex align-items-center gap-2">
+        <div class="input-group" style="max-width:280px;">
+         <span class="input-group-text bg-white">
+          <i class="fa-solid fa-phone">
+          </i>
+         </span>
+         <input class="form-control" id="searchPhone" placeholder="Filter by phone (e.g., 123-456-7890)" type="text"/>
+        </div>
+        <div>
+         <select class="form-select" id="sortSelect" style="min-width:180px;">
+          <option selected="" value="newest">
+           Sort by: Newest first
+          </option>
+          <option value="oldest">
+           Sort by: Oldest first
+          </option>
+         </select>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- Summary Row with quick stats and chart -->
+     <div class="row g-3 mb-3">
+      <div class="col-12 col-md-4">
+       <div class="metric-card">
+        <div class="metric-title">
+         Total Protected Calls
+        </div>
+        <div class="metric-value" id="totalProtected">
+         0
+        </div>
+        <div class="text-muted">
+         Last 30 days
+        </div>
+       </div>
+      </div>
+      <div class="col-12 col-md-4">
+       <div class="metric-card">
+        <div class="metric-title">
+         Numbers Blocked
+        </div>
+        <div class="metric-value text-success" id="totalBlocked">
+         0
+        </div>
+        <div class="text-muted">
+         Auto + Manual
+        </div>
+       </div>
+      </div>
+      <div class="col-12 col-md-4">
+       <div class="app-card p-3">
+        <div class="d-flex align-items-center justify-content-between">
+         <span class="widget-title">
+          Weekly Trend
+         </span>
+         <span class="text-muted small">
+          7d
+         </span>
+        </div>
+        <canvas aria-label="Protection trend chart" height="90" id="trendChart" role="img">
+        </canvas>
+       </div>
+      </div>
+     </div>
+     <!-- Activity Feed -->
+     <div class="card">
+      <div class="card-header">
+       <div class="title">
+        Activity Feed
+       </div>
+       <div class="text-muted small" id="paginationInfo">
+        Showing 0 of 0
+       </div>
+      </div>
+      <div class="card-body p-0">
+       <ul aria-busy="false" aria-live="polite" class="list-group list-group-flush" id="activityList">
+        <!-- History items injected here -->
+       </ul>
+       <div class="p-3 d-flex align-items-center justify-content-center" id="loadingMore" style="display:none;">
+        <div aria-hidden="true" class="spinner-border text-primary me-2" role="status">
+        </div>
+        <span>
+         Loading more activity...
+        </span>
+       </div>
+       <div class="p-3 text-center text-muted d-none" id="endOfFeed">
+        End of history
+       </div>
+      </div>
+     </div>
+    </div>
+   </main>
+  </div>
+  <!-- Footer -->
+  <footer class="mt-auto py-3" style="background:#000000;color:#fff;">
+   <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+    <div class="d-flex align-items-center">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fslogo/20/20'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:20px;height:20px;object-fit:contain;"/>
+     <small>
+      © 2026 Fraud Shield
+     </small>
+    </div>
+    <ul class="nav">
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html">
+       Terms
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./privacy_settings.html">
+       Privacy
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="btn btn-sm btn-outline-light ms-2" href="./report_form.html">
+       <i class="fas fa-flag me-1">
+       </i>
+       Report
+      </a>
+     </li>
+    </ul>
+   </div>
+  </footer>
+  <!-- Mobile Sidebar (Offcanvas) -->
+  <div aria-labelledby="mobileSidebarLabel" class="offcanvas offcanvas-start text-bg-dark" id="mobileSidebar" style="width:260px;" tabindex="-1">
+   <div class="offcanvas-header border-bottom border-secondary">
+    <h5 class="offcanvas-title" id="mobileSidebarLabel">
+     Fraud Shield
+    </h5>
+    <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button">
+    </button>
+   </div>
+   <div class="offcanvas-body p-0">
+    <!-- Cloned menu from main sidebar for consistency -->
+    <div class="p-3" id="mobileSidebarContent">
+    </div>
+   </div>
+  </div>
+  <!-- Date Range Modal -->
+  <div aria-hidden="true" aria-labelledby="dateRangeModalLabel" class="modal fade" id="dateRangeModal" tabindex="-1">
+   <div class="modal-dialog">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h5 class="modal-title" id="dateRangeModalLabel">
+       <i class="fa-regular fa-calendar me-2">
+       </i>
+       Select Date Range
+      </h5>
+      <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button">
+      </button>
+     </div>
+     <div class="modal-body">
+      <div class="row g-3">
+       <div class="col-12 col-md-6">
+        <label class="form-label" for="startDate">
+         Start Date
+        </label>
+        <input class="form-control" id="startDate" type="date"/>
+       </div>
+       <div class="col-12 col-md-6">
+        <label class="form-label" for="endDate">
+         End Date
+        </label>
+        <input class="form-control" id="endDate" type="date"/>
+       </div>
+      </div>
+      <div class="form-text mt-2">
+       Selecting a range will filter the activity feed to events within the dates selected.
+      </div>
+     </div>
+     <div class="modal-footer">
+      <button class="btn btn-light" data-bs-dismiss="modal" type="button">
+       Cancel
+      </button>
+      <button class="btn btn-primary" id="applyDateRangeBtn" type="button">
+       Apply
+      </button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- Scripts -->
+  <script crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js">
+  </script>
+  <script>
+   // Day.js setup
+dayjs.extend(window.dayjs_plugin_relativeTime);
+dayjs.extend(window.dayjs_plugin_utc);
+
+// Clone sidebar contents into mobile offcanvas for consistency
+document.addEventListener('DOMContentLoaded', () => {
+    const src = document.querySelector('#appSidebarUser');
+    const dest = document.querySelector('#mobileSidebarContent');
+    if (src && dest) {
+        // Build a simplified version for mobile
+        dest.innerHTML = `
+          <div class="d-flex align-items-center mb-3">
+            <a href="./call_log.html" class="d-flex align-items-center text-white text-decoration-none">
+              <img src="https://share.google/images/IG0HtHavlhtuhg52t" alt="Logo" class="me-2" style="width:32px;height:32px;object-fit:contain;" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fslogo/32/32'">
+              <span class="fs-5 fw-bold">Fraud Shield</span>
+            </a>
+          </div>
+          <div class="d-flex align-items-center mb-4 p-2 rounded" style="background:rgba(255,255,255,0.05);">
+            <div class="me-2 rounded-circle bg-secondary d-flex align-items-center justify-content-center" style="width:40px;height:40px;background:#2d2d2d;">U</div>
+            <div>
+              <div class="fw-semibold">User Name</div>
+              <small class="text-muted">End User</small>
+            </div>
+          </div>
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item"><a href="./call_log.html" class="nav-link text-white d-flex align-items-center" style="border-radius:8px;"><i class="fas fa-home me-2"></i> Home / Call Log</a></li>
+            <li><a href="./report_form.html" class="nav-link text-white d-flex align-items-center" style="border-radius:8px;"><i class="fas fa-flag me-2"></i> Report Number</a></li>
+            <li><a href="./protection_history.html" class="nav-link text-white d-flex align-items-center active" style="border-radius:8px;"><i class="fas fa-history me-2"></i> Protection History</a></li>
+            <li>
+              <a class="nav-link text-white d-flex align-items-center" data-bs-toggle="collapse" href="#userSettingsMenuMobile" role="button" aria-expanded="false" aria-controls="userSettingsMenuMobile" style="border-radius:8px;">
+                <i class="fas fa-cog me-2"></i> Settings
+                <i class="fas fa-chevron-down ms-auto"></i>
+              </a>
+              <div class="collapse" id="userSettingsMenuMobile">
+                <ul class="btn-toggle-nav list-unstyled fw-normal small ps-4">
+                  <li><a href="./settings_page.html" class="nav-link text-white-50 d-block py-1"><i class="fas fa-cog me-2"></i> Settings Hub</a></li>
+                  <li><a href="./user_profile.html" class="nav-link text-white-50 d-block py-1"><i class="fas fa-user me-2"></i> My Profile</a></li>
+                  <li><a href="./privacy_settings.html" class="nav-link text-white-50 d-block py-1"><i class="fas fa-shield-alt me-2"></i> Privacy & Permissions</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="mt-2"><a href="./terms_of_service.html" class="nav-link text-white-50 d-flex align-items-center" style="border-radius:8px;"><i class="fas fa-question-circle me-2"></i> Terms & Policy</a></li>
+          </ul>
+          <hr class="text-secondary"><div class="small text-secondary">© Fraud Shield</div>`;
+    }
+
+    // Enable tooltips globally
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function(tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+    // Initialize chart
+    initTrendChart();
+
+    // Setup filters and data
+    setupActivityFeed();
+});
+
+// Mock Data
+const allEvents = generateMockEvents(36); // initial mock events
+let filteredEvents = [...allEvents];
+let pageSize = 10;
+let currentPage = 1;
+let totalCount = 128; // pretend backend total for pagination info
+
+const state = {
+    type: 'all',
+    search: '',
+    sort: 'newest',
+    startDate: null,
+    endDate: null,
+};
+
+function setupActivityFeed() {
+    // Listeners: filter type
+    document.querySelector('#filterAll').addEventListener('change', () => {
+        state.type = 'all';
+        applyFilters();
+    });
+    document.querySelector('#filterBlocked').addEventListener('change', () => {
+        state.type = 'blocked';
+        applyFilters();
+    });
+    document.querySelector('#filterFlagged').addEventListener('change', () => {
+        state.type = 'flagged';
+        applyFilters();
+    });
+    document.querySelector('#filterReported').addEventListener('change', () => {
+        state.type = 'reported';
+        applyFilters();
+    });
+
+    // Sort
+    document.querySelector('#sortSelect').addEventListener('change', (e) => {
+        state.sort = e.target.value;
+        applyFilters();
+    });
+
+    // Search phone
+    document.querySelector('#searchPhone').addEventListener('input', (e) => {
+        state.search = e.target.value.trim();
+        applyFilters();
+    });
+
+    // Top search quick trigger -> shows SweetAlert
+    document.querySelector('#topSearchForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const q = document.querySelector('#topSearchInput').value.trim();
+        if (!q) return;
+        Swal.fire({
+            icon: 'info',
+            title: 'Phone Lookup',
+            text: `Searching for ${q} in your protection history...`,
+            timer: 1500,
+            showConfirmButton: false
+        });
+    });
+
+    // Date range apply
+    document.querySelector('#applyDateRangeBtn').addEventListener('click', () => {
+        const s = document.querySelector('#startDate').value;
+        const e = document.querySelector('#endDate').value;
+        state.startDate = s ? dayjs(s) : null;
+        state.endDate = e ? dayjs(e).endOf('day') : null;
+        const label = (!s && !e) ? 'Date Range: All time' : `Date Range: ${s || '...'} - ${e || '...'}`;
+        document.querySelector('#dateRangeLabel').textContent = label;
+        const modal = bootstrap.Modal.getInstance(document.querySelector('#dateRangeModal'));
+        modal?.hide();
+        applyFilters();
+    });
+
+    // Notif bell demo
+    document.querySelector('#notifBell').addEventListener('click', (e) => {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Notifications',
+            html: '<div class="text-start">No new notifications. You\'re all caught up!<br><span class="text-muted small">Tip: You can enable push alerts in Settings.</span></div>',
+            icon: 'info',
+            confirmButtonText: 'OK'
+        });
+    });
+
+    // Infinite scroll
+    window.addEventListener('scroll', onScrollLoadMore);
+
+    // Initial render
+    updateSummaryCards();
+    applyFilters();
+}
+
+function applyFilters() {
+    // Simulate API filter
+    filteredEvents = allEvents.filter(ev => {
+        // Type filter
+        if (state.type === 'blocked' && ev.eventType !== 'blocked') return false;
+        if (state.type === 'flagged' && ev.eventType !== 'flagged_incoming') return false;
+        if (state.type === 'reported' && ev.eventType !== 'user_reported') return false;
+        // Search
+        if (state.search) {
+            const s = state.search.toLowerCase();
+            if (!(ev.phoneNumber && ev.phoneNumber.toLowerCase().includes(s))) return false;
+        }
+        // Date range
+        if (state.startDate && dayjs(ev.timestamp).isBefore(state.startDate)) return false;
+        if (state.endDate && dayjs(ev.timestamp).isAfter(state.endDate)) return false;
+        return true;
+    });
+
+    // Sort
+    filteredEvents.sort((a, b) => {
+        if (state.sort === 'newest') return dayjs(b.timestamp).valueOf() - dayjs(a.timestamp).valueOf();
+        return dayjs(a.timestamp).valueOf() - dayjs(b.timestamp).valueOf();
+    });
+
+    // Reset paging
+    currentPage = 1;
+    renderFeed();
+}
+
+function renderFeed() {
+    const list = document.querySelector('#activityList');
+    list.setAttribute('aria-busy', 'true');
+    list.innerHTML = '';
+    const slice = filteredEvents.slice(0, pageSize * currentPage);
+    slice.forEach(ev => list.appendChild(renderHistoryItem(ev)));
+    list.setAttribute('aria-busy', 'false');
+
+    // Update pagination info
+    const shown = Math.min(slice.length, filteredEvents.length);
+    document.querySelector('#paginationInfo').textContent = `Showing ${shown} of ${filteredEvents.length}`;
+
+    // End of feed indicator
+    document.querySelector('#endOfFeed').classList.toggle('d-none', slice.length < filteredEvents.length);
+}
+
+function renderHistoryItem(ev) {
+    const li = document.createElement('li');
+    li.className = 'list-group-item history-item';
+    const icon = getIconByType(ev.eventType);
+    const actionText = getActionText(ev);
+    const tsText = formatTimestamp(ev.timestamp);
+    const reportBadge = (ev.eventType === 'user_reported') ? getReportBadge(ev.reportStatus) : '';
+
+    li.innerHTML = `
+        <div class="d-flex align-items-start">
+          <div class="event-icon me-3">${icon}</div>
+          <div class="flex-grow-1">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+              <div class="event-title">${ev.phoneNumber} – ${actionText}</div>
+              <div class="d-flex align-items-center gap-2">
+                ${reportBadge}
+                <span class="event-time text-muted" title="${dayjs(ev.timestamp).format('MMM D, YYYY h:mm A')}">${tsText}</span>
+              </div>
+            </div>
+            <div class="text-muted small mt-1">Call ID: ${ev.eventId} • Source: ${ev.source}</div>
+            <div class="reveal-on-hover mt-2">
+              <button class="btn btn-sm btn-light reveal-target" aria-label="View details"><i class="fa-regular fa-eye me-1"></i>Details</button>
+            </div>
+          </div>
+        </div>`;
+
+    li.querySelector('button')?.addEventListener('click', () => showEventDetails(ev));
+    return li;
+}
+
+function getIconByType(type) {
+    if (type === 'blocked') return '<i class="fa-solid fa-shield-halved text-success"></i>';
+    if (type === 'flagged_incoming') return '<i class="fa-solid fa-triangle-exclamation text-warning"></i>';
+    if (type === 'user_reported') return '<i class="fa-solid fa-flag text-danger"></i>';
+    return '<i class="fa-solid fa-circle text-muted"></i>';
+}
+
+function getActionText(ev) {
+    switch (ev.eventType) {
+        case 'blocked':
+            return 'Call Blocked';
+        case 'flagged_incoming':
+            return 'Incoming Call Flagged as Suspicious';
+        case 'user_reported':
+            return `User Reported (${capitalize(ev.reportStatus)})`;
+        default:
+            return 'Activity';
+    }
+}
+
+function getReportBadge(status) {
+    let cls = 'badge-soft secondary';
+    let label = 'Unknown';
+    if (status === 'pending') {
+        cls = 'badge-soft warning';
+        label = 'Pending';
+    }
+    if (status === 'verified') {
+        cls = 'badge-soft success';
+        label = 'Verified';
+    }
+    if (status === 'rejected') {
+        cls = 'badge-soft error';
+        label = 'Dismissed';
+    }
+    return `<span class="${cls}" data-bs-toggle="tooltip" data-bs-title="Report status: ${label}"><i class="fa-regular fa-circle-check me-1"></i>${label}</span>`;
+}
+
+function formatTimestamp(ts) {
+    const now = dayjs();
+    const t = dayjs(ts);
+    const diffHours = now.diff(t, 'hour');
+    return diffHours < 48 ? t.from(now) : t.format('MMM D, YYYY');
+}
+
+function showEventDetails(ev) {
+    Swal.fire({
+        title: `${ev.phoneNumber}`,
+        html: `<div class="text-start">
+          <div><strong>Action:</strong> ${getActionText(ev)}</div>
+          <div><strong>Time:</strong> ${dayjs(ev.timestamp).format('MMM D, YYYY h:mm A')}</div>
+          <div><strong>Event ID:</strong> ${ev.eventId}</div>
+          <div><strong>Source:</strong> ${ev.source}</div>
+          ${ev.eventType === 'user_reported' ? `<div><strong>Report Status:</strong> ${capitalize(ev.reportStatus)}</div>` : ''}
+        </div>`,
+        icon: 'info',
+        confirmButtonText: 'Close'
+    });
+}
+
+function onScrollLoadMore() {
+    const loading = document.querySelector('#loadingMore');
+    const end = document.querySelector('#endOfFeed');
+    const listCount = document.querySelectorAll('#activityList > li').length;
+    if (listCount >= filteredEvents.length) return; // all shown
+    const nearBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 200);
+    if (nearBottom && loading.style.display !== 'block') {
+        loading.style.display = 'block';
+        setTimeout(() => {
+            currentPage += 1;
+            renderFeed();
+            loading.style.display = 'none';
+            if ((pageSize * currentPage) >= filteredEvents.length) {
+                end.classList.remove('d-none');
+            }
+        }, 700);
+    }
+}
+
+function updateSummaryCards() {
+    const totalProtected = allEvents.length;
+    const totalBlocked = allEvents.filter(e => e.eventType === 'blocked').length;
+    document.querySelector('#totalProtected').textContent = totalProtected.toString();
+    document.querySelector('#totalBlocked').textContent = totalBlocked.toString();
+}
+
+function initTrendChart() {
+    const ctx = document.getElementById('trendChart');
+    if (!ctx) return;
+    const data = {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+            label: 'Blocked',
+            data: [6, 4, 5, 7, 5, 3, 4],
+            fill: false,
+            borderColor: 'rgba(0,0,255,0.9)',
+            backgroundColor: 'rgba(0,0,255,0.9)',
+            tension: 0.25,
+            pointRadius: 2
+        }, {
+            label: 'Flagged',
+            data: [3, 2, 4, 3, 4, 2, 3],
+            fill: false,
+            borderColor: 'rgba(255,165,0,0.9)',
+            backgroundColor: 'rgba(255,165,0,0.9)',
+            tension: 0.25,
+            pointRadius: 2
+        }]
+    };
+    new Chart(ctx, {
+        type: 'line',
+        data,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',
+                intersect: false
+            },
+            plugins: {
+                legend: {
+                    display: true
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0
+                    }
+                }
+            }
+        }
+    });
+}
+
+function generateMockEvents(n) {
+    const types = ['blocked', 'flagged_incoming', 'user_reported'];
+    const sources = ['Auto Shield', 'Community Intel', 'Manual'];
+    const statuses = ['pending', 'verified', 'rejected'];
+    const events = [];
+    for (let i = 0; i < n; i++) {
+        const type = types[Math.floor(Math.random() * types.length)];
+        const ts = dayjs().subtract(Math.floor(Math.random() * 120), 'hour').toISOString();
+        const phone = randomPhone();
+        const evt = {
+            eventId: 'EVT-' + (100000 + Math.floor(Math.random() * 900000)),
+            eventType: type,
+            phoneNumber: phone,
+            timestamp: ts,
+            source: sources[Math.floor(Math.random() * sources.length)],
+        };
+        if (type === 'user_reported') {
+            evt.reportStatus = statuses[Math.floor(Math.random() * statuses.length)];
+        }
+        events.push(evt);
+    }
+    // Ensure at least 6 deterministic samples
+    return [{
+            eventId: 'EVT-100201',
+            eventType: 'blocked',
+            phoneNumber: '(415) 555-0199',
+            timestamp: dayjs().subtract(2, 'hour').toISOString(),
+            source: 'Auto Shield'
+        }, {
+            eventId: 'EVT-100202',
+            eventType: 'flagged_incoming',
+            phoneNumber: '(650) 555-2888',
+            timestamp: dayjs().subtract(6, 'hour').toISOString(),
+            source: 'Community Intel'
+        }, {
+            eventId: 'EVT-100203',
+            eventType: 'user_reported',
+            reportStatus: 'pending',
+            phoneNumber: '(212) 555-4411',
+            timestamp: dayjs().subtract(1, 'day').toISOString(),
+            source: 'Manual'
+        }, {
+            eventId: 'EVT-100204',
+            eventType: 'blocked',
+            phoneNumber: '(305) 555-7711',
+            timestamp: dayjs().subtract(1, 'day').subtract(5, 'hour').toISOString(),
+            source: 'Auto Shield'
+        }, {
+            eventId: 'EVT-100205',
+            eventType: 'user_reported',
+            reportStatus: 'verified',
+            phoneNumber: '(206) 555-3322',
+            timestamp: dayjs().subtract(2, 'day').toISOString(),
+            source: 'Community Intel'
+        }, {
+            eventId: 'EVT-100206',
+            eventType: 'flagged_incoming',
+            phoneNumber: '(718) 555-9090',
+            timestamp: dayjs().subtract(3, 'day').toISOString(),
+            source: 'Auto Shield'
+        },
+        ...events
+    ];
+}
+
+function randomPhone() {
+    const a = 200 + Math.floor(Math.random() * 700);
+    const b = 200 + Math.floor(Math.random() * 700);
+    const c = 1000 + Math.floor(Math.random() * 9000);
+    return `(${a}) ${b}-${c}`;
+}
+
+function capitalize(s) {
+    return s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+}
+  </script>
+ </body>
+</html>

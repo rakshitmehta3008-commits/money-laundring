@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Fraud Shield - Report Number
+  </title>
+  <!-- Brand font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <!-- Theme stylesheet provided -->
+  <link href="style.css" rel="stylesheet"/>
+  <!-- Page specific stylesheet -->
+  <link href="report_form.css" rel="stylesheet"/>
+ </head>
+ <body class="view-grid">
+  <!-- Header (included on application pages) -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background:#0000FF;">
+   <div class="container-fluid">
+    <button aria-controls="appSidebarUser" aria-label="Toggle sidebar" class="btn btn-outline-light me-2 d-lg-none" data-bs-target="#appSidebarUser" data-bs-toggle="offcanvas" type="button">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./call_log.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fraudshield/28/28'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+     Fraud Shield
+    </a>
+    <div class="d-none d-md-flex flex-grow-1 mx-3">
+     <form class="w-100" role="search">
+      <div class="input-group">
+       <span class="input-group-text bg-white">
+        <i class="fas fa-search">
+        </i>
+       </span>
+       <input aria-label="Search" class="form-control" id="headerSearchInput" placeholder="Search phone number..." type="search"/>
+      </div>
+     </form>
+    </div>
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#" id="notifBell">
+       <i class="fas fa-bell">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#">
+       <i class="fas fa-envelope">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button">
+       <span class="me-2">
+        User
+       </span>
+       <img alt="avatar" class="rounded-circle" onerror="this.onerror=null;this.src='https://picsum.photos/seed/user28/28/28'" src="https://via.placeholder.com/28"/>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="./settings_page.html">
+         <i class="fas fa-cog me-2">
+         </i>
+         Settings
+        </a>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./user_profile.html">
+         <i class="fas fa-user me-2">
+         </i>
+         Profile
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./welcome_screen.html">
+         <i class="fas fa-sign-out-alt me-2">
+         </i>
+         Logout
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="app-shell d-flex min-vh-100">
+   <!-- Sidebar (always visible on lg+, offcanvas on md and below) -->
+   <aside aria-labelledby="sidebarLabel" class="offcanvas-lg offcanvas-start d-flex flex-column flex-shrink-0 p-3 bg-dark text-white" id="appSidebarUser" style="width:260px;min-height:100vh;background-color:#000000 !important;" tabindex="-1">
+    <div class="offcanvas-header d-lg-none">
+     <h5 class="offcanvas-title" id="sidebarLabel">
+      Menu
+     </h5>
+     <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button">
+     </button>
+    </div>
+    <div class="offcanvas-body p-0 d-flex flex-column">
+     <div class="d-flex align-items-center mb-3 px-3 pt-3">
+      <a class="d-flex align-items-center text-white text-decoration-none" href="./call_log.html">
+       <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fslogo/32/32'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:32px;height:32px;object-fit:contain;"/>
+       <span class="fs-5 fw-bold">
+        Fraud Shield
+       </span>
+      </a>
+     </div>
+     <div class="d-flex align-items-center mb-4 p-2 rounded mx-3" style="background:rgba(255,255,255,0.05);">
+      <div class="me-2 rounded-circle bg-secondary d-flex align-items-center justify-content-center" style="width:40px;height:40px;background:#2d2d2d;">
+       U
+      </div>
+      <div>
+       <div class="fw-semibold">
+        User Name
+       </div>
+       <small class="text-muted">
+        End User
+       </small>
+      </div>
+     </div>
+     <ul class="nav nav-pills flex-column mb-auto px-2">
+      <li class="nav-item">
+       <a class="nav-link text-white d-flex align-items-center" href="./call_log.html" style="border-radius:8px;">
+        <i class="fas fa-home me-2">
+        </i>
+        Home / Call Log
+       </a>
+      </li>
+      <li>
+       <a class="nav-link text-white d-flex align-items-center active" href="./report_form.html" style="border-radius:8px;">
+        <i class="fas fa-flag me-2">
+        </i>
+        Report Number
+       </a>
+      </li>
+      <li>
+       <a class="nav-link text-white d-flex align-items-center" href="./protection_history.html" style="border-radius:8px;">
+        <i class="fas fa-history me-2">
+        </i>
+        Protection History
+       </a>
+      </li>
+      <li>
+       <a aria-controls="userSettingsMenu" aria-expanded="false" class="nav-link text-white d-flex align-items-center" data-bs-toggle="collapse" href="#userSettingsMenu" role="button" style="border-radius:8px;">
+        <i class="fas fa-cog me-2">
+        </i>
+        Settings
+        <i class="fas fa-chevron-down ms-auto">
+        </i>
+       </a>
+       <div class="collapse" id="userSettingsMenu">
+        <ul class="btn-toggle-nav list-unstyled fw-normal small ps-4">
+         <li>
+          <a class="nav-link text-white-50 d-block py-1" href="./settings_page.html">
+           <i class="fas fa-cog me-2">
+           </i>
+           Settings Hub
+          </a>
+         </li>
+         <li>
+          <a class="nav-link text-white-50 d-block py-1" href="./user_profile.html">
+           <i class="fas fa-user me-2">
+           </i>
+           My Profile
+          </a>
+         </li>
+         <li>
+          <a class="nav-link text-white-50 d-block py-1" href="./privacy_settings.html">
+           <i class="fas fa-shield-alt me-2">
+           </i>
+           Privacy &amp; Permissions
+          </a>
+         </li>
+        </ul>
+       </div>
+      </li>
+      <li class="mt-2">
+       <a class="nav-link text-white-50 d-flex align-items-center" href="./terms_of_service.html" style="border-radius:8px;">
+        <i class="fas fa-question-circle me-2">
+        </i>
+        Terms &amp; Policy
+       </a>
+      </li>
+     </ul>
+     <hr class="text-secondary mx-3"/>
+     <div class="small text-secondary px-3 pb-3">
+      © Fraud Shield
+     </div>
+     <style>
+      #appSidebarUser .nav-link:hover{background:rgba(255,255,255,0.08);} 
+          #appSidebarUser .nav-link.active{background:rgba(0,0,255,0.15);border-left:3px solid #0000FF;color:#fff;}
+     </style>
+    </div>
+   </aside>
+   <!-- Main content area -->
+   <main class="flex-grow-1">
+    <div class="container-fluid py-3 py-lg-4">
+     <!-- Breadcrumb -->
+     <nav aria-label="breadcrumb" class="breadcrumb">
+      <ol class="breadcrumb mb-2">
+       <li class="breadcrumb-item">
+        <a href="./call_log.html">
+         Call Log
+        </a>
+       </li>
+       <li aria-current="page" class="breadcrumb-item active">
+        Report Number
+       </li>
+      </ol>
+     </nav>
+     <!-- Page header -->
+     <div class="page-header">
+      <div class="d-flex align-items-center gap-3">
+       <div class="status-dot warning" title="Reporting a suspicious number">
+       </div>
+       <h1 class="page-title m-0">
+        Report Number
+       </h1>
+      </div>
+      <div class="view-switcher d-none d-md-inline-flex">
+       <div class="option active">
+        <i class="fa-solid fa-flag me-1">
+        </i>
+        Report
+       </div>
+       <a class="option" href="./protection_history.html">
+        <i class="fa-solid fa-history me-1">
+        </i>
+        History
+       </a>
+      </div>
+     </div>
+     <!-- Info alert -->
+     <div class="alert alert-warning d-flex align-items-center" id="infoAlert" role="alert">
+      <i class="fa-solid fa-triangle-exclamation me-2">
+      </i>
+      Submit this form only if you believe the call was suspicious or fraudulent.
+     </div>
+     <!-- Report form card -->
+     <div class="card app-card report-card mb-4">
+      <div class="card-header">
+       <div class="d-flex align-items-center gap-2">
+        <i class="fa-solid fa-phone text-primary">
+        </i>
+        <div class="widget-title">
+         Report details
+        </div>
+       </div>
+       <span class="text-muted small">
+        Contributes to cybercrime database
+       </span>
+      </div>
+      <div class="card-body">
+       <!-- Report Header: phone number display -->
+       <div class="report-header d-flex flex-wrap align-items-center justify-content-between mb-3">
+        <div class="d-flex align-items-center gap-3">
+         <div class="rounded-circle bg-primary-soft d-flex align-items-center justify-content-center" style="width:48px;height:48px;">
+          <i class="fa-solid fa-shield-halved text-primary">
+          </i>
+         </div>
+         <div>
+          <div class="text-muted small">
+           Number being reported
+          </div>
+          <h2 class="m-0" id="reportPhoneDisplay">
+           +1 (555) 013-8844
+          </h2>
+         </div>
+        </div>
+        <div>
+         <span class="badge-soft warning">
+          <i class="fa-solid fa-circle-exclamation me-1">
+          </i>
+          Suspicious
+         </span>
+        </div>
+       </div>
+       <!-- Call details summary -->
+       <div class="row g-3 mb-3">
+        <div class="col-md-4">
+         <div class="border rounded p-3 h-100 bg-surface">
+          <div class="text-muted small">
+           Call Direction
+          </div>
+          <div class="fw-bold" id="callDirection">
+           Incoming
+          </div>
+         </div>
+        </div>
+        <div class="col-md-4">
+         <div class="border rounded p-3 h-100 bg-surface">
+          <div class="text-muted small">
+           Call Time
+          </div>
+          <div class="fw-bold" id="callTime">
+           2026-01-10 14:32
+          </div>
+         </div>
+        </div>
+        <div class="col-md-4">
+         <div class="border rounded p-3 h-100 bg-surface">
+          <div class="text-muted small">
+           Duration
+          </div>
+          <div class="fw-bold" id="callDuration">
+           2m 18s
+          </div>
+         </div>
+        </div>
+       </div>
+       <!-- Form -->
+       <form id="reportForm" novalidate="">
+        <div class="row g-3">
+         <div class="col-md-6">
+          <label class="form-label" for="phoneNumber">
+           Phone Number
+          </label>
+          <div class="input-group">
+           <span class="input-group-text">
+            <i class="fa-solid fa-phone">
+            </i>
+           </span>
+           <input class="form-control" id="phoneNumber" name="phoneNumber" readonly="" required="" type="tel"/>
+          </div>
+          <div class="form-text">
+           Pre-filled from your call log selection.
+          </div>
+         </div>
+         <div class="col-md-6">
+          <label class="form-label" for="scamType">
+           Type of Scam (Optional)
+          </label>
+          <select aria-label="Type of Scam" class="form-select" id="scamType" name="scamType">
+           <option value="">
+            Select a category...
+           </option>
+          </select>
+          <div class="form-text">
+           Helps categorize and speed up verification.
+          </div>
+         </div>
+         <div class="col-12">
+          <label class="form-label" for="additionalDetails">
+           Additional Details (Optional)
+          </label>
+          <textarea class="form-control" id="additionalDetails" maxlength="600" name="additionalDetails" placeholder="Describe what happened, e.g., requested OTP, claimed to be bank, etc." rows="5"></textarea>
+          <div class="d-flex justify-content-between">
+           <div class="form-text">
+            You can paste transcripts or notes. No sensitive info.
+           </div>
+           <small class="text-muted" id="charCounter">
+            0 / 600
+           </small>
+          </div>
+         </div>
+         <div class="col-md-6">
+          <div class="form-check">
+           <input class="form-check-input" id="consentCheckbox" type="checkbox" value="true"/>
+           <label class="form-check-label" for="consentCheckbox">
+            I consent to share this report for analysis
+           </label>
+          </div>
+         </div>
+         <div class="col-md-6 text-md-end">
+          <a class="small" href="./terms_of_service.html">
+           View Terms
+          </a>
+         </div>
+        </div>
+        <!-- Actions -->
+        <div class="submit-action-footer d-flex justify-content-between align-items-center mt-3 pt-3">
+         <div class="text-muted small">
+          <i class="fa-solid fa-lock me-1">
+          </i>
+          Reports are securely transmitted
+         </div>
+         <div class="d-flex gap-2">
+          <a class="btn btn-light cancel-button" href="./call_log.html">
+           Cancel
+          </a>
+          <button class="btn btn-primary submit-button" id="submitBtn" type="submit">
+           <span class="btn-label">
+            Submit Report
+           </span>
+          </button>
+         </div>
+        </div>
+       </form>
+      </div>
+     </div>
+     <!-- Recent similar reports (mock data table with sorting/filtering) -->
+     <div class="card app-card mb-4">
+      <div class="card-header">
+       <div class="d-flex align-items-center gap-2">
+        <i class="fa-solid fa-list-check text-info">
+        </i>
+        <div class="widget-title">
+         Recent similar reports (sample)
+        </div>
+       </div>
+       <div class="d-flex align-items-center gap-2">
+        <input class="form-control form-control-sm" id="filterInput" placeholder="Filter by category or location..." style="max-width:240px;" type="text"/>
+       </div>
+      </div>
+      <div class="card-body p-0">
+       <div class="table-responsive">
+        <table class="table table-theme mb-0" id="recentReportsTable">
+         <thead>
+          <tr>
+           <th data-sort="date" role="button">
+            Date
+            <i class="fa-solid fa-sort">
+            </i>
+           </th>
+           <th>
+            Number
+           </th>
+           <th>
+            Category
+           </th>
+           <th>
+            Location
+           </th>
+           <th>
+            Outcome
+           </th>
+           <th class="text-end">
+            Actions
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <!-- rows inserted by JS -->
+         </tbody>
+        </table>
+       </div>
+      </div>
+      <div class="card-footer d-flex justify-content-between align-items-center">
+       <small class="text-muted" id="paginationInfo">
+        Showing 0 of 0
+       </small>
+       <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-sm btn-light" id="resetFilters">
+         <i class="fa-solid fa-rotate-left me-1">
+         </i>
+         Reset
+        </button>
+       </div>
+      </div>
+     </div>
+    </div>
+    <!-- Footer (included on application pages) -->
+    <footer class="mt-auto py-3" style="background:#000000;color:#fff;">
+     <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+      <div class="d-flex align-items-center">
+       <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fs20/20/20'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:20px;height:20px;object-fit:contain;"/>
+       <small>
+        © 2026 Fraud Shield
+       </small>
+      </div>
+      <ul class="nav">
+       <li class="nav-item">
+        <a class="nav-link px-2 text-white-50" href="./terms_of_service.html">
+         Terms
+        </a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link px-2 text-white-50" href="./privacy_settings.html">
+         Privacy
+        </a>
+       </li>
+       <li class="nav-item">
+        <a class="btn btn-sm btn-outline-light ms-2" href="./report_form.html">
+         <i class="fas fa-flag me-1">
+         </i>
+         Report
+        </a>
+       </li>
+      </ul>
+     </div>
+    </footer>
+   </main>
+  </div>
+  <!-- Toast container for system feedback -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
+   <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-dark border-0" id="liveToast" role="alert">
+    <div class="d-flex">
+     <div class="toast-body" id="toastBody">
+      Processing...
+     </div>
+     <button aria-label="Close" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" type="button">
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js">
+  </script>
+  <script>
+   // Mock predefined scam categories (could be fetched from backend)
+const SCAM_CATEGORIES = [
+    'Bank Impersonation',
+    'Tech Support Scam',
+    'Package Delivery',
+    'Prize/Lottery',
+    'Investment Scheme',
+    'Charity Fraud',
+    'IRS/Tax Scam',
+    'Romance Scam'
+];
+
+const recentReportsMock = [{
+    date: '2026-01-10 11:05',
+    number: '+1 (555) 220-9921',
+    category: 'Bank Impersonation',
+    location: 'NY, USA',
+    outcome: 'Blocked'
+}, {
+    date: '2026-01-09 18:44',
+    number: '+1 (555) 014-3345',
+    category: 'Tech Support Scam',
+    location: 'CA, USA',
+    outcome: 'Reported'
+}, {
+    date: '2026-01-09 09:25',
+    number: '+1 (555) 098-7777',
+    category: 'Package Delivery',
+    location: 'TX, USA',
+    outcome: 'Blocked'
+}, {
+    date: '2026-01-08 15:10',
+    number: '+1 (555) 777-1212',
+    category: 'IRS/Tax Scam',
+    location: 'FL, USA',
+    outcome: 'Reported'
+}, {
+    date: '2026-01-08 08:03',
+    number: '+1 (555) 232-8899',
+    category: 'Investment Scheme',
+    location: 'WA, USA',
+    outcome: 'Investigating'
+}, {
+    date: '2026-01-07 20:30',
+    number: '+1 (555) 400-4411',
+    category: 'Prize/Lottery',
+    location: 'IL, USA',
+    outcome: 'Reported'
+}];
+
+const phoneInput = document.getElementById('phoneNumber');
+const scamTypeSelect = document.getElementById('scamType');
+const detailsText = document.getElementById('additionalDetails');
+const charCounter = document.getElementById('charCounter');
+const formEl = document.getElementById('reportForm');
+const submitBtn = document.getElementById('submitBtn');
+const phoneDisplay = document.getElementById('reportPhoneDisplay');
+const callDirectionEl = document.getElementById('callDirection');
+const callTimeEl = document.getElementById('callTime');
+const callDurationEl = document.getElementById('callDuration');
+
+const toastEl = document.getElementById('liveToast');
+const toastBody = document.getElementById('toastBody');
+const toast = toastEl ? new bootstrap.Toast(toastEl) : null;
+
+function populateCategories() {
+    SCAM_CATEGORIES.forEach(cat => {
+        const opt = document.createElement('option');
+        opt.value = cat;
+        opt.textContent = cat;
+        scamTypeSelect.appendChild(opt);
+    });
+}
+
+function parseParamsAndPrefill() {
+    const params = new URLSearchParams(window.location.search);
+    const phone = params.get('phone') || '+1 (555) 013-8844';
+    const dir = params.get('dir') || 'Incoming';
+    const time = params.get('time') || dayjs().format('YYYY-MM-DD HH:mm');
+    const dur = params.get('dur') || '2m 18s';
+    phoneInput.value = phone;
+    phoneDisplay.textContent = phone;
+    callDirectionEl.textContent = dir;
+    callTimeEl.textContent = time;
+    callDurationEl.textContent = dur;
+}
+
+function updateCharCounter() {
+    charCounter.textContent = `${detailsText.value.length} / ${detailsText.getAttribute('maxlength')}`;
+}
+
+function setSubmitting(state) {
+    if (state) {
+        submitBtn.disabled = true;
+        submitBtn.classList.add('disabled');
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Submitting...';
+    } else {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('disabled');
+        submitBtn.innerHTML = '<span class="btn-label">Submit Report</span>';
+    }
+}
+
+function validePhone(num) {
+    // Simple sanity check (digits, +, spaces, dashes, parentheses)
+    return /^[+\d][\d\s\-()]{6,}$/.test(num);
+}
+
+function showToast(message) {
+    if (!toast) return;
+    toastBody.textContent = message;
+    toast.show();
+}
+
+function initRecentReportsTable() {
+    const tbody = document.querySelector('#recentReportsTable tbody');
+    const filterInput = document.getElementById('filterInput');
+    const paginationInfo = document.getElementById('paginationInfo');
+    const resetFilters = document.getElementById('resetFilters');
+
+    let rows = [...recentReportsMock];
+
+    function render(data) {
+        tbody.innerHTML = '';
+        data.forEach(r => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+            <td>${r.date}</td>
+            <td>${r.number}</td>
+            <td>${r.category}</td>
+            <td>${r.location}</td>
+            <td>
+              <span class="badge-soft ${r.outcome === 'Blocked' ? 'success' : (r.outcome === 'Investigating' ? 'info' : 'warning')}">
+                ${r.outcome}
+              </span>
+            </td>
+            <td class="text-end">
+              <button class="btn btn-sm btn-light" title="View details"><i class="fa-regular fa-eye"></i></button>
+            </td>`;
+            tbody.appendChild(tr);
+        });
+        paginationInfo.textContent = `Showing ${data.length} of ${rows.length}`;
+    }
+
+    function filter() {
+        const q = (filterInput.value || '').toLowerCase();
+        const filtered = rows.filter(r => r.category.toLowerCase().includes(q) || r.location.toLowerCase().includes(q));
+        render(filtered);
+    }
+
+    // Sorting by date (desc/asc toggle)
+    let sortAsc = false;
+    document.querySelector('th[data-sort="date"]').addEventListener('click', () => {
+        sortAsc = !sortAsc;
+        rows.sort((a, b) => (sortAsc ? 1 : -1) * (dayjs(a.date).isAfter(dayjs(b.date)) ? 1 : -1));
+        filter();
+    });
+
+    filterInput.addEventListener('input', filter);
+    resetFilters.addEventListener('click', () => {
+        filterInput.value = '';
+        filter();
+    });
+
+    render(rows);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    populateCategories();
+    parseParamsAndPrefill();
+    updateCharCounter();
+    detailsText.addEventListener('input', updateCharCounter);
+    initRecentReportsTable();
+
+    formEl.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const payload = {
+            phoneNumber: phoneInput.value.trim(),
+            scamType: scamTypeSelect.value || null,
+            additionalComments: detailsText.value.trim() || null,
+            callDetails: {
+                direction: callDirectionEl.textContent,
+                time: callTimeEl.textContent,
+                duration: callDurationEl.textContent
+            },
+            consent: document.getElementById('consentCheckbox').checked,
+            submittedAt: dayjs().toISOString()
+        };
+
+        if (!validePhone(payload.phoneNumber)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Invalid number',
+                text: 'The phone number looks invalid. Please verify.'
+            });
+            return;
+        }
+
+        setSubmitting(true);
+        showToast('Submitting your report...');
+
+        // Simulate API call
+        try {
+            await new Promise(res => setTimeout(res, 1200));
+            // Mock success
+            Swal.fire({
+                icon: 'success',
+                title: 'Report submitted',
+                text: 'Thank you for helping keep our community safe.',
+                confirmButtonText: 'Back to Call Log',
+                showCancelButton: true,
+                cancelButtonText: 'Stay here'
+            }).then(result => {
+                if (result.isConfirmed) {
+                    window.location.href = './call_log.html';
+                }
+            });
+            formEl.reset();
+            updateCharCounter();
+        } catch (err) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Submission failed',
+                text: 'Please try again later.'
+            });
+        } finally {
+            setSubmitting(false);
+        }
+    });
+});
+  </script>
+ </body>
+</html>

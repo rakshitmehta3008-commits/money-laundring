@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Partner Portal Login • Fraud Shield
+  </title>
+  <!-- Brand Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 CSS -->
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet">
+   <!-- App Theme Styles -->
+   <link href="style.css" rel="stylesheet"/>
+   <!-- Page specific CSS -->
+   <link href="partner_login.css" rel="stylesheet"/>
+  </link>
+ </head>
+ <body class="d-flex flex-column min-vh-100">
+  <!-- Header not included on login page to avoid showing authenticated nav (per spec: include only needed common components) -->
+  <main class="flex-fill d-flex align-items-center justify-content-center py-5" id="mainContent">
+   <div class="container">
+    <div class="row justify-content-center">
+     <div class="col-12 col-md-8 col-lg-5">
+      <div class="login-form-container app-card p-0 overflow-hidden">
+       <div class="p-4 p-md-5">
+        <!-- Branding -->
+        <div class="text-center mb-3">
+         <img alt="Fraud Shield Logo" class="rounded-circle shadow-sm" height="56" onerror="this.onerror=null;this.src='https://picsum.photos/seed/portal/56/56';" src="https://share.google/images/IG0HtHavlhtuhg52t" width="56"/>
+         <div class="fw-bold mt-2" style="letter-spacing:.2px;">
+          Fraud Shield
+         </div>
+        </div>
+        <!-- Page Header -->
+        <h1 class="text-center mb-3">
+         Partner Portal Login
+        </h1>
+        <p class="text-center text-muted mb-4">
+         Secure access for partners to manage integrations and API usage.
+        </p>
+        <!-- Error Message Display -->
+        <div aria-live="polite" class="alert alert-danger d-none" id="loginError" role="alert">
+        </div>
+        <!-- Login Form -->
+        <form id="partnerLoginForm" novalidate="">
+         <div class="mb-3">
+          <label class="form-label" for="emailInput">
+           Email Address
+          </label>
+          <input aria-describedby="emailHelp" class="form-control" id="emailInput" name="email" placeholder="you@partner.com" required="" type="email"/>
+          <div class="form-text" id="emailHelp">
+           Use your registered partner email.
+          </div>
+          <div class="invalid-feedback">
+           Please enter a valid email address.
+          </div>
+         </div>
+         <div class="mb-3 position-relative">
+          <label class="form-label" for="passwordInput">
+           Password
+          </label>
+          <div class="input-group">
+           <input aria-describedby="passwordToggle" class="form-control" id="passwordInput" name="password" required="" type="password"/>
+           <button aria-label="Toggle password visibility" class="btn btn-light btn-icon toggle-visibility-icon" id="passwordToggle" type="button">
+            <i class="fa-solid fa-eye">
+            </i>
+           </button>
+          </div>
+          <div class="invalid-feedback">
+           Password is required.
+          </div>
+         </div>
+         <div class="d-grid mb-2">
+          <button class="btn btn-primary" id="loginButton" type="submit">
+           <span class="btn-label">
+            Log In
+           </span>
+           <span aria-hidden="true" class="spinner-border spinner-border-sm ms-2 d-none" role="status">
+           </span>
+          </button>
+         </div>
+         <div class="d-flex justify-content-between align-items-center mb-3">
+          <a class="small" href="#" id="forgotPasswordLink">
+           Forgot your password?
+          </a>
+          <a class="small" href="#" id="registerLink">
+           Don't have an account? Register here.
+          </a>
+         </div>
+         <div class="text-center small text-muted">
+          By continuing you agree to our
+          <a class="text-decoration-underline" href="./terms_of_service.html">
+           Terms
+          </a>
+          and
+          <a class="text-decoration-underline" href="./terms_of_service.html#privacy">
+           Privacy Policy
+          </a>
+          .
+         </div>
+        </form>
+       </div>
+       <!-- Info panel -->
+       <div class="bg-light border-top p-3">
+        <div class="d-flex align-items-center gap-2 text-muted small">
+         <i class="fa-solid fa-shield-halved text-primary">
+         </i>
+         <span>
+          Enterprise-grade security. Session activity is monitored and audited.
+         </span>
+        </div>
+       </div>
+      </div>
+      <!-- Test Credentials -->
+      <div class="card mt-4">
+       <div class="card-header d-flex align-items-center justify-content-between">
+        <span class="fw-semibold">
+         <i class="fa-solid fa-key me-2 text-primary">
+         </i>
+         Test Credentials (for demo)
+        </span>
+        <span class="badge bg-secondary">
+         Sample
+        </span>
+       </div>
+       <div class="card-body">
+        <div class="table-responsive">
+         <table class="table table-sm align-middle mb-0">
+          <thead class="table-light">
+           <tr>
+            <th>
+             Role
+            </th>
+            <th>
+             Email
+            </th>
+            <th>
+             Password
+            </th>
+            <th>
+             Redirects To
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td>
+             Partner Admin
+            </td>
+            <td>
+             <code>
+              admin@partner.com
+             </code>
+            </td>
+            <td>
+             <code>
+              Admin#123
+             </code>
+            </td>
+            <td>
+             <a href="./partner_dashboard.html">
+              partner_dashboard
+             </a>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             Developer
+            </td>
+            <td>
+             <code>
+              dev@partner.com
+             </code>
+            </td>
+            <td>
+             <code>
+              Dev#123
+             </code>
+            </td>
+            <td>
+             <a href="./developer_portal.html">
+              developer_portal
+             </a>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             API Docs Consumer
+            </td>
+            <td>
+             <code>
+              docs@partner.com
+             </code>
+            </td>
+            <td>
+             <code>
+              Docs#123
+             </code>
+            </td>
+            <td>
+             <a href="./api_documentation.html">
+              api_documentation
+             </a>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             Analyst
+            </td>
+            <td>
+             <code>
+              analyst@partner.com
+             </code>
+            </td>
+            <td>
+             <code>
+              Analyst#123
+             </code>
+            </td>
+            <td>
+             <a href="./analytics_dashboard.html">
+              analytics_dashboard
+             </a>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             Reviewer
+            </td>
+            <td>
+             <code>
+              reviewer@partner.com
+             </code>
+            </td>
+            <td>
+             <code>
+              Review#123
+             </code>
+            </td>
+            <td>
+             <a href="./review_page.html">
+              review_page
+             </a>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+        <small class="text-muted d-block mt-2">
+         Use any of the above credentials to test login and be redirected to the corresponding page.
+        </small>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </main>
+  <!-- Common Footer (included; consistent across pages) -->
+  <footer class="py-3" style="background:#000000;color:#fff;">
+   <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+    <small>
+     © 2026 Fraud Shield • Developer Portal
+    </small>
+    <ul class="nav">
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html">
+       Terms
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html#privacy">
+       Privacy
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./api_documentation.html">
+       <i class="fas fa-book me-1">
+       </i>
+       Docs
+      </a>
+     </li>
+    </ul>
+   </div>
+  </footer>
+  <!-- SweetAlert2 -->
+  <script crossorigin="anonymous" integrity="sha256-s4f8mCfQ4fjg6Qifn3opBzVzh1gPj6Yjd03ruQm3nXU=" src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js">
+  </script>
+  <!-- Bootstrap 5 JS -->
+  <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <!-- Page script: Login handling -->
+  <script>
+   (function() {
+    const form = document.getElementById('partnerLoginForm');
+    const emailInput = document.getElementById('emailInput');
+    const passwordInput = document.getElementById('passwordInput');
+    const errorBox = document.getElementById('loginError');
+    const loginBtn = document.getElementById('loginButton');
+    const spinner = loginBtn.querySelector('.spinner-border');
+    const btnLabel = loginBtn.querySelector('.btn-label');
+    const passwordToggle = document.getElementById('passwordToggle');
+
+    // Restore last email if present
+    try {
+        const lastEmail = localStorage.getItem('partner:lastEmail');
+        if (lastEmail) emailInput.value = lastEmail;
+    } catch (e) {}
+
+    // Demo credential map: email -> { password, redirect, role }
+    const CREDENTIALS = {
+        'admin@partner.com': {
+            password: 'Admin#123',
+            redirect: './partner_dashboard.html',
+            role: 'Partner Admin'
+        },
+        'dev@partner.com': {
+            password: 'Dev#123',
+            redirect: './developer_portal.html',
+            role: 'Developer'
+        },
+        'docs@partner.com': {
+            password: 'Docs#123',
+            redirect: './api_documentation.html',
+            role: 'API Docs Consumer'
+        },
+        'analyst@partner.com': {
+            password: 'Analyst#123',
+            redirect: './analytics_dashboard.html',
+            role: 'Analyst'
+        },
+        'reviewer@partner.com': {
+            password: 'Review#123',
+            redirect: './review_page.html',
+            role: 'Reviewer'
+        },
+    };
+
+    function sanitizeInput(str) {
+        return String(str || '').replace(/[<>]/g, '');
+    }
+
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function setLoading(state) {
+        if (state) {
+            loginBtn.setAttribute('disabled', 'disabled');
+            spinner.classList.remove('d-none');
+            btnLabel.textContent = 'Signing in...';
+            emailInput.setAttribute('disabled', 'disabled');
+            passwordInput.setAttribute('disabled', 'disabled');
+        } else {
+            loginBtn.removeAttribute('disabled');
+            spinner.classList.add('d-none');
+            btnLabel.textContent = 'Log In';
+            emailInput.removeAttribute('disabled');
+            passwordInput.removeAttribute('disabled');
+        }
+    }
+
+    function showError(message) {
+        errorBox.textContent = message;
+        errorBox.classList.remove('d-none');
+    }
+
+    function clearError() {
+        errorBox.classList.add('d-none');
+        errorBox.textContent = '';
+    }
+
+    // Email blur validation
+    emailInput.addEventListener('blur', () => {
+        const val = sanitizeInput(emailInput.value.trim());
+        emailInput.value = val;
+        if (val && !isValidEmail(val)) {
+            emailInput.classList.add('is-invalid');
+        } else {
+            emailInput.classList.remove('is-invalid');
+        }
+    });
+
+    // Password visibility toggle
+    passwordToggle.addEventListener('click', () => {
+        const isText = passwordInput.getAttribute('type') === 'text';
+        passwordInput.setAttribute('type', isText ? 'password' : 'text');
+        const icon = passwordToggle.querySelector('i');
+        icon.classList.toggle('fa-eye');
+        icon.classList.toggle('fa-eye-slash');
+    });
+
+    // Forgot password and Register links (SweetAlert2 modals since those pages are not part of this build)
+    document.getElementById('forgotPasswordLink').addEventListener('click', (e) => {
+        e.preventDefault();
+        Swal.fire({
+            icon: 'info',
+            title: 'Reset your password',
+            html: '<div class="text-start">\
+                 <p>For this demo, password reset is simulated.</p>\
+                 <ol class="mb-2">\
+                   <li>Contact your Fraud Shield admin.</li>\
+                   <li>Or visit the Developer Portal and request a reset.</li>\
+                 </ol>\
+                 <p class="mb-0">Tip: Use the sample credentials below to sign in.</p>\
+                 </div>',
+            confirmButtonText: 'Got it',
+            confirmButtonColor: getComputedStyle(document.documentElement).getPropertyValue('--color-primary') || '#0000FF'
+        });
+    });
+
+    document.getElementById('registerLink').addEventListener('click', (e) => {
+        e.preventDefault();
+        Swal.fire({
+            icon: 'question',
+            title: 'Request Partner Access',
+            html: '<div class="text-start">\
+                 <p>To request access, please contact your Fraud Shield account team or visit the Developer Portal.</p>\
+                 <p class="mb-1"><a href="./developer_portal.html">Open Developer Portal</a></p>\
+                 <small class="text-muted">Registration flows are not enabled in this demo build.</small>\
+                 </div>',
+            confirmButtonText: 'Close',
+            confirmButtonColor: getComputedStyle(document.documentElement).getPropertyValue('--color-primary') || '#0000FF'
+        });
+    });
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        clearError();
+
+        const email = sanitizeInput(emailInput.value.trim().toLowerCase());
+        const password = String(passwordInput.value);
+
+        // Basic validation
+        let invalid = false;
+        if (!email || !isValidEmail(email)) {
+            emailInput.classList.add('is-invalid');
+            invalid = true;
+        } else {
+            emailInput.classList.remove('is-invalid');
+        }
+        if (!password) {
+            passwordInput.classList.add('is-invalid');
+            invalid = true;
+        } else {
+            passwordInput.classList.remove('is-invalid');
+        }
+        if (invalid) {
+            showError('Please fix the errors above and try again.');
+            return;
+        }
+
+        // Persist email for convenience
+        try {
+            localStorage.setItem('partner:lastEmail', email);
+        } catch (e) {}
+
+        setLoading(true);
+
+        // Demo authentication: client-side check
+        setTimeout(() => {
+            const record = CREDENTIALS[email];
+            if (record && record.password === password) {
+                Swal.fire({
+                    icon: 'success',
+                    title: `Welcome, ${record.role}!`,
+                    text: 'Authentication successful. Redirecting to your workspace...',
+                    timer: 1400,
+                    showConfirmButton: false
+                });
+                setTimeout(() => {
+                    window.location.href = record.redirect;
+                }, 1200);
+            } else {
+                setLoading(false);
+                showError('Invalid credentials. Please check your email and password.');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Login failed',
+                    text: 'We could not verify your credentials.'
+                });
+            }
+        }, 800);
+
+        // In production, replace with secure API call to your authentication endpoint.
+        // fetch(AUTH_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) })
+        //   .then(...)
+    });
+})();
+  </script>
+ </body>
+</html>

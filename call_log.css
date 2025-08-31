@@ -1,0 +1,76 @@
+/* call_log.css - page specific styles for Call Log */
+/* Ensure Poppins applies over base */
+body {
+    font-family: "Poppins", var(--font-sans)
+    }
+/* Layout adjustments with offcanvas sidebar visible on lg+ */
+@media (min-width: 992px) {
+    #appSidebarUser {
+        position: sticky;
+        top: 0;
+        height: 100vh
+        }
+    }
+/* Call item styles */
+.call-card {
+    padding: 14px 16px
+    }
+.call-type-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface-muted);
+    font-size: 1rem
+    }
+.call-actions .btn {
+    white-space: nowrap
+    }
+.caller-identifier {
+    cursor: pointer
+    }
+.caller-identifier:hover {
+    text-decoration: underline
+    }
+/* Risk badge overrides using existing .badge-soft variants */
+.badge-soft.primary {
+    background: var(--primary-soft)
+    }
+.badge-soft.warning {
+    background: var(--warning-soft)
+    }
+.badge-soft.info {
+    background: var(--info-soft)
+    }
+.badge-soft.success {
+    background: var(--success-soft)
+    }
+.badge-soft.error {
+    background: var(--error-soft)
+    }
+/* Toolbar spacing */
+.call-log-toolbar .form-select {
+    min-width: 200px
+    }
+/* Charts cards */
+#callsByDayChart, #riskDistributionChart {
+    width: 100% !important
+    }
+/* Pagination alignment on small screens */
+@media (max-width: 575.98px) {
+    #paginationInfo {
+        display: none
+        }
+    }
+/* Improve dropdown menu shadow/rounding to match theme */
+.dropdown-menu {
+    border-radius: var(--radius-1);
+    box-shadow: var(--shadow-2)
+    }
+/* Accessibility: focus states */
+.call-card .btn:focus-visible, .caller-identifier:focus-visible {
+    outline: none;
+    border-radius: 6px
+    }

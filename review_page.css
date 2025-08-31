@@ -1,0 +1,94 @@
+/* Review Page specific styles (review_page.css) */
+:root {
+    /* Use Poppins as the primary sans font for this page */
+    --font-sans: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+    }
+/* Ensure main content area respects sidebar on lg+ */
+@media (min-width: 992px) {
+    #appSidebarAdmin.offcanvas-lg {
+        position: static;
+        transform: none;
+        visibility: visible;
+        height: auto
+        }
+    }
+/* Sticky offset so the right column cards don't tuck under the navbar */
+.sticky-offset {
+    top: 84px
+    }
+/* Timeline styles */
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative
+    }
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-color)
+    }
+.timeline-item {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 14px
+    }
+.timeline-item:last-child {
+    margin-bottom: 0
+    }
+.timeline-point {
+    position: absolute;
+    left: 3px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--surface-0);
+    border: 2px solid var(--color-primary)
+    }
+.timeline-content {
+    padding-top: 2px
+    }
+/* Sortable table headers */
+.table-sortable th.sortable {
+    cursor: pointer;
+    white-space: nowrap
+    }
+.table-sortable th .sort-indicator {
+    opacity: 0.55;
+    margin-left: 6px
+    }
+.table-sortable th.sortable:hover .sort-indicator {
+    opacity: 1
+    }
+/* Chart canvas sizing on small screens */
+#aiGauge {
+    max-width: 100%;
+    height: auto
+    }
+/* Improve card spacing under header */
+.page-header {
+    margin-top: var(--space-2)
+    }
+/* Align badge-soft with compact size in summary */
+#riskBadge.badge-soft, #caseStatusBadge.badge-soft {
+    font-weight: 700;
+    padding: 4px 10px
+    }
+/* Make the summary metrics consistent */
+#userReportCount, #statusText {
+    font-size: 1.05rem
+    }
+/* Offcanvas width override for consistency */
+#appSidebarAdmin {
+    width: 260px
+    }
+@media (max-width: 991.98px) {
+    #appSidebarAdmin {
+        width: 260px
+        }
+    }

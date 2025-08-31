@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Partner Dashboard • Fraud Shield Developer Portal
+  </title>
+  <!-- Brand Typography: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 -->
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet">
+   <!-- SweetAlert2 -->
+   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet"/>
+   <!-- Global Theme Styles -->
+   <link href="style.css" rel="stylesheet"/>
+   <!-- Page Specific Styles -->
+   <link href="partner_dashboard.css" rel="stylesheet"/>
+  </link>
+ </head>
+ <body>
+  <!-- Header (Top Navigation) -->
+  <!-- Partner Portal Header: branding, docs search, notifications, profile dropdown -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background:#0000FF;">
+   <div class="container-fluid">
+    <button aria-controls="appSidebarPartner" aria-label="Toggle sidebar" class="btn btn-outline-light me-2" id="sidebarToggleBtn" type="button">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./developer_portal.html">
+     <img alt="Logo" class="me-2" onerror="this.src='https://picsum.photos/id/1062/28/28'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+     Developer Portal
+    </a>
+    <form class="d-none d-md-flex ms-3 w-50" role="search">
+     <div class="input-group">
+      <span class="input-group-text bg-white">
+       <i class="fas fa-search">
+       </i>
+      </span>
+      <input aria-label="Search" class="form-control" placeholder="Search docs, endpoints, guides..." type="search"/>
+     </div>
+    </form>
+    <ul class="navbar-nav ms-auto align-items-center">
+     <li class="nav-item me-2">
+      <a class="nav-link" data-bs-title="Notifications" data-bs-toggle="tooltip" href="#">
+       <i class="fas fa-bell">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button">
+       <span class="me-2">
+        Partner Co.
+       </span>
+       <img alt="avatar" class="rounded-circle" height="28" src="https://picsum.photos/seed/partner/28/28" width="28"/>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="./partner_dashboard.html">
+         <i class="fas fa-gauge me-2">
+         </i>
+         My Dashboard
+        </a>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./partner_dashboard.html#api-keys">
+         <i class="fas fa-key me-2">
+         </i>
+         API Keys
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./partner_login.html">
+         <i class="fas fa-sign-out-alt me-2">
+         </i>
+         Logout
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="container-fluid p-0">
+   <div class="dashboard-shell d-flex">
+    <!-- Sidebar (Left) -->
+    <!-- Partner Portal Sidebar (Pages: developer_portal, partner_login, partner_dashboard, api_documentation)
+      Icons used: fa-plug, fa-book, fa-gauge, fa-key, fa-chart-area, fa-life-ring
+      Interactive: collapsible Developer Tools; responsive collapse
+      Colors: Primary #0000FF accents; Sidebar bg #000000; Hover rgba(255,255,255,0.1); Active left border #0000FF -->
+    <aside class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-white" id="appSidebarPartner" style="width:260px;min-height:100vh;background-color:#000000 !important;">
+     <div class="d-flex align-items-center mb-3">
+      <a class="text-white text-decoration-none d-flex align-items-center" href="./developer_portal.html">
+       <img alt="Logo" class="me-2" onerror="this.src='https://picsum.photos/id/1062/32/32'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:32px;height:32px;object-fit:contain;"/>
+       <span class="fs-5 fw-bold">
+        Developer Portal
+       </span>
+      </a>
+     </div>
+     <div class="d-flex align-items-center mb-4 p-2 rounded" style="background:rgba(255,255,255,0.05);">
+      <div class="me-2 rounded-circle bg-secondary d-flex align-items-center justify-content-center" style="width:40px;height:40px;background:#2d2d2d;">
+       P
+      </div>
+      <div>
+       <div class="fw-semibold">
+        Partner Co.
+       </div>
+       <small class="text-muted">
+        API Partner
+       </small>
+      </div>
+     </div>
+     <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+       <a class="nav-link text-white" href="./developer_portal.html" style="border-radius:8px;">
+        <i class="fas fa-plug me-2">
+        </i>
+        Portal Home
+       </a>
+      </li>
+      <li>
+       <a class="nav-link text-white" href="./api_documentation.html" style="border-radius:8px;">
+        <i class="fas fa-book me-2">
+        </i>
+        API Documentation
+       </a>
+      </li>
+      <li>
+       <a class="nav-link text-white active" href="./partner_dashboard.html" style="border-radius:8px;">
+        <i class="fas fa-gauge me-2">
+        </i>
+        My Dashboard
+       </a>
+      </li>
+      <li>
+       <a aria-controls="devTools" aria-expanded="false" class="nav-link text-white d-flex align-items-center" data-bs-toggle="collapse" href="#devTools" role="button" style="border-radius:8px;">
+        <i class="fas fa-toolbox me-2">
+        </i>
+        Developer Tools
+        <i class="fas fa-chevron-down ms-auto">
+        </i>
+       </a>
+       <div class="collapse show" id="devTools">
+        <ul class="list-unstyled fw-normal small ps-4">
+         <li>
+          <a class="nav-link text-white-50 d-block py-1" href="./partner_dashboard.html#api-keys">
+           <i class="fas fa-key me-2">
+           </i>
+           API Keys
+          </a>
+         </li>
+         <li>
+          <a class="nav-link text-white-50 d-block py-1" href="./partner_dashboard.html#usage">
+           <i class="fas fa-chart-area me-2">
+           </i>
+           Usage Analytics
+          </a>
+         </li>
+         <li>
+          <a class="nav-link text-white-50 d-block py-1" href="./developer_portal.html#support">
+           <i class="fas fa-life-ring me-2">
+           </i>
+           Support
+          </a>
+         </li>
+        </ul>
+       </div>
+      </li>
+     </ul>
+     <hr class="text-secondary"/>
+     <small class="text-secondary">
+      © Fraud Shield
+     </small>
+     <style>
+      #appSidebarPartner .nav-link:hover{background:rgba(255,255,255,0.08);} 
+          #appSidebarPartner .nav-link.active{background:rgba(0,0,255,0.15);border-left:3px solid #0000FF;color:#fff;}
+     </style>
+    </aside>
+    <!-- Main Content -->
+    <main class="main-content flex-grow-1">
+     <div class="container-fluid px-3 px-lg-4 py-3">
+      <!-- Page Header -->
+      <div class="page-header mb-3">
+       <div class="d-flex align-items-center gap-3">
+        <h1 class="page-title mb-0">
+         Partner Dashboard
+        </h1>
+        <span class="badge-soft info">
+         <i class="fa-solid fa-circle-check me-1">
+         </i>
+         Connected
+        </span>
+       </div>
+       <div class="d-flex align-items-center gap-2">
+        <div aria-label="View Switcher" class="view-switcher">
+         <div class="option active">
+          <i class="fa-solid fa-grid-2">
+          </i>
+          Dashboard
+         </div>
+         <a class="option text-decoration-none" href="./api_documentation.html">
+          <i class="fa-solid fa-book">
+          </i>
+          Docs
+         </a>
+        </div>
+        <button class="btn btn-light" id="btnQuickHelp">
+         <i class="fa-regular fa-circle-question me-1">
+         </i>
+         Quick Help
+        </button>
+       </div>
+      </div>
+      <!-- System Feedback / Notifications Area -->
+      <div aria-live="polite" class="mb-3" id="systemAlerts" role="region">
+      </div>
+      <!-- KPI Row with Time Range Selector -->
+      <section class="mb-4" id="overview">
+       <div class="card">
+        <div class="card-header">
+         <div class="d-flex align-items-center gap-2">
+          <i class="fa-solid fa-chart-line text-primary">
+          </i>
+          <div class="widget-title">
+           API Usage Overview
+          </div>
+         </div>
+         <div class="d-flex align-items-center gap-2">
+          <div class="dropdown">
+           <button aria-expanded="false" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" id="timeRangeBtn" type="button">
+            <i class="fa-regular fa-clock me-1">
+            </i>
+            <span id="timeRangeLabel">
+             Last 7 Days
+            </span>
+           </button>
+           <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+             <a class="dropdown-item time-range-option" data-range="24h" href="#">
+              Last 24 Hours
+             </a>
+            </li>
+            <li>
+             <a class="dropdown-item time-range-option" data-range="7d" href="#">
+              Last 7 Days
+             </a>
+            </li>
+            <li>
+             <a class="dropdown-item time-range-option" data-range="30d" href="#">
+              Last 30 Days
+             </a>
+            </li>
+           </ul>
+          </div>
+         </div>
+        </div>
+        <div class="card-body">
+         <div class="row g-3 d-none" id="kpiSkeleton">
+          <div class="col-6 col-lg-3">
+           <div class="skeleton" style="height:96px">
+           </div>
+          </div>
+          <div class="col-6 col-lg-3">
+           <div class="skeleton" style="height:96px">
+           </div>
+          </div>
+          <div class="col-6 col-lg-3">
+           <div class="skeleton" style="height:96px">
+           </div>
+          </div>
+          <div class="col-6 col-lg-3">
+           <div class="skeleton" style="height:96px">
+           </div>
+          </div>
+         </div>
+         <div class="row g-3 align-items-stretch" id="kpiRow">
+          <div class="col-6 col-lg-3">
+           <div class="metric-card h-100">
+            <div class="metric-title">
+             Total Requests
+            </div>
+            <div class="d-flex align-items-end justify-content-between">
+             <div class="metric-value" id="kpiTotal">
+              --
+             </div>
+             <i class="fa-solid fa-arrows-rotate text-info fs-4">
+             </i>
+            </div>
+            <small class="text-muted" id="kpiTotalSub">
+             vs previous period
+            </small>
+           </div>
+          </div>
+          <div class="col-6 col-lg-3">
+           <div class="metric-card h-100">
+            <div class="metric-title">
+             Success Rate
+            </div>
+            <div class="d-flex align-items-end justify-content-between">
+             <div class="metric-value" id="kpiSuccess">
+              --
+             </div>
+             <i class="fa-solid fa-check-circle text-success fs-4">
+             </i>
+            </div>
+            <small class="text-muted" id="kpiSuccessSub">
+             2xx responses
+            </small>
+           </div>
+          </div>
+          <div class="col-6 col-lg-3">
+           <div class="metric-card h-100">
+            <div class="metric-title">
+             Avg Latency
+            </div>
+            <div class="d-flex align-items-end justify-content-between">
+             <div class="metric-value" id="kpiLatency">
+              --
+             </div>
+             <i class="fa-solid fa-gauge-high text-warning fs-4">
+             </i>
+            </div>
+            <small class="text-muted">
+             ms
+            </small>
+           </div>
+          </div>
+          <div class="col-6 col-lg-3">
+           <div class="metric-card h-100">
+            <div class="metric-title">
+             Failed Requests
+            </div>
+            <div class="d-flex align-items-end justify-content-between">
+             <div class="metric-value" id="kpiFailed">
+              --
+             </div>
+             <i class="fa-solid fa-triangle-exclamation text-danger fs-4">
+             </i>
+            </div>
+            <small class="text-muted">
+             4xx / 5xx
+            </small>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </section>
+      <!-- Usage Analytics Chart -->
+      <section class="mb-4" id="usage">
+       <div class="card">
+        <div class="card-header">
+         <div class="d-flex align-items-center gap-2">
+          <i class="fa-solid fa-chart-area text-primary">
+          </i>
+          <div class="widget-title">
+           API Request Volume
+          </div>
+         </div>
+         <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-light btn-sm" id="btnResetZoom">
+           <i class="fa-solid fa-magnifying-glass-minus me-1">
+           </i>
+           Reset Zoom
+          </button>
+         </div>
+        </div>
+        <div class="card-body">
+         <div class="skeleton d-none" id="chartSkeleton" style="height:320px">
+         </div>
+         <div class="chart-container">
+          <canvas aria-label="API Requests over Time" height="120" id="requestVolumeChart" role="img">
+          </canvas>
+         </div>
+         <div class="text-muted small mt-2">
+          Tip: drag to zoom, scroll to zoom, double-click to pan. Hover for exact values.
+         </div>
+        </div>
+       </div>
+      </section>
+      <!-- API Key Management -->
+      <section class="mb-5" id="api-keys">
+       <div class="card">
+        <div class="card-header">
+         <div class="d-flex align-items-center gap-2">
+          <i class="fa-solid fa-key text-primary">
+          </i>
+          <div class="widget-title">
+           API Key Management
+          </div>
+         </div>
+         <div class="d-flex align-items-center gap-2">
+          <div class="input-group input-group-sm me-2">
+           <span class="input-group-text">
+            <i class="fa-solid fa-filter">
+            </i>
+           </span>
+           <input class="form-control" id="keyFilter" placeholder="Filter keys by name..." type="text"/>
+          </div>
+          <button class="btn btn-primary" id="btnGenerateKey">
+           <i class="fa-solid fa-plus me-1">
+           </i>
+           Generate New Key
+          </button>
+         </div>
+        </div>
+        <div class="card-body">
+         <div class="table-responsive">
+          <table class="table table-theme align-middle" id="apiKeysTable">
+           <thead>
+            <tr>
+             <th class="sortable" data-sort="name" scope="col">
+              Key Name
+              <i class="fa-solid fa-sort ms-1">
+              </i>
+             </th>
+             <th scope="col">
+              Key
+             </th>
+             <th class="sortable" data-sort="created" scope="col">
+              Created
+              <i class="fa-solid fa-sort ms-1">
+              </i>
+             </th>
+             <th class="text-center" scope="col">
+              Status
+             </th>
+             <th class="text-end" scope="col">
+              Actions
+             </th>
+            </tr>
+           </thead>
+           <tbody id="apiKeysTbody">
+            <!-- rows injected by JS -->
+           </tbody>
+          </table>
+         </div>
+         <div class="d-flex align-items-center justify-content-between mt-2">
+          <small class="text-muted" id="paginationInfo">
+           Showing 1–5 of 6
+          </small>
+          <nav>
+           <ul class="pagination pagination-sm mb-0" id="pagination">
+            <!-- pagination injected by JS -->
+           </ul>
+          </nav>
+         </div>
+        </div>
+       </div>
+      </section>
+     </div>
+    </main>
+   </div>
+  </div>
+  <!-- Sidebar Overlay for mobile -->
+  <div aria-hidden="true" class="sidebar-overlay" id="sidebarOverlay">
+  </div>
+  <!-- Footer -->
+  <!-- Partner Footer: minimal branding and legal links -->
+  <footer class="py-3" style="background:#000000;color:#fff;">
+   <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+    <small>
+     © 2026 Fraud Shield • Developer Portal
+    </small>
+    <ul class="nav">
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html">
+       Terms
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html#privacy">
+       Privacy
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./api_documentation.html">
+       <i class="fas fa-book me-1">
+       </i>
+       Docs
+      </a>
+     </li>
+    </ul>
+   </div>
+  </footer>
+  <!-- JS: Bootstrap, Chart.js, Zoom plugin, SweetAlert2 -->
+  <script crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js">
+  </script>
+  <script>
+   // Bootstrap tooltips
+document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+
+// Mobile sidebar toggle
+const body = document.body;
+const sidebar = document.getElementById('appSidebarPartner');
+const overlay = document.getElementById('sidebarOverlay');
+const sidebarBtn = document.getElementById('sidebarToggleBtn');
+
+function openSidebar() {
+    body.classList.add('sidebar-open');
+    overlay.classList.add('show');
+}
+
+function closeSidebar() {
+    body.classList.remove('sidebar-open');
+    overlay.classList.remove('show');
+}
+sidebarBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (body.classList.contains('sidebar-open')) closeSidebar();
+    else openSidebar();
+});
+overlay.addEventListener('click', closeSidebar);
+
+// Quick Help
+document.getElementById('btnQuickHelp').addEventListener('click', () => {
+    Swal.fire({
+        title: 'Need Help?',
+        html: '<div class="text-start">\
+               <p class="mb-2">Explore these resources:</p>\
+               <ul class="mb-0">\
+                 <li><a href="./api_documentation.html" target="_blank">API Documentation</a></li>\
+                 <li><a href="./developer_portal.html#support" target="_blank">Support &amp; FAQs</a></li>\
+               </ul></div>',
+        icon: 'info',
+        confirmButtonText: 'Close'
+    });
+});
+
+// Utility: formatters
+const fmt = {
+    number: (n) => n.toLocaleString(),
+    percent: (n) => n.toLocaleString(undefined, {
+        maximumFractionDigits: 2
+    }) + '%',
+    ms: (n) => n.toLocaleString() + ' ms',
+    date: (d) => new Date(d).toLocaleDateString()
+};
+
+// Mock Data Generators
+function generateTimeSeries(range) {
+    const points = [];
+    const now = new Date();
+    let steps, stepMs;
+    if (range === '24h') {
+        steps = 24;
+        stepMs = 60 * 60 * 1000;
+    } else if (range === '7d') {
+        steps = 7;
+        stepMs = 24 * 60 * 60 * 1000;
+    } else {
+        steps = 30;
+        stepMs = 24 * 60 * 60 * 1000;
+    }
+    for (let i = steps - 1; i >= 0; i--) {
+        const t = new Date(now - i * stepMs);
+        const base = range === '24h' ? 800 : range === '7d' ? 5500 : 6200;
+        const jitter = Math.round((Math.sin(i / 2) + 1) * (range === '24h' ? 120 : 450));
+        const total = base + jitter + Math.floor(Math.random() * (range === '24h' ? 80 : 300));
+        const success = Math.round(total * (0.94 + Math.random() * 0.04));
+        const failed = Math.max(total - success, 0);
+        const latency = Math.round(110 + Math.random() * 70 + (failed / Math.max(total, 1)) * 100);
+        points.push({
+            t,
+            total,
+            success,
+            failed,
+            latency
+        });
+    }
+    return points;
+}
+
+// State
+const state = {
+    timeRange: '7d',
+    series: [],
+    chart: null,
+    keys: [],
+    keysFiltered: [],
+    sort: {
+        field: 'created',
+        dir: 'desc'
+    },
+    page: 1,
+    pageSize: 5
+};
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    // Initial mock keys
+    state.keys = [{
+        id: 'k1',
+        name: 'Production Key',
+        key: 'prod_1f5c-7e9a-4a4b-8d0a-4bde8c31b9a1',
+        created: '2025-12-01T12:20:00Z',
+        status: 'Active'
+    }, {
+        id: 'k2',
+        name: 'Staging Key',
+        key: 'stg_3c2a-7b4f-9d12-5e6f-cd90ee129aa2',
+        created: '2025-11-15T10:05:00Z',
+        status: 'Active'
+    }, {
+        id: 'k3',
+        name: 'Mobile App Key',
+        key: 'mob_9a8b-1c2d-3e4f-5a6b-7c8d9e0f1a2b',
+        created: '2025-10-22T09:45:00Z',
+        status: 'Active'
+    }, {
+        id: 'k4',
+        name: 'Backup Key',
+        key: 'bkp_7f6e-5d4c-3b2a-190e-abcdef123456',
+        created: '2025-09-05T16:30:00Z',
+        status: 'Revoked'
+    }, {
+        id: 'k5',
+        name: 'Internal Analytics',
+        key: 'int_2b3c-4d5e-6f7a-8b9c-0d1e2f3a4b5c',
+        created: '2025-08-18T13:10:00Z',
+        status: 'Active'
+    }, {
+        id: 'k6',
+        name: 'QA Sandbox',
+        key: 'qa_aa11-bb22-cc33-dd44-ee5566778899',
+        created: '2025-07-01T08:00:00Z',
+        status: 'Active'
+    }];
+    state.keysFiltered = [...state.keys];
+
+    // Time range + KPIs + Chart
+    loadTimeRange(state.timeRange, true);
+
+    // Table events
+    document.getElementById('keyFilter').addEventListener('input', onFilterKeys);
+    document.querySelectorAll('#apiKeysTable thead .sortable').forEach(th => th.addEventListener('click', onSort));
+
+    // Pagination will be set during render
+
+    // Buttons
+    document.getElementById('btnGenerateKey').addEventListener('click', onGenerateKey);
+    document.getElementById('btnResetZoom').addEventListener('click', () => {
+        if (state.chart) state.chart.resetZoom();
+    });
+
+    // Time range options
+    document.querySelectorAll('.time-range-option').forEach(a => a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const range = a.getAttribute('data-range');
+        document.getElementById('timeRangeLabel').textContent = a.textContent;
+        loadTimeRange(range);
+    }));
+
+    // Initial render of keys
+    renderKeys();
+
+    // Example system alert
+    showSystemAlert('success', '<strong>Welcome!</strong> You are viewing the latest API usage metrics.');
+});
+
+function showSystemAlert(type, html) {
+    const area = document.getElementById('systemAlerts');
+    const color = type === 'success' ? 'alert-success' : type === 'warning' ? 'alert-warning' : type === 'danger' ? 'alert-danger' : 'alert-info';
+    area.innerHTML = `<div class="alert ${color} alert-dismissible fade show" role="alert">${html}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`;
+}
+
+// Load and render KPIs + Chart with skeleton
+function loadTimeRange(range, initial = false) {
+    state.timeRange = range;
+    toggleSkeleton(true);
+    setTimeout(() => {
+        state.series = generateTimeSeries(range);
+        renderKPIs();
+        renderChart();
+        toggleSkeleton(false);
+        if (!initial) {
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                timer: 1400,
+                showConfirmButton: false,
+                icon: 'success',
+                title: 'Updated metrics for ' + (range === '24h' ? 'Last 24 Hours' : range === '7d' ? 'Last 7 Days' : 'Last 30 Days')
+            });
+        }
+    }, 650);
+}
+
+function toggleSkeleton(show) {
+    document.getElementById('kpiSkeleton').classList.toggle('d-none', !show);
+    document.getElementById('kpiRow').classList.toggle('d-none', show);
+    document.getElementById('chartSkeleton').classList.toggle('d-none', !show);
+    document.getElementById('requestVolumeChart').parentElement.classList.toggle('d-none', show);
+}
+
+function renderKPIs() {
+    const totals = state.series.reduce((acc, p) => {
+        acc.total += p.total;
+        acc.success += p.success;
+        acc.failed += p.failed;
+        acc.latency += p.latency;
+        return acc;
+    }, {
+        total: 0,
+        success: 0,
+        failed: 0,
+        latency: 0
+    });
+    const avgLatency = Math.round(totals.latency / Math.max(state.series.length, 1));
+    const successRate = totals.total > 0 ? (totals.success / totals.total) * 100 : 0;
+
+    document.getElementById('kpiTotal').textContent = fmt.number(totals.total);
+    document.getElementById('kpiSuccess').textContent = fmt.percent(successRate);
+    document.getElementById('kpiLatency').textContent = fmt.ms(avgLatency);
+    document.getElementById('kpiFailed').textContent = fmt.number(totals.failed);
+
+    // simple subtext trend (mock)
+    const diff = Math.round((Math.random() * 8 - 4) * 10) / 10; // -4% to +4%
+    const diffText = diff >= 0 ? `▲ ${diff}%` : `▼ ${Math.abs(diff)}%`;
+    document.getElementById('kpiTotalSub').textContent = diffText + ' vs previous period';
+    document.getElementById('kpiSuccessSub').textContent = '2xx responses';
+
+    // if success too low, warn
+    if (successRate < 90) {
+        showSystemAlert('warning', '<strong>Heads up:</strong> Success rate dipped below 90% in this range. Investigate error responses.');
+    }
+}
+
+function renderChart() {
+    const ctx = document.getElementById('requestVolumeChart');
+    const labels = state.series.map(p => state.timeRange === '24h' ? p.t.getHours() + ':00' : p.t.toLocaleDateString());
+    const totalData = state.series.map(p => p.total);
+    const successData = state.series.map(p => p.success);
+    const failedData = state.series.map(p => p.failed);
+
+    if (state.chart) {
+        state.chart.destroy();
+    }
+
+    state.chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels,
+            datasets: [{
+                label: 'Total',
+                data: totalData,
+                borderColor: '#0099D2',
+                backgroundColor: 'rgba(0,153,210,0.15)',
+                tension: 0.25,
+                fill: true,
+                pointRadius: 2
+            }, {
+                label: 'Success',
+                data: successData,
+                borderColor: '#00774E',
+                backgroundColor: 'rgba(0,119,78,0.15)',
+                tension: 0.25,
+                fill: true,
+                pointRadius: 2
+            }, {
+                label: 'Failed',
+                data: failedData,
+                borderColor: '#CD2026',
+                backgroundColor: 'rgba(205,32,38,0.12)',
+                tension: 0.25,
+                fill: true,
+                pointRadius: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',
+                intersect: false
+            },
+            plugins: {
+                legend: {
+                    position: 'top'
+                },
+                tooltip: {
+                    enabled: true
+                },
+                zoom: {
+                    pan: {
+                        enabled: true,
+                        mode: 'x'
+                    },
+                    zoom: {
+                        wheel: {
+                            enabled: true
+                        },
+                        pinch: {
+                            enabled: true
+                        },
+                        mode: 'x'
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Table: filter, sort, paginate, actions
+function onFilterKeys(e) {
+    const q = e.target.value.toLowerCase();
+    state.keysFiltered = state.keys.filter(k => k.name.toLowerCase().includes(q));
+    state.page = 1;
+    renderKeys();
+}
+
+function onSort(e) {
+    const field = e.currentTarget.getAttribute('data-sort');
+    if (state.sort.field === field) {
+        state.sort.dir = state.sort.dir === 'asc' ? 'desc' : 'asc';
+    } else {
+        state.sort.field = field;
+        state.sort.dir = 'asc';
+    }
+    renderKeys();
+}
+
+function renderKeys() {
+    const tbody = document.getElementById('apiKeysTbody');
+    let data = [...state.keysFiltered];
+    const dir = state.sort.dir === 'asc' ? 1 : -1;
+    data.sort((a, b) => {
+        const f = state.sort.field;
+        const va = f === 'created' ? new Date(a.created).getTime() : (a.name.toLowerCase());
+        const vb = f === 'created' ? new Date(b.created).getTime() : (b.name.toLowerCase());
+        return va > vb ? dir : va < vb ? -dir : 0;
+    });
+    // paginate
+    const total = data.length;
+    const pages = Math.max(1, Math.ceil(total / state.pageSize));
+    state.page = Math.min(state.page, pages);
+    const start = (state.page - 1) * state.pageSize;
+    const pageData = data.slice(start, start + state.pageSize);
+
+    tbody.innerHTML = pageData.map(k => rowHtml(k)).join('');
+    // attach actions
+    tbody.querySelectorAll('[data-action="copy"]').forEach(btn => btn.addEventListener('click', onCopyKey));
+    tbody.querySelectorAll('[data-action="revoke"]').forEach(btn => btn.addEventListener('click', onRevokeKey));
+
+    // pagination render
+    renderPagination(pages, total, start, pageData.length);
+
+    // enable tooltips for new buttons
+    tbody.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+}
+
+function rowHtml(k) {
+    const masked = k.key.replace(/.(?=.{4})/g, '•');
+    const statusBadge = k.status === 'Active' ? '<span class="badge-soft success">Active</span>' : '<span class="badge-soft error">Revoked</span>';
+    return `<tr>
+        <td><i class="fa-solid fa-key text-muted me-2"></i>${k.name}</td>
+        <td class="font-monospace">${masked}</td>
+        <td>${fmt.date(k.created)}</td>
+        <td class="text-center">${statusBadge}</td>
+        <td class="text-end">
+          <button class="btn btn-icon btn-light me-1" data-action="copy" data-key="${k.key}" data-bs-toggle="tooltip" data-bs-title="Copy full key"><i class="fa-regular fa-copy"></i></button>
+          <button class="btn btn-icon btn-danger" data-action="revoke" data-id="${k.id}" ${k.status!== 'Active' ? 'disabled' : ''} data-bs-toggle="tooltip" data-bs-title="Revoke key"><i class="fa-solid fa-ban"></i></button>
+        </td>
+      </tr>`;
+}
+
+function renderPagination(pages, total, start, count) {
+    const ul = document.getElementById('pagination');
+    ul.innerHTML = '';
+    const createItem = (p, label = p, disabled = false, active = false) => (
+        `<li class="page-item ${disabled ? 'disabled' : ''} ${active ? 'active' : ''}">\
+           <a class="page-link" href="#" data-page="${p}">${label}</a>\
+         </li>`
+    );
+    ul.insertAdjacentHTML('beforeend', createItem(state.page - 1, '&laquo;', state.page === 1));
+    for (let i = 1; i <= pages; i++) ul.insertAdjacentHTML('beforeend', createItem(i, i, false, i === state.page));
+    ul.insertAdjacentHTML('beforeend', createItem(state.page + 1, '&raquo;', state.page === pages));
+    ul.querySelectorAll('a').forEach(a => a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const p = parseInt(a.getAttribute('data-page'));
+        if (!isNaN(p) && p >= 1 && p <= pages) {
+            state.page = p;
+            renderKeys();
+        }
+    }));
+    const end = start + count;
+    document.getElementById('paginationInfo').textContent = `Showing ${start+1}–${end} of ${total}`;
+}
+
+async function onCopyKey(e) {
+    const key = e.currentTarget.getAttribute('data-key');
+    try {
+        await navigator.clipboard.writeText(key);
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            timer: 1200,
+            showConfirmButton: false,
+            icon: 'success',
+            title: 'Copied!'
+        });
+    } catch (err) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Copy failed',
+            text: 'Please try again.'
+        });
+    }
+}
+
+function onRevokeKey(e) {
+    const id = e.currentTarget.getAttribute('data-id');
+    const keyObj = state.keys.find(k => k.id === id);
+    if (!keyObj) return;
+    Swal.fire({
+        title: 'Revoke API Key?',
+        html: `<div class="text-start">This will immediately disable <strong>${keyObj.name}</strong>.<br>Action cannot be undone.</div>`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, revoke',
+        confirmButtonColor: '#CD2026'
+    }).then(res => {
+        if (res.isConfirmed) {
+            // mock API call
+            setTimeout(() => {
+                keyObj.status = 'Revoked';
+                renderKeys();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Key revoked',
+                    timer: 1200,
+                    showConfirmButton: false
+                });
+            }, 500);
+        }
+    });
+}
+
+function randomKey(prefix = 'key') {
+    const seg = () => Math.random().toString(36).slice(2, 6);
+    return `${prefix}_${seg()}-${seg()}-${seg()}-${seg()}-${seg()}${seg()}`;
+}
+
+function onGenerateKey() {
+    Swal.fire({
+        title: 'Generate New API Key',
+        html: '<input id="keyNameInput" class="swal2-input" placeholder="Key name (e.g., Webhook Service)">',
+        showCancelButton: true,
+        confirmButtonText: 'Create',
+        preConfirm: () => {
+            const val = document.getElementById('keyNameInput').value.trim();
+            if (!val) {
+                Swal.showValidationMessage('Please enter a key name');
+                return false;
+            }
+            return val;
+        }
+    }).then(res => {
+        if (res.isConfirmed) {
+            const name = res.value;
+            const newKey = {
+                id: 'k' + (Date.now()),
+                name,
+                key: randomKey(name.toLowerCase().split(' ')[0] || 'key'),
+                created: new Date().toISOString(),
+                status: 'Active'
+            };
+            state.keys.unshift(newKey);
+            state.keysFiltered = [...state.keys];
+            state.page = 1;
+            renderKeys();
+            Swal.fire({
+                icon: 'success',
+                title: 'Key created',
+                html: `<div class="text-start"><div class="mb-1">Copy and store your key securely.</div><code>${newKey.key}</code></div>`
+            });
+        }
+    });
+}
+  </script>
+ </body>
+</html>

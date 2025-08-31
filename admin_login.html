@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Admin Login • Fraud Shield
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  
+  <link href="admin_login.css" rel="stylesheet"/>
+  
+  <script defer="" src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js">
+  </script>
+ </head>
+ <body class="d-flex flex-column min-vh-100">
+
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background:#0000FF;">
+   <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="./admin_login.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this"src='https://picsum.photos/seed/fslogo/28/28';" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+     Admin Console
+    </a>
+    <div class="ms-auto d-none d-lg-flex align-items-center">
+     <a class="btn btn-sm btn-outline-light" href="./terms_of_service.html">
+      <i class="fas fa-file-contract me-1">
+      </i>
+      Terms
+     </a>
+    </div>
+   </div>
+  </nav>
+
+  <main class="flex-grow-1 d-flex align-items-center py-5">
+   <div class="container">
+    <div class="row justify-content-center">
+     <div class="col-12 col-md-10 col-lg-8 col-xl-5">
+      <div class="login-form-container">
+       <div class="text-center mb-3">
+        <img alt="Fraud Shield Logo" class="auth-logo mb-2" onerror="this.onerror=null;this"src='https://picsum.photos/seed/fsauth/80/80';" src="https://share.google/images/IG0HtHavlhtuhg52t"/>
+        <h1 class="h4 fw-bold mb-1">
+         Sign in to Admin Console
+        </h1>
+        <p class="text-muted mb-0">
+         Secure access for Administrators &amp; Fraud Analysts
+        </p>
+       </div>
+    
+       <div class="alert alert-danger d-none" id="formAlert" role="alert">
+        <i class="fa-solid fa-triangle-exclamation me-2">
+        </i>
+        <span class="alert-text">
+         Invalid email or password.
+        </span>
+       </div>
+       <form id="loginForm" novalidate="">
+    
+        <div class="mb-3">
+         <label class="form-label" for="emailInput">
+          Email Address
+         </label>
+         <div class="input-group">
+          <span class="input-group-text bg-white">
+           <i class="fa-regular fa-envelope">
+           </i>
+          </span>
+          <input class="form-control" id="emailInput" name="email" placeholder="admin@example.com" required="" type="email"/>
+         </div>
+         <div class="invalid-feedback" id="emailFeedback">
+          Please enter a valid email address.
+         </div>
+        </div>
+    
+        <div class="mb-2">
+         <div class="d-flex justify-content-between align-items-center">
+          <label class="form-label mb-0" for="passwordInput">
+           Password
+          </label>
+          <a class="small" href="#" id="forgotPasswordLink">
+           Forgot password?
+          </a>
+         </div>
+         <div class="input-group">
+          <span class="input-group-text bg-white">
+           <i class="fa-solid fa-lock">
+           </i>
+          </span>
+          <input class="form-control" id="passwordInput" name="password" placeholder="Enter your password" required="" type="password"/>
+          <button aria-label="Toggle password visibility" class="btn btn-light toggle-visibility-icon" id="togglePassword" type="button">
+           <i class="fa-regular fa-eye">
+           </i>
+          </button>
+         </div>
+         <div class="invalid-feedback" id="passwordFeedback">
+          Password cannot be empty.
+         </div>
+         <div class="form-text text-warning d-none mt-1" id="capsLockNotice">
+          <i class="fa-solid fa-arrow-up-a-z me-1">
+          </i>
+          Caps Lock is ON
+         </div>
+        </div>
+        <div class="d-grid mt-4">
+         <button class="btn btn-primary" id="loginBtn" type="submit">
+          <span class="btn-text">
+           <i class="fa-solid fa-right-to-bracket me-2">
+           </i>
+           Log In
+          </span>
+          <span class="btn-loading d-none">
+           <span aria-hidden="true" class="spinner-border spinner-border-sm me-2" role="status">
+           </span>
+           Signing in…
+          </span>
+         </button>
+        </div>
+        <div class="mt-3 d-flex justify-content-between align-items-center small text-muted">
+         <span>
+          By continuing you agree to our
+          <a href="./terms_of_service.html">
+           Terms
+          </a>
+          .
+         </span>
+         <a class="text-decoration-none" href="./privacy_settings.html">
+          Privacy
+         </a>
+        </div>
+       </form>
+      </div>
+      
+      <div class="card mt-4">
+       <div class="card-header d-flex align-items-center">
+        <span class="widget-title">
+         <i class="fa-solid fa-key me-2 text-info">
+         </i>
+         Test Accounts
+        </span>
+       </div>
+       <div class="card-body">
+        <p class="text-muted">
+         Use the credentials below to test role-based redirects.
+        </p>
+        <div class="table-responsive">
+         <table class="table table-sm align-middle mb-2">
+          <thead class="table-light">
+           <tr>
+            <th>
+             Role
+            </th>
+            <th>
+             Email
+            </th>
+            <th>
+             Password
+            </th>
+            <th>
+             Redirects To
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td>
+             <span class="badge bg-primary">
+              Admin
+             </span>
+            </td>
+            <td>
+             <code>
+              admin@example.com
+             </code>
+            </td>
+            <td>
+             <code>
+              Admin!234
+             </code>
+            </td>
+            <td>
+             <a href="./admin_dashboard.html">
+              admin_dashboard.html
+             </a>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <span class="badge bg-secondary">
+              Super Admin
+             </span>
+            </td>
+            <td>
+             <code>
+              superadmin@example.com
+             </code>
+            </td>
+            <td>
+             <code>
+              Super!234
+             </code>
+            </td>
+            <td>
+             <a href="./admin_dashboard.html?role=superadmin">
+              admin_dashboard.html?role=superadmin
+             </a>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <span class="badge bg-info text-dark">
+              Analyst
+             </span>
+            </td>
+            <td>
+             <code>
+              analyst@example.com
+             </code>
+            </td>
+            <td>
+             <code>
+              Analyst!234
+             </code>
+            </td>
+            <td>
+             <a href="./review_page.html">
+              review_page.html
+             </a>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <span class="badge bg-success">
+              Fraud Ops
+             </span>
+            </td>
+            <td>
+             <code>
+              fraudops@example.com
+             </code>
+            </td>
+            <td>
+             <code>
+              Ops!234
+             </code>
+            </td>
+            <td>
+             <a href="./analytics_dashboard.html">
+              analytics_dashboard.html
+             </a>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <span class="badge bg-dark">
+              Partner
+             </span>
+            </td>
+            <td>
+             <code>
+              partner@example.com
+             </code>
+            </td>
+            <td>
+             <code>
+              Partner!234
+             </code>
+            </td>
+            <td>
+             <a href="./partner_dashboard.html">
+              partner_dashboard.html
+             </a>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <span class="badge bg-warning text-dark">
+              Developer
+             </span>
+            </td>
+            <td>
+             <code>
+              developer@example.com
+             </code>
+            </td>
+            <td>
+             <code>
+              Dev!234
+             </code>
+            </td>
+            <td>
+             <a href="./developer_portal.html">
+              developer_portal.html
+             </a>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+        <small class="text-muted">
+         Note: These are mock credentials for demonstration only.
+        </small>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </main>
+  
+  <footer class="py-3 mt-auto" style="background:#000000;color:#fff;">
+   <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+    <small>
+     © 2026 Fraud Shield • Admin
+    </small>
+    <ul class="nav">
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html">
+       Terms
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html#privacy">
+       Privacy
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="btn btn-sm btn-outline-light ms-2" href="./admin_dashboard.html">
+       <i class="fas fa-list-check me-1">
+       </i>
+       Queue
+      </a>
+     </li>
+    </ul>
+   </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <!-- Page Script -->
+  <script>
+   (function() {
+    const form = document.getElementById('loginForm');
+    const emailInput = document.getElementById('emailInput');
+    const passwordInput = document.getElementById('passwordInput');
+    const loginBtn = document.getElementById('loginBtn');
+    const formAlert = document.getElementById('formAlert');
+    const alertText = formAlert?.querySelector('.alert-text');
+    const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+    const togglePasswordBtn = document.getElementById('togglePassword');
+    const capsLockNotice = document.getElementById('capsLockNotice');
+
+    const btnText = loginBtn.querySelector('.btn-text');
+    const btnLoading = loginBtn.querySelector('.btn-loading');
+
+    const USERS = {
+        'admin@example.com': {
+            password: 'Admin!234',
+            role: 'admin',
+            redirect: './admin_dashboard.html'
+        },
+        'superadmin@example.com': {
+            password: 'Super!234',
+            role: 'superadmin',
+            redirect: './admin_dashboard.html?role=superadmin'
+        },
+        'analyst@example.com': {
+            password: 'Analyst!234',
+            role: 'analyst',
+            redirect: './review_page.html'
+        },
+        'fraudops@example.com': {
+            password: 'Ops!234',
+            role: 'fraudops',
+            redirect: './analytics_dashboard.html'
+        },
+        'partner@example.com': {
+            password: 'Partner!234',
+            role: 'partner',
+            redirect: './partner_dashboard.html'
+        },
+        'developer@example.com': {
+            password: 'Dev!234',
+            role: 'developer',
+            redirect: './developer_portal.html'
+        }
+    };
+
+    function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    }
+
+    function setLoading(isLoading) {
+        loginBtn.disabled = isLoading;
+        btnText.classList.toggle('d-none', isLoading);
+        btnLoading.classList.toggle('d-none', !isLoading);
+        emailInput.readOnly = isLoading;
+        passwordInput.readOnly = isLoading;
+    }
+
+    function showError(message) {
+        if (alertText) alertText.textContent = message || 'Something went wrong.';
+        formAlert.classList.remove('d-none');
+        formAlert.focus();
+    }
+
+    function clearError() {
+        formAlert.classList.add('d-none');
+    }
+
+    // Toggle password visibility
+    togglePasswordBtn.addEventListener('click', () => {
+        const isPwd = passwordInput.getAttribute('type') === 'password';
+        passwordInput.setAttribute('type', isPwd ? 'text' : 'password');
+        togglePasswordBtn.querySelector('i').classList.toggle('fa-eye');
+        togglePasswordBtn.querySelector('i').classList.toggle('fa-eye-slash');
+    });
+    
+    passwordInput.addEventListener('keyup', (e) => {
+        const caps = e.getModifierState && e.getModifierState('CapsLock');
+        capsLockNotice.classList.toggle('d-none', !caps);
+    });
+
+
+    forgotPasswordLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Reset your password',
+            input: 'email',
+            inputLabel: 'Enter your registered email',
+            inputValue: emailInput.value || '',
+            inputPlaceholder: 'you@company.com',
+            confirmButtonText: 'Send Reset Link',
+            showCancelButton: true,
+            confirmButtonColor: '#0000FF',
+            preConfirm: (value) => {
+                if (!isValidEmail(value)) {
+                    Swal.showValidationMessage('Please enter a valid email address');
+                }
+            }
+        }).then((res) => {
+            if (res.isConfirmed) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'If that email exists…',
+                    text: 'We\'ve sent a password reset link to your email.',
+                    confirmButtonColor: '#0000FF'
+                });
+            }
+        });
+    });
+
+    
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        clearError();
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+
+        
+        let hasError = false;
+        if (!isValidEmail(email)) {
+            emailInput.classList.add('is-invalid');
+            hasError = true;
+        } else {
+            emailInput.classList.remove('is-invalid');
+        }
+        if (!password) {
+            passwordInput.classList.add('is-invalid');
+            hasError = true;
+        } else {
+            passwordInput.classList.remove('is-invalid');
+        }
+        if (hasError) return;
+
+        setLoading(true);
+
+
+        setTimeout(() => {
+            const user = USERS[email];
+            if (!user || user.password !== password) {
+                setLoading(false);
+                passwordInput.value = '';
+                showError('Invalid email or password.');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Authentication failed',
+                    text: 'The provided credentials are incorrect.',
+                    confirmButtonColor: '#0000FF'
+                });
+                return;
+            }
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Welcome back!',
+                text: `Signed in as ${email}`,
+                timer: 900,
+                showConfirmButton: false
+            });
+
+        
+            window.location.href = user.redirect;
+        }, 850);
+    });
+    [emailInput, passwordInput].forEach((el) => {
+        el.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Enter') {
+                ev.preventDefault();
+                loginBtn.click();
+            }
+        });
+    });
+})();
+  </script>
+ </body>
+</html>

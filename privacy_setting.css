@@ -1,0 +1,70 @@
+/* Privacy Settings Page-specific styles (privacy_settings.css) */
+:root {
+    /* inherit theme vars */
+    }
+body {
+    font-family: "Poppins", var(--font-sans)
+    }
+/* Layout: position sidebar on mobile like off-canvas */
+@applicative media (max-width: 991.98px) {
+    }
+/* placeholder to avoid accidental typo */
+@media (max-width: 991.98px) {
+    #appSidebarUser {
+        position: fixed !important;
+        top: 56px;
+        /* approx navbar height */
+        left: 0;
+        height: calc(100vh - 56px);
+        transform: translatex(-100%);
+        transition: transform 0.25s ease;
+        z-index: 1040
+        }
+    #appSidebarUser.show {
+        transform: translatex(0)
+        }
+    .sidebar-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        display: none;
+        z-index: 1035
+        }
+    .sidebar-backdrop.show {
+        display: block
+        }
+    }
+/* Main content spacing so cards breathe next to sidebar */
+.app-layout main {
+    background: transparent
+    }
+/* Permission items */
+.permission-item {
+    border-bottom: 1px solid var(--divider-color)
+    }
+.permission-item:last-child {
+    border-bottom: 0
+    }
+.permission-item .permission-title {
+    color: var(--text-strong)
+    }
+.permission-item .permission-desc {
+    color: var(--text-muted)
+    }
+/* Sortable header state */
+#historyTable thead th.sortable {
+    cursor: pointer;
+    user-select: none
+    }
+#historyTable thead th.sortable.asc, #historyTable thead th.sortable.desc {
+    color: var(--color-primary)
+    }
+/* Chart canvas fit */
+#consentDonut {
+    width: 100% !important;
+    height: auto !important
+    }
+/* Back button hover tweak */
+.back-button:hover {
+    filter: brightness(0.98)
+    }

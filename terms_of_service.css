@@ -1,0 +1,57 @@
+/* terms_of_service.css — page-specific styles (avoid duplicating global style.css) */
+/* Typography override to Poppins for this page */
+body {
+    font-family: "Poppins", var(--font-sans)
+    }
+/* Ensure main content is not hidden behind the fixed bottom bar */
+.needs-bottom-offset {
+    padding-bottom: 120px
+    }
+@media (max-width: 575.98px) {
+    .needs-bottom-offset {
+        padding-bottom: 152px
+        }
+    }
+/* Legal document scroll area sizing */
+.legal-scroll {
+    max-height: calc(100vh - 280px);
+    overflow: auto
+    }
+@media (min-width: 992px) {
+    .legal-scroll {
+        max-height: calc(100vh - 240px)
+        }
+    }
+/* Headings inside legal body */
+.legal-body h6 {
+    font-weight: 700;
+    color: var(--text-strong)
+    }
+.legal-body p {
+    color: var(--text)
+    }
+/* Table header sort affordance */
+#policyTable thead th[role="button"] {
+    cursor: pointer;
+    user-select: none
+    }
+#policyTable thead th[role="button"]:hover {
+    color: var(--color-primary)
+    }
+/* Match the provided hover/active styles for the static sidebar variant */
+#appSidebarLegalStatic .nav-link:hover {
+    background: rgba(255, 255, 255, 0.08)
+    }
+#appSidebarLegalStatic .nav-link.active {
+    background: rgba(0, 0, 255, 0.15);
+    border-left: 3px solid #00F;
+    color: #fff
+    }
+/* Back to top visibility transition */
+#backToTop {
+    transition: opacity 0.2s ease
+    }
+/* Offcanvas dark background consistency */
+#appSidebarLegal.offcanvas {
+    background-color: #000 !important
+    

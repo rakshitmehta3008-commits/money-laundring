@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Appeal Confirmation • Fraud Shield Appeals
+  </title>
+  <!-- Brand Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 CSS -->
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet">
+   <!-- SweetAlert2 -->
+   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css" rel="stylesheet">
+    <!-- Site Theme -->
+    <link href="style.css" rel="stylesheet"/>
+    <!-- Page-specific CSS -->
+    <link href="appeal_confirmation.css" rel="stylesheet"/>
+   </link>
+  </link>
+ </head>
+ <body>
+  <!-- Header (Top Nav) -->
+  <!-- Public Appeals Header: branding, minimal actions -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background:#0000FF;">
+   <div class="container-fluid">
+    <button aria-controls="appSidebarAppeals" aria-label="Toggle sidebar" class="btn btn-outline-light me-2" id="sidebarToggleBtn" type="button">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./appeal_form.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fraudshield/28/28?grayscale';" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+     Fraud Shield Appeals
+    </a>
+    <ul class="navbar-nav ms-auto">
+     <li class="nav-item">
+      <a class="nav-link" href="./terms_of_service.html">
+       Terms
+      </a>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="layout d-flex">
+   <!-- Left Sidebar (only for Appeals pages) -->
+   <!-- Public Appeals Sidebar (Pages: appeal_form, appeal_confirmation) -->
+   <aside class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-white" id="appSidebarAppeals" style="width:260px;min-height:100vh;background-color:#000000 !important;">
+    <div class="d-flex align-items-center mb-3">
+     <a class="text-white text-decoration-none d-flex align-items-center" href="./appeal_form.html">
+      <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fraudshield/32/32?grayscale';" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:32px;height:32px;object-fit:contain;"/>
+      <span class="fs-5 fw-bold">
+       Appeals
+      </span>
+     </a>
+    </div>
+    <ul class="nav nav-pills flex-column mb-auto">
+     <li class="nav-item">
+      <a class="nav-link text-white" href="./appeal_form.html" style="border-radius:8px;">
+       <i class="fas fa-inbox me-2">
+       </i>
+       Submit Appeal
+      </a>
+     </li>
+     <li>
+      <a class="nav-link text-white active" href="./appeal_confirmation.html" style="border-radius:8px;">
+       <i class="fas fa-check-circle me-2">
+       </i>
+       Confirmation
+      </a>
+     </li>
+     <li class="mt-2">
+      <a class="nav-link text-white-50" href="./developer_portal.html#support" style="border-radius:8px;">
+       <i class="fas fa-info-circle me-2">
+       </i>
+       Support
+      </a>
+     </li>
+    </ul>
+    <hr class="text-secondary"/>
+    <small class="text-secondary">
+     © Fraud Shield
+    </small>
+    <style>
+     #appSidebarAppeals .nav-link:hover{background:rgba(255,255,255,0.08);} 
+        #appSidebarAppeals .nav-link.active{background:rgba(0,0,255,0.15);border-left:3px solid #0000FF;color:#fff;}
+    </style>
+   </aside>
+   <!-- Main Content Area -->
+   <main class="flex-grow-1" id="mainContent">
+    <div class="container-fluid py-3">
+     <!-- Breadcrumb -->
+     <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb mb-0">
+       <li class="breadcrumb-item">
+        <a href="./welcome_screen.html">
+         Home
+        </a>
+       </li>
+       <li class="breadcrumb-item">
+        <a href="./appeal_form.html">
+         Appeals
+        </a>
+       </li>
+       <li aria-current="page" class="breadcrumb-item active">
+        Confirmation
+       </li>
+      </ol>
+     </nav>
+     <!-- System Feedback Area (optional inline alert) -->
+     <div class="alert alert-success d-none" id="inlineSystemAlert" role="alert">
+      <i class="fa-solid fa-circle-check me-2">
+      </i>
+      Your appeal has been received. Keep your case reference number handy for future correspondence.
+     </div>
+     <!-- Centered Confirmation Component -->
+     <section class="confirmation-wrapper d-flex align-items-center justify-content-center" id="confirmationWrapper">
+      <div class="card confirmation-card shadow-1">
+       <div class="card-body text-center p-4 p-md-5">
+        <!-- Loading State -->
+        <div class="loading-state d-flex align-items-center justify-content-center flex-column py-5" id="loadingState">
+         <div aria-hidden="true" class="spinner-border text-primary mb-3" role="status">
+         </div>
+         <div class="text-muted">
+          Loading your confirmation...
+         </div>
+        </div>
+        <!-- Loaded Content -->
+        <div class="d-none" id="confirmationContent">
+         <!-- SuccessIndicator -->
+         <div class="mb-3">
+          <div class="success-icon mx-auto mb-2">
+           <i class="fa-solid fa-circle-check">
+           </i>
+          </div>
+          <h1 class="h3 fw-bold mb-0">
+           Appeal Submitted Successfully
+          </h1>
+         </div>
+         <!-- ConfirmationDetails -->
+         <p class="mb-3 text-muted">
+          Thank you for submitting your appeal. Our team will review the information you provided. The review process typically takes 5-7 business days.
+         </p>
+         <!-- Case Reference Display with Copy -->
+         <div class="d-flex flex-column align-items-center gap-2 mb-3">
+          <div class="text-muted small">
+           Your Case Reference Number:
+          </div>
+          <div class="d-flex align-items-center gap-2 flex-wrap justify-content-center">
+           <code class="case-ref" id="caseRefValue">
+            FS-000000
+           </code>
+           <button aria-label="Copy case reference to clipboard" class="btn btn-light btn-sm copy-btn" id="copyCaseRefBtn" type="button">
+            <i class="fa-regular fa-copy me-1">
+            </i>
+            Copy
+           </button>
+          </div>
+         </div>
+         <!-- Support Information -->
+         <p class="text-muted mb-4">
+          If you have any questions, please contact our support team at
+          <a class="fw-semibold" href="mailto:support@example.com" id="supportEmailLink">
+           support@example.com
+          </a>
+          and be sure to include your case reference number.
+         </p>
+         <!-- NavigationAction -->
+         <div class="d-grid d-sm-flex justify-content-center gap-2">
+          <a class="btn btn-primary" href="#" id="returnHomeBtn">
+           <i class="fa-solid fa-house me-2">
+           </i>
+           Return to Homepage
+          </a>
+         </div>
+        </div>
+        <!-- ARIA live region for announcements -->
+        <div aria-live="polite" class="visually-hidden" id="ariaStatus" role="status">
+        </div>
+       </div>
+      </div>
+     </section>
+    </div>
+   </main>
+  </div>
+  <!-- Footer -->
+  <!-- Public Appeals Footer: legal links -->
+  <footer class="py-3 mt-auto" id="pageFooter" style="background:#000000;color:#fff;">
+   <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+    <small>
+     © 2026 Fraud Shield
+    </small>
+    <ul class="nav">
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html">
+       Terms
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html#privacy">
+       Privacy
+      </a>
+     </li>
+    </ul>
+   </div>
+  </footer>
+  <!-- Sidebar mobile overlay (created dynamically) -->
+  <div class="sidebar-overlay d-none" id="sidebarOverlay">
+  </div>
+  <!-- SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.all.min.js">
+  </script>
+  <!-- Bootstrap 5 JS -->
+  <script crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script>
+   // Utilities
+function generateCaseRef() {
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const dd = String(now.getDate()).padStart(2, '0');
+    const rand = Math.random().toString(36).substring(2, 7).toUpperCase();
+    return `FS-${yyyy}${mm}${dd}-${rand}`;
+}
+
+function setContentMinHeight() {
+    const header = document.querySelector('.navbar');
+    const footer = document.getElementById('pageFooter');
+    const wrapper = document.getElementById('confirmationWrapper');
+    const h = window.innerHeight - (header?.offsetHeight || 0) - (footer?.offsetHeight || 0);
+    wrapper.style.minHeight = h + 'px';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    setContentMinHeight();
+    window.addEventListener('resize', setContentMinHeight);
+
+    const url = new URL(window.location.href);
+    const params = url.searchParams;
+
+    // Load dynamic data
+    const caseRef = params.get('case') || localStorage.getItem('lastCaseRef') || generateCaseRef();
+    localStorage.setItem('lastCaseRef', caseRef);
+
+    const supportEmail = params.get('support') || 'support@example.com';
+
+    // Populate UI after a short loading delay to showcase loading state
+    setTimeout(() => {
+        document.getElementById('caseRefValue').textContent = caseRef;
+        const mailto = `mailto:${supportEmail}?subject=Appeal%20Support%20-%20Case%20${encodeURIComponent(caseRef)}`;
+        const link = document.getElementById('supportEmailLink');
+        link.href = mailto;
+        link.textContent = supportEmail;
+
+        document.getElementById('loadingState').classList.add('d-none');
+        document.getElementById('confirmationContent').classList.remove('d-none');
+        document.getElementById('inlineSystemAlert').classList.remove('d-none');
+
+        // Pretty modal confirmation
+        Swal.fire({
+            icon: 'success',
+            title: 'Appeal submitted',
+            html: `<div class="text-muted">Your case reference:</div><div class="fw-bold mt-1">${caseRef}</div>`,
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#0000FF'
+        });
+    }, 700);
+
+    // Copy to clipboard
+    document.getElementById('copyCaseRefBtn').addEventListener('click', async () => {
+        const value = document.getElementById('caseRefValue').textContent.trim();
+        try {
+            await navigator.clipboard.writeText(value);
+            document.getElementById('ariaStatus').textContent = 'Case reference copied to clipboard';
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'success',
+                title: 'Copied',
+                text: 'Case reference copied to clipboard',
+                showConfirmButton: false,
+                timer: 1600,
+                timerProgressBar: true
+            });
+        } catch (e) {
+            // Fallback
+            const tmp = document.createElement('textarea');
+            tmp.value = value;
+            document.body.appendChild(tmp);
+            tmp.select();
+            try {
+                document.execCommand('copy');
+            } catch {}
+            document.body.removeChild(tmp);
+            Swal.fire({
+                icon: 'info',
+                title: 'Copied',
+                text: 'Case reference copied'
+            });
+        }
+    });
+
+    // Return to homepage navigation
+    document.getElementById('returnHomeBtn').addEventListener('click', (e) => {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Return to homepage?',
+            text: 'You can revisit this page any time from the Appeals section.',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, go',
+            cancelButtonText: 'Stay here',
+            confirmButtonColor: '#0000FF'
+        }).then((r) => {
+            if (r.isConfirmed) window.location.href = './welcome_screen.html';
+        });
+    });
+
+    // Sidebar mobile behavior
+    const sidebar = document.getElementById('appSidebarAppeals');
+    const overlay = document.getElementById('sidebarOverlay');
+    const toggleBtn = document.getElementById('sidebarToggleBtn');
+
+    function openSidebar() {
+        sidebar.classList.add('mobile-open');
+        overlay.classList.remove('d-none');
+    }
+
+    function closeSidebar() {
+        sidebar.classList.remove('mobile-open');
+        overlay.classList.add('d-none');
+    }
+    toggleBtn.addEventListener('click', () => {
+        if (sidebar.classList.contains('mobile-open')) closeSidebar();
+        else openSidebar();
+    });
+    overlay.addEventListener('click', closeSidebar);
+});
+  </script>
+ </body>
+</html>

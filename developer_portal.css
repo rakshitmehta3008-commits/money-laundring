@@ -1,0 +1,79 @@
+/* Developer Portal Page-specific CSS */
+/* 1) Typography override for brand font */
+body {
+    font-family: "Poppins", var(--font-sans)
+    }
+/* 2) Layout: keep sidebar left, content fills rest; handle mobile slide-in */
+.portal-layout {
+    background: transparent
+    }
+#appSidebarPartner {
+    position: sticky;
+    top: 56px;
+    /* height of navbar */
+    }
+@media (max-width: 991.98px) {
+    #appSidebarPartner {
+        position: fixed;
+        top: 56px;
+        left: 0;
+        height: calc(100vh - 56px);
+        transform: translatex(-100%);
+        transition: transform 0.25s ease;
+        z-index: 1040
+        }
+    #appSidebarPartner.open {
+        transform: translatex(0)
+        }
+    }
+/* 3) Hero section presentation */
+#heroSection {
+    background: var(--surface-0)
+    }
+#heroSection .card-body {
+    padding: var(--space-6)
+    }
+#heroSection h2 {
+    font-weight: 700
+    }
+/* 4) Code block aesthetics */
+pre {
+    background: var(--surface-muted);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-2);
+    padding: 12px
+    }
+pre code {
+    font-family: var(--font-mono);
+    font-size: 0.9rem
+    }
+/* 5) Sortable table header indicator */
+#callsTable thead th.sortable {
+    position: relative;
+    user-select: none
+    }
+#callsTable thead th.sortable::after {
+    content: "";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translatey(-50%);
+    opacity: 0.35;
+    font-size: 0.8rem
+    }
+/* 6) Chart sizing */
+#requestsChart {
+    min-height: 240px
+    }
+/* 7) Header spacing on very small screens */
+@media (max-width: 575.98px) {
+    #heroSection .card-body {
+        padding: var(--space-4)
+        }
+    }
+/* 8) Ensure main content does not hide under sticky header */
+main #mainContent, main.container-fluid {
+    scroll-margin-top: 70px
+    }

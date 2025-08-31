@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Analytics Dashboard • Fraud Shield Admin
+  </title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet"/>
+
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkfAm9P1Z7S4V+kxj0g+6Y4ZCkB1C+XGxZ6n2kC2ZK2CqYd5wQ2Yx8QTA==" referrerpolicy="no-referrer" rel="stylesheet">
+
+   <link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet"/>
+    
+    <link href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" rel="stylesheet"/>
+    
+    <link href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css" rel="stylesheet"/
+
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet"/>
+    
+    <link href="style.css" rel="stylesheet"/>
+    
+    <link href="analytics_dashboad.css" rel="stylesheet"/>
+   </link>
+  </link>
+ </head>
+ <body class="view-grid">
+
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background:#0000FF;">
+   <div class="container-fluid">
+    <button aria-controls="appSidebarAdmin" class="btn btn-outline-light me-2 d-lg-none" data-bs-target="#appSidebarAdmin" data-bs-toggle="offcanvas" type="button">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./admin_dashboard.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this"src='https://picsum.photos/seed/logo/28/28'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+     Admin Console
+    </a>
+    <form class="d-none d-md-flex ms-3 w-50" role="search">
+     <div class="input-group">
+      <span class="input-group-text bg-white">
+       <i class="fas fa-search">
+       </i>
+      </span>
+      <input aria-label="Search" class="form-control" placeholder="Search phone numbers, cases..." type="search"/>
+     </div>
+    </form>
+    <ul class="navbar-nav ms-auto align-items-center">
+     <li class="nav-item me-2">
+      <a class="nav-link" href="./admin_dashboard.html#alerts">
+       <i class="fas fa-bell">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="btn btn-sm btn-outline-light" href="./admin_dashboard.html#queue">
+       <i class="fas fa-list-check me-1">
+       </i>
+       Open Queue
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button">
+       <span class="me-2">
+        Admin
+       </span>
+       <img alt="avatar" class="rounded-circle" src="https://picsum.photos/seed/adminavatar/28/28"/>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="./admin_dashboard.html#settings">
+         <i class="fas fa-cog me-2">
+         </i>
+         Settings
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./admin_login.html">
+         <i class="fas fa-sign-out-alt me-2">
+         </i>
+         Logout
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="d-flex">
+   
+   <aside class="offcanvas-lg offcanvas-start d-flex flex-column flex-shrink-0 p-3 text-white" data-bs-scroll="true" id="appSidebarAdmin" style="width:260px;min-height:100vh;background-color:#000000 !important;" tabindex="-1">
+    <div class="offcanvas-header d-lg-none">
+     <h5 class="offcanvas-title">
+      Admin Console
+     </h5>
+     <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button">
+     </button>
+    </div>
+    <div class="offcanvas-body p-0 d-flex flex-column">
+     <div class="d-flex align-items-center mb-3 px-1">
+      <a class="text-white text-decoration-none d-flex align-items-center" href="./admin_dashboard.html">
+       <img alt="Logo" class="me-2" onerror="this.onerror=null;this"src='https://picsum.photos/seed/logo/32/32'" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:32px;height:32px;object-fit:contain;"/>
+       <span class="fs-5 fw-bold">
+        Admin Console
+       </span>
+      </a>
+     </div>
+     <div class="d-flex align-items-center mb-4 p-2 rounded" style="background:rgba(255,255,255,0.05);">
+      <div class="me-2 rounded-circle bg-secondary d-flex align-items-center justify-content-center" style="width:40px;height:40px;background:#2d2d2d;">
+       A
+      </div>
+      <div>
+       <div class="fw-semibold">
+        Admin Name
+       </div>
+       <small class="text-muted">
+        System Administrator
+       </small>
+      </div>
+     </div>
+     <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+       <a class="nav-link text-white" href="./admin_dashboard.html" style="border-radius:8px;">
+        <i class="fas fa-tachometer-alt me-2">
+        </i>
+        Dashboard
+       </a>
+      </li>
+      <li>
+       <a class="nav-link text-white" href="./admin_dashboard.html#queue" style="border-radius:8px;">
+        <i class="fas fa-list-check me-2">
+        </i>
+        Verification Queue
+       </a>
+      </li>
+      <li>
+       <a class="nav-link text-white" href="./review_page.html" style="border-radius:8px;">
+        <i class="fas fa-tasks me-2">
+        </i>
+        Case Review
+       </a>
+      </li>
+      <li>
+       <a class="nav-link text-white active" href="./analytics_dashboard.html" style="border-radius:8px;">
+        <i class="fas fa-chart-line me-2">
+        </i>
+        Analytics
+       </a>
+      </li>
+      <li>
+       <a aria-controls="adminTools" aria-expanded="false" class="nav-link text-white d-flex align-items-center" data-bs-toggle="collapse" href="#adminTools" role="button" style="border-radius:8px;">
+        <i class="fas fa-shield-alt me-2">
+        </i>
+        Admin Tools
+        <i class="fas fa-chevron-down ms-auto">
+        </i>
+       </a>
+       <div class="collapse" id="adminTools">
+        <ul class="list-unstyled fw-normal small ps-4">
+         <li>
+          <a class="nav-link text-white-50 d-block py-1" href="./admin_dashboard.html#appeals">
+           Appeals
+          </a>
+         </li>
+         <li>
+          <a class="nav-link text-white-50 d-block py-1" href="./admin_dashboard.html#settings">
+           Settings
+          </a>
+         </li>
+         <li>
+          <a class="nav-link text-white-50 d-block py-1" href="./admin_dashboard.html#alerts">
+           Alerts
+          </a>
+         </li>
+        </ul>
+       </div>
+      </li>
+     </ul>
+     <hr class="text-secondary"/>
+     <small class="text-secondary">
+      © Fraud Shield
+     </small>
+     <style>
+      #appSidebarAdmin .nav-link:hover{background:rgba(255,255,255,0.08);} 
+          #appSidebarAdmin .nav-link.active{background:rgba(0,0,255,0.15);border-left:3px solid #0000FF;color:#fff;}
+     </style>
+    </div>
+   </aside>
+
+   <main class="flex-grow-1">
+    <div class="container-fluid content-wrap py-3 py-lg-4">
+     <!-- Page Header -->
+     <div class="page-header mb-3">
+      <div class="d-flex align-items-center gap-2">
+       <h1 class="page-title mb-0">
+        Analytics Dashboard
+       </h1>
+       <span class="badge-soft info">
+        Beta
+       </span>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+       <button class="btn btn-light" id="helpBtn">
+        <i class="fa-solid fa-circle-question me-1">
+        </i>
+        Help
+       </button>
+       <button class="btn btn-primary" id="exportBtn">
+        <i class="fa-solid fa-file-arrow-down me-2">
+        </i>
+        Export Report (CSV)
+       </button>
+      </div>
+     </div>
+     <!-- Filter Bar (Sticky) -->
+     <section class="card analytics-filterbar mb-3" id="filterBar">
+      <div class="card-body">
+       <form class="row g-2 align-items-end" id="filtersForm">
+        <div class="col-12 col-md-4">
+         <label class="form-label">
+          Date Range
+         </label>
+         <div class="input-group">
+          <span class="input-group-text">
+           <i class="fa-regular fa-calendar">
+           </i>
+          </span>
+          <input class="form-control" id="dateRange" placeholder="Select date range" readonly=""/>
+         </div>
+         <div class="form-text">
+          Default: Last 30 days. Max range: 2 years.
+         </div>
+        </div>
+        <div class="col-12 col-md-4">
+         <label class="form-label">
+          Scam Type
+         </label>
+         <select id="scamTypeSelect" multiple="">
+         </select>
+         <div class="form-text">
+          Empty = all scam types
+         </div>
+        </div>
+        <div class="col-12 col-md-3">
+         <label class="form-label">
+          Location
+         </label>
+         <select id="locationSelect" multiple="">
+         </select>
+         <div class="form-text">
+          Empty = all locations
+         </div>
+        </div>
+        <div class="col-12 col-md-1 d-grid">
+         <button class="btn btn-info" id="applyFiltersBtn" type="submit">
+          <i class="fa-solid fa-filter me-1">
+          </i>
+          Apply
+         </button>
+        </div>
+       </form>
+      </div>
+     </section>
+    
+     <section class="row g-3 mb-3">
+      <div class="col-6 col-lg-3">
+       <div class="metric-card kpi-card h-100">
+        <div class="metric-title">
+         Total Reports
+        </div>
+        <div class="metric-value" id="kpiTotalReports">
+         —
+        </div>
+        <div class="text-muted">
+         <i class="fa-solid fa-arrow-trend-up text-success me-1">
+         </i>
+         <small>
+          <span id="kpiTotalReportsChange">
+           +0%
+          </span>
+          vs prev. period
+         </small>
+        </div>
+       </div>
+      </div>
+      <div class="col-6 col-lg-3">
+       <div class="metric-card kpi-card h-100">
+        <div class="metric-title">
+         Unique Numbers
+        </div>
+        <div class="metric-value" id="kpiUniqueNumbers">
+         —
+        </div>
+        <div class="text-muted">
+         <small>
+          Across all selected filters
+         </small>
+        </div>
+       </div>
+      </div>
+      <div class="col-6 col-lg-3">
+       <div class="metric-card kpi-card h-100">
+        <div class="metric-title">
+         Hotspot Regions
+        </div>
+        <div class="metric-value" id="kpiHotspots">
+         —
+        </div>
+        <div class="text-muted">
+         <small>
+          Regions above 95th percentile
+         </small>
+        </div>
+       </div>
+      </div>
+      <div class="col-6 col-lg-3">
+       <div class="metric-card kpi-card h-100">
+        <div class="metric-title">
+         Avg Daily Cases
+        </div>
+        <div class="metric-value" id="kpiAvgDaily">
+         —
+        </div>
+        <div class="text-muted">
+         <small>
+          Mean over date range
+         </small>
+        </div>
+       </div>
+      </div>
+     </section>
+    
+     <section class="row g-3">
+      <!-- Map -->
+      <div class="col-12 col-xl-7">
+       <div class="card h-100">
+        <div class="card-header">
+         <div class="title d-flex align-items-center gap-2">
+          <i class="fa-solid fa-globe text-info">
+          </i>
+          <span class="widget-title">
+           Geographical Map View
+          </span>
+         </div>
+         <div class="d-flex align-items-center gap-2">
+          <div class="badge-soft info">
+           <span class="status-dot info">
+           </span>
+           Interactive
+          </div>
+         </div>
+        </div>
+        <div class="card-body p-0">
+         <div class="map-container" id="map">
+         </div>
+        </div>
+        <div class="card-footer text-muted small">
+         Intensity indicates higher fraudulent activity. Hover for details.
+        </div>
+       </div>
+      </div>
+    
+      <div class="col-12 col-xl-5">
+       <div class="card mb-3 h-50">
+        <div class="card-header">
+         <div class="title d-flex align-items-center gap-2">
+          <i class="fa-solid fa-chart-line text-primary">
+          </i>
+          <span class="widget-title">
+           Fraud Trends
+          </span>
+         </div>
+        </div>
+        <div class="card-body">
+         <div class="chart-container">
+          <canvas height="160" id="trendChart">
+          </canvas>
+         </div>
+        </div>
+       </div>
+       <div class="card h-50">
+        <div class="card-header">
+         <div class="title d-flex align-items-center gap-2">
+          <i class="fa-solid fa-chart-pie text-warning">
+          </i>
+          <span class="widget-title">
+           Scam Type Breakdown
+          </span>
+         </div>
+        </div>
+        <div class="card-body">
+         <div class="chart-container">
+          <canvas height="180" id="breakdownChart">
+          </canvas>
+         </div>
+        </div>
+       </div>
+      </div>
+     </section>
+
+     <section class="card mt-3">
+      <div class="card-header">
+       <div class="title d-flex align-items-center gap-2">
+        <i class="fa-solid fa-table">
+        </i>
+        <span class="widget-title">
+         Recent Fraud Activity (Sample)
+        </span>
+       </div>
+       <div class="text-muted small">
+        Mock data for demonstration; PII excluded.
+       </div>
+      </div>
+      <div class="card-body">
+       <div class="table-responsive">
+        <table class="table table-striped table-theme w-100" id="activityTable">
+         <thead>
+          <tr>
+           <th>
+            Date
+           </th>
+           <th>
+            Number Prefix
+           </th>
+           <th>
+            Location
+           </th>
+           <th>
+            Scam Type
+           </th>
+           <th>
+            Reports
+           </th>
+           <th>
+            Estimated Loss (USD)
+           </th>
+           <th>
+            Agency
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+    
+         </tbody>
+        </table>
+       </div>
+      </div>
+      <div class="card-footer d-flex justify-content-between align-items-center">
+       <small class="text-muted">
+        Auto-pagination, sorting, and search enabled.
+       </small>
+       <div class="view-switcher">
+        <div class="option active">
+         Table
+        </div>
+        <div class="option">
+         Grid
+        </div>
+        <div class="option">
+         Tiles
+        </div>
+       </div>
+      </div>
+     </section>
+     
+     <div class="loading-overlay d-none" id="loadingOverlay">
+      <div class="spinner-border text-primary" role="status">
+       <span class="visually-hidden">
+        Loading...
+       </span>
+      </div>
+      <div class="mt-2 text-muted">
+       Fetching analytics…
+      </div>
+     </div>
+     
+     <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1080;">
+     </div>
+    </div>
+    <footer class="py-3" style="background:#000000;color:#fff;">
+     <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+      <small>
+       © 2026 Fraud Shield • Admin
+      </small>
+      <ul class="nav">
+       <li class="nav-item">
+        <a class="nav-link px-2 text-white-50" href="./terms_of_service.html">
+         Terms
+        </a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link px-2 text-white-50" href="./terms_of_service.html#privacy">
+         Privacy
+        </a>
+       </li>
+       <li class="nav-item">
+        <a class="btn btn-sm btn-outline-light ms-2" href="./admin_dashboard.html#queue">
+         <i class="fas fa-list-check me-1">
+         </i>
+         Queue
+        </a>
+       </li>
+      </ul>
+     </div>
+    </footer>
+   </main>
+  </div>
+
+  <script crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js">
+  </script>
+  <script crossorigin="" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+  </script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" src="https://code.jquery.com/jquery-3.7.1.min.js">
+  </script>
+  <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js">
+  </script>
+  <script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js">
+  </script>
+  
+  <script>
+document.documentElement.style.setProperty('--font-sans', "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans'");
+
+const state = {
+    activeFilters: {
+        dateRange: null,
+        scamTypes: [],
+        locations: []
+    },
+    isLoading: false,
+    map: null,
+    heat: null,
+    charts: {
+        trend: null,
+        breakdown: null
+    },
+    mock: {
+        scamTypes: ['Impersonation', 'Phishing', 'Investment', 'Tech Support', 'Loan Scam', 'OTP Fraud', 'Romance', 'Lottery'],
+        locations: ['United States', 'India', 'Nigeria', 'United Kingdom', 'China', 'Brazil', 'Philippines', 'Indonesia', 'South Africa', 'Mexico'],
+    }
+};
+
+function formatNumber(n) {
+    return n.toLocaleString(undefined);
+}
+
+function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function daysBetween(start, end) {
+    return Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+}
+function showToast(message, type = 'info') {
+    const icon = type === 'success' ? 'fa-circle-check text-success' : type === 'error' ? 'fa-circle-xmark text-danger' : 'fa-circle-info text-info';
+    const toastEl = document.createElement('div');
+    toastEl.className = 'toast align-items-center text-bg-light border-0 show';
+    toastEl.setAttribute('role', 'alert');
+    toastEl.setAttribute('aria-live', 'assertive');
+    toastEl.setAttribute('aria-atomic', 'true');
+    toastEl.innerHTML = `<div class="d-flex"><div class="toast-body"><i class="fa-solid ${icon} me-2"></i>${message}</div><button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button></div>`;
+    document.querySelector('.toast-container').appendChild(toastEl);
+    setTimeout(() => toastEl.remove(), 4000);
+}
+
+
+function setLoading(flag) {
+    state.isLoading = flag;
+    document.getElementById('loadingOverlay').classList.toggle('d-none', !flag);
+    document.getElementById('applyFiltersBtn').disabled = flag;
+    document.getElementById('exportBtn').disabled = flag;
+}
+
+
+function defaultDateRange() {
+    const end = new Date();
+    const start = new Date();
+    start.setDate(end.getDate() - 29);
+    return {
+        start,
+        end
+    };
+}
+
+function initFilters() {
+    const {
+        start,
+        end
+    } = defaultDateRange();
+    const fp = flatpickr('#dateRange', {
+        mode: 'range',
+        defaultDate: [start, end],
+        dateFormat: 'Y-m-d',
+        maxDate: new Date(),
+        onChange: (dates) => {
+            if (dates.length === 2 && dates[0] > dates[1]) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Invalid range',
+                    text: 'Start date must be earlier than end date.'
+                });
+            }
+        }
+    });
+
+    const scamChoices = new Choices('#scamTypeSelect', {
+        removeItemButton: true,
+        placeholder: true,
+        placeholderValue: 'All scam types',
+        searchPlaceholderValue: 'Search scam types…',
+        shouldSort: true
+    });
+    scamChoices.setChoices(state.mock.scamTypes.map(t => ({
+        value: t,
+        label: t
+    })), 'value', 'label', true);
+
+    const locChoices = new Choices('#locationSelect', {
+        removeItemButton: true,
+        placeholder: true,
+        placeholderValue: 'All locations',
+        searchPlaceholderValue: 'Search locations…',
+        shouldSort: true
+    });
+    locChoices.setChoices(state.mock.locations.map(t => ({
+        value: t,
+        label: t
+    })), 'value', 'label', true);
+
+    document.getElementById('filtersForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const dates = fp.selectedDates;
+        const range = dates.length === 2 ? {
+            start: dates[0],
+            end: dates[1]
+        } : defaultDateRange();
+        state.activeFilters.dateRange = range;
+        state.activeFilters.scamTypes = scamChoices.getValue(true);
+        state.activeFilters.locations = locChoices.getValue(true);
+        applyFilters();
+    });
+
+
+    state.activeFilters.dateRange = {
+        start,
+        end
+    };
+    state.activeFilters.scamTypes = [];
+    state.activeFilters.locations = [];
+}
+
+
+function initMap() {
+    state.map = L.map('map', {
+        worldCopyJump: true,
+        attributionControl: true
+    }).setView([20, 0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 5,
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(state.map);
+    state.heat = L.heatLayer([], {
+        radius: 25,
+        blur: 18,
+        maxZoom: 5,
+        gradient: {
+            0.2: '#87cefa',
+            0.4: '#00f',
+            0.6: '#ffa500',
+            0.9: '#cd2026'
+        }
+    }).addTo(state.map);
+}
+
+
+function buildHeatData() {
+    const basePoints = [{
+        lat: 28.6,
+        lng: 77.2,
+        w: 0.7,
+        loc: 'India'
+    }, {
+        lat: 40.7,
+        lng: -74.0,
+        w: 0.6,
+        loc: 'United States'
+    }, {
+        lat: 6.45,
+        lng: 3.4,
+        w: 0.55,
+        loc: 'Nigeria'
+    }, {
+        lat: 51.5,
+        lng: -0.12,
+        w: 0.45,
+        loc: 'United Kingdom'
+    }, {
+        lat: -23.55,
+        lng: -46.63,
+        w: 0.4,
+        loc: 'Brazil'
+    }, {
+        lat: 14.6,
+        lng: 121.0,
+        w: 0.42,
+        loc: 'Philippines'
+    }, {
+        lat: 39.9,
+        lng: 116.4,
+        w: 0.5,
+        loc: 'China'
+    }, {
+        lat: -26.2,
+        lng: 28.0,
+        w: 0.35,
+        loc: 'South Africa'
+    }, {
+        lat: 19.4,
+        lng: -99.1,
+        w: 0.38,
+        loc: 'Mexico'
+    }, {
+        lat: -6.2,
+        lng: 106.8,
+        w: 0.33,
+        loc: 'Indonesia'
+    }];
+    const {
+        locations
+    } = state.activeFilters;
+    const selected = (locations && locations.length) ? basePoints.filter(p => locations.includes(p.loc)) : basePoints;
+    
+    return selected.map(p => [p.lat, p.lng, Math.max(0.2, Math.min(1, p.w + (Math.random() - 0.5) * 0.2))]);
+}
+function initCharts() {
+    const ctxTrend = document.getElementById('trendChart');
+    const ctxBreak = document.getElementById('breakdownChart');
+    state.charts.trend = new Chart(ctxTrend, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'Reports',
+                data: [],
+                fill: true,
+                tension: 0.25,
+                borderColor: getComputedStyle(document.documentElement).getPropertyValue('--color-primary') || '#00F',
+                backgroundColor: 'rgba(0,0,255,0.08)',
+                pointRadius: 0,
+                hoverRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',
+                intersect: false
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: (c) => ` ${c.formattedValue} reports`
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: 'rgba(0,0,0,0.06)'
+                    }
+                }
+            }
+        }
+    });
+
+    state.charts.breakdown = new Chart(ctxBreak, {
+        type: 'doughnut',
+        data: {
+            labels: [],
+            datasets: [{
+                data: [],
+                backgroundColor: ['#0d6efd', '#6610f2', '#6f42c1', '#d63384', '#fd7e14', '#20c997', '#0dcaf0', '#198754'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                },
+                tooltip: {
+                    callbacks: {
+                        label: (c) => ` ${c.label}: ${c.formattedValue}`
+                    }
+                }
+            },
+            cutout: '60%'
+        }
+    });
+}
+
+function buildTrendData() {
+    const {
+        start,
+        end
+    } = state.activeFilters.dateRange;
+    const days = daysBetween(start, end) + 1;
+    const labels = [];
+    const data = [];
+    for (let i = 0; i < days; i++) {
+        const d = new Date(start.getTime());
+        d.setDate(start.getDate() + i);
+        labels.push(d.toISOString().slice(0, 10));
+        data.push(randomInt(20, 200));
+    }
+    return {
+        labels,
+        data
+    };
+}
+
+
+function buildBreakdownData() {
+    const labels = (state.activeFilters.scamTypes.length ? state.activeFilters.scamTypes : state.mock.scamTypes).slice(0, 8);
+    const data = labels.map(() => randomInt(50, 600));
+    return {
+        labels,
+        data
+    };
+}
+
+function updateKPIs(trendData, breakdownData) {
+    const total = trendData.data.reduce((a, b) => a + b, 0);
+    const uniqueNumbers = Math.round(total * 0.7) + randomInt(200, 900);
+    const avgDaily = Math.round(total / (trendData.data.length || 1));
+    const hotspots = Math.max(1, Math.round((breakdownData.data.length) * 0.5));
+    document.getElementById('kpiTotalReports').textContent = formatNumber(total);
+    document.getElementById('kpiUniqueNumbers').textContent = formatNumber(uniqueNumbers);
+    document.getElementById('kpiAvgDaily').textContent = formatNumber(avgDaily);
+    document.getElementById('kpiHotspots').textContent = formatNumber(hotspots);
+    
+    const change = (Math.random() * 20 - 5).toFixed(1);
+    const sign = change >= 0 ? '+' : '';
+    const el = document.getElementById('kpiTotalReportsChange');
+    el.textContent = `${sign}${change}%`;
+    el.className = change >= 0 ? 'text-success' : 'text-danger';
+}
+
+
+function applyFilters() {
+    setLoading(true);
+    setTimeout(() => {
+        
+        const heat = buildHeatData();
+        state.heat.setLatLngs(heat);
+
+        
+        const t = buildTrendData();
+        state.charts.trend.data.labels = t.labels;
+        state.charts.trend.data.datasets[0].data = t.data;
+        state.charts.trend.update();
+
+        const b = buildBreakdownData();
+        state.charts.breakdown.data.labels = b.labels;
+        state.charts.breakdown.data.datasets[0].data = b.data;
+        state.charts.breakdown.update();
+
+        
+        updateKPIs(t, b);
+
+    
+        populateTable();
+
+        setLoading(false);
+        showToast('Filters applied successfully', 'success');
+    }, 900);
+}
+
+
+let dtInstance = null;
+
+function initTable() {
+    dtInstance = new $.fn.dataTable.Api($('#activityTable').DataTable({
+        pageLength: 6,
+        lengthChange: false,
+        order: [
+            [0, 'desc']
+        ],
+        columns: [{
+            title: 'Date'
+        }, {
+            title: 'Number Prefix'
+        }, {
+            title: 'Location'
+        }, {
+            title: 'Scam Type'
+        }, {
+            title: 'Reports',
+            className: 'text-end'
+        }, {
+            title: 'Estimated Loss (USD)',
+            className: 'text-end'
+        }, {
+            title: 'Agency'
+        }]
+    }));
+    populateTable();
+}
+
+function populateTable() {
+    if (!dtInstance) return;
+    dtInstance.clear();
+    const agencies = ['FSA', 'NCC', 'OCC', 'FRC', 'LEU'];
+    const locs = state.activeFilters.locations.length ? state.activeFilters.locations : state.mock.locations;
+    const scams = state.activeFilters.scamTypes.length ? state.activeFilters.scamTypes : state.mock.scamTypes;
+    const {
+        start,
+        end
+    } = state.activeFilters.dateRange;
+    const days = daysBetween(start, end) + 1;
+    const rows = [];
+    for (let i = 0; i < 10; i++) {
+        const d = new Date(start.getTime());
+        d.setDate(start.getDate() + randomInt(0, Math.max(0, days - 1)));
+        const dateStr = d.toISOString().slice(0, 10);
+        const prefix = '+' + randomInt(1, 99).toString().padStart(2, '0') + '-' + randomInt(100, 999);
+        const loc = locs[randomInt(0, locs.length - 1)];
+        const scam = scams[randomInt(0, scams.length - 1)];
+        const reports = randomInt(5, 120);
+        const loss = randomInt(1000, 150000);
+        const agency = agencies[randomInt(0, agencies.length - 1)];
+        rows.push([dateStr, prefix, loc, scam, reports.toLocaleString(), '$' + loss.toLocaleString(), agency]);
+    }
+    dtInstance.rows.add(rows).draw();
+}
+
+// Export Report (CSV)
+function exportReport() {
+    const {
+        dateRange,
+        scamTypes,
+        locations
+    } = state.activeFilters;
+    const t = buildTrendData();
+    const b = buildBreakdownData();
+    let csv = '';
+    csv += 'Analytics Report (Aggregated, Non-PII)\n';
+    csv += `Date Range,${dateRange.start.toISOString().slice(0,10)} to ${dateRange.end.toISOString().slice(0,10)}\n`;
+    csv += `Filters - Scam Types,${(scamTypes && scamTypes.length)? scamTypes.join('; ') : 'All'}\n`;
+    csv += `Filters - Locations,${(locations && locations.length)? locations.join('; ') : 'All'}\n\n`;
+    csv += 'Trend (Date,Reports)\n';
+    t.labels.forEach((label, idx) => {
+        csv += `${label},${t.data[idx]}\n`;
+    });
+    csv += '\nBreakdown (Scam Type,Count)\n';
+    b.labels.forEach((label, idx) => {
+        csv += `${label},${b.data[idx]}\n`;
+    });
+
+    const blob = new Blob([csv], {
+        type: 'text/csv;charset=utf-8;'
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `fraud_analytics_${new Date().toISOString().slice(0,10)}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    Swal.fire({
+        icon: 'success',
+        title: 'Report Generated',
+        text: 'Your aggregated CSV report has been downloaded.'
+    });
+}
+
+
+function initHelp() {
+    document.getElementById('helpBtn').addEventListener('click', () => {
+        Swal.fire({
+            title: 'How to use the Analytics Dashboard',
+            html: '<div class="text-start">' +
+                '<ul>' +
+                '<li>Use the filters to set Date Range, Scam Types, and Locations.</li>' +
+                '<li>The map shows activity hotspots; hover to inspect intensity.</li>' +
+                '<li>Trends and Breakdown charts update with filters.</li>' +
+                '<li>Export an aggregated, non-PII CSV via the Export button.</li>' +
+                '<li>Table below includes sample data with search and sorting.</li>' +
+                '</ul></div>',
+            icon: 'info',
+            confirmButtonText: 'Got it'
+        });
+    });
+}
+
+
+function initExportButton() {
+    document.getElementById('exportBtn').addEventListener('click', exportReport);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    initFilters();
+    initMap();
+    initCharts();
+    initTable();
+    initHelp();
+    initExportButton();
+    applyFilters();
+});
+  </script>
+ </body>
+</html>

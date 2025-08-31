@@ -1,0 +1,47 @@
+/* onboarding_complete.css - Page-specific styles for Onboarding Complete */
+/* Use brand font on this page */
+body {
+    font-family: "Poppins", var(--font-sans)
+    }
+/* Success hero visual */
+.success-hero {
+    position: relative;
+    overflow: hidden
+    }
+.success-hero .icon-wrap {
+    position: relative;
+    width: 120px;
+    height: 120px
+    }
+.success-hero .icon-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    filter: blur(2px);
+    animation: pulseGlow 2.4s ease-in-out infinite
+    }
+.success-hero .icon-stack {
+    position: relative;
+    z-index: 1
+    }
+.success-hero .icon-check {
+    transform: translatey(8px)
+    }
+/* Buttons state switch */
+#btnProceed .label-wait {
+    white-space: nowrap
+    }
+/* Brand top alignment */
+.brand-top img {
+    box-shadow: var(--shadow-1)
+    }
+/* Responsive tweaks */
+@media (max-width: 575.98px) {
+    .success-hero {
+        padding: 24px
+        }
+    .success-hero .icon-wrap {
+        width: 96px;
+        height: 96px
+        }
+    }

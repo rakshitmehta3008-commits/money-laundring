@@ -1,0 +1,1048 @@
+<!-- HTML validation failed: Unbalanced p tags -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Fraud Shield • Developer Portal
+  </title>
+  <!-- Google Font: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 CSS -->
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet"/>
+  <!-- Font Awesome 6 -->
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcg3f1vZ1QZC2d6VrF3rYxA==" referrerpolicy="no-referrer" rel="stylesheet">
+   <!-- Highlight.js for code display -->
+   <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" integrity="sha512-+f3p9m3LhT8Ox6x7hJrQ5rSWiX1bWg7zY2pNwnk1XlZqP6Si3gGYa9ZsQY5hEX+oJtAC8T0i2pM3g7Z+W1t0Ug==" referrerpolicy="no-referrer" rel="stylesheet">
+    <!-- Site Theme -->
+    <link href="style.css" rel="stylesheet"/>
+    <!-- Page-specific CSS -->
+    <link href="developer_portal.css" rel="stylesheet"/>
+   </link>
+  </link>
+ </head>
+ <body class="view-grid">
+  <!-- Partner Portal Header (fixed top) -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background:#0000FF;">
+   <div class="container-fluid">
+    <button aria-controls="appSidebarPartner" aria-label="Toggle sidebar" class="btn btn-outline-light me-2" data-bs-target="#appSidebarPartner" data-bs-toggle="offcanvas" id="sidebarToggleBtn" type="button">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./developer_portal.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/devlogo/28/28';" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+     Developer Portal
+    </a>
+    <!-- Primary Nav Links -->
+    <ul class="navbar-nav ms-3 d-none d-lg-flex">
+     <li class="nav-item">
+      <a class="nav-link" href="./api_documentation.html" id="navDocs">
+       Documentation
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="./partner_dashboard.html" id="headerDashboardLink">
+       My Dashboard
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="./developer_portal.html#support">
+       Support
+      </a>
+     </li>
+    </ul>
+    <!-- Docs Search -->
+    <form class="d-none d-md-flex ms-3 w-50" role="search">
+     <div class="input-group">
+      <span class="input-group-text bg-white">
+       <i class="fas fa-search">
+       </i>
+      </span>
+      <input aria-label="Search" class="form-control" placeholder="Search docs, endpoints, guides..." type="search"/>
+     </div>
+    </form>
+    <!-- Right side controls -->
+    <ul class="navbar-nav ms-auto align-items-center" id="auth-logged-in">
+     <li class="nav-item me-2">
+      <a class="nav-link" data-bs-title="Notifications" data-bs-toggle="tooltip" href="#">
+       <i class="fas fa-bell">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button">
+       <span class="me-2" id="userNameDisplay">
+        Partner
+       </span>
+       <img alt="avatar" class="rounded-circle" src="https://picsum.photos/seed/partner/28/28"/>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="./partner_dashboard.html">
+         <i class="fas fa-gauge me-2">
+         </i>
+         My Dashboard
+        </a>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./partner_dashboard.html#api-keys">
+         <i class="fas fa-key me-2">
+         </i>
+         API Keys
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item" href="#" id="logoutAction">
+         <i class="fas fa-sign-out-alt me-2">
+         </i>
+         Logout
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+    <div class="d-flex ms-auto align-items-center gap-2" id="auth-logged-out">
+     <a class="btn btn-light btn-sm" href="./partner_login.html">
+      <i class="fa-solid fa-right-to-bracket me-1">
+      </i>
+      Log In
+     </a>
+     <a class="btn btn-primary btn-sm" href="./partner_registration.html">
+      <i class="fa-solid fa-user-plus me-1">
+      </i>
+      Sign Up
+     </a>
+    </div>
+   </div>
+  </nav>
+  <div class="portal-layout d-flex min-vh-100">
+   <!-- Left Sidebar (included for Developer Portal page) -->
+   <aside class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-white" id="appSidebarPartner" style="width:260px;min-height:100vh;background-color:#000000 !important;">
+    <div class="d-flex align-items-center mb-3">
+     <a class="text-white text-decoration-none d-flex align-items-center" href="./developer_portal.html">
+      <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/devlogo/32/32';" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:32px;height:32px;object-fit:contain;"/>
+      <span class="fs-5 fw-bold">
+       Developer Portal
+      </span>
+     </a>
+    </div>
+    <div class="d-flex align-items-center mb-4 p-2 rounded" style="background:rgba(255,255,255,0.05);">
+     <div class="me-2 rounded-circle bg-secondary d-flex align-items-center justify-content-center" style="width:40px;height:40px;background:#2d2d2d;">
+      P
+     </div>
+     <div>
+      <div class="fw-semibold">
+       Partner Co.
+      </div>
+      <small class="text-muted">
+       API Partner
+      </small>
+     </div>
+    </div>
+    <ul class="nav nav-pills flex-column mb-auto">
+     <li class="nav-item">
+      <a class="nav-link text-white" href="./developer_portal.html" style="border-radius:8px;">
+       <i class="fas fa-plug me-2">
+       </i>
+       Portal Home
+      </a>
+     </li>
+     <li>
+      <a class="nav-link text-white" href="./api_documentation.html" style="border-radius:8px;">
+       <i class="fas fa-book me-2">
+       </i>
+       API Documentation
+      </a>
+     </li>
+     <li>
+      <a class="nav-link text-white" href="./partner_dashboard.html" style="border-radius:8px;">
+       <i class="fas fa-gauge me-2">
+       </i>
+       My Dashboard
+      </a>
+     </li>
+     <li>
+      <a aria-controls="devTools" aria-expanded="false" class="nav-link text-white d-flex align-items-center" data-bs-toggle="collapse" href="#devTools" role="button" style="border-radius:8px;">
+       <i class="fas fa-toolbox me-2">
+       </i>
+       Developer Tools
+       <i class="fas fa-chevron-down ms-auto">
+       </i>
+      </a>
+      <div class="collapse" id="devTools">
+       <ul class="list-unstyled fw-normal small ps-4">
+        <li>
+         <a class="nav-link text-white-50 d-block py-1" href="./partner_dashboard.html#api-keys">
+          <i class="fas fa-key me-2">
+          </i>
+          API Keys
+         </a>
+        </li>
+        <li>
+         <a class="nav-link text-white-50 d-block py-1" href="./partner_dashboard.html#usage">
+          <i class="fas fa-chart-area me-2">
+          </i>
+          Usage Analytics
+         </a>
+        </li>
+        <li>
+         <a class="nav-link text-white-50 d-block py-1" href="./developer_portal.html#support">
+          <i class="fas fa-life-ring me-2">
+          </i>
+          Support
+         </a>
+        </li>
+       </ul>
+      </div>
+     </li>
+    </ul>
+    <hr class="text-secondary"/>
+    <small class="text-secondary">
+     © Fraud Shield
+    </small>
+    <style>
+     #appSidebarPartner .nav-link:hover{background:rgba(255,255,255,0.08);} 
+        #appSidebarPartner .nav-link.active{background:rgba(0,0,255,0.15);border-left:3px solid #0000FF;color:#fff;}
+    </style>
+   </aside>
+   <!-- Main Content -->
+   <main class="flex-grow-1" id="mainContent">
+    <div class="container-fluid py-3 py-lg-4">
+     <!-- Breadcrumb -->
+     <nav class="breadcrumb mb-2">
+      <span class="breadcrumb-item">
+       <a href="./developer_portal.html">
+        Home
+       </a>
+      </span>
+      <span aria-current="page" class="breadcrumb-item active">
+       Developer Portal
+      </span>
+     </nav>
+     <!-- Page Header -->
+     <div class="page-header">
+      <div>
+       <h1 class="page-title mb-1">
+        Developer Portal
+       </h1>
+       <div class="text-muted">
+        Discover, integrate, and scale with Fraud Shield APIs
+       </div>
+      </div>
+      <div class="d-flex gap-2 align-items-center">
+       <a class="btn btn-light" href="./api_documentation.html">
+        <i class="fa-solid fa-book me-1">
+        </i>
+        Documentation
+       </a>
+       <a class="btn btn-primary" href="./partner_dashboard.html" id="ctaDashboard">
+        <i class="fa-solid fa-gauge me-1">
+        </i>
+        My Dashboard
+       </a>
+       <a class="btn btn-primary" href="./partner_registration.html" id="ctaSignUp">
+        <i class="fa-solid fa-key me-1">
+        </i>
+        Get API Keys
+       </a>
+      </div>
+     </div>
+     <!-- System Status Alert -->
+     <div class="alert alert-success d-flex align-items-center" role="alert">
+      <span class="status-dot success me-2">
+      </span>
+      All systems operational. Latest API version: v1.14.2
+     </div>
+     <!-- Hero Section (visible only for logged-out) -->
+     <section class="app-card mb-4" id="heroSection">
+      <div class="card-body d-lg-flex align-items-center justify-content-between">
+       <div class="pe-lg-4">
+        <h2 class="mb-2">
+         Integrate Real-Time Fraud Protection
+        </h2>
+        <p class="mb-3">
+         Protect your users with our powerful, real-time fraud detection API. Get started in minutes.
+        </p>
+        <div class="d-flex gap-2">
+         <a class="btn btn-primary" href="./partner_registration.html">
+          <i class="fa-solid fa-key me-1">
+          </i>
+          Get API Keys
+         </a>
+         <a class="btn btn-light" href="./api_documentation.html">
+          <i class="fa-solid fa-book-open me-1">
+          </i>
+          Read the Docs
+         </a>
+        </div>
+       </div>
+       <div class="mt-3 mt-lg-0 flex-grow-1">
+        <img alt="API Illustration" class="w-100 rounded" src="https://picsum.photos/seed/fraudshield/960/320" style="max-height:320px;object-fit:cover;"/>
+       </div>
+      </div>
+     </section>
+     <!-- Authenticated Quick Start (visible only for logged-in) -->
+     <section class="mb-4" id="authQuickStart">
+      <div class="grid auto-fit-lg">
+       <div class="metric-card">
+        <div class="metric-title">
+         Requests Today
+        </div>
+        <div class="metric-value">
+         18,420
+        </div>
+        <div class="text-muted">
+         +4.2% vs yesterday
+        </div>
+       </div>
+       <div class="metric-card">
+        <div class="metric-title">
+         Error Rate
+        </div>
+        <div class="metric-value text-success">
+         0.24%
+        </div>
+        <div class="text-muted">
+         SLA healthy
+        </div>
+       </div>
+       <div class="metric-card">
+        <div class="metric-title">
+         Avg Latency
+        </div>
+        <div class="metric-value">
+         82 ms
+        </div>
+        <div class="text-muted">
+         p95: 151 ms
+        </div>
+       </div>
+       <div class="metric-card">
+        <div class="metric-title">
+         Spend (Month)
+        </div>
+        <div class="metric-value">
+         $3,412
+        </div>
+        <div class="text-muted">
+         Budget remaining: 66%
+        </div>
+       </div>
+      </div>
+     </section>
+     <!-- API Docs Preview: Endpoint list + Code Sample -->
+     <section class="app-card mb-4">
+      <div class="card-header">
+       <div class="title d-flex align-items-center gap-2">
+        <i class="fa-solid fa-code">
+        </i>
+        Quick API Explorer
+       </div>
+       <a class="btn btn-sm btn-light" href="./api_documentation.html">
+        <i class="fa-solid fa-arrow-up-right-from-square me-1">
+        </i>
+        Open Full Docs
+       </a>
+      </div>
+      <div class="card-body">
+       <div class="row g-3">
+        <div class="col-12 col-lg-4">
+         <div class="mb-2">
+          <input class="form-control" id="endpointSearch" placeholder="Search endpoints (e.g., transactions)" type="search"/>
+         </div>
+         <div class="list-group small" id="endpointList" style="max-height:420px;overflow:auto;">
+          <!-- populated by JS -->
+         </div>
+        </div>
+        <div class="col-12 col-lg-8">
+         <div class="mb-2 d-flex align-items-center justify-content-between">
+          <h5 class="mb-0" id="endpointTitle">
+           Select an endpoint
+          </h5>
+          <div aria-label="Language selector" class="btn-group btn-group-sm" role="group">
+           <input autocomplete="off" checked="" class="btn-check" id="langCurl" name="langOptions" type="radio"/>
+           <label class="btn btn-outline-primary" for="langCurl">
+            cURL
+           </label>
+           <input autocomplete="off" class="btn-check" id="langPython" name="langOptions" type="radio"/>
+           <label class="btn btn-outline-primary" for="langPython">
+            Python
+           </label>
+           <input autocomplete="off" class="btn-check" id="langJs" name="langOptions" type="radio"/>
+           <label class="btn btn-outline-primary" for="langJs">
+            JavaScript
+           </label>
+          </div>
+         </div>
+         <pre><code class="language-bash" id="codeBlock"># Choose an endpoint on the left to see examples.</code></pre>
+         <div class="d-flex gap-2">
+          <button class="btn btn-light btn-sm" id="copyCodeBtn">
+           <i class="fa-regular fa-copy me-1">
+           </i>
+           Copy
+          </button>
+          <button class="btn btn-primary btn-sm" id="tryItBtn">
+           <i class="fa-solid fa-flask me-1">
+           </i>
+           Try It
+          </button>
+         </div>
+         <div class="mt-3 small text-muted">
+          Samples personalize with your API key if logged in.
+         </div>
+        </div>
+       </div>
+      </div>
+     </section>
+     <!-- Usage Analytics Preview (Chart.js) -->
+     <section class="app-card mb-4">
+      <div class="card-header">
+       <div class="title d-flex align-items-center gap-2">
+        <i class="fa-solid fa-chart-line">
+        </i>
+        Requests Over Time
+       </div>
+       <div class="text-muted small">
+        Last 14 days
+       </div>
+      </div>
+      <div class="card-body">
+       <canvas aria-label="Requests over time" height="120" id="requestsChart" role="img">
+       </canvas>
+      </div>
+     </section>
+     <!-- Recent API Calls Table -->
+     <section class="app-card mb-4">
+      <div class="card-header">
+       <div class="title d-flex align-items-center gap-2">
+        <i class="fa-solid fa-list-check">
+        </i>
+        Recent API Calls (Mock Data)
+       </div>
+       <div class="d-flex gap-2">
+        <select class="form-select form-select-sm" id="statusFilter" style="width:auto;">
+         <option value="all">
+          All Status
+         </option>
+         <option value="200">
+          200 OK
+         </option>
+         <option value="400">
+          400
+         </option>
+         <option value="401">
+          401
+         </option>
+         <option value="429">
+          429
+         </option>
+         <option value="500">
+          500
+         </option>
+        </select>
+        <input class="form-control form-control-sm" id="tableSearch" placeholder="Search path or method" style="width:220px;" type="search"/>
+       </div>
+      </div>
+      <div class="card-body">
+       <div class="table-responsive">
+        <table class="table table-theme table-hover-reveal" id="callsTable">
+         <thead>
+          <tr>
+           <th class="sortable" data-sort="date">
+            Date
+           </th>
+           <th class="sortable" data-sort="method">
+            Method
+           </th>
+           <th class="sortable" data-sort="path">
+            Path
+           </th>
+           <th class="sortable" data-sort="status">
+            Status
+           </th>
+           <th class="sortable" data-sort="latency">
+            Latency (ms)
+           </th>
+           <th class="sortable" data-sort="cost">
+            Cost (USD)
+           </th>
+           <th>
+            Actions
+           </th>
+          </tr>
+         </thead>
+         <tbody id="callsTbody">
+          <!-- rows populated by JS -->
+         </tbody>
+        </table>
+       </div>
+       <div class="d-flex justify-content-between align-items-center mt-2 small text-muted">
+        <div id="paginationInfo">
+         Page 1 of 1 • 6 results
+        </div>
+        <div>
+         Sorted by
+         <span id="sortedBy">
+          date
+         </span>
+        </div>
+       </div>
+      </div>
+     </section>
+     <!-- Support Section -->
+     <section class="app-card mb-5" id="support">
+      <div class="card-header">
+       <div class="title d-flex align-items-center gap-2">
+        <i class="fa-solid fa-life-ring">
+        </i>
+        Need help?
+       </div>
+      </div>
+      <div class="card-body">
+       <div class="row g-3">
+        <div class="col-md-6">
+         <div class="d-flex align-items-start gap-3">
+          <div class="status-dot info mt-1">
+          </div>
+          <div>
+           <h5 class="mb-1">
+            Read the Documentation
+           </h5>
+           <p class="mb-2">
+            Start with guides, SDKs, and step-by-step tutorials.
+           </p>
+           <a class="btn btn-light btn-sm" href="./api_documentation.html">
+            <i class="fa-solid fa-book me-1">
+            </i>
+            Open Docs
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="col-md-6">
+         <div class="d-flex align-items-start gap-3">
+          <div class="status-dot warning mt-1">
+          </div>
+          <div>
+           <h5 class="mb-1">
+            Submit a Report
+           </h5>
+           <p class="mb-2">
+            Found a problem or false positive? Let us know.
+           </p>
+           <a class="btn btn-light btn-sm" href="./report_form.html">
+            <i class="fa-solid fa-flag me-1">
+            </i>
+            Report an Issue
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </section>
+    </div>
+   </main>
+  </div>
+  <!-- Footer (global) -->
+  <footer class="py-3" style="background:#000000;color:#fff;">
+   <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+    <small>
+     © 2026 Fraud Shield • Developer Portal
+    </small>
+    <ul class="nav">
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html">
+       Terms
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html#privacy">
+       Privacy
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./api_documentation.html">
+       <i class="fas fa-book me-1">
+       </i>
+       Docs
+      </a>
+     </li>
+    </ul>
+   </div>
+  </footer>
+  <!-- SweetAlert2 -->
+  <script crossorigin="anonymous" integrity="sha256-W5k0QJ8oIj0RlZq6cst1v8r7otwqRu2VYkZc1C2sQqE=" src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js">
+  </script>
+  <!-- Bootstrap Bundle JS -->
+  <script crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <!-- Chart.js -->
+  <script crossorigin="anonymous" integrity="sha256-rbHw0+0Jw5tR6J71r3tT1wUxz/IRmBo2/Qi3RGW79+I=" src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js">
+  </script>
+  <!-- Highlight.js -->
+  <script crossorigin="anonymous" integrity="sha512-6jJcE7c7Y1B4x7q4t9+0kXwW0Ff0zqv7NqC9oVYv6nJhUJm8fY7t2BfWJXWq7o9gZzI3rG0Y9gl+0+qk1zA9qA==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js">
+  </script>
+  <script>
+   // Initialize Bootstrap tooltips
+const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+tooltipTriggerList.map(function(tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+
+// Sidebar mobile toggle (simulate offcanvas)
+const sidebar = document.getElementById('appSidebarPartner');
+const sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
+if (sidebar && sidebarToggleBtn) {
+    sidebarToggleBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        sidebar.classList.toggle('open');
+    });
+}
+
+// Simple session state using localStorage
+const session = {
+    get isLoggedIn() {
+        return localStorage.getItem('fs_isLoggedIn') === 'true';
+    },
+    set isLoggedIn(v) {
+        localStorage.setItem('fs_isLoggedIn', v ? 'true' : 'false');
+    },
+    get userName() {
+        return localStorage.getItem('fs_userName') || 'Partner';
+    },
+    set userName(n) {
+        localStorage.setItem('fs_userName', n);
+    },
+    get apiKey() {
+        return localStorage.getItem('fs_apiKey') || 'YOUR_API_KEY';
+    },
+    set apiKey(k) {
+        localStorage.setItem('fs_apiKey', k);
+    }
+};
+
+// Demo default: logged-out
+if (localStorage.getItem('fs_isLoggedIn') === null) {
+    session.isLoggedIn = false;
+    session.userName = 'Partner';
+}
+
+// Toggle header/user areas & page CTA
+function applyAuthUI() {
+    const inEl = document.getElementById('auth-logged-in');
+    const outEl = document.getElementById('auth-logged-out');
+    const dashLink = document.getElementById('headerDashboardLink');
+    const userNameDisplay = document.getElementById('userNameDisplay');
+    const hero = document.getElementById('heroSection');
+    const quick = document.getElementById('authQuickStart');
+    const ctaDash = document.getElementById('ctaDashboard');
+    const ctaSignUp = document.getElementById('ctaSignUp');
+
+    if (session.isLoggedIn) {
+        inEl.style.display = 'flex';
+        outEl.style.display = 'none';
+        if (dashLink) dashLink.classList.remove('d-none');
+        if (userNameDisplay) userNameDisplay.textContent = session.userName || 'Partner';
+        if (hero) hero.classList.add('d-none');
+        if (quick) quick.classList.remove('d-none');
+        if (ctaDash) ctaDash.classList.remove('d-none');
+        if (ctaSignUp) ctaSignUp.classList.add('d-none');
+    } else {
+        inEl.style.display = 'none';
+        outEl.style.display = 'flex';
+        if (dashLink) dashLink.classList.add('d-none');
+        if (hero) hero.classList.remove('d-none');
+        if (quick) quick.classList.add('d-none');
+        if (ctaDash) ctaDash.classList.add('d-none');
+        if (ctaSignUp) ctaSignUp.classList.remove('d-none');
+    }
+}
+
+applyAuthUI();
+
+// Logout action
+document.getElementById('logoutAction')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    Swal.fire({
+        title: 'Logged out',
+        text: 'You have been signed out successfully.',
+        icon: 'success',
+        confirmButtonColor: '#0000FF'
+    }).then(() => {
+        session.isLoggedIn = false;
+        session.userName = 'Partner';
+        session.apiKey = 'YOUR_API_KEY';
+        applyAuthUI();
+        window.location.hash = '';
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Endpoint data (mock)
+const endpoints = [{
+    id: 'check_tx',
+    method: 'POST',
+    path: '/v1/transactions/check',
+    summary: 'Score a transaction for fraud risk',
+    params: [{
+        name: 'amount',
+        type: 'number',
+        req: true
+    }, {
+        name: 'user_id',
+        type: 'string',
+        req: true
+    }, {
+        name: 'ip',
+        type: 'string',
+        req: false
+    }],
+    responses: [200, 400, 401, 500]
+}, {
+    id: 'report_tx',
+    method: 'POST',
+    path: '/v1/transactions/report',
+    summary: 'Report a confirmed fraud or false positive',
+    params: [{
+        name: 'transaction_id',
+        type: 'string',
+        req: true
+    }, {
+        name: 'label',
+        type: 'string',
+        req: true
+    }],
+    responses: [201, 400, 401, 500]
+}, {
+    id: 'user_risk',
+    method: 'GET',
+    path: '/v1/users/{user_id}/risk',
+    summary: 'Retrieve user risk signals',
+    params: [{
+        name: 'user_id',
+        type: 'string',
+        req: true
+    }],
+    responses: [200, 404, 401]
+}, {
+    id: 'device_verify',
+    method: 'POST',
+    path: '/v1/devices/verify',
+    summary: 'Verify device fingerprint',
+    params: [{
+        name: 'device_id',
+        type: 'string',
+        req: true
+    }, {
+        name: 'user_id',
+        type: 'string',
+        req: false
+    }],
+    responses: [200, 429, 401]
+}, {
+    id: 'health',
+    method: 'GET',
+    path: '/v1/health',
+    summary: 'Service health check',
+    params: [],
+    responses: [200]
+}];
+
+// Populate endpoint list
+const endpointListEl = document.getElementById('endpointList');
+const endpointSearchEl = document.getElementById('endpointSearch');
+let activeEndpoint = null;
+let currentLang = 'curl';
+
+function renderEndpointList(filter = '') {
+    if (!endpointListEl) return;
+    endpointListEl.innerHTML = '';
+    endpoints
+        .filter(e => (e.path + ' ' + e.summary).toLowerCase().includes(filter.toLowerCase()))
+        .forEach(e => {
+            const a = document.createElement('a');
+            a.href = '#';
+            a.className = 'list-group-item list-group-item-action d-flex align-items-start gap-2';
+            a.innerHTML = `<span class="badge ${e.method==='GET'?'text-bg-success':'text-bg-primary'} mt-1">${e.method}</span>
+                         <div><div class="fw-semibold">${e.path}</div><div class="small text-muted">${e.summary}</div></div>`;
+            a.addEventListener('click', (ev) => {
+                ev.preventDefault();
+                selectEndpoint(e.id);
+            });
+            endpointListEl.appendChild(a);
+        });
+}
+
+endpointSearchEl?.addEventListener('input', (e) => {
+    renderEndpointList(e.target.value || '');
+});
+
+function selectEndpoint(id) {
+    activeEndpoint = endpoints.find(x => x.id === id) || null;
+    if (!activeEndpoint) return;
+    document.getElementById('endpointTitle').textContent = `${activeEndpoint.method} ${activeEndpoint.path}`;
+    updateCode();
+}
+
+function updateCode() {
+    const cb = document.getElementById('codeBlock');
+    if (!cb || !activeEndpoint) return;
+    const key = session.isLoggedIn ? (session.apiKey || 'YOUR_API_KEY') : 'YOUR_API_KEY';
+    let code = '';
+    const base = 'https://api.fraudshield.example';
+    if (currentLang === 'curl') {
+        const body = activeEndpoint.method === 'GET' ? '' : " -H 'Content-Type: application/json' -d '{" + (activeEndpoint.params || []).map(p => `\"${p.name}\": \"...\"`).join(', ') + "}'";
+        code = `curl -X ${activeEndpoint.method} \\\n  '${base}${activeEndpoint.path.replace('{user_id}','12345')}' \\\n  -H 'Authorization: Bearer ${key}'${body}`;
+        cb.className = 'language-bash';
+    } else if (currentLang === 'python') {
+        code = `import requests\n\nurl = '${base}${activeEndpoint.path.replace('{user_id}','12345')}'\nheaders = {'Authorization': 'Bearer ${key}'}`;
+        if (activeEndpoint.method === 'GET') {
+            code += `\nr = requests.get(url, headers=headers)\nprint(r.status_code, r.json())`;
+        } else {
+            code += `\njson = {${(activeEndpoint.params||[]).map(p=>`'${p.name}': '...'`).join(', ')}}\nr = requests.${activeEndpoint.method.toLowerCase()}(url, headers=headers, json=json)\nprint(r.status_code, r.json())`;
+        }
+        cb.className = 'language-python';
+    } else if (currentLang === 'javascript') {
+        code = `const url = '${base}${activeEndpoint.path.replace('{user_id}','12345')}';\nconst headers = { Authorization: 'Bearer ${key}' };`;
+        if (activeEndpoint.method === 'GET') {
+            code += `\nfetch(url, { headers })\n  .then(r => r.json())\n  .then(console.log)\n  .catch(console.error);`;
+        } else {
+            code += `\nconst body = { ${ (activeEndpoint.params||[]).map(p=>`${p.name}: '...'`).join(', ') } };\nfetch(url, { method: '${activeEndpoint.method}', headers: { ...headers, 'Content-Type': 'application/json' }, body: JSON.stringify(body) })\n  .then(r => r.json())\n  .then(console.log)\n  .catch(console.error);`;
+        }
+        cb.className = 'language-javascript';
+    }
+    cb.textContent = code;
+    if (window.hljs) {
+        hljs.highlightElement(cb);
+    }
+}
+
+document.getElementById('langCurl')?.addEventListener('change', () => {
+    if (document.getElementById('langCurl').checked) {
+        currentLang = 'curl';
+        updateCode();
+    }
+});
+document.getElementById('langPython')?.addEventListener('change', () => {
+    if (document.getElementById('langPython').checked) {
+        currentLang = 'python';
+        updateCode();
+    }
+});
+document.getElementById('langJs')?.addEventListener('change', () => {
+    if (document.getElementById('langJs').checked) {
+        currentLang = 'javascript';
+        updateCode();
+    }
+});
+
+// Copy code
+document.getElementById('copyCodeBtn')?.addEventListener('click', () => {
+    const cb = document.getElementById('codeBlock');
+    if (!cb) return;
+    navigator.clipboard.writeText(cb.textContent).then(() => {
+        Swal.fire({
+            title: 'Copied!',
+            text: 'Code sample copied to clipboard.',
+            icon: 'success',
+            timer: 1200,
+            showConfirmButton: false
+        });
+    });
+});
+
+// Try It button demo
+document.getElementById('tryItBtn')?.addEventListener('click', () => {
+    if (!activeEndpoint) {
+        Swal.fire({
+            icon: 'info',
+            title: 'Pick an endpoint',
+            text: 'Select an endpoint from the list first.'
+        });
+        return;
+    }
+    Swal.fire({
+        title: 'Sandbox Execution',
+        html: `<div class="text-start small">This demo simulates a request to <code>${activeEndpoint.path}</code> and shows a mock response.</div>`,
+        icon: 'info',
+        confirmButtonText: 'Run',
+        showCancelButton: true,
+        confirmButtonColor: '#0000FF'
+    }).then(res => {
+        if (res.isConfirmed) {
+            Swal.fire({
+                title: 'Response 200',
+                icon: 'success',
+                html: '<pre class="text-start small">{\n  "request_id": "req_' + Math.random().toString(36).slice(2, 8) + '",\n  "risk_score": 0.07,\n  "decision": "allow"\n}</pre>'
+            });
+        }
+    });
+});
+
+// Render endpoints on load
+renderEndpointList('');
+// Select default endpoint
+selectEndpoint('check_tx');
+
+// Chart.js: Requests over time
+const ctx = document.getElementById('requestsChart');
+if (ctx) {
+    const labels = Array.from({
+        length: 14
+    }).map((_, i) => {
+        const d = new Date();
+        d.setDate(d.getDate() - (13 - i));
+        return `${d.getMonth()+1}/${d.getDate()}`;
+    });
+    const data = labels.map(() => Math.round(12000 + Math.random() * 4000));
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels,
+            datasets: [{
+                label: 'Requests',
+                data,
+                borderColor: '#0000FF',
+                backgroundColor: 'rgba(0,0,255,0.15)',
+                fill: true,
+                tension: 0.35,
+                pointRadius: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    enabled: true
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
+            }
+        }
+    });
+}
+
+// Recent API Calls table (mock data)
+const calls = [{
+    date: '2026-05-12 14:22:18',
+    method: 'POST',
+    path: '/v1/transactions/check',
+    status: 200,
+    latency: 91,
+    cost: 0.0042
+}, {
+    date: '2026-05-12 14:19:03',
+    method: 'GET',
+    path: '/v1/users/78312/risk',
+    status: 200,
+    latency: 128,
+    cost: 0.0020
+}, {
+    date: '2026-05-12 14:11:45',
+    method: 'POST',
+    path: '/v1/transactions/report',
+    status: 201,
+    latency: 173,
+    cost: 0.0060
+}, {
+    date: '2026-05-12 13:58:09',
+    method: 'POST',
+    path: '/v1/devices/verify',
+    status: 429,
+    latency: 42,
+    cost: 0.0000
+}, {
+    date: '2026-05-12 13:41:27',
+    method: 'GET',
+    path: '/v1/health',
+    status: 200,
+    latency: 18,
+    cost: 0.0000
+}, {
+    date: '2026-05-12 13:32:06',
+    method: 'GET',
+    path: '/v1/users/44201/risk',
+    status: 401,
+    latency: 61,
+    cost: 0.0000
+}];
+
+let tableSort = {
+    key: 'date',
+    dir: 'desc'
+};
+
+function renderTable() {
+    const tbody = document.getElementById('callsTbody');
+    const statusVal = document.getElementById('statusFilter').value;
+    const q = (document.getElementById('tableSearch').value || '').toLowerCase().trim();
+    let filtered = calls.filter(r => (statusVal === 'all' ? true : (String(r.status) === statusVal)))
+        .filter(r => (r.method + ' ' + r.path).toLowerCase().includes(q));
+    filtered.sort((a, b) => {
+        const k = tableSort.key;
+        const dir = tableSort.dir === 'asc' ? 1 : -1;
+        let av = a[k],
+            bv = b[k];
+        if (k === 'date') {
+            av = new Date(av).getTime();
+            bv = new Date(bv).getTime();
+        }
+        return av > bv ? dir : av < bv ? -dir : 0;
+    });
+    tbody.innerHTML = '';
+    filtered.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${r.date}</td>
+          <td><span class="badge ${r.method==='GET'?'text-bg-success':'text-bg-primary'}">${r.method}</span></td>
+          <td class="font-monospace">${r.path}</td>
+          <td>${r.status}</td>
+          <td>${r.latency}</td>
+          <td>$${r.cost.toFixed(4)}</td>
+          <td>
+            <button class="btn btn-light btn-sm hover-control" data-bs-toggle="tooltip" data-bs-title="View details"><i class="fa-regular fa-eye"></i></button>
+            <button class="btn btn-light btn-sm hover-control" data-bs-toggle="tooltip" data-bs-title="Copy as cURL" onclick="navigator.clipboard.writeText('curl -X ${r.method} https://api.fraudshield.example${r.path}')"><i class="fa-regular fa-copy"></i></button>
+          </td>`;
+        tbody.appendChild(tr);
+    });
+    document.getElementById('paginationInfo').textContent = `Page 1 of 1 • ${filtered.length} results`;
+    document.getElementById('sortedBy').textContent = `${tableSort.key} (${tableSort.dir})`;
+    // reinit tooltips for new rows
+    [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')).map(el => new bootstrap.Tooltip(el));
+}
+
+document.getElementById('statusFilter').addEventListener('change', renderTable);
+document.getElementById('tableSearch').addEventListener('input', renderTable);
+document.querySelectorAll('#callsTable thead th.sortable').forEach(th => {
+    th.style.cursor = 'pointer';
+    th.addEventListener('click', () => {
+        const key = th.getAttribute('data-sort');
+        if (tableSort.key === key) {
+            tableSort.dir = (tableSort.dir === 'asc' ? 'desc' : 'asc');
+        } else {
+            tableSort.key = key;
+            tableSort.dir = 'asc';
+        }
+        renderTable();
+    });
+});
+
+renderTable();
+  </script>
+ </body>
+</html>

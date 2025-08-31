@@ -1,0 +1,35 @@
+/* partner_login.css - page-specific styles for Partner Login Page */
+/* Use Poppins for this page while preserving the app theme scale */
+body {
+    font-family: "Poppins", var(--font-sans)
+    }
+/* Centering shell and subtle background enhancement */
+#mainContent {
+    background: var(--bg-gradient, linear-gradient(180deg, #e8ecf1 0%, #f9f9fa 100%))
+    }
+/* Enhance login container appearance (builds on .login-form-container from theme) */
+.login-form-container {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-2)
+    }
+.login-form-container h1 {
+    font-weight: 700
+    }
+/* Password toggle icon styling */
+.toggle-visibility-icon {
+    color: var(--text-muted)
+    }
+.toggle-visibility-icon:hover {
+    color: var(--text)
+    }
+/* Make the test credentials table compact and readable */
+.card .table code {
+    color: var(--text-strong)
+    }
+/* Responsive spacing tweaks */
+@media (max-width: 575.98px) {
+    .login-form-container {
+        padding: 0
+        }
+    }

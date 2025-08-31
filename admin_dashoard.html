@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Admin Dashboard • Fraud Shield
+  </title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <link href="admin_dashboard.css" rel="stylesheet"/>
+ </head>
+ <body class="admin-dashboard">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="adminHeader" style="background:#0000FF;">
+   <div class="container-fluid">
+    <button aria-controls="appSidebarAdmin" aria-label="Toggle sidebar" class="btn btn-outline-light me-2 d-lg-none" data-bs-target="#appSidebarAdmin" data-bs-toggle="offcanvas" type="button">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="./admin_dashboard.html">
+     <img alt="Logo" class="me-2" onerror="this.onerror=null;this "src=https://picsum.photos/seed/fsadmin/28/28" src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:28px;height:28px;object-fit:contain;"/>
+     Admin Console
+    </a>
+    <form class="d-none d-md-flex ms-3 w-50" id="headerSearchForm" role="search">
+     <div class="input-group">
+      <span class="input-group-text bg-white">
+       <i class="fas fa-search">
+       </i>
+      </span>
+      <input aria-label="Search" class="form-control" id="headerSearchInput" placeholder="Search phone numbers, case IDs..." type="search"/>
+     </div>
+    </form>
+    <ul class="navbar-nav ms-auto align-items-center">
+     <li class="nav-item me-2">
+      <a class="nav-link" href="#alerts" id="alertsLink">
+       <i class="fas fa-bell">
+       </i>
+      </a>
+     </li>
+     <li class="nav-item me-2">
+      <a class="btn btn-sm btn-outline-light" href="#queue">
+       <i class="fas fa-list-check me-1">
+       </i>
+       Open Queue
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button">
+       <span class="me-2">
+        Admin
+       </span>
+       <img alt="avatar" class="rounded-circle" onerror="this.onerror=null;this"src=https://picsum.photos/seed/adminavatar/28/28" src="https://via.placeholder.com/28"/>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+       <li>
+        <a class="dropdown-item" href="./admin_dashboard.html#settings">
+         <i class="fas fa-cog me-2">
+         </i>
+         Settings
+        </a>
+       </li>
+       <li>
+        <hr class="dropdown-divider"/>
+       </li>
+       <li>
+        <a class="dropdown-item" href="./admin_login.html">
+         <i class="fas fa-sign-out-alt me-2">
+         </i>
+         Logout
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="container-fluid">
+   <div class="row g-0">
+    <aside aria-labelledby="appSidebarAdminLabel" class="offcanvas-lg offcanvas-start d-flex flex-column flex-shrink-0 p-3 bg-dark text-white" id="appSidebarAdmin" style="--bs-offcanvas-width:260px;min-height:100vh;background-color:#000000 !important;" tabindex="-1">
+     <div class="offcanvas-header d-lg-none">
+      <h5 class="offcanvas-title" id="appSidebarAdminLabel">
+       Admin Console
+      </h5>
+      <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button">
+      </button>
+     </div>
+     <div class="offcanvas-body p-0 d-flex flex-column">
+      <div class="d-flex align-items-center mb-3 px-3 mt-2">
+       <a class="text-white text-decoration-none d-flex align-items-center" href="./admin_dashboard.html">
+        <img alt="Logo" class="me-2" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fslogo/32/32' "{src="https://share.google/images/IG0HtHavlhtuhg52t" style="width:32px;height:32px;object-fit:contain;"/>
+        <span class="fs-5 fw-bold">
+         Admin Console
+        </span>
+       </a>
+      </div>
+      <div class="d-flex align-items-center mb-4 p-2 mx-2 rounded" style="background:rgba(255,255,255,0.05);">
+       <div class="me-2 rounded-circle bg-secondary d-flex align-items-center justify-content-center" style="width:40px;height:40px;background:#2d2d2d;">
+        A
+       </div>
+       <div>
+        <div class="fw-semibold">
+         Admin Name
+        </div>
+        <small class="text-muted">
+         System Administrator
+        </small>
+       </div>
+      </div>
+      <ul class="nav nav-pills flex-column mb-auto px-2">
+       <li class="nav-item">
+        <a class="nav-link text-white active" href="./admin_dashboard.html" style="border-radius:8px;">
+         <i class="fas fa-tachometer-alt me-2">
+         </i>
+         Dashboard
+        </a>
+       </li>
+       <li>
+        <a class="nav-link text-white" href="./admin_dashboard.html#queue" style="border-radius:8px;">
+         <i class="fas fa-list-check me-2">
+         </i>
+         Verification Queue
+        </a>
+       </li>
+       <li>
+        <a class="nav-link text-white" href="./review_page.html" style="border-radius:8px;">
+         <i class="fas fa-tasks me-2">
+         </i>
+         Case Review
+        </a>
+       </li>
+       <li>
+        <a class="nav-link text-white" href="./analytics_dashboard.html" style="border-radius:8px;">
+         <i class="fas fa-chart-line me-2">
+         </i>
+         Analytics
+        </a>
+       </li>
+       <li>
+        <a aria-controls="adminTools" aria-expanded="false" class="nav-link text-white d-flex align-items-center" data-bs-toggle="collapse" href="#adminTools" role="button" style="border-radius:8px;">
+         <i class="fas fa-shield-alt me-2">
+         </i>
+         Admin Tools
+         <i class="fas fa-chevron-down ms-auto">
+         </i>
+        </a>
+        <div class="collapse" id="adminTools">
+         <ul class="list-unstyled fw-normal small ps-4">
+          <li>
+           <a class="nav-link text-white-50 d-block py-1" href="./admin_dashboard.html#appeals">
+            Appeals
+           </a>
+          </li>
+          <li>
+           <a class="nav-link text-white-50 d-block py-1" href="./admin_dashboard.html#settings">
+            Settings
+           </a>
+          </li>
+          <li>
+           <a class="nav-link text-white-50 d-block py-1" href="./admin_dashboard.html#alerts">
+            Alerts
+           </a>
+          </li>
+         </ul>
+        </div>
+       </li>
+      </ul>
+      <hr class="text-secondary mx-2"/>
+      <small class="text-secondary px-3 mb-2">
+       © Fraud Shield
+      </small>
+      <style>
+       #appSidebarAdmin .nav-link:hover{background:rgba(255,255,255,0.08);} 
+            #appSidebarAdmin .nav-link.active{background:rgba(0,0,255,0.15);border-left:3px solid #0000FF;color:#fff;}
+      </style>
+     </div>
+    </aside>
+    <main class="main-content col overflow-auto">
+     <div class="container-fluid py-3 py-lg-4">
+      <ul class="nav nav-tabs mb-3" role="tablist">
+       <li class="nav-item" role="presentation">
+        <a aria-current="page" class="nav-link active" href="./admin_dashboard.html">
+         <i class="fa-solid fa-gauge-high me-1">
+         </i>
+         Dashboard
+        </a>
+       </li>
+       <li class="nav-item" role="presentation">
+        <a class="nav-link" href="./analytics_dashboard.html">
+         <i class="fa-solid fa-chart-line me-1">
+         </i>
+         Analytics
+        </a>
+       </li>
+       <li class="nav-item" role="presentation">
+        <a class="nav-link" href="#appeals">
+         <i class="fa-solid fa-gavel me-1">
+         </i>
+         Appeals
+        </a>
+       </li>
+      </ul>
+      <div class="alert alert-success d-flex align-items-center" role="alert">
+       <i class="fa-solid fa-circle-check me-2">
+       </i>
+       <div>
+        All systems operational. No critical incidents in the last 24 hours.
+       </div>
+       <button class="btn btn-sm btn-success ms-auto" id="refreshQueueBtn">
+        <i class="fa-solid fa-rotate me-1">
+        </i>
+        Refresh Queue
+       </button>
+      </div>
+      <section aria-labelledby="kpiHeader" class="mb-4">
+       <h2 class="visually-hidden" id="kpiHeader">
+        Key Performance Indicators
+       </h2>
+       <div class="row g-3" id="kpiGrid">
+
+        <div class="col-12 col-md-6 col-xl-4">
+         <div aria-describedby="kpiPendingDesc" class="metric-card h-100 kpi-card" id="kpiPendingCard" role="button" tabindex="0">
+          <div class="d-flex justify-content-between align-items-start">
+           <div>
+            <div class="metric-title">
+             Pending Verification
+            </div>
+            <div class="metric-value" id="kpiPendingValue">
+             <span class="skeleton" style="height:38px;width:120px;display:inline-block;border-radius:8px;">
+             </span>
+            </div>
+           </div>
+           <div class="badge-soft warning">
+            <i class="fa-solid fa-list-check">
+            </i>
+            Queue
+           </div>
+          </div>
+          <small class="text-muted" id="kpiPendingDesc">
+           Click to jump to Verification Queue
+          </small>
+         </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+         <div class="metric-card h-100">
+          <div class="d-flex justify-content-between align-items-start">
+           <div>
+            <div class="metric-title">
+             Reports Today
+            </div>
+            <div class="metric-value" id="kpiReportsValue">
+             <span class="skeleton" style="height:38px;width:100px;display:inline-block;border-radius:8px;">
+             </span>
+            </div>
+           </div>
+           <div class="badge-soft info">
+            <i class="fa-solid fa-bell">
+            </i>
+            24h
+           </div>
+          </div>
+          <small class="text-muted">
+           User-submitted suspicious numbers
+          </small>
+         </div>
+        </div>
+      
+        <div class="col-12 col-md-6 col-xl-4">
+         <div class="metric-card h-100">
+          <div class="d-flex justify-content-between align-items-start">
+           <div>
+            <div class="metric-title">
+             AI False Positive Rate
+            </div>
+            <div class="metric-value" id="kpiFprValue">
+             <span class="skeleton" style="height:38px;width:140px;display:inline-block;border-radius:8px;">
+             </span>
+            </div>
+           </div>
+           <div class="badge-soft success" id="kpiFprBadge">
+            <i class="fa-solid fa-robot">
+            </i>
+            Model
+           </div>
+          </div>
+          <small class="text-muted">
+           Target: &lt;0.5%
+          </small>
+         </div>
+        </div>
+       </div>
+      </section>
+  >
+      <section class="mb-4">
+       <div class="card">
+        <div class="card-header">
+         <div class="title d-flex align-items-center">
+          <i class="fa-solid fa-chart-area me-2 text-primary">
+          </i>
+          Reports (last 7 days)
+         </div>
+         <div class="d-flex align-items-center gap-2">
+          <span class="text-muted small">
+           Interactive • hover for details
+          </span>
+         </div>
+        </div>
+        <div class="card-body">
+         <canvas aria-label="Reports chart" height="110" id="reportsChart" role="img">
+         </canvas>
+        </div>
+       </div>
+      </section>
+
+      <section aria-labelledby="queueHeader" class="mb-5" id="queue">
+       <div class="d-flex align-items-center justify-content-between mb-2">
+        <h2 class="page-title mb-0" id="queueHeader">
+         Verification Queue
+        </h2>
+        <div aria-label="View switcher" class="view-switcher">
+         <div class="option active">
+          <i class="fa-solid fa-table">
+          </i>
+         </div>
+         <div class="option">
+          <i class="fa-solid fa-grid-2">
+          </i>
+         </div>
+        </div>
+       </div>
+
+       <div class="card mb-3">
+        <div class="card-body">
+         <form class="row gy-2 gx-2 align-items-center" id="queueFilters" onsubmit="return false;">
+          <div class="col-12 col-md-4">
+           <label class="form-label mb-1" for="searchPhone">
+            Search Phone Number
+           </label>
+           <input class="form-control" id="searchPhone" inputmode="numeric" pattern="[+0-9\s-]*" placeholder="e.g., +1 646 555 0182" type="text"/>
+           <div class="form-text">
+            Digits, spaces, dashes and leading + allowed
+           </div>
+          </div>
+          <div class="col-6 col-md-3">
+           <label class="form-label mb-1" for="sortBy">
+            Sort By
+           </label>
+           <select class="form-select" id="sortBy">
+            <option selected="" value="dateFlagged">
+             Date Flagged
+            </option>
+            <option value="aiScore">
+             AI Score
+            </option>
+            <option value="reportCount">
+             Report Count
+            </option>
+           </select>
+          </div>
+          <div class="col-6 col-md-3">
+           <label class="form-label mb-1" for="orderDir">
+            Order
+           </label>
+           <select class="form-select" id="orderDir">
+            <option selected="" value="desc">
+             Descending
+            </option>
+            <option value="asc">
+             Ascending
+            </option>
+           </select>
+          </div>
+          <div class="col-12 col-md-2 d-flex align-items-end">
+           <button class="btn btn-primary w-100" id="applyFiltersBtn" type="button">
+            <i class="fa-solid fa-filter me-1">
+            </i>
+            Apply
+           </button>
+          </div>
+         </form>
+        </div>
+       </div>
+     
+       <div class="card">
+        <div class="card-body p-0">
+         <div class="table-responsive">
+          <table aria-describedby="queueMeta" class="table table-theme mb-0" id="queueTable">
+           <thead>
+            <tr>
+             <th scope="col">
+              Phone Number
+             </th>
+             <th scope="col">
+              AI Score
+             </th>
+             <th scope="col">
+              User Reports
+             </th>
+             <th scope="col">
+              Date Flagged
+             </th>
+             <th class="text-end" scope="col">
+              Action
+             </th>
+            </tr>
+           </thead>
+           <tbody id="queueTbody">
+            
+           </tbody>
+          </table>
+         </div>
+        </div>
+        <div class="card-footer d-flex flex-wrap align-items-center justify-content-between gap-2">
+         <small class="text-muted" id="queueMeta">
+          Loading queue…
+         </small>
+         <nav aria-label="Queue pagination">
+          <ul class="pagination pagination-sm mb-0" id="queuePagination">
+     
+          </ul>
+         </nav>
+        </div>
+       </div>
+      </section>
+    
+      <section class="mb-4" id="appeals">
+       <div class="alert alert-info" role="alert">
+        <i class="fa-solid fa-circle-info me-2">
+        </i>
+        Appeals management shortcuts are available under Admin Tools in the sidebar.
+       </div>
+      </section>
+     </div>
+    </main>
+   </div>
+  </div>
+  
+  <footer class="py-3 mt-auto" style="background:#000000;color:#fff;">
+   <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+    <small>
+     © 2026 Fraud Shield • Admin
+    </small>
+    <ul class="nav">
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html">
+       Terms
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link px-2 text-white-50" href="./terms_of_service.html#privacy">
+       Privacy
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="btn btn-sm btn-outline-light ms-2" href="#queue">
+       <i class="fas fa-list-check me-1">
+       </i>
+       Queue
+      </a>
+     </li>
+    </ul>
+   </div>
+  </footer>
+  
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080">
+   <div aria-atomic="true" aria-live="polite" class="toast align-items-center text-bg-dark border-0" id="queueToast" role="status">
+    <div class="d-flex">
+     <div class="toast-body">
+      Queue refreshed successfully.
+     </div>
+     <button aria-label="Close" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" type="button">
+     </button>
+    </div>
+   </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js">
+  </script>
+  <script>
+
+document.documentElement.style.setProperty('--admin-header-h', getComputedStyle(document.getElementById('adminHeader')).height || '56px');
+
+const mockQueueData = [{
+    phoneNumber: '+1 646-555-0182',
+    aiScore: 98,
+    reportCount: 34,
+    dateFlagged: '2025-08-21T14:05:00Z',
+    caseId: 'FS-20250821-001'
+}, {
+    phoneNumber: '+1 917-555-0110',
+    aiScore: 72,
+    reportCount: 12,
+    dateFlagged: '2025-08-21T13:42:00Z',
+    caseId: 'FS-20250821-002'
+}, {
+    phoneNumber: '+44 20 7946 0958',
+    aiScore: 96,
+    reportCount: 51,
+    dateFlagged: '2025-08-21T12:33:00Z',
+    caseId: 'FS-20250821-003'
+}, {
+    phoneNumber: '+61 2 9374 4000',
+    aiScore: 83,
+    reportCount: 19,
+    dateFlagged: '2025-08-21T11:21:00Z',
+    caseId: 'FS-20250821-004'
+}, {
+    phoneNumber: '+91 22 5555 1234',
+    aiScore: 68,
+    reportCount: 8,
+    dateFlagged: '2025-08-21T09:18:00Z',
+    caseId: 'FS-20250821-005'
+}, {
+    phoneNumber: '+81 3-1234-5678',
+    aiScore: 94,
+    reportCount: 40,
+    dateFlagged: '2025-08-21T08:50:00Z',
+    caseId: 'FS-20250821-006'
+}, {
+    phoneNumber: '+33 1 23 45 67 89',
+    aiScore: 55,
+    reportCount: 6,
+    dateFlagged: '2025-08-20T18:25:00Z',
+    caseId: 'FS-20250820-007'
+}, {
+    phoneNumber: '+49 30 123456',
+    aiScore: 89,
+    reportCount: 27,
+    dateFlagged: '2025-08-20T16:12:00Z',
+    caseId: 'FS-20250820-008'
+}, {
+    phoneNumber: '+34 91 123 45 67',
+    aiScore: 97,
+    reportCount: 58,
+    dateFlagged: '2025-08-20T14:01:00Z',
+    caseId: 'FS-20250820-009'
+}, {
+    phoneNumber: '+1 212-555-0199',
+    aiScore: 77,
+    reportCount: 11,
+    dateFlagged: '2025-08-20T10:44:00Z',
+    caseId: 'FS-20250820-010'
+}, {
+    phoneNumber: '+1 408-555-0133',
+    aiScore: 64,
+    reportCount: 9,
+    dateFlagged: '2025-08-19T17:30:00Z',
+    caseId: 'FS-20250819-011'
+}, {
+    phoneNumber: '+971 4 123 4567',
+    aiScore: 92,
+    reportCount: 22,
+    dateFlagged: '2025-08-19T09:12:00Z',
+    caseId: 'FS-20250819-012'
+}];
+
+
+function loadKPIs() {
+    const pending = mockQueueData.length;
+    const fpr = 0.42; 
+    document.getElementById('kpiPendingValue').textContent = pending.toLocaleString();
+    document.getElementById('kpiReportsValue').textContent = reportsToday.toLocaleString();
+    const fprEl = document.getElementById('kpiFprValue');
+    fprEl.textContent = fpr.toFixed(2) + '%';
+    const fprBadge = document.getElementById('kpiFprBadge');
+    if (fpr <= 0.5) {
+        fprEl.classList.add('text-success');
+        fprBadge.classList.remove('error');
+        fprBadge.classList.add('success');
+    } else {
+        fprEl.classList.add('text-danger');
+        fprBadge.classList.remove('success');
+        fprBadge.classList.add('error');
+    }
+}
+
+
+let reportsChart;
+
+function loadReportsChart() {
+    const ctx = document.getElementById('reportsChart');
+    const labels = Array.from({
+        length: 7
+    }, (_, i) => {
+        const d = new Date();
+        d.setDate(d.getDate() - (6 - i));
+        return d.toLocaleDateString(undefined, {
+            month: 'short',
+            day: 'numeric'
+        });
+    });
+    const dataVals = [22, 35, 28, 41, 30, 49, 54];
+    const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary') || '#0000FF';
+    const infoSoft = getComputedStyle(document.documentElement).getPropertyValue('--info-soft') || '#e5f4fa';
+    reportsChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels,
+            datasets: [{
+                label: 'Reports',
+                data: dataVals,
+                borderColor: primaryColor.trim(),
+                backgroundColor: infoSoft.trim(),
+                tension: 0.3,
+                fill: true,
+                pointRadius: 3,
+                pointHoverRadius: 5
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',
+                intersect: false
+            },
+            plugins: {
+                tooltip: {
+                    enabled: true
+                },
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 10
+                    }
+                }
+            }
+        }
+    });
+}
+
+
+let state = {
+    data: [...mockQueueData],
+    filtered: [...mockQueueData],
+    sortBy: 'dateFlagged',
+    dir: 'desc',
+    page: 1,
+    pageSize: 6,
+    search: ''
+};
+
+function compare(a, b, key) {
+    const dir = state.dir === 'asc' ? 1 : -1;
+    if (key === 'dateFlagged') {
+        const da = new Date(a.dateFlagged).getTime();
+        const db = new Date(b.dateFlagged).getTime();
+        return (da - db) * dir;
+    }
+    if (typeof a[key] === 'number' && typeof b[key] === 'number') {
+        return (a[key] - b[key]) * dir;
+    }
+    return (('' + a[key]).localeCompare(b[key])) * dir;
+}
+
+function filterData() {
+    const q = state.search.trim().toLowerCase();
+    if (!q) {
+        state.filtered = [...state.data];
+    } else {
+        state.filtered = state.data.filter(r => (r.phoneNumber + ' ' + r.caseId).toLowerCase().includes(q));
+    }
+}
+
+function sortData() {
+    state.filtered.sort((a, b) => compare(a, b, state.sortBy));
+}
+
+function paginateData() {
+    const start = (state.page - 1) * state.pageSize;
+    const end = start + state.pageSize;
+    return state.filtered.slice(start, end);
+}
+
+function aiScoreClass(score) {
+    if (score >= 95) return 'text-danger fw-bold';
+    if (score >= 80) return 'text-warning fw-semibold';
+    return 'text-success fw-semibold';
+}
+
+function formatDateTime(iso) {
+    const d = new Date(iso);
+    return d.toLocaleString(undefined, {
+        year: 'numeric',
+        month: 'short',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+}
+
+function renderTable() {
+    const tbody = document.getElementById('queueTbody');
+    tbody.innerHTML = '';
+    const rows = paginateData();
+    for (const r of rows) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><span class="fw-semibold">${r.phoneNumber}</span><br><small class="text-muted">${r.caseId}</small></td>
+          <td class="${aiScoreClass(r.aiScore)}">${r.aiScore}%</td>
+          <td>${r.reportCount.toLocaleString()}</td>
+          <td><span title="${r.dateFlagged}">${formatDateTime(r.dateFlagged)}</span></td>
+          <td class="text-end">
+            <button class="btn btn-sm btn-primary review-btn" data-case-id="${r.caseId}"><i class="fa-solid fa-magnifying-glass me-1"></i>Review</button>
+          </td>`;
+        tbody.appendChild(tr);
+    }
+
+
+    const meta = document.getElementById('queueMeta');
+    const total = state.filtered.length;
+    const start = total ? (state.page - 1) * state.pageSize + 1 : 0;
+    const end = Math.min(state.page * state.pageSize, total);
+    meta.textContent = `Showing ${start}–${end} of ${total} records`;
+    document.querySelectorAll('.review-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const caseId = e.currentTarget.getAttribute('data-case-id');
+            Swal.fire({
+                title: 'Open case review?',
+                text: `Case ${caseId}`,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Open Review',
+                cancelButtonText: 'Cancel',
+                confirmButtonColor: '#0000FF'
+            }).then(res => {
+                if (res.isConfirmed) {
+                    window.location.href = `./review_page.html?caseId=${encodeURIComponent(caseId)}`;
+                }
+            });
+        })
+    });
+
+    renderPagination();
+}
+
+function renderPagination() {
+    const ul = document.getElementById('queuePagination');
+    ul.innerHTML = '';
+    const total = state.filtered.length;
+    const pages = Math.max(1, Math.ceil(total / state.pageSize));
+
+    const createItem = (label, page, disabled = false, active = false) => {
+        const li = document.createElement('li');
+        li.className = `page-item ${disabled ? 'disabled' : ''} ${active ? 'active' : ''}`;
+        const a = document.createElement('a');
+        a.className = 'page-link';
+        a.href = '#';
+        a.textContent = label;
+        a.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (!disabled) {
+                state.page = page;
+                renderTable();
+                window.scrollTo({
+                    top: document.getElementById('queue').offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+        li.appendChild(a);
+        return li;
+    };
+
+    ul.appendChild(createItem('Prev', Math.max(1, state.page - 1), state.page === 1));
+    for (let p = 1; p <= pages; p++) {
+        ul.appendChild(createItem(String(p), p, false, p === state.page));
+    }
+    ul.appendChild(createItem('Next', Math.min(pages, state.page + 1), state.page === pages));
+}
+
+function applyFilters() {
+    filterData();
+    sortData();
+    state.page = 1;
+    renderTable();
+}
+function wireEvents() {
+    document.getElementById('applyFiltersBtn').addEventListener('click', () => {
+        // validate input
+        const val = document.getElementById('searchPhone').value;
+        const regex = /^[+0-9\s-]*$/;
+        if (!regex.test(val)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Invalid input',
+                text: 'Only digits, spaces, dashes and leading + are allowed.'
+            });
+            return;
+        }
+        state.search = val;
+        state.sortBy = document.getElementById('sortBy').value;
+        state.dir = document.getElementById('orderDir').value;
+        applyFilters();
+    });
+
+    document.getElementById('searchPhone').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            document.getElementById('applyFiltersBtn').click();
+        }
+    });
+
+    document.getElementById('headerSearchForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const q = document.getElementById('headerSearchInput').value || '';
+        document.getElementById('searchPhone').value = q;
+        document.getElementById('applyFiltersBtn').click();
+        document.querySelector('a[href="#queue"]').click();
+    });
+
+    const kpiPendingCard = document.getElementById('kpiPendingCard');
+    kpiPendingCard.addEventListener('click', () => {
+        document.querySelector('a.btn-outline-light[href="#queue"]').click();
+        document.getElementById('searchPhone').focus();
+    });
+    kpiPendingCard.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') kpiPendingCard.click();
+    });
+
+    
+    const refreshBtn = document.getElementById('refreshQueueBtn');
+    refreshBtn.addEventListener('click', () => {
+
+        state.data = state.data.sort(() => Math.random() - 0.5);
+        applyFilters();
+        const toastEl = document.getElementById('queueToast');
+        const toast = new bootstrap.Toast(toastEl, {
+            delay: 2000
+        });
+        toast.show();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(loadKPIs, 650);
+    try {
+        loadReportsChart();
+    } catch (e) {
+        console.error(e);
+    }
+    applyFilters();
+    wireEvents();
+});
+  </script>
+ </body>
+</html>
