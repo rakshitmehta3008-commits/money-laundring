@@ -52,7 +52,8 @@
     }
 /* Chart card canvas sizing */
 #trendChart {
-    width: 100% !important
+    width: 50% !important
+    
     }
 /* Reveal details button on hover of history item */
 .history-item .reveal-target {
@@ -73,4 +74,5 @@
     #typeFilterGroup .btn {
         padding: 0.45rem 0.6rem
         }
+
     }
